@@ -1,0 +1,5 @@
+tqdm
+ray~=1.0
+ray[tune]~=1.0
+PyYAML~=5.4.1
+psutil
