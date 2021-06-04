@@ -1,15 +1,10 @@
-from collections import defaultdict
-from typing import Iterable, Optional, Dict, Tuple, Iterator, Callable, List, Set
+from pathlib import Path
+from typing import Tuple
 
-import torch
-from numpy import ndarray
 from torch import nn
-from torch.optim import Optimizer
-from torch.optim.lr_scheduler import LambdaLR
 
 from common.model.const import *
 from common.model.types import *
-from common.model.util import move_to
 from common.solver.const import *
 from .ept.attention import MultiheadAttentionWeights
 from .ept.chkpt import CheckpointingModule
@@ -19,29 +14,6 @@ from .ept.util import Squeeze, init_weights, mask_forward, logsoftmax, apply_mod
 
 MODEL_CLS = 'model'
 OPR_EXCLUDED = {OPR_NEW_EQN_ID}
-
-
-def _weight_value_metric(params: Iterator[Tuple[str, torch.Tensor]]) -> dict:
-    weight_sizes = defaultdict(list)
-
-    for key, weight in params:
-        wkey = 'other'
-        if 'encoder' in key:
-            wkey = 'encoder'
-        elif 'decoder' in key:
-            wkey = 'decoder'
-        elif 'action' in key:
-            wkey = 'action'
-
-        if '_embedding' in key:
-            wkey += '_embed'
-        if 'bias' in key:
-            wkey += '_bias'
-
-        weight_sizes[wkey].append(weight.detach().abs().mean().item())
-
-    return {key: sum(values) / len(values) if values else FLOAT_NAN
-            for key, values in weight_sizes.items()}
 
 
 def _length_penalty(score: float, seq_len: int, alpha: float):
@@ -58,7 +30,7 @@ def beam_search(initialize_fn: Callable[[], Tuple[List[dict], torch.Tensor]],
                 compute_score_fn: Callable[[int, dict, int], List[Tuple[float, int, dict]]],
                 concat_next_fn: Callable[[dict, List[int], dict], dict],
                 is_item_finished: Callable[[dict], bool],
-                max_len: int = RES_MAX, beam_size: int = 3,
+                max_len: int = MAX_GEN, beam_size: int = 3,
                 len_penalty_alpha: float = 0):
     # List of beams. B * [M, ...] and Tensor of [B, M].
     batch, beamscores = initialize_fn()
@@ -105,7 +77,7 @@ class EPT(CheckpointingModule):
     def __init__(self, **config):
         super().__init__(**config)
         # Encoder: [B, S] -> [B, S, H]
-        self.encoder = TextEncoder.create_or_load(encoder=self.config[MDL_ENCODER])
+        self.encoder = TextEncoder.create_or_load(**self.config[MDL_ENCODER])
 
         # Decoder
         self.decoder = ExpressionDecoder.create_or_load(**self.config[MDL_DECODER],
@@ -138,32 +110,28 @@ class EPT(CheckpointingModule):
     def device(self) -> torch.device:
         return next(self.parameters()).device
 
-    def _build_attention_keys(self, variable: Encoded, number: Encoded,
-                              add_constant: bool = True) -> Dict[str, torch.Tensor]:
+    def _build_attention_keys(self, variable: Encoded, word: Encoded) -> Dict[str, torch.Tensor]:
         # Retrieve size information
         batch_sz, res_len, hidden_dim = variable.vector.shape
-        operand_sz = RES_BEGIN + res_len if add_constant else NUM_MAX + res_len
+        word_count = word.vector.shape[1]
+        operand_sz = CON_MAX + word_count + res_len
 
         key = torch.zeros(batch_sz, operand_sz, hidden_dim, device=variable.device)
         key_ignorance_mask = torch.ones(batch_sz, operand_sz, dtype=torch.bool, device=variable.device)
         attention_mask = torch.zeros(res_len, operand_sz, dtype=torch.bool, device=variable.device)
 
-        if add_constant:
-            # Assign constant weights
-            key[:, :CON_END] = self.constant_embedding
-            key_ignorance_mask[:, :CON_END] = False
-            offset = CON_END
-        else:
-            offset = 0
+        # Assign constant weights
+        key[:, :CON_MAX] = self.constant_embedding
+        key_ignorance_mask[:, :CON_MAX] = False
+        offset = CON_MAX
 
         # Add numbers
-        num_count = number.vector.shape[1]
-        num_end = offset + num_count
-        key[:, offset:num_end] = number.vector
-        key_ignorance_mask[:, offset:num_end] = number.pad
+        word_end = offset + word_count
+        key[:, offset:word_end] = word.vector
+        key_ignorance_mask[:, offset:word_end] = word.pad
 
         # Add results
-        offset = offset + NUM_MAX
+        offset = word_end
         res_end = offset + res_len
         key[:, offset:res_end] = variable.vector
         key_ignorance_mask[:, offset:res_end] = variable.pad
@@ -178,17 +146,17 @@ class EPT(CheckpointingModule):
 
     def _expression_for_train(self, predict_last: bool = False, **kwargs) -> Tuple[tuple, ExpressionPrediction]:
         assert 'text' in kwargs
-        assert 'number' in kwargs
+        assert 'word' in kwargs
         assert 'target' in kwargs
         # text: [B,S]
-        # number: [B,N]
+        # word: [B,N]
         # target: [B,T]
         # decoded: [B,T]
         # ignore the cached result
         decoded, new_cache = self.decoder.forward(**kwargs)
 
         # Prepare values for attention
-        attention_input = self._build_attention_keys(variable=decoded, number=kwargs['number'])
+        attention_input = self._build_attention_keys(variable=decoded, word=kwargs['word'])
 
         if predict_last:
             decoded = decoded[:, -1:]
@@ -203,13 +171,13 @@ class EPT(CheckpointingModule):
         operands = [logsoftmax(apply_module_dict(layer, encoded=decoded.vector, **attention_input))
                     for layer in self.operands]
 
-        return new_cache, ExpressionPrediction.from_tensors(operator, operands)
+        return new_cache, ExpressionPrediction(operator, operands)
 
     def _expression_for_eval(self, **kwargs) -> Expression:
         assert 'text' in kwargs
-        assert 'number' in kwargs
+        assert 'word' in kwargs
         text: Encoded = kwargs['text']
-        number: Encoded = kwargs['number']
+        word: Encoded = kwargs['word']
 
         def initialize_fn():
             # Initially we start with a single beam.
@@ -217,7 +185,7 @@ class EPT(CheckpointingModule):
             beamscores = torch.zeros((batch_sz, 1))
 
             return [dict(text=text[b:b + 1],  # [1, S]
-                         number=number[b:b + 1],  # [1, N]
+                         word=word[b:b + 1],  # [1, N]
                          target=Expression.get_generation_base(),  # [1, T=1]
                          cached=None
                          )
@@ -225,7 +193,7 @@ class EPT(CheckpointingModule):
 
         return self._expression_eval_execute(initialize_fn, **kwargs)
 
-    def _expression_eval_execute(self, initialize_fn, max_len: int = RES_MAX, beam_size: int = 3,
+    def _expression_eval_execute(self, initialize_fn, max_len: int = MAX_GEN, beam_size: int = 3,
                                  excluded_operators: set = None, **kwargs) -> Expression:
         if excluded_operators is None:
             excluded_operators = set()
@@ -255,7 +223,7 @@ class EPT(CheckpointingModule):
                     if (f == OPR_DONE_ID and seq_len == 1) or f in excluded_operators:
                         continue
 
-                    arity = f_info[KEY_ARITY]
+                    arity = f_info[ARITY]
                     score_f = [(last_pred.operator.log_prob[m_prev, f], (f,))]
                     for operand_j in operands[:arity]:
                         score_f = [(score_aj + score_prev, tuple_prev + (aj,))
@@ -305,18 +273,28 @@ class EPT(CheckpointingModule):
 
     def forward(self, text: Text, expression: Expression = None, beam: int = 3):
         # Forward the encoder
-        text, num_list = self._encode(text.to(self.device))
-        num_enc = Encoded.build_batch(*[num.pooled_state for num in num_list])  # [B, N, H]
+        text, word_list = self._encode(text.to(self.device))
+        word_enc = Encoded.build_batch(*[num.pooled_state for num in word_list])  # [B, N, H]
         return_value = dict()
 
         if self.training:
             # Compute hidden states & predictions
-            return_value['prediction'] = self._expression_for_train(text=text, number=num_enc, target=expression)[-1]
+            return_value['prediction'] = self._expression_for_train(text=text, word=word_enc, target=expression)[-1]
         else:
             # Generate expression
-            return_value['expression'] = self._expression_for_eval(text=text, number=num_enc, beam_size=beam)
+            return_value['expression'] = self._expression_for_eval(text=text, word=word_enc, beam_size=beam)
 
         return return_value
+
+    def save(self, directory: str):
+        config_to_write = self.config.copy()
+        config_to_write[MDL_ENCODER] = self.encoder.make_save_config()
+
+        with self.checkpoint_path(directory).open('wb') as fp:
+            torch.save({
+                'config': config_to_write,
+                'state': self.state_dict()
+            }, fp)
 
 
 __all__ = ['EPT']

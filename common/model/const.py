@@ -33,7 +33,11 @@ POS_INF = float('inf')
 POS_INF_SAFE = 1E10
 FLOAT_NAN = float('NaN')
 
-# Maximum value of index
-TXT_MAX = 500
-NUM_MAX = TXT_MAX
-RES_MAX = 128
+# Maximum length of generation steps
+MAX_GEN = 500
+
+# Token for operand sources
+SRC_CONSTANT = 0
+SRC_NUMBER = 1
+SRC_RESULT = 2
+SRC_LIST = [SRC_CONSTANT, SRC_NUMBER, SRC_RESULT]

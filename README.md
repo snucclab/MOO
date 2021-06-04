@@ -331,6 +331,7 @@ For i in 0...T:
 		Update model by back-propagation
 
 Store the model to checkpointpath, using model.save()
+Store the tokenizer to checkpointpath
 
 /* Testing */
 Set dataset as testing mode

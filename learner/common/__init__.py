@@ -7,11 +7,9 @@ from ray.tune.result import TIMESTEPS_THIS_ITER
 from ray.tune.trainable import Trainable
 from yaml import dump as yaml_dump
 
-from common.const.model import MDL_ENCODER
-from common.const.pad import FLOAT_NAN
-from common.dataset import *
-from common.tester import Tester
-from model import model_loader, EPTPackage, MODEL_CLS
+from common.model.const import MDL_ENCODER, FLOAT_NAN
+from common.sys.dataset import *
+from model import EPT
 from .const import *
 from .util import *
 

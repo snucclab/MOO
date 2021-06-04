@@ -7,7 +7,7 @@ from common.model.types import Encoded, Text
 from .chkpt import CheckpointingModule
 
 
-def _gather_number_vectors(hidden: torch.Tensor, mask: torch.Tensor) -> List[Encoded]:
+def _gather_word_vectors(hidden: torch.Tensor, mask: torch.Tensor) -> List[Encoded]:
     # Compute the maximum number of indicated positions in the text
     batch_size, seq_len, hidden_size = hidden.shape
 
@@ -40,17 +40,21 @@ class TextEncoder(CheckpointingModule):
     Model for encoding text.
     """
 
-    def __init__(self, encoder: str = DEF_ENCODER):
+    def __init__(self, encoder: str = DEF_ENCODER, **kwargs):
         """
         Initiate Text Model instance.
 
         :param ModelConfig config: Model configuration instance
         """
-        super().__init__(encoder=encoder)
+        super().__init__(encoder=encoder, **kwargs)
         from transformers import AutoModel, AutoTokenizer
 
-        self.model = AutoModel.from_pretrained(encoder)
-        self.pad_id = AutoTokenizer.from_pretrained(encoder).pad_token_id
+        if encoder is None:
+            self.pad_id = kwargs.pop('pad_id')
+            self.model = AutoModel.from_pretrained(None, **kwargs)
+        else:
+            self.model = AutoModel.from_pretrained(encoder)
+            self.pad_id = AutoTokenizer.from_pretrained(encoder).pad_token_id
 
     def forward(self, text: Text) -> Tuple[Encoded, List[Encoded]]:
         with torch.no_grad():
@@ -61,16 +65,24 @@ class TextEncoder(CheckpointingModule):
 
         # Encode text
         # Replace PAD_ID (-1) with pad of tokenizer
-        model_out = self.model(input_ids=text.tokens.pad_fill(self.pad_id),
+        model_out = self.model(input_ids=text.tokens_pad_fill(self.pad_id),
                                attention_mask=text.attn_mask_float)[0]
 
         # Form an encoded output
         encoded: Encoded = Encoded(model_out, text.pad)
 
-        # Gather numbers
-        number_out = _gather_number_vectors(encoded.vector, text.numbers.indices)
+        # Gather words
+        word_out = _gather_word_vectors(encoded.vector, text.word_indexes)
 
-        return encoded, number_out
+        return encoded, word_out
+
+    def make_save_config(self) -> dict:
+        return {
+            'encoder': None,
+            'config': self.model.config,
+            'state_dict': self.model.state_dict(),
+            'pad_id': self.pad_id
+        }
 
 
 __all__ = ['TextEncoder']

@@ -12,27 +12,6 @@ from .posenc import *
 from .util import *
 
 
-def _adjust_var_index(operand: torch.Tensor, var_begin: int, var_len: List[int]) -> torch.Tensor:
-    with torch.no_grad():
-        var_bound_tensor = torch.tensor(var_len, dtype=torch.long, device=operand.device).view(-1, 1)
-        lower_bound = operand.ge(RES_BEGIN)
-        upper_bound = operand.lt(var_bound_tensor + RES_BEGIN)
-        bounded_pos = lower_bound.logical_and(upper_bound)
-
-        # Adjust variable operands
-        var_diff = RES_BEGIN - var_begin
-        operand = operand - (bounded_pos.long() * var_diff)
-
-        # Add variable information to _NEW_VAR()
-        # Note: position 0 is _NEW_EQN(), so _NEW_VAR() begin from 1
-        var_cond = torch.tensor([[0 < i <= n_var
-                                  for i in range(operand.shape[1])]
-                                 for n_var in var_len], dtype=torch.bool, device=operand.device)
-        var_index = torch.arange(operand.shape[1], dtype=torch.long, device=operand.device) + (var_begin - 1)
-
-        return torch.where(var_cond, var_index, operand)
-
-
 class ExpressionDecoder(CheckpointingModule):
     """
     Base model for equation generation
@@ -54,7 +33,7 @@ class ExpressionDecoder(CheckpointingModule):
         # Vectors representing source: u_num, u_const, u_expr in Equation 3, 4, 5
         self.operand_source_embedding = nn.Embedding(len(SRC_LIST), self.hidden_dim)
         # Look-up table for constants: E_c used in Equation 4
-        self.constant_word_embedding = nn.Embedding(CON_END, self.hidden_dim)
+        self.constant_word_embedding = nn.Embedding(CON_MAX, self.hidden_dim)
 
         """ Scalar parameters """
         # Initial degrading factor value for c_f and c_a.
@@ -220,8 +199,7 @@ class ExpressionDecoder(CheckpointingModule):
 
         return operand
 
-    def _build_decoder_input(self, ids: Expression, number: Encoded, variable: Encoded = None,
-                             pos_offsets: Union[List[int], int] = None) -> Encoded:
+    def _build_decoder_input(self, ids: Expression, word: Encoded) -> Encoded:
         """
         Compute input of the decoder, i.e. Equation 1 in the paper.
 
@@ -229,7 +207,7 @@ class ExpressionDecoder(CheckpointingModule):
             LongTensor containing index-type information of an operator and its operands
             (This corresponds to f_i and a_ij in the paper)
             Shape: [B, T, 1+A], where B = batch size, T = length of expression sequence, and A = maximum arity.
-        :param torch.Tensor number:
+        :param torch.Tensor word:
             FloatTensor containing encoder's hidden states corresponding to numbers in the text.
             (i.e. e_{a_ij} in the paper)
             Shape: [B, N, H],
@@ -241,59 +219,41 @@ class ExpressionDecoder(CheckpointingModule):
         if len(ids.shape) == 1:
             # Make [T] -> [1, T]
             ids = ids.unsqueeze(0)
-        if len(number.shape) == 1:
+        if len(word.shape) == 1:
             # Make [N, H] -> [1, N, H]
-            number = number.unsqueeze(0)
-        if type(pos_offsets) is int:
-            pos_offsets = [pos_offsets]
+            word = word.unsqueeze(0)
 
-        operator_ids = ids.operator.indices
-        operand_ids = [o.indices for o in ids.operands]
-        if variable is not None:
-            if len(variable.shape) == 1:
-                # Make [V] -> [1, V]
-                variable = variable.unsqueeze(0)
-
-            # Treat variable as numbers.
-            # - Concat variables right after the numbers
-            variable_begin = NUM_BEGIN + number.shape[-1]
-            var_lengths = variable.sequence_lengths.tolist()
-            number = Encoded.concat(number, variable, dim=1)
-            # - Adjust indices
-            operand_ids = [_adjust_var_index(o, variable_begin, var_lengths)
-                           for o in operand_ids]
-
+        operator_ids = ids.operator
+        operand_ids = ids.operands
         # Operator embedding: [B, T, H] (Equation 2)
         # - compute E_f first
         operator = get_embedding_without_pad(self.operator_word_embedding, operator_ids)
 
         # - compute PE(.): [T, H]
         len_t = operator_ids.shape[-1]
-        if pos_offsets is None:
-            position_embeds = self.operator_pos_embedding(len_t)
-            operator_pos = position_embeds
-        else:
-            position_embeds = self.operator_pos_embedding(max(pos_offsets) + len_t)
-            position_base = torch.arange(0, len_t, device=position_embeds.device)
-            positions = torch.stack([position_base + offset for offset in pos_offsets], dim=0)
-            operator_pos = get_embedding_without_pad(position_embeds, positions)
+        position_embeds = self.operator_pos_embedding(len_t)
+        operator_pos = position_embeds
         # - apply c_f and layer norm, and reshape it as [B, T, H]
         operator = self.operator_norm(operator * self.operator_pos_factor + operator_pos.unsqueeze(0))
+
+        # Compute range of source types
+        number_begin = CON_MAX
+        result_begin = number_begin + word.shape[-1]
 
         # Operand embedding [B, T, A, H] (Equation 3, 4, 5)
         # - prepare source information
         operands = []
         for j, operand_j in enumerate(operand_ids):
             source_id = torch.full_like(operand_j, fill_value=SRC_RESULT) \
-                .masked_fill_(operand_j.lt(RES_BEGIN), SRC_NUMBER) \
-                .masked_fill_(operand_j.lt(NUM_BEGIN), SRC_CONSTANT) \
+                .masked_fill_(operand_j.lt(result_begin), SRC_NUMBER) \
+                .masked_fill_(operand_j.lt(number_begin), SRC_CONSTANT) \
                 .masked_fill_(operand_j.eq(PAD_ID), PAD_ID)
             operand_id = operand_j \
-                         - (source_id.eq(SRC_NUMBER).long() * NUM_BEGIN) \
-                         - (source_id.eq(SRC_RESULT).long() * RES_BEGIN)
+                         - (source_id.eq(SRC_NUMBER).long() * number_begin) \
+                         - (source_id.eq(SRC_RESULT).long() * result_begin)
 
             # - compute operand embedding [B, T, H]
-            operand = self._build_operand_embed(source_id, operand_id, position_embeds, number.pad_fill(0.0))
+            operand = self._build_operand_embed(source_id, operand_id, position_embeds, word.pad_fill(0.0))
 
             # - apply layer norm
             operands.append(self.operand_norm(operand))
@@ -370,7 +330,7 @@ class ExpressionDecoder(CheckpointingModule):
 
         return Encoded(output, pad), new_key_value
 
-    def forward(self, text: Encoded, number: Encoded, **kwargs) -> Tuple[Encoded, Optional[tuple]]:
+    def forward(self, text: Encoded, word: Encoded, **kwargs) -> Tuple[Encoded, Optional[tuple]]:
         """
         Forward computation of a single beam
 
@@ -400,7 +360,7 @@ class ExpressionDecoder(CheckpointingModule):
         # Embedding: [B, T, H]
         target: Expression = kwargs['target']
         # In EPT/FATE, variable will be None. In FESTA, variable will not be None.
-        output = self._build_decoder_input(ids=target, number=number, variable=kwargs.get('variable', None))
+        output = self._build_decoder_input(ids=target, word=word)
 
         # Decoder output: [B, T, H]
         output, new_cached = self._build_decoder_context(embedding=output, text=text,
@@ -409,7 +369,7 @@ class ExpressionDecoder(CheckpointingModule):
         # Ignore the result of equality at the function output
         output_not_usable = output.pad.clone()
 
-        previous_op = target.operator.shifted_indices
+        previous_op = target.operator[:, 1:]
         output_not_usable[:, :-1].masked_fill_((previous_op >= OPR_EQ_SGN_ID) & (previous_op < OPR_PLUS_ID), True)
         # We need offset '1' because 'function_word' is input and output_not_usable is 1-step shifted output.
 
