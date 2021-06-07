@@ -20,3 +20,11 @@ class Execution:
 
         self.function = function
         self.arguments = arguments
+
+    def to_list(self) -> List[int]:
+        return [self.function] + list(sum(self.arguments, tuple()))
+
+    @classmethod
+    def from_list(cls, items: list) -> 'Execution':
+        return cls(function=items[0],
+                   arguments=[tuple(items[i:i+2]) for i in range(1, len(items), 2)])

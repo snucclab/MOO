@@ -64,9 +64,11 @@ if __name__ == '__main__':
     for template in simulator.generate(args.num_item):
         for item in template:
             text = string_to_text_instance(item.text, tokenizer)
-            item.execution = python_code_to_executions(item.code_template)
-            item.code = execution_to_python_code(item.execution, text.word_info[0])
+            execution = python_code_to_executions(item.code_template)
+
+            item.code = execution_to_python_code(execution, text.word_info[0])
             item.executed = executor.run(item.code)
+            item.execution = [x.to_list() for x in execution]
 
             assert item.answer == item.executed, \
                 '기대한 답 "%s"(이)가 계산된 답 "%s"(와)과 일치하지 않습니다!\n\t문제: "%s"\n토큰화: "%s"\n\t실행한 코드\n%s' % \
@@ -96,3 +98,6 @@ if __name__ == '__main__':
                                    EQUATION: prob.code, EXECUTION: prob.execution}
                         for key, prob in enumerate(problems)}
         json_save(obj_to_write, fp)
+
+    # Finalize the executor
+    executor.close()

@@ -21,6 +21,7 @@ SRC_RESULT = 2
 SRC_LIST = [SRC_CONSTANT, SRC_NUMBER, SRC_RESULT]
 
 # (4) I/O keys
+ITEM_ID = '_id'
 QUESTION = 'question'
 ANSWER = 'answer'
 EQUATION = 'equation'
