@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from collections import defaultdict
 from pathlib import Path
 
 from transformers import AutoTokenizer
@@ -59,10 +60,11 @@ if __name__ == '__main__':
     simulator.load_templates(templates)
 
     # Get generated items using simulator.generate()
-    problems = []
+    problems = {}
+    splits = defaultdict()
     # Convert code_template to python codes
     for template in simulator.generate(args.num_item):
-        for item in template:
+        for i, item in enumerate(template):
             text = string_to_text_instance(item.text, tokenizer)
             execution = python_code_to_executions(item.code_template)
 
@@ -73,31 +75,36 @@ if __name__ == '__main__':
             assert item.answer == item.executed, \
                 '기대한 답 "%s"(이)가 계산된 답 "%s"(와)과 일치하지 않습니다!\n\t문제: "%s"\n토큰화: "%s"\n\t실행한 코드\n%s' % \
                 (item.answer, item.executed, item.text, tokenizer.decode(text.tokens), item.code)
-            problems.append(item)
 
-    # Shuffle the dataset
-    shuffle(problems)
+            key = str(len(problems))
+            problems[key] = item
+            splits['train' if i % 10 < 8 else ('dev' if i % 10 == 8 else 'test')].append(key)
 
     # Store generated items into datasetpath
     output = Path(args.output)
-    if not output.exists():
-        output.mkdir(parents=True)
+    experiments = output / 'split'
+    if not experiments.exists():
+        experiments.mkdir(parents=True)
     # (1) problemsheet.json
     with (output / 'problemsheet.json').open('w+t', encoding='UTF-8') as fp:
         obj_to_write = {str(key): {QUESTION: prob.text}
-                        for key, prob in enumerate(problems)}
+                        for key, prob in problems.items()}
         json_save(obj_to_write, fp)
     # (2) answersheet.json
     with (output / 'answersheet.json').open('w+t', encoding='UTF-8') as fp:
         obj_to_write = {str(key): {ANSWER: prob.answer, EQUATION: prob.code}
-                        for key, prob in enumerate(problems)}
+                        for key, prob in problems.items()}
         json_save(obj_to_write, fp)
     # (3) dataset.json
     with (output / 'dataset.json').open('w+t', encoding='UTF-8') as fp:
         obj_to_write = {str(key): {QUESTION: prob.text, ANSWER: prob.answer,
                                    EQUATION: prob.code, EXECUTION: prob.execution}
-                        for key, prob in enumerate(problems)}
+                        for key, prob in problems.items()}
         json_save(obj_to_write, fp)
+    # (4) split
+    for key, split in splits.items():
+        with (experiments / key).open('w+t', encoding='UTF-8') as fp:
+            fp.writelines([line + '\n' for line in split])
 
     # Finalize the executor
     executor.close()
