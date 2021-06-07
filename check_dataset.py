@@ -8,31 +8,24 @@ from common.seed.solve import Solver
 
 def read_arguments():
     parser = ArgumentParser()
-
-    env = parser.add_argument_group('Dataset & Evaluation')
-    env.set_defaults(curriculum=True, imitation=True, ignore_incorrect=True)
-    env.add_argument('--dataset', '-data', type=str, required=True)
+    parser.add_argument('--dataset', '-data', type=str, required=True)
     return parser.parse_args()
 
 
 if __name__ == '__main__':
+    # Read command-line arguments, including datasetpath
     args = read_arguments()
 
-    solver = Solver()
+    # Read dataset from datasetpath (i.e., generate all required data types for each problem)
 
-    # Load dataset
-    for field in {'equations', 'sourceFormEq'}:
-        dataset = Dataset(args.dataset, formula_field=field)
-        for item in tqdm(dataset._whole_items):
-            answers, err = solver.solve(item.expression.to_sympy(item.info.variables), item.info.numbers)
-            if err:
-                print('Exception (%s) occurred in %s' % (str(err), item.info.item_id))
-                continue
 
-            if not solver.check_answer(item.info.answers, answers):
-                print('Answer is not same in %s\n\tExpected %s\n\tResulted %s' % (item.info.item_id,
-                                                                                  str(item.info.answers), answers))
-
-        print('Finished for %s-%s' % (dataset.get_dataset_name, field))
-
-    solver.close()
+    #
+    # For item in dataset:
+    # 	Extract execution of the item
+    # 	Transform equation into a list of common.solver.types.Execution
+    # 	/* The following two lines will be shared with train_model.py, main.py */
+    # 	Transform equation into python code using solver.execution_to_python_code()
+    # 	Execute python code with timeout (0.5s) and get an answer (type: string)
+    # 	Verify whether the answer is the same as expected one
+    # 	if not same
+    # 		Report the exception

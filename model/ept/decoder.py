@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, Tuple, Optional
 
 import torch
 from torch import nn
@@ -6,6 +6,7 @@ from torch import nn
 from common.model.const import *
 from common.model.types import Encoded, Expression
 from common.solver.const import *
+from common.sys.key import SRC_CONSTANT, SRC_NUMBER, SRC_RESULT, SRC_LIST
 from .attention import *
 from .chkpt import *
 from .posenc import *
