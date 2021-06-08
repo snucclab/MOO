@@ -61,7 +61,7 @@ def read_arguments():
 
 
 def build_experiment_config(args):
-    exp_path = Path(args.dataset, 'split')
+    exp_path = Path(args.dataset).parent / 'split'
     experiments = {}
     for file in exp_path.glob('*'):
         if not file.is_file():

@@ -37,15 +37,11 @@ def _execute_code(recv: Queue, send: Queue):
 
         try:
             # Evaluate the code
-            if 'print(' in code:
-                _stdout = StringIO()
-                with redirect_stdout(_stdout):
-                    exec(code, __globals=_globals)
+            _stdout = StringIO()
+            with redirect_stdout(_stdout):
+                exec(code, __globals=_globals)
 
-                answer = _stdout.getvalue()
-            else:
-                answer = str(eval(code, __globals=_globals))
-
+            answer = _stdout.getvalue().strip()
             send.put((answer, None))
         except Exception as e:
             send.put(('', e))
