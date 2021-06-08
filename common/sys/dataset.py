@@ -181,6 +181,10 @@ class Dataset:
     def statistics(self) -> Dict[str, float]:
         return self.get_statistics()
 
+    @property
+    def tokenizer(self):
+        return self._tokenizer
+
     def get_statistics(self, as_whole: bool = True) -> Dict[str, float]:
         item_list = self._whole_items if as_whole else self._items
         return {

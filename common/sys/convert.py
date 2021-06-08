@@ -26,13 +26,20 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
         number = NUMBER_BEGIN_PATTERN.fullmatch(word)
         variable = VARIABLE_BEGIN_PATTERN.fullmatch(word)
         proper = PROPER_BEGIN_PATTERN.fullmatch(word)
-        pattern = number if number is not None else (variable if variable is not None else proper)
+
+        if number is not None:
+            value = number.group(1).replace(',', '')
+        elif variable is not None:
+            value = variable.group(1)
+        else:
+            value = proper.group(1) if proper is not None else word
+            value = NON_WORD_PATTERN.sub(value, '')
 
         word_info.append({
             IS_NUM: number is not None,
             IS_VAR: variable is not None,
             IS_PROP: proper is not None,
-            VALUE: pattern.group(1) if pattern is not None else word,
+            VALUE: value,
             WORD: word
         })
 

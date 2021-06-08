@@ -9,8 +9,10 @@ from ray.tune.utils.util import is_nan_or_inf
 from torch.cuda import device_count
 
 from common.model.const import *
+from common.sys.const import EVALUATE_WEIGHT_PATH, EVALUATE_TOKENIZER_PATH
 from common.sys.util import trial_dirname_creator_generator
 from learner import *
+from shutil import copy
 
 CPU_FRACTION = 1.0
 GPU_FRACTION = 0.5
@@ -59,7 +61,7 @@ def read_arguments():
 
 
 def build_experiment_config(args):
-    exp_path = Path(args.dataset, 'split')
+    exp_path = Path(args.dataset).parent / 'split'
     experiments = {}
     for file in exp_path.glob('*'):
         if not file.is_file():
@@ -163,6 +165,7 @@ if __name__ == '__main__':
     trials: List[Trial] = analysis.trials
     best_scores = 0.0
     best_configs = {}
+    best_trial = None
 
     for trial in trials:
         if trial.status != Trial.TERMINATED:
@@ -178,6 +181,7 @@ if __name__ == '__main__':
         if best_scores < last_score:
             best_scores = last_score
             best_configs = trial.config
+            best_trial = trial
 
     # Record the best configuration
     logpath = Path(analysis.best_logdir).parent
@@ -189,5 +193,20 @@ if __name__ == '__main__':
         pickle.dump(best_configs, fp)
     with Path(logpath, 'best_config.yaml').open('w+t') as fp:
         yaml_dump(best_configs, fp)
+
+    # Copy the best configuration to weights directory
+    weight_path = Path(EVALUATE_WEIGHT_PATH)
+    tokenizer_path = Path(EVALUATE_TOKENIZER_PATH)
+
+    if not weight_path.parent.exists():
+        weight_path.parent.mkdir(parents=True)
+    else:
+        if weight_path.exists():
+            weight_path.unlink()
+        if tokenizer_path.exists():
+            tokenizer_path.unlink()
+
+    copy(Path(best_trial.checkpoint, 'EPT.pt'), weight_path)
+    copy(Path(best_trial.checkpoint, 'tokenizer.pt'), tokenizer_path)
 
     shutdown()

@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from collections import defaultdict
+from os import environ
 from pathlib import Path
 
 from transformers import AutoTokenizer
@@ -7,6 +8,7 @@ from transformers import AutoTokenizer
 from common.model.const import DEF_ENCODER
 from common.sys.convert import string_to_text_instance
 from common.sys.key import QUESTION, ANSWER, EQUATION, EXECUTION
+from common.sys.pattern import *
 from evaluate import Executor
 from simulate import Simulator
 from yaml import load as yaml_load
@@ -37,6 +39,7 @@ def read_arguments():
 if __name__ == '__main__':
     # Read command-line arguments, including templateroot, numitems, datasetpath, seed
     args = read_arguments()
+    environ['DEBUG'] = 'True'
     # Create a simulator of type simulator.Simulator
     simulator = Simulator()
     # Register seed using simulator.set_seed()
@@ -71,6 +74,18 @@ if __name__ == '__main__':
             item.code = execution_to_python_code(execution, text.word_info[0])
             item.executed = executor.run(item.code)
             item.execution = [x.to_list() for x in execution]
+
+            assert ALL_KOREAN_PATTERN.match(item.code) is None, \
+                '코드에는 한글이 포함될 수 없습니다.\n\t실행한 코드\n%s' % item.code
+            assert '\n' not in item.executed, \
+                '답은 오직 하나여야 합니다. 지금은 %s개의 답이 출력되었습니다: %s' % \
+                (item.executed.count('\n') + 1, item.executed.split('\n'))
+            if NUMBER_PATTERN.fullmatch(item.executed):
+                assert '.' not in item.executed or UNDER_TWO_DIGIT.fullmatch(item.executed) is not None, \
+                    '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(정수이거나 소숫점 이하 두자리)에 맞지 않습니다.' % item.executed
+            elif FRACTION_PATTERN.fullmatch(item.executed) is None:
+                assert ALL_KOREAN_PATTERN.fullmatch(item.executed) is not None, \
+                    '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(텍스트인 경우 기타 기호 없이 한글만)에 맞지 않습니다.' % item.executed
 
             assert item.answer == item.executed, \
                 '기대한 답 "%s"(이)가 계산된 답 "%s"(와)과 일치하지 않습니다!\n\t문제: "%s"\n토큰화: "%s"\n\t실행한 코드\n%s' % \

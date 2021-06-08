@@ -392,3 +392,30 @@ Store generated items into datasetpath
   - python macro = common.model.types.Expression
   - answer = str
 
+#### `dataset.json` 및 `split`파일 spec
+
+##### dataset.json
+
+```javascript1.5
+{
+  "ID (string)": {
+    "question": "문제 텍스트 (String)", 
+    "answer": "정답 (String)",
+    "equation": "실행해야 하는 프로그램 코드 (String)", 
+    "execution": [  // Number(int)의 list의 list
+      [f0, s00, a00, s01, a01, ...],  // f0는 operator index, s00는 operand0의 source index, a00은 해당 source에서 operand0의 index
+      [f1, s10, a10, s11, a11, ...],
+      ...
+    ]
+  }
+}
+```
+
+* source index에 대해서는 `common.sys.key.SRC_*` 참고
+* 함수 f가 argument를 N개 받는다면, execution은 2N+1개의 항목이 있어야 함
+* 실제 훈련 과정에서는 equation은 사용하지 않음
+
+##### split
+
+* dataset.json이 위치하는 디렉터리 속 `split` 폴더에 `train`, `dev`, `test` 명칭으로 존재함
+* 각 행은 이 split에 속하는 ID 값이며, 행 구분자는 `\n`.
