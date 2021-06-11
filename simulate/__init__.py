@@ -1,5 +1,7 @@
 from typing import List
 
+from common.simulate.types import Problem
+
 
 class Simulator:
     def load_templates(self, templates: List[dict]):
