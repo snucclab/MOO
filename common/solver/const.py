@@ -84,7 +84,14 @@ OPR_VALUES = [
     {NAME: GT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
     # 33. GE(List, int)
     {NAME: GE, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None}
+    # 34. LIST_CONCAT(ls1: List[Any], ls2: List[Any]) -> List[Any]
+    {NAME: LIST_CONCAT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None}
+    # 35. LIST_INDEX(ls: List[Union[int,float,str]],item: Union[str, int, float]) -> int
+    {NAME: LIST_INDEX, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None}
+    # 36. LIST_REPLACE(ls: List[Union[int,float,str]], n: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
+    {NAME: LIST_REPLACE, ARITY: 3, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None}
 ]
+
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
 OPR_SZ = len(OPR_TOKENS)
 
