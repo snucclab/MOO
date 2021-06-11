@@ -6,10 +6,10 @@ from .pattern import *
 from .key import *
 from common.model.types import Text, Expression
 from common.solver.types import Execution
-from ..solver.const import CON_MAX
+from common.solver.const import CON_MAX, OPR_VALUES
 
 
-def string_to_text_instance(text: str, tokenizer) -> Text:
+def tokenize_string(text: str) -> List[str]:
     # 숫자, 변수, 고유명사 및 연산자 앞뒤로 space 추가
     text = PROPERNOUN_PATTERN.sub(' \\1 ', text)
     text = VARIABLE_PATTERN.sub(' \\1 ', text)
@@ -19,8 +19,14 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
     # Space 여러개인 경우 하나로 통일
     text = re.sub('\\s+', ' ', text.strip())
 
+    return text.split(' ')
+
+
+def string_to_text_instance(text: str, tokenizer) -> Text:
     # 단어 목록 구성
-    words = text.split(' ')
+    words = tokenize_string(text)
+    text = ' '.join(words)
+
     word_info = []
     for word in words:
         number = NUMBER_BEGIN_PATTERN.fullmatch(word)
@@ -89,7 +95,9 @@ def equation_to_execution(equation: Expression, batch_index: int = 0, word_size:
     executions = []
     for t, f_t in enumerate(operator):
         a_t = []
-        for o in operands:
+        arity = OPR_VALUES[f_t][ARITY]
+
+        for o in operands[:arity]:
             if o < CON_MAX:
                 a_t.append((SRC_CONSTANT, o))
                 continue

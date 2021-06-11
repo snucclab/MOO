@@ -4,7 +4,7 @@ NAME = 'name'
 ARITY = 'arity'
 CONVERT = 'convert'
 COMMUTATIVE = 'commutative'
-TOPLV = 'top_level'
+ISVOID = 'is_void'
 PRECEDENCE = 'precedence'
 
 # (2) Word information keys
