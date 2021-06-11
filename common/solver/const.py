@@ -12,6 +12,11 @@ OPR_NEW_EQN = '_NEW_EQN'
 OPR_NEW_VAR = '_NEW_VAR'
 OPR_DONE = '_DONE'
 OPR_EQ = 'EQ'
+OPR_ADD = 'ADD'
+OPR_SUB = 'SUB'
+OPR_MUL = 'MUL'
+OPR_DIV = 'DIV'
+OPR_POW = 'POW'
 OPR_PRINT = 'PRINT'
 OPR_SUM = 'SUM'
 OPR_LIST = 'LIST'
@@ -50,20 +55,20 @@ OPR_VALUES = [
     # 4. EQ(float, float)
     {NAME: OPR_EQ, ARITY: 2, COMMUTATIVE: True, ISVOID: True, CONVERT: (lambda *x: NotImplementedError()),
      PRECEDENCE: 1},
-    # 5. +(float, float)
-    {NAME: '+', ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda *x: x[0] + x[1]),
+    # 5. ADD(float, float)
+    {NAME: OPR_ADD, ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda *x: x[0] + x[1]),
      PRECEDENCE: 2},
-    # 6. -(float, float)
-    {NAME: '-', ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] - x[1]),
+    # 6. SUB(float, float)
+    {NAME: OPR_SUB, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] - x[1]),
      PRECEDENCE: 2},
-    # 7. *(float, float)
-    {NAME: '*', ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda *x: x[0] * x[1]),
+    # 7. MUL(float, float)
+    {NAME: OPR_MUL, ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda *x: x[0] * x[1]),
      PRECEDENCE: 3},
-    # 8. /(float,float)
-    {NAME: '/', ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] / x[1]),
+    # 8. DIV(float,float)
+    {NAME: OPR_DIV, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] / x[1]),
      PRECEDENCE: 3},
-    # 9. ^(float,float)
-    {NAME: '^', ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] ** x[1]),
+    # 9. POW(float,float)
+    {NAME: OPR_POW, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] ** x[1]),
      PRECEDENCE: 4},
     # 10. PRINT(string_or_int_or_float)
     {NAME: OPR_PRINT, ARITY: 1, COMMUTATIVE: True, ISVOID: True, CONVERT: (lambda *x: print(x)), PRECEDENCE: None},
