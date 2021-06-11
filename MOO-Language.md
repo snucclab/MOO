@@ -13,7 +13,7 @@
 4. EQ
 
     ```python
-    EQ(a: float, b: float) -> bool
+    EQ(x1: float, x2: float) -> bool
     1) 목적/변화: 입력받은 두 인자가 같은지 비교
     2) 인수값: 비교하려는 두 값
     3) 반환값: 같으면 true, 다르면 false
@@ -24,10 +24,10 @@
 5. ADD
 
     ```python
-    ADD(a: float, b: float) -> float
+    ADD(x1: float, x2: float) -> float
     1) 목적/변화: 입력받은 두 값을 더해서 반환
     2) 인수값: 더하려는 두 값
-    3) 반환값: a+b, 두 인자를 더한 값
+    3) 반환값: x1 + x2, 두 인자를 더한 값
     4) 예시: 
     R0: ADD(3, 4)
     ```
@@ -35,10 +35,10 @@
 6. SUB
 
     ```python
-    SUB(a: float, b: float) -> float
+    SUB(x1: float, x2: float) -> float
     1) 목적/변화: 입력받은 두 값의 차를 반환
     2) 인수값: 차이를 알고 싶은 두 값
-    3) 반환값: a-b, 두 인자의 차
+    3) 반환값: x1 - x2, 두 인자의 차
     4) 예시: 
     R0: SUB(4, 3)
     ```
@@ -46,10 +46,10 @@
 7. MUL
 
     ```python
-    MUL(a: float, b: float) -> float
+    MUL(x1: float, x2: float) -> float
     1) 목적/변화: 입력받은 두 값의 곱을 반환
     2) 인수값: 곱하고 싶은 두 값
-    3) 반환값: a*b, 두 인자를 곱한 값
+    3) 반환값: x1 * x2, 두 인자를 곱한 값
     4) 예시: 
     R0: MUL(2, 3)
     ```
@@ -57,10 +57,10 @@
 8. DIV
 
     ```python
-    DIV(a: float, b: float) -> float
+    DIV(x1: float, x2: float) -> float
     1) 목적/변화: 입력 받은 두 개의 인자 중 a(첫 번째 인자)를 b(두 번째 인자)로 나눠준다
     2) 인수값: 나눠주고 싶은 두 값
-    3) 반환값: a/b
+    3) 반환값: x1 / x2
     4) 예시: 
     R0: DIV(8,4)
     ```
@@ -68,10 +68,10 @@
 9. POW
 
     ```python
-    POW(a: float, b: float) -> float
-    1) 목적/변화: 입력 받은 두 개의 인자 중 a(첫 번째 인자)를 b(두 번째 인자)제곱을 구해준다
+    POW(x1: float, x2: float) -> float
+    1) 목적/변화: 입력 받은 두 개의 인자 중 x1(첫 번째 인자)를 x2(두 번째 인자)제곱을 구해준다
     2) 인수값: base 값과 지수
-    3) 반환값: a^b (a의 b제곱)
+    3) 반환값: x1 ^ x2 (x1의 x2제곱)
     4) 예시: 
     R0: POW(2, 4)
     ```
@@ -79,7 +79,7 @@
 10. PRINT
 
     ```python
-    PRINT(data : Union[float, int, str])
+    PRINT(value: Union[float, int, str])
     1) 목적/변화: 입력받은 값 출력
     2) 인수값: 출력하고 싶은 float, int 또는 str
     3) 반환값: 없음
@@ -91,7 +91,7 @@
 11. SUM
 
     ```python
-    SUM(ls: List[int]) -> int
+    SUM(ls1: List[int]) -> int
     1) 목적/변화: 리스트 속 정수들을 모두 더해줌
     2) 인수값: 정수로 이루어진 리스트
     3) 반환값: 리스트의 원소들을 모두 더한 값
@@ -119,7 +119,7 @@
 13. APPEND
 
     ```python
-    APPEND(ls: List[Any], x: Union[str,int,float,List[...]) -> List[Any]
+    APPEND(ls1: List[Any], x1: Union[str,int,float,List[...]) -> List[Any]
     1) 목적/변화: 리스트 속에 정수, 실수, 문자열을 추가함. 리스트 속에 리스트가 들어갈 수 있음.
     2) 인수값: 정수, 실수, 문자열, 다른 리스트
     3) 반환값: 정수, 실수, 문자열, 다른 리스트가 들어있는 리스트
@@ -175,7 +175,7 @@
 16. MIN
 
     ```python
-    MIN(ls: List[Union[int,float]]) -> Union[int,float]
+    MIN(ls1: List[Union[int,float]]) -> Union[int,float]
     1) 목적/변화: 정수나 실수로 이루어진 리스트에서 가장 작은 값을 알려준다
     2) 인수값: 정수나 실수로 이루어진 리스트
     3) 반환값:
@@ -193,7 +193,7 @@
 17. MAX
 
     ```python
-    MAX(ls: List[Union[int,float]]) -> Union[int,float]
+    MAX(ls1: List[Union[int,float]]) -> Union[int,float]
     1) 목적/변화: 정수나 실수로 이루어진 리스트에서 가장 큰 값을 알려준다
     2) 인수값: 정수나 실수로 이루어진 리스트
     3) 반환값:
@@ -230,7 +230,7 @@
 19. LCM
 
     ```python
-    LCM(ls: List[int]) -> int
+    LCM(ls1: List[int]) -> int
     1) 목적/변화: 리스트의 정수들의 최소공배수다를 구한다
     2) 인수값: 정수로 구성된 리스트
     3) 반환값: 최소공배수
@@ -246,7 +246,7 @@
 20. GCD
 
     ```python
-    GCD(ls: List[int]) -> int
+    GCD(ls1: List[int]) -> int
     1) 목적/변화: 리스트의 정수들의 최대공약수를 구한다
     2) 인수값: 정수로 구성된 리스트
     3) 반환값: 최대공약수
@@ -287,7 +287,7 @@
 22. DIGIT
 
     ```python
-    DIGIT(x: int, digit: int) -> int 
+    DIGIT(x1: int, digit: int) -> int 
     1) 목적/변화: 한 자리수 정수(x)가 주어지면 그 정수를 원하는 자리수의 숫자로 변환한다.
     이는 그 정수에 필요한 개수(digit-1)의 0을 붙여서 생성한다.
     2) 인수값: 한 자리수 정수, 
@@ -303,7 +303,7 @@
 23. TO_INT
 
     ```python
-    TO_INT(x: float) -> int
+    TO_INT(x1: float) -> int
     1) 목적/변화: 실수 x를 정수로 변환한다.
     2) 인수값: 원본 실수
     3) 반환값: 변환된 정수
@@ -330,7 +330,7 @@
 25. REVERSE_DIGIT
 
     ```python
-    REVERSE_DIGIT(x: int) -> int
+    REVERSE_DIGIT(x1: int) -> int
     1) 목적/변화: x의 각 자리수를 역순으로 변환/배열한다.
     2) 인자값: 원본 정수
     3) 반환값: 자리수가 역순으로 재배열 된 정수
@@ -341,7 +341,7 @@
 26. SEQ_TERM
 
     ```python
-    SEQ_TERM(sequence: List, n: int) -> Union[int, float]
+    SEQ_TERM(seq: List, index: int) -> Union[int, float]
     1) 목적/변화: 등차수열또는 계차수열을 입력받아 n번째 인덱스에 해당하는 값을 알아내는 함수
     2) 인수값:
         sequence : 수열의 리스트
@@ -358,7 +358,7 @@
 27. REP_SEQ_TERM
 
     ```python
-    REP_SEQ_TERM(List, int) -> Union[int, float]
+    REP_SEQ_TERM(seq: List, index: int) -> Union[int, float]
     1) 목적/변화: 등차수열또는 계차수열을 입력받아 n번째 인덱스에 해당하는 값을 알아내는 함수
     2) 인수값:
       sequence : 수열의 리스트
@@ -378,7 +378,7 @@
 28. MAKE_PAIR
 
     ```python
-    MAKE_PAIR(str, Union[str, int]) -> List
+    MAKE_PAIR(x1: str, x2:Union[str, int]) -> List
     1) 목적/변화: string 값에 대해 값을 쌍으로 묶어준다
     2) 인수값: string과 int의 쌍 또는 string과 string의 쌍
     3) 반환값: list
@@ -392,7 +392,7 @@
 29. COUNT
 
     ```python
-    COUNT(ls: List) -> int
+    COUNT(ls1: List) -> int
     1) 목적/변화: ls의 인자 개수를 세어주는 함수
     2) 인수값: list
     3) 반환값: list에서의 인자 개수
@@ -407,7 +407,7 @@
 30. LT
 
     ```python
-    LT(ls : List, n: int)
+    LT(ls1 : List, x1: int)
     1) 목적/변화: 
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 작으면 1,
       n보다 크거나 같으면 0으로 바꿔준다.
@@ -427,7 +427,7 @@
 31. LE
 
     ```python
-    LE(List, int)
+    LE(ls1: List, x1: int)
     1) 목적/변화:
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 작거나 같으면 1,
       n보다 크면 0으로 바꿔준다.
@@ -447,7 +447,7 @@
 32. GT
 
     ```python
-    GT(List, int)
+    GT(ls1: List, x1: int)
     1) 목적/변화:
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 크면 1,
       n보다 작거나 같으면 0으로 바꿔준다.
@@ -467,7 +467,7 @@
 33. GE
 
     ```python
-    GE(List, int)
+    GE(ls1: List, x1: int)
     1) 목적/변화:
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 크거나 같으면 1,
       n보다 작으면 0으로 바꿔준다
@@ -507,7 +507,7 @@
 35. LIST_INDEX
 
     ```python
-    LIST_INDEX(ls: List[Union[int,float,str]],item: Union[str, int, float]) -> int
+    LIST_INDEX(ls1: List[Union[int,float,str]],item: Union[str, int, float]) -> int
     1) 목적/변화: 리스트와 원소가 주어지면 해당 원소의 인덱스를 반환한다
     2) 인수값: 리스트, str 또는 int 또는 float 원소
     3) 반환값: int
@@ -525,7 +525,7 @@
 36. LIST_REPLACE
 
     ```python
-    LIST_REPLACE(ls: List[Union[int,float,str]], n: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
+    LIST_REPLACE(ls1: List[Union[int,float,str]], index: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
     1) 목적/변화: 리스트 속에 n번째 인덱스에 해당하는 값을 item으로 바꾼다.
     2) 인수값: 리스트, 바꾸고자 하는 item, 바꾸고자 하는 위치
     3) 반환값: 새로 바뀐 리스트
