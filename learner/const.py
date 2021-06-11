@@ -6,17 +6,11 @@ KEY_TRAIN = 'train'
 KEY_DEV = 'dev'
 KEY_TEST = 'test'
 
-KEY_WINDOW = 'window'
-KEY_TARGET_FIELD = 'field'
-
 # Key for train/test
 KEY_EXPERIMENT = 'experiment'
 KEY_SPLIT_FILE = 'split_file'
-KEY_BEAM = 'beam_for_expression'
-KEY_BEAM_DESC = 'beam_for_description'
+KEY_BEAM = 'beam'
 KEY_EVAL_PERIOD = 'period'
-KEY_PRETRAIN_ITER = 'pretrain_iter'
-KEY_PRETRAIN_FOR = 'pretrain_for'
 
 # Key for policy config
 KEY_MODEL = 'learner'
