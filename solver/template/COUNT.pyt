@@ -1,0 +1,1 @@
+{result} = len({ls1})
