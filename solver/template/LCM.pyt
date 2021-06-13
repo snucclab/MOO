@@ -1,4 +1,3 @@
-from math import gcd
-lcm = 1
+{result} = 1
 for num in {list}:
-    lcm = lcm * num // gcd(lcm, num)
+    {result} = {result} * num // math.gcd({result}, num)
