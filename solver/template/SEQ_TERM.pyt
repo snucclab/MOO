@@ -22,7 +22,7 @@ if {index} != 0:
     else:
         {result} = {seq}[0] + diff_1 * ({index} - 1)
 else :
-     if diff != 0:
+    if diff != 0:
         {result} = {seq}[1] - (diff_1 - diff)
     else:
         {result} = {seq}[1] - diff_1
