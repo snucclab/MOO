@@ -572,6 +572,21 @@
         R0: 
     ```
 
+39. LIST_MUL
+
+    '''python
+    LIST_MUL(lst: List[Any], n: int) -> List[Any]
+    1) 목적/변화:
+    2) 인수값: Any 자료형으로 구성된 리스트, 리스트를 뿔리고 싶은 횟수
+    3) 반환값: 뿔어난 리스트
+    4) 예시:
+        R0: List()
+        R1: APPEND(R0, 1)
+        R2: APPEND(R1, 2)
+        R3: APPEND(R2, 3)
+        R4: LIST_MUL(R3, 2)
+    '''
+
 ## Examples
 
 01. 상자 안에 9개의 공이 있습니다. 석진이가 5개의 공을 상자 안에 더 넣었습니다. 상자 안에 있는 공은 모두 몇 개입니까?
