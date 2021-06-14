@@ -1,0 +1,26 @@
+서로 다른 4명의 학생들에게 책 10권을 나누어 주려고 합니다. 학생들은 한 명 당 최소 책 1권을 받습니다. 책을 몇 가지의 방법으로 나눠줄 수 있을까요?
+
+
+서로 다른 <num.0>명의 <vocation.0>들에게 <stationary.0> <num.1><count.0/을> 나누어 주려고 합니다. <vocation.0>들은 한 명 당 최소 <stationary.0> 1<count.0/을> 받습니다. <stationary.0/을> 몇 가지의 방법으로 나눠줄 수 있을까요?
+
+4H6
+
+- problem:
+  서로 다른 <num.0>명의 <vocation.0>들에게 <stationary.0> <num.1><count.0/을> 나누어 주려고 합니다. <vocation.0>들은 한 명 당 최소 <stationary.0> 1<count.0/을> 받습니다. <stationary.0/을> 몇 가지의 방법으로 나눠줄 수 있을까요?
+
+- variable-sampling:
+  num.0:
+    range: [ 1, 20 ]
+    under-decimal: 0
+    value: 0
+  num.1:
+    range: [ 20, 100 ]
+    under-decimal: 0
+    value: 0
+
+- equations:
+  R00: SUB(<num.1>, <num.0>)
+  R01: SUM(<num.0>, R00)
+  R02: SUB(R01, 1)
+  R03: COMB(R02, R00)
+  R04: PRINT(R03)E
