@@ -127,6 +127,8 @@ OPR_VALUES = [
     {NAME: OPR_LIST_INDEX, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'item':x[1], 'result':res}), PRECEDENCE: None},
     # 37. LIST_REPLACE(ls: List[Union[int,float,str]], n: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
     {NAME: OPR_LIST_REPLACE, ARITY: 3, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'index':x[1], 'item':x[2], 'result':res}), PRECEDENCE: None}
+    # 38. CEIL(UNION[int, float]) -> int
+    {NAME: CEIL, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'x1': x[0], 'result':res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
