@@ -1,21 +1,13 @@
 import pytest
-import random
-import math
-import itertools
-import re
-import sympy
-from pathlib import Path
 
 from common.model.const import DEF_ENCODER
 from common.sys.convert import string_to_text_instance
-from common.solver.const import *
-from solver import *
 from evaluate import Executor
-
+from solver import *
 
 _ROOT_PATH = Path(__file__).parent.parent
 _NUMBERING = re.compile('^\\d+\\.')
-_OPERATION_ONLY = re.compile('^R\\d+:\s*([^#]+)(?:#.*)?')
+_OPERATION_ONLY = re.compile('^R\\d+:\\s*([^#]+)(?:#.*)?')
 
 
 @pytest.fixture(scope="session")
@@ -36,7 +28,7 @@ def _convert_and_run(moo_code: str, text: str, expected: str,
                      executor: Executor, tokenizer = None):
     text = string_to_text_instance(text, tokenizer=tokenizer)
     executions = python_code_to_executions(moo_code)
-    pycode = execution_to_python_code(executions, text.word_info, indent=4)
+    pycode = execution_to_python_code(executions, text.word_info[0], indent=4)
     adjusted, answer = executor.run(pycode)
 
     assert expected == answer
