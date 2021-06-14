@@ -16,12 +16,12 @@ diff_2 = {seq}[base_line+2] - {seq}[base_line + 1]
 diff = diff_2 - diff_1
 
 if {index} != 0: 
-    if diff != 0: 
+    if abs(diff) > 1E-5: 
         {result} = {seq}[0] + int(diff * {index}*({index} -1) / 2) 
-    else: # 등차
+    else: 
         {result} = {seq}[0] + diff_1 * ({index} - 1)
-else : # 0번째 인덱스 값
-    if diff != 0:
+else : 
+    if abs(diff) > 1E-5:
         {result} = {seq}[1] - (diff_1 - diff)
     else:
         {result} = {seq}[1] - diff_1
