@@ -97,9 +97,11 @@ def execution_to_python_code(expression: List[Execution],
         
 
 def intprt_opr(opr : Dict[str, Any], args : List[Tuple[int, int]], word_mappings: List[Dict[str, Any]], op_count: int) -> str :
+    name = opr[NAME]
     code = ""
     # opr에 해당하는 template 가져와서 식 생성
-    code = _load_pyt(OPR_EQ)
+    code = _load_pyt(name)
+    
     # code = _load_pyt(opr[NAME])
     # code.format(key=str)
     keys = []
@@ -114,12 +116,12 @@ def intprt_opr(opr : Dict[str, Any], args : List[Tuple[int, int]], word_mappings
             # arg[0]이 0인 경우, constant 상수 값
             keys.append('0')
     # template = _load_pyt(OPR_EQ)
-    converter = OPR_VALUES[OPR_TOKENS.index(OPR_EQ)][CONVERT]
-    
-    _exec_template(template, **converter("res", *keys))
+    converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
+
+    _exec_template(name, template, **converter("res", *keys))
     # _exec_template(template, **converter(result, arg1, arg2))
 
-def _exec_template(template: str, result: str, _locals=None, **kwargs):
+def _exec_template(name: str, template: str, result: str, _locals=None, **kwargs):
     _global = {}
     _global['math'] = math
     _global['itertools'] = itertools
@@ -127,8 +129,11 @@ def _exec_template(template: str, result: str, _locals=None, **kwargs):
     _locals = _locals if _locals is not None else {}
     _code = template.format(**kwargs, result=result)
 
-    exec(_code, _global, _locals)
-    return _locals.get(result, None)
+    if name == OPR_CALL_SYMPY:
+        return _code
+    else:
+        exec(_code, _global, _locals)
+        return _locals.get(result, None)
 
 
 def _load_pyt(name: str):
