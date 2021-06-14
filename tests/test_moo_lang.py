@@ -50,7 +50,6 @@ def _exec_template(template: str, result: str, _locals=None, **kwargs):
 
     _locals = _locals if _locals is not None else {}
     _code = template.format(**kwargs, result=result)
-    print(_code)
 
     exec(_code, _global, _locals)
     return _locals.get(result, None)
