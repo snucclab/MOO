@@ -104,29 +104,29 @@ OPR_VALUES = [
     # 25. CALL_SYMPY(List)
     {NAME: OPR_CALL_SYMPY, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
     # 26. REVERSE_DIGIT(int)
-    {NAME: OPR_REVERSE_DIGIT, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_REVERSE_DIGIT, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'X1':x[0], 'result':res}), PRECEDENCE: None},
     # 27. SEQ_TERM(List, int)
-    {NAME: OPR_SEQ_TERM, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_SEQ_TERM, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'seq':x[0], 'index':x[1], 'result':res}), PRECEDENCE: None},
     # 28. REP_SEQ_TERM(List, int)
-    {NAME: OPR_REP_SEQ_TERM, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_REP_SEQ_TERM, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'seq':x[0], 'index':x[1], 'result':res}), PRECEDENCE: None},
     # 29. MAKE_PAIR(str, str_or_int)
-    {NAME: OPR_MAKE_PAIR, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_MAKE_PAIR, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'X1':x[0], 'X2':x[1], 'result':res}), PRECEDENCE: None},
     # 30. COUNT(List) 
-    {NAME: OPR_COUNT, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_COUNT, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'result':res}), PRECEDENCE: None},
     # 31. LT(List, int)
-    {NAME: OPR_LT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_LT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'x1':x[1], 'result':res}), PRECEDENCE: None},
     # 32. LE(List, int)
-    {NAME: OPR_LE, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_LE, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'x1':x[1], 'result':res}), PRECEDENCE: None},
     # 33. GT(List, int)
-    {NAME: OPR_GT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_GT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'x1':x[1], 'result':res}), PRECEDENCE: None},
     # 34. GE(List, int)
-    {NAME: OPR_GE, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_GE, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'x1':x[1], 'result':res}), PRECEDENCE: None},
     # 35. LIST_CONCAT(ls1: List[Any], ls2: List[Any]) -> List[Any]
-    {NAME: OPR_LIST_CONCAT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_LIST_CONCAT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'ls2':x[1], 'result':res}), PRECEDENCE: None},
     # 36. LIST_INDEX(ls: List[Union[int,float,str]],item: Union[str, int, float]) -> int
-    {NAME: OPR_LIST_INDEX, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_LIST_INDEX, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'item':x[1], 'result':res}), PRECEDENCE: None},
     # 37. LIST_REPLACE(ls: List[Union[int,float,str]], n: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
-    {NAME: OPR_LIST_REPLACE, ARITY: 3, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None}
+    {NAME: OPR_LIST_REPLACE, ARITY: 3, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1':x[0], 'index':x[1], 'item':x[2], 'result':res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
