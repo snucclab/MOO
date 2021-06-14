@@ -43,7 +43,7 @@ if __name__ == '__main__':
         # Transform equation into python code using solver.execution_to_python_code()
         code = execution_to_python_code(execution, word_info, indent=4)
         # Execute python code with timeout (0.5s) and get an answer (type: string)
-        answer = executor.run(code)
+        code, answer = executor.run(code)
         # Set answers[key] as {'answer': answer, 'equation': code}
         answers[key] = {ANSWER: answer, EQUATION: code}
 

@@ -4,7 +4,7 @@ from queue import Empty
 from importlib import import_module
 from io import StringIO
 from contextlib import redirect_stdout
-
+from typing import Tuple
 
 AVAILABLE_MODULES = ['math', 'itertools']
 
@@ -28,7 +28,7 @@ def _execute_code(recv: Queue, send: Queue):
         except Empty:
             continue
         except Exception as e:
-            send.put(('', e))
+            send.put(('', '', e))
             continue
 
         if not code:
@@ -36,15 +36,23 @@ def _execute_code(recv: Queue, send: Queue):
             break
 
         try:
+            _global_dict = _globals.copy()
+            if code.startswith('import sympy'):
+                _global_dict['sympy'] = import_module('sympy')
+                code = code.replace('import sympy\n', '')
+                return_code = ''
+            else:
+                return_code = code
+
             # Evaluate the code
             _stdout = StringIO()
             with redirect_stdout(_stdout):
                 exec(code, __globals=_globals)
 
             answer = _stdout.getvalue().strip()
-            send.put((answer, None))
+            send.put((answer, return_code, None))
         except Exception as e:
-            send.put(('', e))
+            send.put(('', '', e))
 
     send.close()
     recv.close()
@@ -119,20 +127,21 @@ class Executor(object):
         self.close()
         self._start_process()
 
-    def run(self, code: str) -> str:
+    def run(self, code: str) -> Tuple[str, str]:
         """
         Evaluate current python code
 
         :param str code:
             String of python code to evaluate
-        :rtype: str
+        :rtype: (str, str)
         :return:
+            A python code, and
             Result of executed python code
         """
         solution = []
         try:
             self.to_solver.put(code)
-            solution, exception = self.from_solver.get(timeout=self.time_limit)
+            solution, code, exception = self.from_solver.get(timeout=self.time_limit)
         except Exception as e:
             exception = e
             self._restart_process()
@@ -141,9 +150,9 @@ class Executor(object):
         if exception:
             if self._debug:
                 self._debug_logger.warning('Exception occurred on code execution', exc_info=exception)
-            return ''
+            return code, ''
         else:
-            return solution
+            return code, solution
 
 
 __all__ = ['Executor']

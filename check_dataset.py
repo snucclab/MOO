@@ -46,7 +46,7 @@ if __name__ == '__main__':
             '코드에는 한글이 포함될 수 없습니다.\n\t실행한 코드\n%s' % code
 
         # Execute python code with timeout (0.5s) and get an answer (type: string)
-        answer = executor.run(code)
+        _, answer = executor.run(code)
         assert '\n' not in answer, \
             '답은 오직 하나여야 합니다. 지금은 %s개의 답이 출력되었습니다: %s' % (answer.count('\n')+1, answer.split('\n'))
         if NUMBER_PATTERN.fullmatch(answer):

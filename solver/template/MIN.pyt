@@ -9,4 +9,4 @@ if type({LIST}[0]) == tuple:
             min_name = curr_name
     {result} = min_name
 else:
-    {result} = mim({LIST})
+    {result} = min({LIST})
