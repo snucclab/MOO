@@ -441,7 +441,7 @@ def test_SEQ_TERM():
         diff = random.randint(0, 10000) / 100
         base = random.randint(0, 10000) / 100
         n = random.randint(50, 1000)
-        samples = random.randint(3, 10)
+        samples = random.randint(4, 10)
 
         # 등차수열
         differences = [0] + [diff for _ in range(n - 1)]
@@ -449,16 +449,15 @@ def test_SEQ_TERM():
         diff_sequence = [base + x for x in base_sequence]
 
         last = diff_sequence[-1]
-        diff_sequence = diff_sequence[:samples]
-        assert abs(last - _exec_template(template, _locals=dict(samples=diff_sequence, n=n),
+        assert abs(last - _exec_template(template, _locals=dict(samples=diff_sequence[:samples], n=n),
                                          **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
-        assert abs(last - _exec_template(template, _locals=dict(samples=diff_sequence),
+        assert abs(last - _exec_template(template, _locals=dict(samples=diff_sequence[:samples]),
                                          **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
         # 등차 빈칸
         if samples > 5:
             n_replace = random.randint(0, samples - 1)
-            sequence = diff_sequence.copy()
+            sequence = diff_sequence[:samples].copy()
             answer = sequence[n_replace]
             sequence[n_replace] = 'A'
             assert abs(answer - _exec_template(template, _locals=dict(samples=sequence, n=n_replace + 1),
@@ -478,7 +477,7 @@ def test_SEQ_TERM():
                                                  **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
         # 계차 빈칸
-        if samples > 5:
+        if samples > 8:
             n_replace = random.randint(0, samples)
             answer = sequence[n_replace]
             sequence[n_replace] = 'A'
