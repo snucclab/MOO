@@ -1,3 +1,4 @@
+import sympy
 vars = set()
 p = re.compile("[=+-\/*]")
 for i in {LIST}:
