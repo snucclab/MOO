@@ -438,8 +438,8 @@ def test_SEQ_TERM():
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_SEQ_TERM)][CONVERT]
 
     for _ in range(10000):
-        diff = random.random() * 10
-        base = random.random() * 100
+        diff = random.randint(0, 10000) / 100
+        base = random.randint(0, 10000) / 100
         n = random.randint(50, 1000)
         samples = random.randint(3, 10)
 
@@ -469,7 +469,7 @@ def test_SEQ_TERM():
         # 계차수열
         diff_sequence = [0] + diff_sequence[:-1]
         acc_seqeunce = list(itertools.accumulate(diff_sequence, lambda x, y: x + y))
-        base = random.random() * 100
+        base = random.randint(0, 10000) / 100
         sequence = [base + x for x in acc_seqeunce]
         assert sequence[-1] == _exec_template(template, _locals=dict(samples=sequence[:samples], n=n),
                                               **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
@@ -494,7 +494,7 @@ def test_REP_SEQ_TERM():
     for _ in range(10000):
         n = random.randint(50, 1000)
         samples = random.randint(3, 10)
-        sample_seq = [random.random() * 100 for _ in range(samples)]
+        sample_seq = [random.randint(0, 10000) / 100 for _ in range(samples)]
         sample_seq += sample_seq
 
         # 반복 수열
@@ -506,13 +506,13 @@ def test_REP_SEQ_TERM():
 
         if samples > 5:
             # 반복 빈칸
-            n_replace = random.randint(0, samples * 2)
-            answer = sample_seq[n_replace]
+            n_replace = random.randint(0, samples * 2 - 1)
+            answer_replace = sample_seq[n_replace]
             sample_seq[n_replace] = 'A'
-            assert answer == _exec_template(template, _locals=dict(samples=sample_seq, n=n_replace + 1),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-            assert answer == _exec_template(template, _locals=dict(samples=sample_seq),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', n_replace + 1))
+            assert answer_replace == _exec_template(template, _locals=dict(samples=sample_seq, n=n_replace + 1),
+                                                    **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
+            assert answer_replace == _exec_template(template, _locals=dict(samples=sample_seq),
+                                                    **converter(random.choice(_RESULT_NAME), 'samples', n_replace + 1))
             assert answer == _exec_template(template, _locals=dict(samples=sample_seq, n=n),
                                             **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
             assert answer == _exec_template(template, _locals=dict(samples=sample_seq),
