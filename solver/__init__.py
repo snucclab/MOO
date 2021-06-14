@@ -88,10 +88,10 @@ def execution_to_python_code(expression: List[Execution],
         cur_opr = OPR_VALUES[execution.function] # dict()
         cur_arg = execution.arguments # LIST[Tuple[int, int]]
 
-        if opr[NAME] == OPR_NEW_EQN :
+        if cur_opr[NAME] == OPR_NEW_EQN :
             result = ""
             op_count = 0
-        elif opr[NAME] == OPR_DONE :
+        elif cur_opr[NAME] == OPR_DONE :
             break
         result += intprt_opr(cur_opr, cur_arg, word_mappings, op_count)
         result += '\n'
@@ -121,7 +121,7 @@ def intprt_opr(opr : Dict[str, Any], args : List[Tuple[int, int]], word_mappings
     # template = _load_pyt(OPR_EQ)
     converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
 
-    _exec_template(name, template, **converter("res", *keys))
+    _exec_template(name, code, **converter("res", *keys))
     # _exec_template(template, **converter(result, arg1, arg2))
 
 def _exec_template(name: str, template: str, result: str, _locals=None, **kwargs):
