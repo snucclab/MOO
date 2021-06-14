@@ -3,6 +3,7 @@ from common.solver.const import *
 from common.solver.types import Execution
 import math
 import itertools
+import re
 
 _ROOT_PATH = Path(__file__).parent
 
@@ -18,7 +19,42 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
     :rtype: List[Execution]
     :return: 주어진 코드에 맞는 list of Execution.
     """
-    pass
+    expr_list = code_template.split('\n')
+    
+    # Execution 클래스로 구성된 list를 initiate
+    exec_list =[]
+    
+    pattern = re.compile(r'[(),]')
+    for i, expr in enumerate(expr_list):
+        # expr 모양새 예시: 'SUB(_5,R0)'
+
+        execution = Execution()
+
+        # temp 모양새 예시: [SUB, _5, R0]
+        temp = re.split(pattern,expr[:-1]) # exclude last letter
+
+        # Execution 클래스인 execution이라는 object의 function 지정 
+        # (operator: OPR_XXXXXX 형태)
+        execution.function = OPR_TOKENS.index('OPR_'+temp[0])
+
+        # Execution 클래스인 execution이라는 object의 arguments 지정
+        # 하나의 Tuple은 (값의 타입, 값의 위치)를 나타냄.
+        # - (0, i)는 사전 정의된 i번째 상수값
+        # - (1, i)는 문제 속 i번째 단어에 해당하는 숫자 또는 문자열 값
+        # - (2, i)는 지금까지 계산한 결과값 중 i번째 결과값
+        execution.arguments = []
+        for j, arg in temp[1:]:
+            if '_' in arg:
+                execution.arguments.append( (1, int(arg[1:]) ) )
+            elif 'R' in arg:
+                execution.arguments.append( (2, int(arg[1:]) ) )
+            else:
+                # TODO: 두번째 인자에 사전 정의된 상수 index 넣기
+                execution.arguments.append( (0, 0) )
+        
+        exec_list.append(execution)
+
+    return exec_list
 
 
 def execution_to_python_code(expression: List[Execution],
