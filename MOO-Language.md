@@ -103,7 +103,7 @@
 11. SUM
 
     ```python
-    SUM(ls1: List[int]) -> int
+    SUM(ls1: List[float]) -> float
     1) 목적/변화: 리스트 속 정수들을 모두 더해줌
     2) 인수값: 정수로 이루어진 리스트
     3) 반환값: 리스트의 원소들을 모두 더한 값
