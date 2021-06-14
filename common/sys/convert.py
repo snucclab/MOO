@@ -12,9 +12,7 @@ from common.solver.const import CON_MAX, OPR_VALUES
 def tokenize_string(text: str) -> List[str]:
     # 숫자, 변수, 고유명사 및 연산자 앞뒤로 space 추가
     text = PROPERNOUN_PATTERN.sub(' \\1 ', text)
-    text = VARIABLE_PATTERN.sub(' \\1 ', text)
-    text = NUMBER_PATTERN.sub(' \\1 ', text)
-    text = OPERATOR_PATTERN.sub(' \\1 ', text)
+    text = SPACING_PATTERN.sub(' \\1 ', text)
 
     # Space 여러개인 경우 하나로 통일
     text = re.sub('\\s+', ' ', text.strip())
@@ -39,7 +37,7 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
             value = variable.group(1)
         else:
             value = proper.group(1) if proper is not None else word
-            value = NON_WORD_PATTERN.sub(value, '')
+            value = PAREN_PATTERN.sub(value, '')
 
         word_info.append({
             IS_NUM: number is not None,

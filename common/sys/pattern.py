@@ -7,7 +7,11 @@ FRACTION_PATTERN = re.compile('(\\d+/\\d+)')
 UNDER_TWO_DIGIT = re.compile('(\\d+(?:\\.\\d{2})?)')
 OPERATOR_PATTERN = re.compile('(-|\\+|\\*+|/+|%|=|\\^)')
 ALL_KOREAN_PATTERN = re.compile('[가-힣]+')
-NON_WORD_PATTERN = re.compile('[^가-힣A-Za-z0-9]+')
+PAREN_PATTERN = re.compile('[()]+')
+SPACING_PATTERN = re.compile('((?:%s|%s|%s|%s)+)' % (VARIABLE_PATTERN.pattern[1:-1],
+                                                     FRACTION_PATTERN.pattern[1:-1],
+                                                     NUMBER_PATTERN.pattern[1:-1],
+                                                     OPERATOR_PATTERN.pattern[1:-1]))
 
 PROPER_BEGIN_PATTERN = re.compile('^' + PROPERNOUN_PATTERN.pattern)
 VARIABLE_BEGIN_PATTERN = re.compile('^' + VARIABLE_PATTERN.pattern)
