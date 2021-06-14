@@ -13,7 +13,7 @@
 4. EQ
 
     ```python
-    EQ(a: float, b: float) -> bool
+    EQ(x1: float, x2: float) -> bool
     1) 목적/변화: 입력받은 두 인자가 같은지 비교
     2) 인수값: 비교하려는 두 값
     3) 반환값: 같으면 true, 다르면 false
@@ -24,10 +24,10 @@
 5. ADD
 
     ```python
-    ADD(a: float, b: float) -> float
+    ADD(x1: float, x2: float) -> float
     1) 목적/변화: 입력받은 두 값을 더해서 반환
     2) 인수값: 더하려는 두 값
-    3) 반환값: a+b, 두 인자를 더한 값
+    3) 반환값: x1 + x2, 두 인자를 더한 값
     4) 예시: 
     R0: ADD(3, 4)
     ```
@@ -35,10 +35,10 @@
 6. SUB
 
     ```python
-    SUB(a: float, b: float) -> float
+    SUB(x1: float, x2: float) -> float
     1) 목적/변화: 입력받은 두 값의 차를 반환
     2) 인수값: 차이를 알고 싶은 두 값
-    3) 반환값: a-b, 두 인자의 차
+    3) 반환값: x1 - x2, 두 인자의 차
     4) 예시: 
     R0: SUB(4, 3)
     ```
@@ -46,10 +46,10 @@
 7. MUL
 
     ```python
-    MUL(a: float, b: float) -> float
+    MUL(x1: float, x2: float) -> float
     1) 목적/변화: 입력받은 두 값의 곱을 반환
     2) 인수값: 곱하고 싶은 두 값
-    3) 반환값: a*b, 두 인자를 곱한 값
+    3) 반환값: x1 * x2, 두 인자를 곱한 값
     4) 예시: 
     R0: MUL(2, 3)
     ```
@@ -57,29 +57,41 @@
 8. DIV
 
     ```python
-    DIV(a: float, b: float) -> float
+    DIV(x1: float, x2: float) -> float
     1) 목적/변화: 입력 받은 두 개의 인자 중 a(첫 번째 인자)를 b(두 번째 인자)로 나눠준다
     2) 인수값: 나눠주고 싶은 두 값
-    3) 반환값: a/b
+    3) 반환값: x1 / x2
     4) 예시: 
     R0: DIV(8,4)
     ```
 
-9. POW
+9. MOD
 
     ```python
-    POW(a: float, b: float) -> float
-    1) 목적/변화: 입력 받은 두 개의 인자 중 a(첫 번째 인자)를 b(두 번째 인자)제곱을 구해준다
+    MOD(x1: int, x2: int) -> int
+    1) 목적/변화: 입력 받은 두 개의 인자 중 a(첫 번째 인자)를 b(두 번째 인자)로 나눈 나머지를 반환
+    2) 인수값: 나누어 얻은 나머지를 얻고 싶은 두 값
+    3) 반환값: x1 % x2
+    4) 예시: 
+    R0: MOD(9,4)
+    ```
+
+
+10. POW
+
+    ```python
+    POW(x1: float, x2: float) -> float
+    1) 목적/변화: 입력 받은 두 개의 인자 중 x1(첫 번째 인자)를 x2(두 번째 인자)제곱을 구해준다
     2) 인수값: base 값과 지수
-    3) 반환값: a^b (a의 b제곱)
+    3) 반환값: x1 ^ x2 (x1의 x2제곱)
     4) 예시: 
     R0: POW(2, 4)
     ```
 
-10. PRINT
+11. PRINT
 
     ```python
-    PRINT(data : Union[float, int, str])
+    PRINT(value: Union[float, int, str])
     1) 목적/변화: 입력받은 값 출력
     2) 인수값: 출력하고 싶은 float, int 또는 str
     3) 반환값: 없음
@@ -88,10 +100,10 @@
     R1: PRINT(R0)
     ```
 
-11. SUM
+12. SUM
 
     ```python
-    SUM(ls: List[int]) -> int
+    SUM(ls1: List[float]) -> float
     1) 목적/변화: 리스트 속 정수들을 모두 더해줌
     2) 인수값: 정수로 이루어진 리스트
     3) 반환값: 리스트의 원소들을 모두 더한 값
@@ -105,7 +117,7 @@
       R6: SUM(ls)       
     ```
 
-12. LIST
+13. LIST
 
     ```python
     LIST()  
@@ -116,10 +128,10 @@
         R0: LIST()
     ```
 
-13. APPEND
+14. APPEND
 
     ```python
-    APPEND(ls: List[Any], x: Union[str,int,float,List[...]) -> List[Any]
+    APPEND(ls1: List[Any], x1: Any) -> List[Any]
     1) 목적/변화: 리스트 속에 정수, 실수, 문자열을 추가함. 리스트 속에 리스트가 들어갈 수 있음.
     2) 인수값: 정수, 실수, 문자열, 다른 리스트
     3) 반환값: 정수, 실수, 문자열, 다른 리스트가 들어있는 리스트
@@ -138,7 +150,7 @@
             R2: APPEND(R1, '(나)')
     ```
 
-14. COMB
+15. COMB
 
     ```python
     COMB(n: int, k:int) -> int
@@ -155,7 +167,7 @@
     5) 제한 조건: n >= k (선택 할 수 있는 총 개수보다 선택할 수가 더 클 수 없다)
     ```
 
-15. PERM
+16. PERM
 
     ```python
     PERM(n: int, k:int) -> int
@@ -172,10 +184,10 @@
     5) 제한 조건: n >= k 
     ```
 
-16. MIN
+17. MIN
 
     ```python
-    MIN(ls: List[Union[int,float]]) -> Union[int,float]
+    MIN(ls1: List[Union[int,float]]) -> Union[int,float]
     1) 목적/변화: 정수나 실수로 이루어진 리스트에서 가장 작은 값을 알려준다
     2) 인수값: 정수나 실수로 이루어진 리스트
     3) 반환값:
@@ -190,10 +202,10 @@
     5) 제한 조건: 문자열 리스트에는 사용할 수 없는 함수이다
     ```
 
-17. MAX
+18. MAX
 
     ```python
-    MAX(ls: List[Union[int,float]]) -> Union[int,float]
+    MAX(ls1: List[Union[int,float]]) -> Union[int,float]
     1) 목적/변화: 정수나 실수로 이루어진 리스트에서 가장 큰 값을 알려준다
     2) 인수값: 정수나 실수로 이루어진 리스트
     3) 반환값:
@@ -208,7 +220,7 @@
     5) 제한 조건: 문자열 리스트에는 사용할 수 없는 함수이다
     ```
 
-18. RANGE
+19. RANGE
 
     ```python
     RANGE(start: int, end: int, step: int) -> List[int] 
@@ -227,10 +239,10 @@
     5) 제한 조건: 시작값과 끝값도 마찬가지만, step값도 무조건 입력해야 한다.
     ```
 
-19. LCM
+20. LCM
 
     ```python
-    LCM(ls: List[int]) -> int
+    LCM(ls1: List[int]) -> int
     1) 목적/변화: 리스트의 정수들의 최소공배수다를 구한다
     2) 인수값: 정수로 구성된 리스트
     3) 반환값: 최소공배수
@@ -243,10 +255,10 @@
     5) 제한 조건: 문자열, 실수형 리스트에는 사용할 수 없는 함수이다
     ```
 
-20. GCD
+21. GCD
 
     ```python
-    GCD(ls: List[int]) -> int
+    GCD(ls1: List[int]) -> int
     1) 목적/변화: 리스트의 정수들의 최대공약수를 구한다
     2) 인수값: 정수로 구성된 리스트
     3) 반환값: 최대공약수
@@ -259,7 +271,7 @@
     5) 제한 조건: 문자열, 실수형 리스트에는 사용할 수 없는 함수이다
     ```
 
-21. COUNT_MULTI
+22. COUNT_MULTI
 
     ```python
     COUNT_MULTI(ls1: List[int], ls2: List[int]) ->  int
@@ -284,10 +296,10 @@
     등등
     ```
 
-22. DIGIT
+23. DIGIT
 
     ```python
-    DIGIT(x: int, digit: int) -> int 
+    DIGIT(x1: int, digit: int) -> int 
     1) 목적/변화: 한 자리수 정수(x)가 주어지면 그 정수를 원하는 자리수의 숫자로 변환한다.
     이는 그 정수에 필요한 개수(digit-1)의 0을 붙여서 생성한다.
     2) 인수값: 한 자리수 정수, 
@@ -300,10 +312,10 @@
     5) 제한 조건: x는 한 자리수의 정수다,(1~9) 절대로 다른 정수를 입력값으로 넣지 않는다.
     ```
 
-23. TO_INT
+24. TO_INT
 
     ```python
-    TO_INT(x: float) -> int
+    TO_INT(x1: float) -> int
     1) 목적/변화: 실수 x를 정수로 변환한다.
     2) 인수값: 원본 실수
     3) 반환값: 변환된 정수
@@ -311,7 +323,7 @@
      R0: TO_INT(3.0) = 3
     ```
 
-24. CALL_SYMPY
+25. CALL_SYMPY
 
     ```python
     CALL_SYMPY(prob: List, target: Any) -> Union[int, float] 
@@ -327,10 +339,10 @@
      R3: CALL_SYMPY(R2, 'A')
     ```
 
-25. REVERSE_DIGIT
+26. REVERSE_DIGIT
 
     ```python
-    REVERSE_DIGIT(x: int) -> int
+    REVERSE_DIGIT(x1: int) -> int
     1) 목적/변화: x의 각 자리수를 역순으로 변환/배열한다.
     2) 인자값: 원본 정수
     3) 반환값: 자리수가 역순으로 재배열 된 정수
@@ -338,10 +350,10 @@
       R0: REVERSE_DIGIT(345)      (= 543)
     ```
 
-26. SEQ_TERM
+27. SEQ_TERM
 
     ```python
-    SEQ_TERM(sequence: List, n: int) -> Union[int, float]
+    SEQ_TERM(seq: List, index: int) -> Union[int, float]
     1) 목적/변화: 등차수열또는 계차수열을 입력받아 n번째 인덱스에 해당하는 값을 알아내는 함수
     2) 인수값:
         sequence : 수열의 리스트
@@ -355,11 +367,11 @@
       R4: SEQ_TERM(R3, 10)
     ```
 
-27. REP_SEQ_TERM
+28. REP_SEQ_TERM
 
     ```python
-    REP_SEQ_TERM(List, int) -> Union[int, float]
-    1) 목적/변화: 등차수열또는 계차수열을 입력받아 n번째 인덱스에 해당하는 값을 알아내는 함수
+    REP_SEQ_TERM(seq: List, index: int) -> Union[int, float]
+    1) 목적/변화: 반복되는 수열을 입력받아 n번째 인덱스에 해당하는 값을 알아내는 함수(이때 입력받는 수열은 두 번 반복되는 수열이다)
     2) 인수값:
       sequence : 수열의 리스트
       n : 몇 번째 값을 가져올 지
@@ -375,13 +387,13 @@
       R7: REP_SEQ_TERM(R6, 10)
     ```
 
-28. MAKE_PAIR
+29. MAKE_PAIR
 
     ```python
-    MAKE_PAIR(str, Union[str, int]) -> List
+    MAKE_PAIR(x1: str, x2:Union[str, int]) -> Tuple
     1) 목적/변화: string 값에 대해 값을 쌍으로 묶어준다
     2) 인수값: string과 int의 쌍 또는 string과 string의 쌍
-    3) 반환값: list
+    3) 반환값: Tuple
     4) 예시:
       4-1) string과 int pair
       R0: MAKE_PAIR("윤기", 4)
@@ -389,10 +401,10 @@
       R0: MAKE_PAIR("가", "나")
     ```
 
-29. COUNT
+30. COUNT
 
     ```python
-    COUNT(ls: List) -> int
+    COUNT(ls1: List) -> int
     1) 목적/변화: ls의 인자 개수를 세어주는 함수
     2) 인수값: list
     3) 반환값: list에서의 인자 개수
@@ -404,10 +416,10 @@
       R4: COUNT(R3)           (= 3)
     ```
 
-30. LT
+31. LT
 
     ```python
-    LT(ls : List, n: int)
+    LT(ls1 : List, x1: int)
     1) 목적/변화: 
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 작으면 1,
       n보다 크거나 같으면 0으로 바꿔준다.
@@ -424,10 +436,10 @@
       R7: LT(R6, 4)  (= [1,1,1,0,0,0])
     ```
 
-31. LE
+32. LE
 
     ```python
-    LE(List, int)
+    LE(ls1: List, x1: int)
     1) 목적/변화:
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 작거나 같으면 1,
       n보다 크면 0으로 바꿔준다.
@@ -444,10 +456,10 @@
       R7: LE(R6, 4)  (= [1,1,1,1,0,0])
     ```
 
-32. GT
+33. GT
 
     ```python
-    GT(List, int)
+    GT(ls1: List, x1: int)
     1) 목적/변화:
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 크면 1,
       n보다 작거나 같으면 0으로 바꿔준다.
@@ -464,10 +476,10 @@
       R7: GT(R6, 4)  (= [0,0,0,0,1,1])
     ```
 
-33. GE
+34. GE
 
     ```python
-    GE(List, int)
+    GE(ls1: List, x1: int)
     1) 목적/변화:
       리스트의 각 원소들을 입력받은 인자인 n과 비교하여 n보다 크거나 같으면 1,
       n보다 작으면 0으로 바꿔준다
@@ -484,7 +496,7 @@
       R7: GE(R6, 4)      (= [0,0,0,1,1,1])
     ```
 
-34. LIST_CONCAT
+35. LIST_CONCAT
 
     ```python
     LIST_CONCAT(ls1: List[Any], ls2: List[Any]) -> List[Any]
@@ -504,10 +516,10 @@
     5) 제한 조건: 리스트는 꼭 원하는 순서에 맞춰서 인수로 줘야한다
     ```
 
-35. LIST_INDEX
+36. LIST_INDEX
 
     ```python
-    LIST_INDEX(ls: List[Union[int,float,str]],item: Union[str, int, float]) -> int
+    LIST_INDEX(ls1: List[Union[int,float,str]],item: Union[str, int, float]) -> int
     1) 목적/변화: 리스트와 원소가 주어지면 해당 원소의 인덱스를 반환한다
     2) 인수값: 리스트, str 또는 int 또는 float 원소
     3) 반환값: int
@@ -522,10 +534,10 @@
         R7: LIST_INDEX(R6, 3)
     ```
 
-36. LIST_REPLACE
+37. LIST_REPLACE
 
     ```python
-    LIST_REPLACE(ls: List[Union[int,float,str]], n: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
+    LIST_REPLACE(ls1: List[Union[int,float,str]], index: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
     1) 목적/변화: 리스트 속에 n번째 인덱스에 해당하는 값을 item으로 바꾼다.
     2) 인수값: 리스트, 바꾸고자 하는 item, 바꾸고자 하는 위치
     3) 반환값: 새로 바뀐 리스트
@@ -537,6 +549,17 @@
         R4: LIST_REPLACE(R3, 2, 4)        (=[1,2,4])
     5) 제한 조건: 리스트 안의 항목은 타입이 모두 통일되어야 한다.
     (정수형이면 정수만, 실수형이면 실수만, 문자열이면 문자열)
+    ```
+
+38. CEIL
+
+    ```python
+    CEIL(x1: Union[int,float]) -> int
+    1) 목적/변화: 입력된 실수를 올림한다.
+    2) 인수값: 실수 (혹은 정수)
+    3) 반환값: 정수
+    4) 예시:
+        R0: CEIL(5.5)     (= 6)
     ```
 
 ## Examples
@@ -749,12 +772,14 @@
 14. 두 자리 수의 덧셈식 A4+2B=69에서 A에 해당하는 숫자를 쓰시오. **[변경가능]**
     
    ```text
-   _00:두 _01:자리 _02:수의 _03:덧셈식 _04:A _05:4 _06:+ _07:2 _08:B _09:= _10:69 _11:에서 _12:A _13:에 _14:해당하는 _15:숫자를 _16:쓰시오.
+   _00:두 _01:자리 _02:수의 _03:덧셈식 _04:A4+2B=69 _05:에서 _06:A _07:에 _08:해당하는 _09:숫자를 _10:쓰시오.
    ```
    
    ```yaml
-   # Tokenization 재논의 필요.. 식을 다 분해할 것인가 안할 것인가..
-   ???
+   R00: LIST()
+   R01: APPEND(R00, _04)
+   R02: CALL_SYMPY(R01, _06)
+   R03: PRINT(R02)
    ```
 
 15. A를 8로 나누면 몫은 B이고 나머지는 C가 됩니다. A, B, C는 자연수입니다. 이 식에서 몫과 나머지가 같습니다. 나누어지는 수 A 중 가장 큰 수를 구하시오.
@@ -777,7 +802,7 @@
 
    ```text
    _00:서로 _01:다른 _02:두 _03:자연수 _04:A _05:, _06:B _07:가 _08:있습니다.
-   _09:A _10:+ _11:B _12:= _13:30 _14:, _15:A _16:= _17:B _18:+ _19:B _20:+ _21:B _22:+ _23:B _24:일 _25:때, _26:A _27:를 _28:구하시오.
+   _09:A+B=30 _10:, _11:A=B+B+B+B _12:일 _13:때, _14:A _15:를 _16:구하시오.
    ```
    
    ```yaml
@@ -785,22 +810,9 @@
    # 일단 Tokenize한 상태에서 식 작성한 버전
    R00: LIST()
    R01: APPEND(R00, _09)
-   R02: APPEND(R01, _10)
-   R03: APPEND(R02, _11)
-   R04: APPEND(R03, _12)
-   R05: APPEND(R04, _13)
-   R06: APPEND(R05, _14)
-   R07: APPEND(R06, _15)
-   R08: APPEND(R07, _16)
-   R09: APPEND(R08, _17)
-   R10: APPEND(R09, _18)
-   R11: APPEND(R10, _19)
-   R12: APPEND(R11, _20)
-   R13: APPEND(R12, _21)
-   R14: APPEND(R13, _22)
-   R15: APPEND(R14, _23)
-   R16: CALL_SYMPY(R15, _26)  # A에 대한 답 계산
-   R17: PRINT(16)
+   R02: APPEND(R01, _11)
+   R03: CALL_SYMPY(R02, _14)  # A에 대한 답 계산
+   R04: PRINT(R03)
    ```
 
 17. 어떤 수에서 36을 빼야 하는데 잘못하여 63을 뺀 결과가 8이 나왔습니다. 바르게 계산한 결과를 구하시오.
@@ -864,7 +876,7 @@
 21. 1, 17, 33, 49, 65와 같은 규칙에서 25번째 놓일 수와 40번째 놓일 수를 각각 A와 B라 할 때, B-A를 구하시오.
 
    ```text
-   _00:1 _01:, _02:17 _03:, _04:33 _05:, _06:49 _07:, _08:65 _09:와 _10:같은 _11:규칙에서 _12:25 _13:번째 _14:놓일 _15:수와 _16:40 _17:번째 _18:놓일 _19:수를 _20:각각 _21:A _22:와 _23:B _24:라 _25:할 _26:때, _27:B _28:- _29:A _30:를 _31:구하시오.
+   _00:1 _01:, _02:17 _03:, _04:33 _05:, _06:49 _07:, _08:65 _09:와 _10:같은 _11:규칙에서 _12:25 _13:번째 _14:놓일 _15:수와 _16:40 _17:번째 _18:놓일 _19:수를 _20:각각 _21:A _22:와 _23:B _24:라 _25:할 _26:때, _27:B-A _28:를 _29:구하시오.
    ```
    
    ```yaml
@@ -1033,20 +1045,17 @@
 29. 5개의 수 1.4, 9/10, 1.1, 0.5, 13/10이 있습니다. 이 중에서 0.9보다 큰 수는 모두 몇 개입니까?
     
    ```text
-   _00:5 _01:개의 _02:수 _03:1.4 _04:, _05:9 _06:/ _07:10 _08:, _09:1.1 _10:, _11:0.5 _12:, _13:13 _14:/ _15:10 _16:이 _17:있습니다.
-   _18:이 _19:중에서 _20:0.9 _21:보다 _22:큰 _23:수는 _24:모두 _25:몇 _26:개입니까?
+   _00:5 _01:개의 _02:수 _03:1.4 _04:, _05:9/10 _06:, _07:1.1 _08:, _09:0.5 _10:, _11:13/10 _12:이 _13:있습니다. _14:이 _15:중에서 _16:0.9 _17:보다 _18:큰 _19:수는 _20:모두 _21:몇 _22:개입니까?
    ```
    
    ```yaml
    R00: LIST()
    R01: APPEND(R00, _03)  # [1.4]
-   R02: DIV(_05, _07)  # Tokenizer 문제 논의시 같이 논의
-   R03: APPEND(R01, R02)  # [1.4, 9/10]
-   R04: APPEND(R03, _09)  # [1.4, 9/10, 1.1]
-   R05: APPEND(R04, _11)  # [1.4, 9/10, 1.1, 0.5]
-   R06: DIV(_13, _15)
-   R07: APPEND(R05, R06)  # [1.4, 9/10, 1.1, 0.5, 13/10]
-   R08: GT(R07, _20)  # [1, 0, 1, 0, 1]
-   R09: SUM(R08)
-   R10: PRINT(R09)
+   R02: APPEND(R01, _05)  # [1.4, 9/10]
+   R03: APPEND(R02, _07)  # [1.4, 9/10, 1.1]
+   R04: APPEND(R03, _09)  # [1.4, 9/10, 1.1, 0.5]
+   R05: APPEND(R04, _11)  # [1.4, 9/10, 1.1, 0.5, 13/10]
+   R06: GT(R05, _20)  # [1, 0, 1, 0, 1]
+   R07: SUM(R06)
+   R08: PRINT(R07)
    ```
