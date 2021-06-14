@@ -1,4 +1,6 @@
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
+from common.solver.const import *
+from common.solver.types import Execution
 
 
 def python_code_to_executions(code_template: str) -> List[Execution]:
@@ -37,4 +39,16 @@ def execution_to_python_code(expression: List[Execution],
         주어진 execution 순서에 맞는 Python code string입니다.
         사람이 읽을 수 있도록 '_i' 변수명은 모두 적절한 string 값 또는 변수명으로 치환됩니다.
     """
-    pass
+    result = ""
+
+    for r_id, execution in enumerate(expression):
+        cur_opr = OPR_VALUES[execution.function] # dict()
+        cur_arg = execution.arguments # LIST[Tuple[int, int]]
+
+        result += execute_opr(cur_opr, cur_arg)
+        
+
+def execute_opr(opr : Dict[str, Any], arg : List[Tuple[int, int]]) -> str :
+    if opr[NAME] == OPR_NEW_EQN :
+        pass
+    elif 
