@@ -7,8 +7,7 @@ for idx, value in enumerate({seq}):
         int_check += 1
     else :
         int_check = 0
-        base_line = idx + 1
-    
+        base_line = idx + 1 
     if int_check == 3:
         break
 
