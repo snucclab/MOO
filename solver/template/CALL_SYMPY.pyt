@@ -18,3 +18,4 @@ for expr in {LIST}:
 
 sol_dict = sympy.solve([eval(system[0]),eval(system[1])], dict=True)
 {result} = sol_dict[0][eval(str({target}))]
+print({result}, end="")
