@@ -54,55 +54,55 @@ OPR_VALUES = [
     # 3. DONE()
     {NAME: OPR_DONE, ARITY: 0, COMMUTATIVE: True, ISVOID: False, CONVERT: None, PRECEDENCE: None},
     # 4. EQ(float, float)
-    {NAME: OPR_EQ, ARITY: 2, COMMUTATIVE: True, ISVOID: True, CONVERT: (lambda *x: NotImplementedError()),
+    {NAME: OPR_EQ, ARITY: 2, COMMUTATIVE: True, ISVOID: True, CONVERT: (lambda res, *x: {'x1':x[0], 'x2':x[1], 'result':res}),
      PRECEDENCE: 1},
     # 5. ADD(float, float)
-    {NAME: OPR_ADD, ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda *x: x[0] + x[1]),
+    {NAME: OPR_ADD, ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda res, *x: {'x1':x[0], 'x2':x[1], 'result':res}),
      PRECEDENCE: 2},
     # 6. SUB(float, float)
-    {NAME: OPR_SUB, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] - x[1]),
+    {NAME: OPR_SUB, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'x1':x[0], 'x2':x[1], 'result':res}),
      PRECEDENCE: 2},
     # 7. MUL(float, float)
-    {NAME: OPR_MUL, ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda *x: x[0] * x[1]),
+    {NAME: OPR_MUL, ARITY: 2, COMMUTATIVE: True, ISVOID: False, CONVERT: (lambda res, *x: {'x1':x[0], 'x2':x[1], 'result':res}),
      PRECEDENCE: 3},
     # 8. DIV(float,float)
-    {NAME: OPR_DIV, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] / x[1]),
+    {NAME: OPR_DIV, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'x1':x[0], 'x2':x[1], 'result':res}),
     # 9. MOD(int, int)
-    {NAME: OPR_MOD, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] / x[1]),
+    {NAME: OPR_MOD, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'x1':x[0], 'x2':x[1], 'result':res}),
      PRECEDENCE: 3},
     # 10. POW(float,float)
-    {NAME: OPR_POW, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: x[0] ** x[1]),
+    {NAME: OPR_POW, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'x1':x[0], 'x2':x[1], 'result':res}),
      PRECEDENCE: 4},
     # 11. PRINT(string_or_int_or_float)
-    {NAME: OPR_PRINT, ARITY: 1, COMMUTATIVE: True, ISVOID: True, CONVERT: (lambda *x: print(x)), PRECEDENCE: None},
+    {NAME: OPR_PRINT, ARITY: 1, COMMUTATIVE: True, ISVOID: True, CONVERT: (lambda *x: {'value':x[0]}), PRECEDENCE: None},
     # 12. SUM(List)
-    {NAME: OPR_SUM, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: sum(range(x[0],x[1],x[2]))), PRECEDENCE: None},
+    {NAME: OPR_SUM, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'lst': x[0], 'result': res}), PRECEDENCE: None},
     # 13. LIST(): create list
-    {NAME: OPR_LIST, ARITY: 0, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: list(*x)), PRECEDENCE: None},
+    {NAME: OPR_LIST, ARITY: 0, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res: {'result': res}), PRECEDENCE: None},
     # 14. APPEND(List,Any)
-    {NAME: OPR_APPEND, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_APPEND, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'lst': x[0], 'result': res}), PRECEDENCE: None},
     # 15. COMB(int,int) 
-    {NAME: OPR_COMB, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_COMB, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'n': x[0], 'k': x[1], 'result': res}), PRECEDENCE: None},
     # 16. PERM(int,int)
-    {NAME: OPR_PERM, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_PERM, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'n': x[0], 'k': x[1], 'result': res}), PRECEDENCE: None},
     # 17. MIN(List)
-    {NAME: OPR_MIN, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_MIN, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'LIST': x[0], 'result': res}), PRECEDENCE: None},
     # 18. MAX(List)
-    {NAME: OPR_MAX, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_MAX, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'LIST': x[0], 'result': res}), PRECEDENCE: None},
     # 19. RANGE(start: int, end: int, step: int)
-    {NAME: OPR_RANGE, ARITY: 3, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_RANGE, ARITY: 3, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'start': x[0], 'end': x[1], 'step': x[2], 'result': res}), PRECEDENCE: None},
     # 20. LCM(List)
-    {NAME: OPR_LCM, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_LCM, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'list': x[0], 'result': res}), PRECEDENCE: None},
     # 21. GCD(List)
-    {NAME: OPR_GCD, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_GCD, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'LIST': x[0], 'result': res}), PRECEDENCE: None},
     # 22. COUNT_MULTI(List,List): function for the 13th question
-    {NAME: OPR_COUNT_MULTI, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_COUNT_MULTI, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'ls1': x[0], 'ls2': x[1], 'result': res}), PRECEDENCE: None},
     # 23. DIGIT(int, digit: int)
-    {NAME: OPR_DIGIT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_DIGIT, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda *x: {'x1': x[0], 'digit':x[1]}), PRECEDENCE: None},
     # 24. TO_INT(float)
-    {NAME: OPR_TO_INT, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
-    # 25. CALL_SYMPY(List)
-    {NAME: OPR_CALL_SYMPY, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
+    {NAME: OPR_TO_INT, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'x1': x[0], 'result': res}), PRECEDENCE: None},
+    # 25. CALL_SYMPY(List, target: str)
+    {NAME: OPR_CALL_SYMPY, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'LIST': x[0], 'target': x[1], 'result': res}), PRECEDENCE: None},
     # 26. REVERSE_DIGIT(int)
     {NAME: OPR_REVERSE_DIGIT, ARITY: 1, COMMUTATIVE: False, ISVOID: False, CONVERT: None, PRECEDENCE: None},
     # 27. SEQ_TERM(List, int)
