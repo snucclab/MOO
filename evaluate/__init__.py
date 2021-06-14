@@ -76,14 +76,15 @@ class Executor(object):
         self.solver_process = None
         self.to_solver = None
         self.from_solver = None
-        self._start_process()
 
-        if environ['DEBUG']:
+        if environ.get('DEBUG', False):
             from logging import Logger, INFO
             self._debug_logger = Logger('CodeExec', INFO)
             self._debug = True
         else:
             self._debug = False
+
+        self._start_process()
 
     def _start_process(self):
         """

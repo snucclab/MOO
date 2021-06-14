@@ -7,6 +7,19 @@ from .key import *
 from common.model.types import Text, Expression
 from common.solver.types import Execution
 from common.solver.const import CON_MAX, OPR_VALUES
+from ..model.const import PAD_ID
+
+
+def _remove_special_prefix(token: str) -> str:
+    # Handle different kind of spacing prefixes...
+    from transformers import SPIECE_UNDERLINE
+    if token == SPIECE_UNDERLINE:
+        return ' '
+    if token.startswith(SPIECE_UNDERLINE):
+        return token[len(SPIECE_UNDERLINE):]
+    if token.startswith('##'):
+        return token[2:]
+    return token
 
 
 def tokenize_string(text: str) -> List[str]:
@@ -47,22 +60,6 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
             WORD: word
         })
 
-    # 단어 목록 앞뒤로 [CLS], [SEP] 지정
-    word_info.insert(0, {
-        IS_NUM: False,
-        IS_VAR: False,
-        IS_PROP: False,
-        VALUE: tokenizer.cls_token,
-        WORD: tokenizer.cls_token
-    })
-    word_info.append({
-        IS_NUM: False,
-        IS_VAR: False,
-        IS_PROP: False,
-        VALUE: tokenizer.sep_token,
-        WORD: tokenizer.sep_token
-    })
-
     # 토큰화
     text_encoded = tokenizer.encode(text, truncation=True)
     text_tokens = tokenizer.convert_ids_to_tokens(text_encoded)
@@ -70,14 +67,26 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
     # 단어 위치 구성
     word_indexes = []
     word_counter = -1
+    string_left = ' ' + text
     for token in text_tokens:
-        if not token.startswith('##'):
-            word_counter += 1
+        if token in tokenizer.all_special_tokens:
+            word_indexes.append(PAD_ID)
+        else:
+            # Find whether this is the beginning of the word.
+            # We don't use SPIECE_UNDERLINE or ## because ELECTRA separates comma or decimal point...
+            if string_left[0].isspace():
+                word_counter += 1
+                string_left = string_left[1:]
 
-        word_indexes.append(word_counter)
+            token_string = _remove_special_prefix(token)
+            assert string_left.startswith(token_string)
+            string_left = string_left[len(token_string):]
+
+            word_indexes.append(word_counter)
 
     # 단어 개수 일치여부 확인
-    assert max(word_indexes) == len(word_info) - 1
+    assert max(word_indexes) == len(word_info) - 1, \
+        'Max index  %s != Word count %s' % (max(word_indexes), len(word_info))
 
     # Text kwargs 반환
     return Text(tokens=torch.tensor([text_encoded], dtype=torch.long),

@@ -2,7 +2,7 @@
 
 # Encoder configurations
 MDL_ENCODER = 'encoder'
-DEF_ENCODER = 'google/electra-base-discriminator'
+DEF_ENCODER = 'monologg/koelectra-base-v3-discriminator'
 
 # Decoder configurations
 MDL_DECODER = 'decoder'

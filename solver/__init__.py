@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List, Dict, Any, Tuple
 from common.solver.const import *
 from common.solver.types import Execution
@@ -5,7 +6,9 @@ import math
 import itertools
 import re
 
-_ROOT_PATH = Path(__file__).parent
+
+_SOLVER_ROOT_PATH = Path(__file__).parent
+
 
 def python_code_to_executions(code_template: str) -> List[Execution]:
     """
@@ -137,7 +140,7 @@ def _exec_template(name: str, template: str, result: str, _locals=None, **kwargs
 
 
 def _load_pyt(name: str):
-    path = _ROOT_PATH / 'template' / (name + '.pyt')
+    path = _SOLVER_ROOT_PATH / 'template' / (name + '.pyt')
     with path.open('r+t', encoding='UTF-8') as fp:
         lines = fp.readlines()
 

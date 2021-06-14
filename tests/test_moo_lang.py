@@ -686,3 +686,18 @@ def test_CEIL():
                                         **converter(random.choice(_RESULT_NAME), 'n'))
         assert result == _exec_template(template,
                                         **converter(random.choice(_RESULT_NAME), number))
+
+
+def test_LIST_MUL():
+    template = _load_pyt(OPR_LIST_MUL)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_MUL)][CONVERT]
+
+    for _ in range(10000):
+        items = [random.random() * 100 for _ in range(random.randint(0, 200))]
+        multiple = random.randint(1, 10)
+
+        result = items * multiple
+        assert result == _exec_template(template, _locals=dict(items=items, n=multiple),
+                                        **converter(random.choice(_RESULT_NAME), 'items', 'n'))
+        assert result == _exec_template(template, _locals=dict(items=items),
+                                        **converter(random.choice(_RESULT_NAME), 'items', multiple))
