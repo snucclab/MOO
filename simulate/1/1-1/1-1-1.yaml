@@ -1,0 +1,20 @@
+- problem:
+  <person.0>이 <place.0>에 있는 <stationary.0> 안에 <num.0><count.0>의 <clothes.0>가 있습니다.
+  <person.0>이가 <num.1><count.0>의 <clothes.0>를 선물받아 <stationary.0> 안에 정리하여 넣었습니다.
+  <stationary.0> 안에 총 몇 <count.0>의 <clothes.0>가 있습니까?
+
+- variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    value: 0
+    type: int
+  num.1:
+    range: [ 1, 50 ]
+    under-decimal: 0
+    value: 0
+    type: int
+
+- equations:
+    R0: ADD(<num.0>, <num.1>)
+    R1: PRINT(R00)
