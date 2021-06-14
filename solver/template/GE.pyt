@@ -1,1 +1,6 @@
-{result} = list(map(lambda x : 1 if x >= {x1}  else 0, {ls1})) 
+{result} = []
+for i in {ls1}:
+    if i >= {x1}:
+        {result}.append(1)
+    else:
+        {result}.append(0)

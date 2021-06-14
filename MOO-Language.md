@@ -390,10 +390,10 @@
 29. MAKE_PAIR
 
     ```python
-    MAKE_PAIR(x1: str, x2:Union[str, int]) -> List
+    MAKE_PAIR(x1: str, x2:Union[str, int]) -> Tuple
     1) 목적/변화: string 값에 대해 값을 쌍으로 묶어준다
     2) 인수값: string과 int의 쌍 또는 string과 string의 쌍
-    3) 반환값: list
+    3) 반환값: Tuple
     4) 예시:
       4-1) string과 int pair
       R0: MAKE_PAIR("윤기", 4)
