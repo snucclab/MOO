@@ -45,6 +45,7 @@ OPR_LIST_CONCAT = 'LIST_CONCAT'
 OPR_LIST_INDEX = 'LIST_INDEX'
 OPR_LIST_REPLACE = 'LIST_REPLACE'
 OPR_CEIL = 'CEIL'
+OPR_LIST_MUL = 'LIST_MUL'
 
 OPR_VALUES = [
     # 1. NEW_EQN()
@@ -158,6 +159,8 @@ OPR_VALUES = [
     # 38. CEIL(UNION[int, float]) -> int
     {NAME: OPR_CEIL, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
      CONVERT: (lambda res, *x: {'x1': x[0], 'result': res}), PRECEDENCE: None}
+    # 39. LIST_MUL(lst: List[Any], n: int) -> List[Any]
+    {NAME: LIST_MUL, ARITY: 2, COMMUTATIVE: False, ISVOID: False, CONVERT: (lambda res, *x: {'lst': x[0], 'n': x[1], 'result': res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
