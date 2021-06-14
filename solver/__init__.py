@@ -1,7 +1,10 @@
 from typing import List, Dict, Any, Tuple
 from common.solver.const import *
 from common.solver.types import Execution
+import math
+import itertools
 
+_ROOT_PATH = Path(__file__).parent
 
 def python_code_to_executions(code_template: str) -> List[Execution]:
     """
@@ -40,15 +43,63 @@ def execution_to_python_code(expression: List[Execution],
         사람이 읽을 수 있도록 '_i' 변수명은 모두 적절한 string 값 또는 변수명으로 치환됩니다.
     """
     result = ""
+    op_count = 0    # 연산 순서
 
     for r_id, execution in enumerate(expression):
         cur_opr = OPR_VALUES[execution.function] # dict()
         cur_arg = execution.arguments # LIST[Tuple[int, int]]
 
-        result += execute_opr(cur_opr, cur_arg)
+        if opr[NAME] == OPR_NEW_EQN :
+            result = ""
+            op_count = 0
+        elif opr[NAME] == OPR_DONE :
+            break
+        result += intprt_opr(cur_opr, cur_arg, word_mappings, op_count)
+        result += '\n'
+    
+    return result
         
 
-def execute_opr(opr : Dict[str, Any], arg : List[Tuple[int, int]]) -> str :
-    if opr[NAME] == OPR_NEW_EQN :
-        pass
-    elif 
+def intprt_opr(opr : Dict[str, Any], args : List[Tuple[int, int]], word_mappings: List[Dict[str, Any]], op_count: int) -> str :
+    code = ""
+    # opr에 해당하는 template 가져와서 식 생성
+    code = _load_pyt(OPR_EQ)
+    # code = _load_pyt(opr[NAME])
+    # code.format(key=str)
+    keys = []
+    for arg in args:
+        if arg[0] == 2:
+            # 이전 연산 결과 참조
+            keys.append('R'+str(arg[1]))
+        elif arg[0] == 1:
+            # 인덱스에 해당하는 숫자 값 가져오기
+            keys.append(word_mappings[args[1]][VALUE])
+        else:
+            # arg[0]이 0인 경우, constant 상수 값
+            keys.append('0')
+    # template = _load_pyt(OPR_EQ)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_EQ)][CONVERT]
+    
+    _exec_template(template, **converter("res", *keys))
+    # _exec_template(template, **converter(result, arg1, arg2))
+
+def _exec_template(template: str, result: str, _locals=None, **kwargs):
+    _global = {}
+    _global['math'] = math
+    _global['itertools'] = itertools
+
+    _locals = _locals if _locals is not None else {}
+    _code = template.format(**kwargs, result=result)
+
+    exec(_code, _global, _locals)
+    return _locals.get(result, None)
+
+
+def _load_pyt(name: str):
+    path = _ROOT_PATH / 'template' / (name + '.pyt')
+    with path.open('r+t', encoding='UTF-8') as fp:
+        lines = fp.readlines()
+
+    lines = ''.join(lines)
+
+    return lines
