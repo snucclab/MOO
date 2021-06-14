@@ -15,6 +15,7 @@ from evaluate import Executor
 
 _ROOT_PATH = Path(__file__).parent.parent
 _NUMBERING = re.compile('^\\d+\\.')
+_OPERATION_ONLY = re.compile('^R\\d+:\s*([^#]+)(?:#.*)?')
 
 
 @pytest.fixture(scope="session")
@@ -61,6 +62,7 @@ def test_solver_conversion(executor, tokenizer):
                 if line == '```':
                     code_begin = False
                 else:
+                    line = _OPERATION_ONLY.sub('\\1', line).strip()
                     code_templates[-1].append(line)
             else:
                 if _NUMBERING.match(line) is not None:
