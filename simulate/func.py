@@ -97,3 +97,29 @@ def errorpair(digits: int):
     return int(orig), int(err)
 
 print(errorpair(3))
+
+def make_unk_pair(mode: str, num: int):
+    unk = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+           'W', 'X', 'Y', 'Z']
+    b = random.randrange(1, 99)
+    a = b*num
+    plus = a+b
+    minus = a-b
+    if mode == 'plus':
+        unk_1 = unk.pop(unk.index(random.choice(unk)))
+        unk_2 = unk.pop(unk.index(random.choice(unk)))
+        txt_1 = unk_1+'+'+unk_2+'='+str(plus)
+        txt_2 = unk_1+'='+unk_2
+        for i in range(num-1):
+            txt_2 += '+'+unk_2
+        return txt_1, txt_2
+    if mode == 'minus':
+        unk_1 = unk.pop(unk.index(random.choice(unk)))
+        unk_2 = unk.pop(unk.index(random.choice(unk)))
+        txt_1 = unk_1 + '-' + unk_2 + '=' + str(minus)
+        txt_2 = unk_1 + '=' + unk_2
+        for i in range(num - 1):
+            txt_2 += '+' + unk_2
+        return txt_1, txt_2
+
+print(make_unk_pair('minus', 5))
