@@ -799,8 +799,6 @@
    ```
    
    ```yaml
-   # Tokenization 재논의 필요.. 식을 다 분해할 것인가 안할 것인가..
-   # 일단 Tokenize한 상태에서 식 작성한 버전
    R00: LIST()
    R01: APPEND(R00, _07)
    R02: APPEND(R00, _09)
