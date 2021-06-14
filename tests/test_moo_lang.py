@@ -450,41 +450,43 @@ def test_SEQ_TERM():
 
         last = diff_sequence[-1]
         diff_sequence = diff_sequence[:samples]
-        assert last == _exec_template(template, _locals=dict(samples=diff_sequence, n=n),
-                                      **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-        assert last == _exec_template(template, _locals=dict(samples=diff_sequence),
-                                      **converter(random.choice(_RESULT_NAME), 'samples', n))
+        assert abs(last - _exec_template(template, _locals=dict(samples=diff_sequence, n=n),
+                                         **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
+        assert abs(last - _exec_template(template, _locals=dict(samples=diff_sequence),
+                                         **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
         # 등차 빈칸
         if samples > 5:
-            n_replace = random.randint(0, samples)
+            n_replace = random.randint(0, samples - 1)
             sequence = diff_sequence.copy()
             answer = sequence[n_replace]
             sequence[n_replace] = 'A'
-            assert answer == _exec_template(template, _locals=dict(samples=sequence, n=n_replace + 1),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-            assert answer == _exec_template(template, _locals=dict(samples=sequence),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', n_replace + 1))
+            assert abs(answer - _exec_template(template, _locals=dict(samples=sequence, n=n_replace + 1),
+                                               **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
+            assert abs(answer - _exec_template(template, _locals=dict(samples=sequence),
+                                               **converter(random.choice(_RESULT_NAME), 'samples',
+                                                           n_replace + 1))) < 1E-5
 
         # 계차수열
         diff_sequence = [0] + diff_sequence[:-1]
         acc_seqeunce = list(itertools.accumulate(diff_sequence, lambda x, y: x + y))
         base = random.randint(0, 10000) / 100
         sequence = [base + x for x in acc_seqeunce]
-        assert sequence[-1] == _exec_template(template, _locals=dict(samples=sequence[:samples], n=n),
-                                              **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-        assert sequence[-1] == _exec_template(template, _locals=dict(samples=sequence[:samples]),
-                                              **converter(random.choice(_RESULT_NAME), 'samples', n))
+        assert abs(sequence[-1] - _exec_template(template, _locals=dict(samples=sequence[:samples], n=n),
+                                                 **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
+        assert abs(sequence[-1] - _exec_template(template, _locals=dict(samples=sequence[:samples]),
+                                                 **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
         # 계차 빈칸
         if samples > 5:
             n_replace = random.randint(0, samples)
             answer = sequence[n_replace]
             sequence[n_replace] = 'A'
-            assert answer == _exec_template(template, _locals=dict(samples=sequence, n=n_replace + 1),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-            assert answer == _exec_template(template, _locals=dict(samples=sequence),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', n_replace + 1))
+            assert abs(answer - _exec_template(template, _locals=dict(samples=sequence, n=n_replace + 1),
+                                               **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
+            assert abs(answer - _exec_template(template, _locals=dict(samples=sequence),
+                                               **converter(random.choice(_RESULT_NAME), 'samples',
+                                                           n_replace + 1))) < 1E-5
 
 
 def test_REP_SEQ_TERM():
@@ -499,24 +501,25 @@ def test_REP_SEQ_TERM():
 
         # 반복 수열
         answer = sample_seq[(n - 1) % len(sample_seq)]
-        assert answer == _exec_template(template, _locals=dict(samples=sample_seq, n=n),
-                                        **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-        assert answer == _exec_template(template, _locals=dict(samples=sample_seq),
-                                        **converter(random.choice(_RESULT_NAME), 'samples', n))
+        assert abs(answer - _exec_template(template, _locals=dict(samples=sample_seq, n=n),
+                                           **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
+        assert abs(answer - _exec_template(template, _locals=dict(samples=sample_seq),
+                                           **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
         if samples > 5:
             # 반복 빈칸
             n_replace = random.randint(0, samples * 2 - 1)
             answer_replace = sample_seq[n_replace]
             sample_seq[n_replace] = 'A'
-            assert answer_replace == _exec_template(template, _locals=dict(samples=sample_seq, n=n_replace + 1),
-                                                    **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-            assert answer_replace == _exec_template(template, _locals=dict(samples=sample_seq),
-                                                    **converter(random.choice(_RESULT_NAME), 'samples', n_replace + 1))
-            assert answer == _exec_template(template, _locals=dict(samples=sample_seq, n=n),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
-            assert answer == _exec_template(template, _locals=dict(samples=sample_seq),
-                                            **converter(random.choice(_RESULT_NAME), 'samples', n))
+            assert abs(answer_replace - _exec_template(template, _locals=dict(samples=sample_seq, n=n_replace + 1),
+                                                       **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
+            assert abs(answer_replace - _exec_template(template, _locals=dict(samples=sample_seq),
+                                                       **converter(random.choice(_RESULT_NAME), 'samples',
+                                                                   n_replace + 1))) < 1E-5
+            assert abs(answer - _exec_template(template, _locals=dict(samples=sample_seq, n=n),
+                                               **converter(random.choice(_RESULT_NAME), 'samples', 'n'))) < 1E-5
+            assert abs(answer - _exec_template(template, _locals=dict(samples=sample_seq),
+                                               **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
 
 def test_MAKE_PAIR():
