@@ -1,4 +1,4 @@
-if type({LIST}[0]) == list:
+if type({LIST}[0]) == tuple:
     max_name = {LIST}[0][0]
     max_val = {LIST}[0][1]
     for i in range(1,len({LIST})):
