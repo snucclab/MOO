@@ -65,7 +65,7 @@
     R0: DIV(8,4)
     ```
 
-8. MOD
+9. MOD
 
     ```python
     MOD(x1: int, x2: int) -> int
@@ -77,7 +77,7 @@
     ```
 
 
-9. POW
+10. POW
 
     ```python
     POW(x1: float, x2: float) -> float
@@ -88,7 +88,7 @@
     R0: POW(2, 4)
     ```
 
-10. PRINT
+11. PRINT
 
     ```python
     PRINT(value: Union[float, int, str])
@@ -100,7 +100,7 @@
     R1: PRINT(R0)
     ```
 
-11. SUM
+12. SUM
 
     ```python
     SUM(ls1: List[float]) -> float
@@ -117,7 +117,7 @@
       R6: SUM(ls)       
     ```
 
-12. LIST
+13. LIST
 
     ```python
     LIST()  
@@ -128,10 +128,10 @@
         R0: LIST()
     ```
 
-13. APPEND
+14. APPEND
 
     ```python
-    APPEND(ls1: List[Any], x1: Union[str,int,float,List[...]) -> List[Any]
+    APPEND(ls1: List[Any], x1: Any) -> List[Any]
     1) 목적/변화: 리스트 속에 정수, 실수, 문자열을 추가함. 리스트 속에 리스트가 들어갈 수 있음.
     2) 인수값: 정수, 실수, 문자열, 다른 리스트
     3) 반환값: 정수, 실수, 문자열, 다른 리스트가 들어있는 리스트
@@ -150,7 +150,7 @@
             R2: APPEND(R1, '(나)')
     ```
 
-14. COMB
+15. COMB
 
     ```python
     COMB(n: int, k:int) -> int
@@ -167,7 +167,7 @@
     5) 제한 조건: n >= k (선택 할 수 있는 총 개수보다 선택할 수가 더 클 수 없다)
     ```
 
-15. PERM
+16. PERM
 
     ```python
     PERM(n: int, k:int) -> int
@@ -184,7 +184,7 @@
     5) 제한 조건: n >= k 
     ```
 
-16. MIN
+17. MIN
 
     ```python
     MIN(ls1: List[Union[int,float]]) -> Union[int,float]
@@ -202,7 +202,7 @@
     5) 제한 조건: 문자열 리스트에는 사용할 수 없는 함수이다
     ```
 
-17. MAX
+18. MAX
 
     ```python
     MAX(ls1: List[Union[int,float]]) -> Union[int,float]
@@ -220,7 +220,7 @@
     5) 제한 조건: 문자열 리스트에는 사용할 수 없는 함수이다
     ```
 
-18. RANGE
+19. RANGE
 
     ```python
     RANGE(start: int, end: int, step: int) -> List[int] 
@@ -239,7 +239,7 @@
     5) 제한 조건: 시작값과 끝값도 마찬가지만, step값도 무조건 입력해야 한다.
     ```
 
-19. LCM
+20. LCM
 
     ```python
     LCM(ls1: List[int]) -> int
@@ -255,7 +255,7 @@
     5) 제한 조건: 문자열, 실수형 리스트에는 사용할 수 없는 함수이다
     ```
 
-20. GCD
+21. GCD
 
     ```python
     GCD(ls1: List[int]) -> int
@@ -271,7 +271,7 @@
     5) 제한 조건: 문자열, 실수형 리스트에는 사용할 수 없는 함수이다
     ```
 
-21. COUNT_MULTI
+22. COUNT_MULTI
 
     ```python
     COUNT_MULTI(ls1: List[int], ls2: List[int]) ->  int
@@ -296,7 +296,7 @@
     등등
     ```
 
-22. DIGIT
+23. DIGIT
 
     ```python
     DIGIT(x1: int, digit: int) -> int 
@@ -312,7 +312,7 @@
     5) 제한 조건: x는 한 자리수의 정수다,(1~9) 절대로 다른 정수를 입력값으로 넣지 않는다.
     ```
 
-23. TO_INT
+24. TO_INT
 
     ```python
     TO_INT(x1: float) -> int
@@ -323,7 +323,7 @@
      R0: TO_INT(3.0) = 3
     ```
 
-24. CALL_SYMPY
+25. CALL_SYMPY
 
     ```python
     CALL_SYMPY(prob: List, target: Any) -> Union[int, float] 
@@ -339,7 +339,7 @@
      R3: CALL_SYMPY(R2, 'A')
     ```
 
-25. REVERSE_DIGIT
+26. REVERSE_DIGIT
 
     ```python
     REVERSE_DIGIT(x1: int) -> int
@@ -350,7 +350,7 @@
       R0: REVERSE_DIGIT(345)      (= 543)
     ```
 
-26. SEQ_TERM
+27. SEQ_TERM
 
     ```python
     SEQ_TERM(seq: List, index: int) -> Union[int, float]
@@ -367,11 +367,11 @@
       R4: SEQ_TERM(R3, 10)
     ```
 
-27. REP_SEQ_TERM
+28. REP_SEQ_TERM
 
     ```python
     REP_SEQ_TERM(seq: List, index: int) -> Union[int, float]
-    1) 목적/변화: 등차수열또는 계차수열을 입력받아 n번째 인덱스에 해당하는 값을 알아내는 함수
+    1) 목적/변화: 반복되는 수열을 입력받아 n번째 인덱스에 해당하는 값을 알아내는 함수(이때 입력받는 수열은 두 번 반복되는 수열이다)
     2) 인수값:
       sequence : 수열의 리스트
       n : 몇 번째 값을 가져올 지
@@ -387,7 +387,7 @@
       R7: REP_SEQ_TERM(R6, 10)
     ```
 
-28. MAKE_PAIR
+29. MAKE_PAIR
 
     ```python
     MAKE_PAIR(x1: str, x2:Union[str, int]) -> List
@@ -401,7 +401,7 @@
       R0: MAKE_PAIR("가", "나")
     ```
 
-29. COUNT
+30. COUNT
 
     ```python
     COUNT(ls1: List) -> int
@@ -416,7 +416,7 @@
       R4: COUNT(R3)           (= 3)
     ```
 
-30. LT
+31. LT
 
     ```python
     LT(ls1 : List, x1: int)
@@ -436,7 +436,7 @@
       R7: LT(R6, 4)  (= [1,1,1,0,0,0])
     ```
 
-31. LE
+32. LE
 
     ```python
     LE(ls1: List, x1: int)
@@ -456,7 +456,7 @@
       R7: LE(R6, 4)  (= [1,1,1,1,0,0])
     ```
 
-32. GT
+33. GT
 
     ```python
     GT(ls1: List, x1: int)
@@ -476,7 +476,7 @@
       R7: GT(R6, 4)  (= [0,0,0,0,1,1])
     ```
 
-33. GE
+34. GE
 
     ```python
     GE(ls1: List, x1: int)
@@ -496,7 +496,7 @@
       R7: GE(R6, 4)      (= [0,0,0,1,1,1])
     ```
 
-34. LIST_CONCAT
+35. LIST_CONCAT
 
     ```python
     LIST_CONCAT(ls1: List[Any], ls2: List[Any]) -> List[Any]
@@ -516,7 +516,7 @@
     5) 제한 조건: 리스트는 꼭 원하는 순서에 맞춰서 인수로 줘야한다
     ```
 
-35. LIST_INDEX
+36. LIST_INDEX
 
     ```python
     LIST_INDEX(ls1: List[Union[int,float,str]],item: Union[str, int, float]) -> int
@@ -534,7 +534,7 @@
         R7: LIST_INDEX(R6, 3)
     ```
 
-36. LIST_REPLACE
+37. LIST_REPLACE
 
     ```python
     LIST_REPLACE(ls1: List[Union[int,float,str]], index: int, item: Union[int,float,str]) -> List[Union[int,float,str]]
@@ -549,6 +549,17 @@
         R4: LIST_REPLACE(R3, 2, 4)        (=[1,2,4])
     5) 제한 조건: 리스트 안의 항목은 타입이 모두 통일되어야 한다.
     (정수형이면 정수만, 실수형이면 실수만, 문자열이면 문자열)
+    ```
+
+38. CEIL
+
+    ```python
+    CEIL(x1: Union[int,float]) -> int
+    1) 목적/변화: 입력된 실수를 올림한다.
+    2) 인수값: 실수 (혹은 정수)
+    3) 반환값: 정수
+    4) 예시:
+        R0: CEIL(5.5)     (= 6)
     ```
 
 ## Examples
