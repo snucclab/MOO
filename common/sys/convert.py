@@ -41,11 +41,14 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
     word_info = []
     for word in words:
         number = NUMBER_BEGIN_PATTERN.fullmatch(word)
+        fraction = FRACTION_BEGIN_PATTERN.fullmatch(word)
         variable = VARIABLE_BEGIN_PATTERN.fullmatch(word)
         proper = PROPER_BEGIN_PATTERN.fullmatch(word)
 
         if number is not None:
             value = number.group(1).replace(',', '')
+        elif number is not None:
+            value = fraction.group(1).replace(',', '')
         elif variable is not None:
             value = variable.group(1)
         else:
@@ -53,7 +56,7 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
             value = PAREN_PATTERN.sub(value, '')
 
         word_info.append({
-            IS_NUM: number is not None,
+            IS_NUM: number is not None or fraction is not None,
             IS_VAR: variable is not None,
             IS_PROP: proper is not None,
             VALUE: value,

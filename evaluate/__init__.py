@@ -56,6 +56,7 @@ def _execute_code(recv: Queue, send: Queue):
                     result_key = matched.group(1)
                     result_code = _locals[matched.group(2)]
                     code = re.sub(CODE_REPLACEMENT_PATTERN.format(key=result_key), result_code, code)
+                    print(code)
 
             # Evaluate the code
             _stdout = StringIO()

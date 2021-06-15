@@ -16,3 +16,4 @@ SPACING_PATTERN = re.compile('((?:%s|%s|%s|%s)+)' % (VARIABLE_PATTERN.pattern[1:
 PROPER_BEGIN_PATTERN = re.compile('^' + PROPERNOUN_PATTERN.pattern)
 VARIABLE_BEGIN_PATTERN = re.compile('^' + VARIABLE_PATTERN.pattern)
 NUMBER_BEGIN_PATTERN = re.compile('^' + NUMBER_PATTERN.pattern)
+FRACTION_BEGIN_PATTERN = re.compile('^' + FRACTION_PATTERN.pattern)

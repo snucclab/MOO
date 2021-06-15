@@ -32,6 +32,7 @@ def _convert_and_run(moo_code: str, text: str, expected: str,
     adjusted, answer = executor.run(pycode)
 
     assert expected == answer
+    assert '##@@@@' not in adjusted
 
 
 def test_solver_conversion(executor, tokenizer):
