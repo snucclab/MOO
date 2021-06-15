@@ -1,28 +1,15 @@
-{result} = 0
-
-base_line = 0
-int_check = 0
+##@@@@ CODE-REPLACEMENT: {result} by {result}_pycode ##
+data_points = []
 for idx, value in enumerate({seq}):
     if isinstance(value, (int, float)):
-        int_check += 1
-    else :
-        int_check = 0
-        base_line = idx + 1 
-    if int_check == 3:
-        break
+        data_points.append((idx+1, value))
 
-diff_1 = {seq}[base_line+1] - {seq}[base_line]
-diff_2 = {seq}[base_line+2] - {seq}[base_line + 1]
-diff = diff_2 - diff_1
-
-if {index} != 0: 
-    if abs(diff) > 1E-5: 
-        {result} = {seq}[0] + int(diff * {index}*({index} -1) / 2) 
-    else: 
-        {result} = {seq}[0] + diff_1 * ({index} - 1)
-else : 
-    if abs(diff) > 1E-5:
-        {result} = {seq}[1] - (diff_1 - diff)
-    else:
-        {result} = {seq}[1] - diff_1
-
+symbol = sympy.Symbol('n', real=True)
+general_term = sympy.polys.polyfuncs.interpolate(data_points, symbol)
+{result}_pycode = str(general_term).replace('n', str({index}))
+_result = general_term.subs({{symbol: {index} }})
+if _result.is_integer:
+    {result} = int(_result)
+else:
+    {result} = float(_result)
+## CODE-REPLACEMENT END for {result} @@@@##
