@@ -58,11 +58,12 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
 
         ex_arg = []
         for arg in temp[1:]:
+            arg_strip = arg.strip()
             if '_' in arg:
-                index = int(arg.strip('_'))
+                index = arg_strip.strip('_')
                 ex_arg.append((1, int(index)))
             elif 'R' in arg:
-                index = int(arg.strip('R'))
+                index = arg.strip('R')
                 ex_arg.append((1, int(index)))
             else:
                 # TODO: 두번째 인자에 사전 정의된 상수 index 넣기
