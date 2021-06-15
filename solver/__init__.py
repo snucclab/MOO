@@ -115,9 +115,10 @@ def execution_to_python_code(expression: List[Execution],
             return result
 
         result += str(intprt_opr(cur_opr, cur_arg, word_mappings, op_count))
+        result += '\n'
         op_count += 1
-        print(result)
 
+    print(result)
     return result
     # raise DoneNotFoundError()
 
