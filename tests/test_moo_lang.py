@@ -1,13 +1,13 @@
-from io import StringIO
-from contextlib import redirect_stdout
-
-import pytest
-import random
-import math
 import itertools
+import math
+import random
 import re
-import sympy
+from contextlib import redirect_stdout
+from io import StringIO
 from pathlib import Path
+
+import sympy
+
 from common.solver.const import *
 
 _ROOT_PATH = Path(__file__).parent.parent
@@ -497,6 +497,18 @@ def test_REP_SEQ_TERM():
             assert abs(answer - _exec_template(template, _locals=dict(samples=sample_seq),
                                                **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
+    boxes = list('가나다라마바사아자차카타파하')
+    for _ in range(500):
+        sample_seq = random.sample(boxes, random.randint(4, 10))
+        n = random.randint(50, 1000)
+
+        # 반복 수열
+        answer = sample_seq[(n - 1) % len(sample_seq)]
+        assert answer == _exec_template(template, _locals=dict(samples=sample_seq, n=n),
+                                        **converter(random.choice(_RESULT_NAME), 'samples', 'n'))
+        assert answer == _exec_template(template, _locals=dict(samples=sample_seq),
+                                        **converter(random.choice(_RESULT_NAME), 'samples', n))
+
 
 def test_MAKE_PAIR():
     template = _load_pyt(OPR_MAKE_PAIR)
@@ -689,7 +701,7 @@ def test_CALL_SYMPY():
         digits = random.randint(2, 5)
         a = random.randint(10 ** (digits - 1), 10 ** digits - 1)
         b = random.randint(10 ** (digits - 1), 10 ** digits - 1)
-        abc = [list(str(a)), list(str(b)), list(str(a+b))]
+        abc = [list(str(a)), list(str(b)), list(str(a + b))]
 
         expected = {}
         for d in range(1, digits + 1):
@@ -725,7 +737,7 @@ def test_CALL_SYMPY():
         variables = [random.randint(0, 100) / 4 for _ in range(arguments)]
         keys = [chr(ord('U') + d - 1) for d in range(arguments)]
         equations = [[random.randint(-100, 100) / 4 for _ in range(arguments)]
-                      for _ in range(arguments)]
+                     for _ in range(arguments)]
 
         eq_built = []
         for eq in equations:

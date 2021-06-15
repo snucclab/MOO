@@ -24,15 +24,17 @@ def tokenizer():
     yield tokenizer
 
 
-def _convert_and_run(moo_code: str, text: str, expected: str,
+def _convert_and_run(index: int, moo_code: str, text: str, expected: str,
                      executor: Executor, tokenizer = None):
     text = string_to_text_instance(text, tokenizer=tokenizer)
     executions = python_code_to_executions(moo_code)
     pycode = execution_to_python_code(executions, text.word_info[0], indent=4)
     adjusted, answer = executor.run(pycode)
 
-    assert expected == answer
-    assert '##@@@@' not in adjusted
+    assert expected == answer, \
+        '정답 불일치: %s번 문제의 정답은 "%s", 하지만 계산된 답은 "%s"입니다.' % (index + 1, expected, answer)
+    assert '##@@@@' not in adjusted, \
+        '코드에서 사라져야 하는 부분이 사라지지 않았습니다! (%s번 문제)' % (index + 1)
 
 
 def test_solver_conversion(executor, tokenizer):
@@ -71,4 +73,4 @@ def test_solver_conversion(executor, tokenizer):
 
     for i, (prob, code, expected) in enumerate(zip(problems, code_templates, answers)):
         code = '\n'.join(code)
-        _convert_and_run(code, prob, expected, executor, tokenizer)
+        _convert_and_run(i, code, prob, expected, executor, tokenizer)

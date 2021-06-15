@@ -9,7 +9,7 @@ from typing import Tuple
 
 AVAILABLE_MODULES = ['math', 'itertools']
 REPLACEMENT_HEADER_PATTERN = re.compile('##@@@@ CODE-REPLACEMENT: ([A-Za-z0-9_]+) by ([A-Za-z0-9_]+) ##')
-CODE_REPLACEMENT_PATTERN = '##@@@@ CODE-REPLACEMENT: {key} [^@]* ## CODE-REPLACEMENT END for {key} @@@@##'
+CODE_REPLACEMENT_PATTERN = '##@@@@ CODE-REPLACEMENT: {key} [^@]* CODE-REPLACEMENT END for {key} @@@@##'
 
 
 def _execute_code(recv: Queue, send: Queue):
@@ -43,20 +43,20 @@ def _execute_code(recv: Queue, send: Queue):
             break
 
         try:
-            print('HERE!!!!', code)
             if '##@@@@' in code:
                 # Evaluate the code with sympy first
                 _locals = {}
                 exec(code, _global_with_sympy, _locals)
 
                 while True:
-                    matched = REPLACEMENT_HEADER_PATTERN.match(code)
+                    matched = REPLACEMENT_HEADER_PATTERN.search(code)
                     if matched is None:
                         break
 
                     result_key = matched.group(1)
                     result_code = _locals[matched.group(2)]
-                    code = re.sub(CODE_REPLACEMENT_PATTERN.format(key=result_key), result_code, code)
+                    code = re.sub(CODE_REPLACEMENT_PATTERN.format(key=result_key), result_code, code,
+                                  flags=re.MULTILINE)
 
             # Evaluate the code
             _stdout = StringIO()
