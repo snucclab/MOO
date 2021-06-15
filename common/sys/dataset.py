@@ -127,7 +127,7 @@ class Dataset:
         self._vocab_size = len(self._tokenizer)
         with Path(self._path).open('r+t', encoding='UTF-8') as fp:
             items = [Example.from_dict(item, self._tokenizer)
-                     for item in load(fp)]
+                     for item in load(fp).values()]
 
         # Cache dataset and vocabulary.
         save({
