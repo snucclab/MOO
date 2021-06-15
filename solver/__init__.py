@@ -74,7 +74,10 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
                 ex_args.append((2, int(index)))
             else:
                 # TODO: 두번째 인자에 사전 정의된 상수 index 넣기
-                ex_args.append((0, str(arg)))
+                # CON_TOKENS.index(str(arg))
+                print(str(arg_strip))
+                print(CON_TOKENS.index(str(arg_strip)))
+                ex_args.append((0, CON_TOKENS.index(str(arg_strip))))
 
         #print("ex_func_idx ", str(ex_func_idx), "ex_args ", len(ex_args), "arity ", OPR_VALUES[ex_func_idx][ARITY])
         execution = Execution(ex_func_idx, ex_args)
@@ -150,7 +153,7 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
                 keys.append(word_mappings[arg[1]][VALUE])
         else:
             # arg[0]이 0인 경우, constant 상수 값
-            keys.append(str(arg[1]))
+            keys.append(CON_TOKENS[int(arg[1])])
     # template = _load_pyt(OPR_EQ)
     # print(OPR_VALUES[OPR_TOKENS.index(name)][CONVERT])
     converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
