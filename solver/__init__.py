@@ -145,9 +145,9 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
             # 인덱스에 해당하는 숫자 값 가져오기
             # print("value: ", word_mappings[arg[1]][WORD])
             if word_mappings[arg[1]][IS_NUM] == False:
-                keys.append('\''+word_mappings[arg[1]][WORD]+'\'')
+                keys.append('\''+word_mappings[arg[1]][VALUE]+'\'')
             else:
-                keys.append(word_mappings[arg[1]][WORD])
+                keys.append(word_mappings[arg[1]][VALUE])
         else:
             # arg[0]이 0인 경우, constant 상수 값
             keys.append(str(arg[1]))

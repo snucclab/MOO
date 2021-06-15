@@ -69,6 +69,6 @@ def test_solver_conversion(executor, tokenizer):
 
         assert len(problems) == len(code_templates) == len(answers)
 
-    for prob, code, expected in zip(problems, code_templates, answers):
+    for i, (prob, code, expected) in enumerate(zip(problems, code_templates, answers)):
         code = '\n'.join(code)
         _convert_and_run(code, prob, expected, executor, tokenizer)

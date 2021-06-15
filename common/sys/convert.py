@@ -53,7 +53,7 @@ def string_to_text_instance(text: str, tokenizer) -> Text:
             value = variable.group(1)
         else:
             value = proper.group(1) if proper is not None else word
-            value = PAREN_PATTERN.sub(value, '')
+            value = PAREN_PATTERN.sub('', value)
 
         word_info.append({
             IS_NUM: number is not None or fraction is not None,
