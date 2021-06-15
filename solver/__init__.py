@@ -8,6 +8,11 @@ import re
 
 _SOLVER_ROOT_PATH = Path(__file__).parent
 
+class DoneNotFoundError(Exception):
+    def __init__(self, message="Could not find Done operation"):
+        self.message = message
+        super().__init__(self.message)
+
 
 def python_code_to_executions(code_template: str) -> List[Execution]:
     """
@@ -39,7 +44,7 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
         # (operator: OPR_XXXXXX 형태)
         # execution.function = OPR_TOKENS.index('OPR_'+temp[0])
         print(temp)
-        ex_func = OPR_TOKENS.index(temp[0])
+        ex_func_idx = OPR_TOKENS.index(temp[0])
 
         # Execution 클래스인 execution이라는 object의 arguments 지정
         # 하나의 Tuple은 (값의 타입, 값의 위치)를 나타냄.
@@ -56,20 +61,20 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
         #         # TODO: 두번째 인자에 사전 정의된 상수 index 넣기
         #         execution.arguments.append( (0, 0) )
 
-        ex_arg = []
+        ex_args = []
         for arg in temp[1:]:
             arg_strip = arg.strip()
             if '_' in arg:
-                index = arg_strip.strip('_')
-                ex_arg.append((1, int(index)))
+                index = arg_strip.lstrip('_')
+                ex_args.append((1, int(index)))
             elif 'R' in arg:
-                index = arg.strip('R')
-                ex_arg.append((1, int(index)))
+                index = arg.lstrip('R')
+                ex_args.append((2, int(index)))
             else:
                 # TODO: 두번째 인자에 사전 정의된 상수 index 넣기
-                ex_arg.append((0, 0))
+                ex_args.append((0, 0))
 
-        execution = Execution(ex_func, ex_arg)
+        execution = Execution(ex_func_idx, ex_args)
         exec_list.append(execution)
 
     return exec_list
@@ -107,16 +112,18 @@ def execution_to_python_code(expression: List[Execution],
             result = ""
             op_count = 0
         elif cur_opr[NAME] == OPR_DONE:
-            break
-        result += intprt_opr(cur_opr, cur_arg, word_mappings, op_count)
-        result += '\n'
+            return result
 
-    return result
+        result += str(intprt_opr(cur_opr, cur_arg, word_mappings, op_count))
+        print(result)
+
+    raise DoneNotFoundError()
 
 
 def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: List[Dict[str, Any]],
                op_count: int) -> str:
     name = opr[NAME]
+    #print(name)
     code = ""
     # opr 에 해당하는 template 가져와서 식 생성
     code = _load_pyt(name)
@@ -130,14 +137,15 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
             keys.append('R' + str(arg[1]))
         elif arg[0] == 1:
             # 인덱스에 해당하는 숫자 값 가져오기
-            keys.append(word_mappings[args[1]][VALUE])
+            keys.append(word_mappings[arg[1]][VALUE])
         else:
             # arg[0]이 0인 경우, constant 상수 값
             keys.append('0')
     # template = _load_pyt(OPR_EQ)
+    # print(OPR_VALUES[OPR_TOKENS.index(name)][CONVERT])
     converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
 
-    _exec_template(name, code, **converter("res", *keys))
+    return _exec_template(name, code, **converter("result", *keys))
     # _exec_template(template, **converter(result, arg1, arg2))
 
 
@@ -145,12 +153,14 @@ def _exec_template(name: str, template: str, result: str, _locals=None, **kwargs
     _global = {'math': math, 'itertools': itertools}
 
     _locals = _locals if _locals is not None else {}
+    print(template)
     _code = template.format(**kwargs, result=result)
 
     if name == OPR_CALL_SYMPY:
         return _code
     else:
         exec(_code, _global, _locals)
+        # print(result)
         return _locals.get(result, None)
 
 
