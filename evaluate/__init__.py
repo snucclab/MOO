@@ -25,7 +25,7 @@ def _execute_code(recv: Queue, send: Queue):
 
     _global_with_sympy = _globals.copy()
     _global_with_sympy['sympy'] = import_module('sympy')
-    _global_with_sympy['re'] = re
+    _global_with_sympy['re'] = import_module('re')
 
     while True:
         try:
@@ -43,7 +43,7 @@ def _execute_code(recv: Queue, send: Queue):
             break
 
         try:
-            if '##<<<<' in code:
+            if '##@@@@' in code:
                 # Evaluate the code with sympy first
                 _locals = {}
                 exec(code, _global_with_sympy, _locals)
