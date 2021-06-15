@@ -26,10 +26,7 @@ def read_arguments():
     env.add_argument('--name', '-name', type=str, required=True)
     env.add_argument('--dataset', '-data', type=str, required=True)
     env.add_argument('--seed', '-seed', type=int, default=1)
-    env.add_argument('--beam-desc', '-beamD', type=int, default=5)
-    env.add_argument('--beam-expr', '-beamE', type=int, default=3)
-    env.add_argument('--window-size', '-win', type=int, default=5)
-    env.add_argument('--use-simple', '-simple', action='store_true', dest='simple')
+    env.add_argument('--beam', '-beam', type=int, default=3)
 
     env.add_argument('--max-iter', '-iter', type=int, default=100)
     env.add_argument('--stop-conditions', '-stop', type=str, nargs='*', default=[])
@@ -69,7 +66,7 @@ def build_experiment_config(args):
 
         experiment_dict = {KEY_SPLIT_FILE: str(file.absolute())}
         if file.name != KEY_TRAIN:
-            experiment_dict[KEY_BEAM] = args.beam_expr
+            experiment_dict[KEY_BEAM] = args.beam
             experiment_dict[KEY_EVAL_PERIOD] = args.max_iter // 5 if file.name == KEY_DEV else args.max_iter
 
         experiments[file.name] = experiment_dict
@@ -128,8 +125,7 @@ def build_stop_condition(args):
 def get_experiment_name(args):
     from datetime import datetime
     now = datetime.now().strftime('%m%d%H%M%S')
-    field = 'simpleEq' if args.simple else 'equations'
-    return f'{args.algorithm}_{Path(args.dataset).stem}_{field}_{args.name}_{now}'
+    return f'{args.name}_{now}'
 
 
 if __name__ == '__main__':
