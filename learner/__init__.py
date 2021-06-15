@@ -371,7 +371,7 @@ class SupervisedTrainer(Trainable):
                     # Transform equation into python code using solver.execution_to_python_code()
                     code = execution_to_python_code(execution, word_info, indent=4)
                     # Execute python code with timeout (0.5s) and get an answer (type: string)
-                    answer = self._tester.run(code)
+                    _, answer = self._tester.run(code)
 
                     results.append({
                         'correct': answer == batch.answer[i],

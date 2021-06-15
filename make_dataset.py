@@ -72,7 +72,7 @@ if __name__ == '__main__':
             execution = python_code_to_executions(item.code_template)
 
             item.code = execution_to_python_code(execution, text.word_info[0])
-            item.executed = executor.run(item.code)
+            _, item.executed = executor.run(item.code)
             item.execution = [x.to_list() for x in execution]
 
             assert ALL_KOREAN_PATTERN.match(item.code) is None, \

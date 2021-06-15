@@ -1,12 +1,15 @@
+import re
 from multiprocessing import Queue, Process
 from os import environ
 from queue import Empty
 from importlib import import_module
 from io import StringIO
 from contextlib import redirect_stdout
-
+from typing import Tuple
 
 AVAILABLE_MODULES = ['math', 'itertools']
+REPLACEMENT_HEADER_PATTERN = re.compile('##@@@@ CODE-REPLACEMENT: ([A-Za-z0-9_]+) by ([A-Za-z0-9_]+) ##')
+CODE_REPLACEMENT_PATTERN = '##@@@@ CODE-REPLACEMENT: {key} [^@]* CODE-REPLACEMENT END for {key} @@@@##'
 
 
 def _execute_code(recv: Queue, send: Queue):
@@ -20,6 +23,10 @@ def _execute_code(recv: Queue, send: Queue):
     _globals = {key: import_module(key)
                 for key in AVAILABLE_MODULES}
 
+    _global_with_sympy = _globals.copy()
+    _global_with_sympy['sympy'] = import_module('sympy')
+    _global_with_sympy['re'] = import_module('re')
+
     while True:
         try:
             # Receive an object
@@ -28,7 +35,7 @@ def _execute_code(recv: Queue, send: Queue):
         except Empty:
             continue
         except Exception as e:
-            send.put(('', e))
+            send.put(('', '', e))
             continue
 
         if not code:
@@ -36,15 +43,30 @@ def _execute_code(recv: Queue, send: Queue):
             break
 
         try:
+            if '##@@@@' in code:
+                # Evaluate the code with sympy first
+                _locals = {}
+                exec(code, _global_with_sympy, _locals)
+
+                while True:
+                    matched = REPLACEMENT_HEADER_PATTERN.search(code)
+                    if matched is None:
+                        break
+
+                    result_key = matched.group(1)
+                    result_code = _locals[matched.group(2)]
+                    code = re.sub(CODE_REPLACEMENT_PATTERN.format(key=result_key), result_code, code,
+                                  flags=re.MULTILINE)
+
             # Evaluate the code
             _stdout = StringIO()
             with redirect_stdout(_stdout):
-                exec(code, __globals=_globals)
+                exec(code, _globals, {})
 
             answer = _stdout.getvalue().strip()
-            send.put((answer, None))
+            send.put((answer, code, None))
         except Exception as e:
-            send.put(('', e))
+            send.put(('', '', e))
 
     send.close()
     recv.close()
@@ -68,14 +90,15 @@ class Executor(object):
         self.solver_process = None
         self.to_solver = None
         self.from_solver = None
-        self._start_process()
 
-        if environ['DEBUG']:
+        if environ.get('DEBUG', False):
             from logging import Logger, INFO
             self._debug_logger = Logger('CodeExec', INFO)
             self._debug = True
         else:
             self._debug = False
+
+        self._start_process()
 
     def _start_process(self):
         """
@@ -119,20 +142,21 @@ class Executor(object):
         self.close()
         self._start_process()
 
-    def run(self, code: str) -> str:
+    def run(self, code: str) -> Tuple[str, str]:
         """
         Evaluate current python code
 
         :param str code:
             String of python code to evaluate
-        :rtype: str
+        :rtype: (str, str)
         :return:
+            A python code, and
             Result of executed python code
         """
         solution = []
         try:
             self.to_solver.put(code)
-            solution, exception = self.from_solver.get(timeout=self.time_limit)
+            solution, code, exception = self.from_solver.get(timeout=self.time_limit)
         except Exception as e:
             exception = e
             self._restart_process()
@@ -141,9 +165,9 @@ class Executor(object):
         if exception:
             if self._debug:
                 self._debug_logger.warning('Exception occurred on code execution', exc_info=exception)
-            return ''
+            return code, ''
         else:
-            return solution
+            return code, solution
 
 
 __all__ = ['Executor']
