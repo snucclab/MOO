@@ -412,11 +412,11 @@ class SupervisedTrainer(Trainable):
 
             losses['operator'] = SMOOTHED_CROSS_ENTROPY_LOSS(out.operator[:, :-1], tgt.operator[:, 1:], smoothing=0.01)
             report.update(**{key + '_operator': value
-                             for key, value in accuracy_of(tgt.operator, out.operator)})
+                             for key, value in accuracy_of(tgt.operator, out.operator).items()})
             for j, (o_j, t_j) in enumerate(zip(out.operands, tgt.operands)):
                 losses['operand_%s' % j] = SMOOTHED_CROSS_ENTROPY_LOSS(o_j[:, :-1], t_j[:, 1:], smoothing=0.01)
                 report.update(**{key + '_operand%s' % j: value
-                                 for key, value in accuracy_of(t_j, o_j)})
+                                 for key, value in accuracy_of(t_j, o_j).items()})
 
             with torch.no_grad():
                 all_raw = [tensor for key, tensor in report.items() if key.startswith('raw_')]
