@@ -24,6 +24,16 @@ def tokenizer():
     yield tokenizer
 
 
+def _verfity_indent(index: int, template: str):
+    templates = template.split('\n')
+    for lineno, line in enumerate(templates):
+        if line.endswith('\n'):
+            line = line[:-1]
+        if line:
+            assert re.fullmatch('^( {4})*[^\\s]+.*$', line), \
+                '코드 들여쓰기는 반드시 공백문자 4개여야 합니다. (%s번 문제 L#%3d)\n"%s"' % (index + 1, lineno, line)
+
+
 def _convert_and_run(index: int, moo_code: str, text: str, expected: str,
                      executor: Executor, tokenizer = None):
     text = string_to_text_instance(text, tokenizer=tokenizer)
@@ -35,6 +45,7 @@ def _convert_and_run(index: int, moo_code: str, text: str, expected: str,
         '정답 불일치: %s번 문제의 정답은 "%s", 하지만 계산된 답은 "%s"입니다.' % (index + 1, expected, answer)
     assert '##@@@@' not in adjusted, \
         '코드에서 사라져야 하는 부분이 사라지지 않았습니다! (%s번 문제)' % (index + 1)
+    _verfity_indent(index+1, adjusted)
 
 
 def test_solver_conversion(executor, tokenizer):
