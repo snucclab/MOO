@@ -241,6 +241,10 @@ class ExpressionPrediction(TypeSelectable):
         self.operator = operator
         self.operands = operands
 
+    @property
+    def device(self) -> torch.device:
+        return self.operator.device
+
     def as_dict(self) -> dict:
         return dict(operator=self.operator, operands=self.operands)
 

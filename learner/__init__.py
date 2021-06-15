@@ -158,7 +158,7 @@ class SupervisedTrainer(Trainable):
         report['before'] = self._before_update()
 
         # Run training
-        report['train'] = self._update_module(pretrain=False)
+        report['train'] = self._update_module()
         report[TIMESTEPS_THIS_ITER] = report['train'][TIMESTEPS_THIS_ITER]
 
         # Run evaluation periodically
@@ -389,7 +389,7 @@ class SupervisedTrainer(Trainable):
         self._model.train()
         return {}
 
-    def _update_module(self, pretrain) -> dict:
+    def _update_module(self) -> dict:
         reports = []
         batch_gen = list(self._dataset.get_minibatches(self._batch_size))
         for batch in batch_gen:
