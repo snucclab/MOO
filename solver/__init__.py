@@ -43,8 +43,8 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
         # Execution 클래스인 execution이라는 object의 function 지정 
         # (operator: OPR_XXXXXX 형태)
         # execution.function = OPR_TOKENS.index('OPR_'+temp[0])
-        print(temp)
-        ex_func_idx = OPR_TOKENS.index(temp[0])
+        # print(temp)
+        ex_func_idx = OPR_TOKENS.index(temp[0].strip())
 
         # Execution 클래스인 execution이라는 object의 arguments 지정
         # 하나의 Tuple은 (값의 타입, 값의 위치)를 나타냄.
