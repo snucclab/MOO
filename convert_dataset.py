@@ -10,10 +10,8 @@ from common.sys.convert import string_to_text_instance
 from common.sys.key import QUESTION, ANSWER, EQUATION, EXECUTION
 from common.sys.pattern import *
 from evaluate import Executor
-from yaml import load as yaml_load
 from json import dump as json_save
 from json import load as json_load
-from random import shuffle, seed
 
 from solver import python_code_to_executions, execution_to_python_code
 
@@ -22,11 +20,9 @@ def read_arguments():
     parser = ArgumentParser()
 
     parser.add_argument('--template', '-template', '-t', type=str, required=True,
-                        help='Root directory of template YAML files')
+                        help='Root path of template JSON file')
     parser.add_argument('--output', '-out', '-o', type=str, required=True,
                         help='Root directory for saving output dataset files')
-    parser.add_argument('--seed', '-seed', '-s', type=int, default=9172,
-                        help='Random seed for generating items')
     parser.add_argument('--time-limit', '-limit', '-l', type=float, default=0.5,
                         help='Time limit for evaluating python code')
     parser.add_argument('--tokenizer', '-tokenizer', '-z', type=str, default=DEF_ENCODER,
@@ -45,10 +41,9 @@ if __name__ == '__main__':
 
     # Read templates from templateroot
     templates = {}
-    for file in Path(args.template).glob('**/*.json'):
-        with file.open('r+t', encoding='UTF-8') as fp:
-            templates = json_load(fp)
-            assert type(templates) is dict
+    with Path(args.template).open('r+t', encoding='UTF-8') as fp:
+        templates.update(json_load(fp))
+        assert type(templates) is dict
 
     # Get generated items
     problems = {}
@@ -59,8 +54,8 @@ if __name__ == '__main__':
         text = string_to_text_instance(item['question'], tokenizer)
         execution = python_code_to_executions(item['equation'])
 
-        item['code'] = execution_to_python_code(execution, text.word_info[0])
-        _, item['executed'] = executor.run(item['code'])
+        raw_code = execution_to_python_code(execution, text.word_info[0])
+        item['code'], item['executed'] = executor.run(raw_code)
         item['execution'] = [x.to_list() for x in execution]
         print(item['execution'])
 
@@ -80,9 +75,11 @@ if __name__ == '__main__':
             '기대한 답 "%s"(이)가 계산된 답 "%s"(와)과 일치하지 않습니다!\n\t문제: "%s"\n토큰화: "%s"\n\t실행한 코드\n%s' % \
             (item['answer'], item['executed'], item['text'], tokenizer.decode(text.tokens), item['code'])
 
-        key = str(len(problems))
+        index = len(problems)
+        key = str(index)
         problems[key] = item
-        splits['train' if i % 10 < 8 else ('dev' if i % 10 == 8 else 'test')].append(key)
+        split_name = 'train' if index % 10 < 8 else ('dev' if index % 10 == 8 else 'test')
+        splits[split_name].append(key)
 
     # Store generated items into datasetpath
     output = Path(args.output)
