@@ -64,16 +64,19 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
         ex_args = []
         for arg in temp[1:]:
             arg_strip = arg.strip()
-            if '_' in arg:
+            if OPR_VALUES[ex_func_idx][ARITY]==0:
+                break
+            elif '_' in arg:
                 index = arg_strip.lstrip('_')
                 ex_args.append((1, int(index)))
             elif 'R' in arg:
-                index = arg.lstrip('R')
+                index = arg_strip.lstrip('R')
                 ex_args.append((2, int(index)))
             else:
                 # TODO: 두번째 인자에 사전 정의된 상수 index 넣기
-                ex_args.append((0, 0))
+                ex_args.append((0, str(arg)))
 
+        #print("ex_func_idx ", str(ex_func_idx), "ex_args ", len(ex_args), "arity ", OPR_VALUES[ex_func_idx][ARITY])
         execution = Execution(ex_func_idx, ex_args)
         exec_list.append(execution)
 
@@ -140,15 +143,22 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
             keys.append('R' + str(arg[1]))
         elif arg[0] == 1:
             # 인덱스에 해당하는 숫자 값 가져오기
-            keys.append(word_mappings[arg[1]][VALUE])
+            # print("value: ", word_mappings[arg[1]][WORD])
+            if word_mappings[arg[1]][VALUE] == '':
+                keys.append('\''+word_mappings[arg[1]][WORD]+'\'')
+            else:
+                keys.append(word_mappings[arg[1]][WORD])
         else:
             # arg[0]이 0인 경우, constant 상수 값
-            keys.append('0')
+            keys.append(str(arg[1]))
     # template = _load_pyt(OPR_EQ)
     # print(OPR_VALUES[OPR_TOKENS.index(name)][CONVERT])
     converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
     #print("R"+str(op_count))
     # print("**" + str(_exec_template(name, code, **converter("R"+str(op_count), *keys))))
+    # print("keys: ")
+    # print(*keys)
+    # print("-------")
     return _exec_template(name, code, **converter("R"+str(op_count), *keys))
     # _exec_template(template, **converter(result, arg1, arg2))
 
