@@ -107,7 +107,8 @@ def equation_to_execution(equation: Expression, batch_index: int = 0, word_size:
         a_t = []
         arity = OPR_VALUES[f_t][ARITY]
 
-        for o in operands[:arity]:
+        for o_list in operands[:arity]:
+            o = o_list[t]
             if o < CON_MAX:
                 a_t.append((SRC_CONSTANT, o))
                 continue

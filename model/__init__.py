@@ -164,7 +164,7 @@ class EPT(CheckpointingModule):
 
         # Compute operator
         operator = self.operator(decoded.vector)
-        operator[:, :, OPR_NEW_EQN] = NEG_INF
+        operator[:, :, OPR_NEW_EQN_ID] = NEG_INF
         operator = logsoftmax(operator)
 
         # Compute operands: List of [B, T, N+T]
@@ -209,13 +209,13 @@ class EPT(CheckpointingModule):
             # Compute score
             scores = []
             for m_prev in range(last_pred.operator.shape[0]):
-                if seq_len > 1 and beams['target'].operator.indices[m_prev, -1].item() in {OPR_DONE_ID, PAD_ID}:
+                if seq_len > 1 and beams['target'].operator[m_prev, -1].item() in {OPR_DONE_ID, PAD_ID}:
                     scores += [(0, m_prev, dict(operator=[PAD_ID], operands=[PAD_ID] * OPR_MAX_ARITY))]
                     continue
 
                 # Take top-K position for each j-th operand
-                operands = [list(zip(*[tensor.tolist()
-                                       for tensor in operand_j.log_prob[m_prev].topk(k=k, dim=-1)]))
+                operands = [list(zip(*[tensor.view(-1).tolist()
+                                       for tensor in operand_j[m_prev].topk(k=k, dim=-1)]))
                             for operand_j in last_pred.operands]
 
                 score_beam = []
@@ -224,7 +224,7 @@ class EPT(CheckpointingModule):
                         continue
 
                     arity = f_info[ARITY]
-                    score_f = [(last_pred.operator.log_prob[m_prev, f], (f,))]
+                    score_f = [(last_pred.operator[m_prev, f], (f,))]
                     for operand_j in operands[:arity]:
                         score_f = [(score_aj + score_prev, tuple_prev + (aj,))
                                    for score_aj, aj in operand_j
@@ -261,7 +261,7 @@ class EPT(CheckpointingModule):
 
         def is_all_finished(beams: dict):
             return all(f in {OPR_DONE_ID, PAD_ID}
-                       for f in beams['target'].operator.indices[:, -1].tolist())
+                       for f in beams['target'].operator[:, -1].tolist())
 
         with torch.no_grad():
             # Execute beam search. List[Dict[str, ?]]

@@ -1,6 +1,5 @@
 from argparse import ArgumentParser
 
-from ray import tune
 from transformers import AutoTokenizer
 
 from common.model.const import *
@@ -20,7 +19,7 @@ def read_arguments():
     model.add_argument('--encoder', '-enc', type=str, default=DEF_ENCODER)
     model.add_argument('--decoder-hidden', '-decH', type=int, default=0)
     model.add_argument('--decoder-intermediate', '-decI', type=int, default=0)
-    model.add_argument('--decoder-layer', '-decL', type=int, default=[6], nargs='+')
+    model.add_argument('--decoder-layer', '-decL', type=int, default=6)
     model.add_argument('--decoder-head', '-decA', type=int, default=0)
 
     return parser.parse_args()
@@ -34,7 +33,7 @@ def build_model_config(args):
         MDL_DECODER: {
             MDL_D_HIDDEN: args.decoder_hidden,
             MDL_D_INTER: args.decoder_intermediate,
-            MDL_D_LAYER: tune.grid_search(args.decoder_layer),
+            MDL_D_LAYER: args.decoder_layer,
             MDL_D_HEAD: args.decoder_head
         }
     }

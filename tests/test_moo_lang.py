@@ -22,7 +22,7 @@ _RESULT_NAME = [
 ]
 
 
-def _verfity_indent(name: str, template: str):
+def _verify_indent(name: str, template: str):
     templates = template.split('\n')
     for lineno, line in enumerate(templates):
         if line.endswith('\n'):
@@ -38,7 +38,7 @@ def _load_pyt(name: str):
         lines = fp.readlines()
 
     lines = ''.join(lines)
-    _verfity_indent(name, lines)
+    _verify_indent(name, lines)
     return lines
 
 
@@ -72,7 +72,7 @@ def test_eq():
                           **converter(random.choice(_RESULT_NAME), '42', 'life')) is True
 
 
-def test_ADD():
+def test_add():
     template = _load_pyt(OPR_ADD)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_ADD)][CONVERT]
 
@@ -85,7 +85,7 @@ def test_ADD():
                                          **converter(random.choice(_RESULT_NAME), 'x', 'y'))
 
 
-def test_SUB():
+def test_sub():
     template = _load_pyt(OPR_SUB)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_SUB)][CONVERT]
 
@@ -98,7 +98,7 @@ def test_SUB():
                                          **converter(random.choice(_RESULT_NAME), 'x', 'y'))
 
 
-def test_MUL():
+def test_mul():
     template = _load_pyt(OPR_MUL)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_MUL)][CONVERT]
 
@@ -111,7 +111,7 @@ def test_MUL():
                                          **converter(random.choice(_RESULT_NAME), 'x', 'y'))
 
 
-def test_DIV():
+def test_div():
     template = _load_pyt(OPR_DIV)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_DIV)][CONVERT]
 
@@ -126,7 +126,7 @@ def test_DIV():
                                          **converter(random.choice(_RESULT_NAME), 'x', 'y'))
 
 
-def test_MOD():
+def test_mod():
     template = _load_pyt(OPR_MOD)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_MOD)][CONVERT]
 
@@ -139,7 +139,7 @@ def test_MOD():
                                          **converter(random.choice(_RESULT_NAME), 'x', 'y'))
 
 
-def test_POW():
+def test_pow():
     template = _load_pyt(OPR_POW)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_POW)][CONVERT]
 
@@ -152,7 +152,7 @@ def test_POW():
                                           **converter(random.choice(_RESULT_NAME), 'x', 'y'))
 
 
-def test_PRINT():
+def test_print():
     template = _load_pyt(OPR_PRINT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_PRINT)][CONVERT]
 
@@ -176,7 +176,7 @@ def test_PRINT():
     assert '6.20' == _exec_out_catch(6.1999)
 
 
-def test_SUM():
+def test_sum():
     template = _load_pyt(OPR_SUM)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_SUM)][CONVERT]
 
@@ -188,7 +188,7 @@ def test_SUM():
                                             **converter(random.choice(_RESULT_NAME), 'items'))
 
 
-def test_LIST():
+def test_list():
     template = _load_pyt(OPR_LIST)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST)][CONVERT]
 
@@ -198,7 +198,7 @@ def test_LIST():
         assert len(result) == 0
 
 
-def test_APPEND():
+def test_append():
     template = _load_pyt(OPR_APPEND)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_APPEND)][CONVERT]
 
@@ -224,7 +224,7 @@ def test_APPEND():
         assert items[-1] == str(append)
 
 
-def test_COMB():
+def test_comb():
     template = _load_pyt(OPR_COMB)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_COMB)][CONVERT]
 
@@ -243,7 +243,7 @@ def test_COMB():
                                         **converter(random.choice(_RESULT_NAME), n, k))
 
 
-def test_PERM():
+def test_perm():
     template = _load_pyt(OPR_PERM)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_PERM)][CONVERT]
 
@@ -262,7 +262,7 @@ def test_PERM():
                                         **converter(random.choice(_RESULT_NAME), n, k))
 
 
-def test_MIN():
+def test_min():
     template = _load_pyt(OPR_MIN)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_MIN)][CONVERT]
 
@@ -287,7 +287,7 @@ def test_MIN():
                                            **converter(random.choice(_RESULT_NAME), 'items'))
 
 
-def test_MAX():
+def test_max():
     template = _load_pyt(OPR_MAX)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_MAX)][CONVERT]
 
@@ -312,7 +312,7 @@ def test_MAX():
                                            **converter(random.choice(_RESULT_NAME), 'items'))
 
 
-def test_RANGE():
+def test_range():
     template = _load_pyt(OPR_RANGE)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_RANGE)][CONVERT]
 
@@ -342,7 +342,7 @@ def test_RANGE():
                                         **converter(random.choice(_RESULT_NAME), start, end, step))
 
 
-def test_LCM():
+def test_lcm():
     template = _load_pyt(OPR_LCM)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LCM)][CONVERT]
 
@@ -355,7 +355,7 @@ def test_LCM():
                                      **converter(random.choice(_RESULT_NAME), 'items'))
 
 
-def test_GCD():
+def test_gcd():
     template = _load_pyt(OPR_GCD)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_GCD)][CONVERT]
 
@@ -368,7 +368,7 @@ def test_GCD():
                                      **converter(random.choice(_RESULT_NAME), 'items'))
 
 
-def test_COUNT_MULTI():
+def test_count_multi():
     template = _load_pyt(OPR_COUNT_MULTI)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_COUNT_MULTI)][CONVERT]
 
@@ -388,7 +388,7 @@ def test_COUNT_MULTI():
                                                  **converter(random.choice(_RESULT_NAME), 'ranges', 'multiples'))
 
 
-def test_DIGIT():
+def test_digit():
     template = _load_pyt(OPR_DIGIT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_DIGIT)][CONVERT]
 
@@ -407,7 +407,7 @@ def test_DIGIT():
                                         **converter(random.choice(_RESULT_NAME), digit, unit))
 
 
-def test_TO_INT():
+def test_to_int():
     template = _load_pyt(OPR_TO_INT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_TO_INT)][CONVERT]
 
@@ -421,7 +421,7 @@ def test_TO_INT():
                                         **converter(random.choice(_RESULT_NAME), number))
 
 
-def test_REVERSE_DIGIT():
+def test_reverse_digit():
     template = _load_pyt(OPR_REVERSE_DIGIT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_REVERSE_DIGIT)][CONVERT]
 
@@ -435,7 +435,7 @@ def test_REVERSE_DIGIT():
                                         **converter(random.choice(_RESULT_NAME), number))
 
 
-def test_SEQ_TERM():
+def test_seq_term():
     template = _load_pyt(OPR_SEQ_TERM)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_SEQ_TERM)][CONVERT]
     symbol = sympy.Symbol('x')
@@ -465,7 +465,7 @@ def test_SEQ_TERM():
                                            **converter(random.choice(_RESULT_NAME), 'samples', n))) < 1E-5
 
 
-def test_REP_SEQ_TERM():
+def test_rep_seq_term():
     template = _load_pyt(OPR_REP_SEQ_TERM)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_REP_SEQ_TERM)][CONVERT]
 
@@ -510,7 +510,7 @@ def test_REP_SEQ_TERM():
                                         **converter(random.choice(_RESULT_NAME), 'samples', n))
 
 
-def test_MAKE_PAIR():
+def test_make_pair():
     template = _load_pyt(OPR_MAKE_PAIR)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_MAKE_PAIR)][CONVERT]
 
@@ -529,7 +529,7 @@ def test_MAKE_PAIR():
                                         **converter(random.choice(_RESULT_NAME), '"%s"' % name, '"%s"' % name))
 
 
-def test_COUNT():
+def test_count():
     template = _load_pyt(OPR_COUNT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_COUNT)][CONVERT]
 
@@ -541,7 +541,7 @@ def test_COUNT():
                                             **converter(random.choice(_RESULT_NAME), 'items'))
 
 
-def test_LT():
+def test_lt():
     template = _load_pyt(OPR_LT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LT)][CONVERT]
 
@@ -557,7 +557,7 @@ def test_LT():
                                       **converter(random.choice(_RESULT_NAME), 'items', 'base'))
 
 
-def test_LE():
+def test_le():
     template = _load_pyt(OPR_LE)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LE)][CONVERT]
 
@@ -573,7 +573,7 @@ def test_LE():
                                       **converter(random.choice(_RESULT_NAME), 'items', 'base'))
 
 
-def test_GT():
+def test_gt():
     template = _load_pyt(OPR_GT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_GT)][CONVERT]
 
@@ -589,7 +589,7 @@ def test_GT():
                                       **converter(random.choice(_RESULT_NAME), 'items', 'base'))
 
 
-def test_GE():
+def test_ge():
     template = _load_pyt(OPR_GE)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_GE)][CONVERT]
 
@@ -605,7 +605,7 @@ def test_GE():
                                       **converter(random.choice(_RESULT_NAME), 'items', 'base'))
 
 
-def test_LIST_CONCAT():
+def test_list_concat():
     template = _load_pyt(OPR_LIST_CONCAT)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_CONCAT)][CONVERT]
 
@@ -618,7 +618,7 @@ def test_LIST_CONCAT():
                                         **converter(random.choice(_RESULT_NAME), 'item1', 'item2'))
 
 
-def test_LIST_INDEX():
+def test_list_index():
     template = _load_pyt(OPR_LIST_INDEX)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_INDEX)][CONVERT]
 
@@ -639,7 +639,7 @@ def test_LIST_INDEX():
                                        **converter(random.choice(_RESULT_NAME), 'items', '"%s"' % item))
 
 
-def test_LIST_REPLACE():
+def test_list_replace():
     template = _load_pyt(OPR_LIST_REPLACE)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_REPLACE)][CONVERT]
 
@@ -663,7 +663,7 @@ def test_LIST_REPLACE():
                                                       '"%s"' % replacement))
 
 
-def test_CEIL():
+def test_ceil():
     template = _load_pyt(OPR_CEIL)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_CEIL)][CONVERT]
 
@@ -677,7 +677,7 @@ def test_CEIL():
                                         **converter(random.choice(_RESULT_NAME), number))
 
 
-def test_LIST_MUL():
+def test_list_mul():
     template = _load_pyt(OPR_LIST_MUL)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_MUL)][CONVERT]
 
@@ -692,7 +692,7 @@ def test_LIST_MUL():
                                         **converter(random.choice(_RESULT_NAME), 'items', multiple))
 
 
-def test_CALL_SYMPY():
+def test_call_sympy():
     template = _load_pyt(OPR_CALL_SYMPY)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_CALL_SYMPY)][CONVERT]
 

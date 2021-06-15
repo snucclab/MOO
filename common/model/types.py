@@ -52,7 +52,7 @@ class TypeSelectable(TypeBase, abc.ABC):
         cls = self.__class__
         kwargs = {}
         for key, value in self.as_dict().items():
-            if type(value) is list and isinstance(value[0], TypeSelectable):
+            if type(value) is list and isinstance(value[0], (torch.Tensor, TypeSelectable)):
                 kwargs[key] = [v[item] for v in value]
             elif isinstance(value, (torch.Tensor, TypeSelectable)):
                 kwargs[key] = value[item]
@@ -255,7 +255,8 @@ class Expression(TypeTensorBatchable, TypeSelectable):
 
     def __init__(self, operator: torch.LongTensor, operands: List[torch.LongTensor]):
         super().__init__()
-        assert all(operator.shape == operand_j.shape for operand_j in operands)
+        assert all(operator.shape == operand_j.shape for operand_j in operands), \
+            "%s vs %s" % (operator.shape, [operand_j.shape for operand_j in operands])
         assert len(operands) == OPR_MAX_ARITY
         self.operator = operator
         self.operands = operands
