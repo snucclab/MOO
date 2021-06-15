@@ -561,18 +561,8 @@
     4) 예시:
         R0: CEIL(5.5)     (= 6)
     ```
-38. CHAIN_LIST
 
-    ```python
-    CHAIN_LIST(ls1: List[str], ls2: Tuple[str, str]) -> int
-    1) 목적/변화: 
-    2) 인수값: 문자열로 구성된 리스트
-    3) 반환값: 정수
-    4) 예시:
-        R0: 
-    ```
-
-39. LIST_MUL
+38. LIST_MUL
 
     '''python
     LIST_MUL(lst: List[Any], n: int) -> List[Any]
