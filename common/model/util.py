@@ -19,3 +19,12 @@ def concat_tensors(tensors: List[torch.Tensor], pad_value: Any, dim: int = 0):
 
     return torch.cat([extend_tensor(tensor, concat_shape, pad_value)
                       for tensor in tensors], dim=dim).contiguous()
+
+
+def stack_tensors(tensors: List[torch.Tensor], pad_value: Any):
+    shapes = zip(*[t.shape for t in tensors])
+    stack_shape = [max(shapes) for shapes in shapes]
+
+    return torch.stack([extend_tensor(tensor, stack_shape, pad_value)
+                        for tensor in tensors], dim=0).contiguous()
+

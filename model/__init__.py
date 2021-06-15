@@ -269,7 +269,7 @@ class EPT(CheckpointingModule):
                                         concat_next_fn, is_all_finished, max_len, beam_size)
 
             # Select top-scored beam
-            return Expression.build_batch(*[item['target'][0] for item in batched_beams])
+            return Expression.build_batch(*[item['target'][:1] for item in batched_beams])
 
     def forward(self, text: Text, expression: Expression = None, beam: int = 3):
         # Forward the encoder

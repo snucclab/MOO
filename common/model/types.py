@@ -4,7 +4,7 @@ from typing import TypeVar, Any, ItemsView, List, Dict, Optional, Callable
 import torch
 
 from common.model.const import PAD_ID
-from common.model.util import concat_tensors
+from common.model.util import stack_tensors, concat_tensors
 from common.solver.const import OPR_MAX_ARITY, OPR_NEW_EQN_ID
 
 TypedAny = TypeVar('TypedAny')
@@ -197,8 +197,8 @@ class Encoded(TypeTensorBatchable, TypeSelectable):
 
     @classmethod
     def build_batch(cls, *items: 'Encoded') -> 'Encoded':
-        vectors = concat_tensors([item.vector for item in items], pad_value=0.0)
-        pads = concat_tensors([item.pad for item in items], pad_value=True)
+        vectors = stack_tensors([item.vector for item in items], pad_value=0.0)
+        pads = stack_tensors([item.pad for item in items], pad_value=True)
         return Encoded(vectors, pads)
 
     @classmethod
@@ -234,6 +234,10 @@ class ExpressionPrediction(TypeSelectable):
 
     def __init__(self, operator: torch.Tensor, operands: List[torch.Tensor]):
         super().__init__()
+        assert all(operator.shape[:-1] == operand_j.shape[:-1] for operand_j in operands), \
+            "%s vs %s" % (operator.shape, [operand_j.shape for operand_j in operands])
+        assert len(operands) == OPR_MAX_ARITY
+        assert all(operand_j.dim() == operator.dim() for operand_j in operands)
         self.operator = operator
         self.operands = operands
 
@@ -252,6 +256,7 @@ class Expression(TypeTensorBatchable, TypeSelectable):
         assert all(operator.shape == operand_j.shape for operand_j in operands), \
             "%s vs %s" % (operator.shape, [operand_j.shape for operand_j in operands])
         assert len(operands) == OPR_MAX_ARITY
+        assert operator.dim() == 2 and all(operand_j.dim() == 2 for operand_j in operands)
         self.operator = operator
         self.operands = operands
 

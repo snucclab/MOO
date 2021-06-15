@@ -6,7 +6,7 @@ from transformers import ElectraTokenizer
 
 from common.sys.const import EVALUATE_INPUT_PATH, EVALUATE_OUTPUT_PATH, EVALUATE_TOKENIZER_PATH, EVALUATE_WEIGHT_DIR
 from common.sys.convert import string_to_text_instance, equation_to_execution
-from common.sys.key import ANSWER, EQUATION, QUESTION
+from common.sys.key import ANSWER, EQUATION, QUESTION, EXECUTION
 from evaluate import Executor
 from model import EPT
 from solver import execution_to_python_code
