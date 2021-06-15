@@ -83,6 +83,9 @@ class BatchedExample:
                         operands[j].append(a_j + CON_MAX)
                     else:
                         operands[j].append(a_j + CON_MAX + word_size)
+                for j in range(len(x.arguments), OPR_MAX_ARITY):
+                    operands[j].append(PAD_ID)
+
             expressions.append(Expression(operator=torch.tensor([functions], dtype=torch.long),
                                           operands=[torch.tensor([o], dtype=torch.long) for o in operands]))
 
