@@ -49,6 +49,7 @@ def _exec_template(template: str, result: str, _locals=None, **kwargs):
     _global['itertools'] = itertools
     if '##@@@@' in template:
         _global['sympy'] = sympy
+        _global['re'] = re
 
     _locals = _locals if _locals is not None else {}
     _code = template.format(**kwargs, result=result)
@@ -678,3 +679,64 @@ def test_LIST_MUL():
                                         **converter(random.choice(_RESULT_NAME), 'items', 'n'))
         assert result == _exec_template(template, _locals=dict(items=items),
                                         **converter(random.choice(_RESULT_NAME), 'items', multiple))
+
+
+def test_CALL_SYMPY():
+    template = _load_pyt(OPR_CALL_SYMPY)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_CALL_SYMPY)][CONVERT]
+
+    # # Multi digit sum/subtraction
+    # for _ in range(500):
+    #     digits = random.randint(2, 5)
+    #     a = random.randint(10 ** (digits - 1), 10 ** digits - 1)
+    #     b = random.randint(10 ** (digits - 1), 10 ** digits - 1)
+    #     abc = [list(str(a)), list(str(b)), list(str(a+b))]
+    #
+    #     expected = {}
+    #     for d in range(1, digits + 1):
+    #         if random.random() < 0.2:
+    #             continue
+    #
+    #         character = chr(ord('A') + d - 1)
+    #         choice = random.randint(0, 2)
+    #
+    #         expected[character] = abc[choice][-d]
+    #         abc[choice][-d] = character
+    #
+    #     if random.random() < 0.5:
+    #         # addition
+    #         equation = '%s+%s=%s' % (''.join(abc[0]), ''.join(abc[1]), ''.join(abc[2]))
+    #     else:
+    #         # subtraction
+    #         equation = '%s-%s=%s' % (''.join(abc[2]), ''.join(abc[0]), ''.join(abc[1]))
+    #
+    #     target = random.choice(list(expected.keys()))
+    #     answer = int(expected[target])
+    #     assert answer == _exec_template(template, _locals=dict(equation=[equation], target=target),
+    #                                     **converter(random.choice(_RESULT_NAME), 'equation', 'target'))
+    #     assert answer == _exec_template(template, _locals=dict(equation=[equation]),
+    #                                     **converter(random.choice(_RESULT_NAME), 'equation', '"%s"' % target))
+
+    # System of equation
+    for _ in range(500):
+        arguments = random.randint(2, 4)
+        variables = [random.randint(0, 100) / 10 for _ in range(arguments)]
+        keys = [chr(ord('U') + d - 1) for d in range(arguments)]
+        equations = [[random.randint(-100, 100) / 10 for _ in range(arguments)]
+                      for _ in range(arguments)]
+
+        eq_built = []
+        for eq in equations:
+            result = sum([a * x for a, x in zip(eq, variables)])
+            equation = ''.join(['+%s*%s' % (a, x) if a > 0 else ('%s*%s' % (a, x) if a < 0 else '')
+                                for a, x in zip(eq, keys)]) + '=' + str(result)
+            eq_built.append(equation)
+
+        expected = {key: value for key, value in zip(keys, variables)}
+        # 빈칸 없을 때
+        target = random.choice(keys)
+        answer = expected[target]
+        assert answer == _exec_template(template, _locals=dict(equation=eq_built, target=target),
+                                        **converter(random.choice(_RESULT_NAME), 'equation', 'target'))
+        assert answer == _exec_template(template, _locals=dict(equation=eq_built),
+                                        **converter(random.choice(_RESULT_NAME), 'equation', '"%s"' % target))

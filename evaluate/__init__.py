@@ -46,7 +46,7 @@ def _execute_code(recv: Queue, send: Queue):
             if '##<<<<' in code:
                 # Evaluate the code with sympy first
                 _locals = {}
-                exec(code, __globals=_global_with_sympy, _locals=_locals)
+                exec(code, _global_with_sympy, _locals)
 
                 while True:
                     matched = REPLACEMENT_HEADER_PATTERN.match(code)
@@ -55,13 +55,12 @@ def _execute_code(recv: Queue, send: Queue):
 
                     result_key = matched.group(1)
                     result_code = _locals[matched.group(2)]
-                    code = re.sub(CODE_REPLACEMENT_PATTERN.format(key=result_key),
-                                  '\n%s = %s\n' % (result_key, result_code), code)
+                    code = re.sub(CODE_REPLACEMENT_PATTERN.format(key=result_key), result_code, code)
 
             # Evaluate the code
             _stdout = StringIO()
             with redirect_stdout(_stdout):
-                exec(code, __globals=_globals)
+                exec(code, _globals, {})
 
             answer = _stdout.getvalue().strip()
             send.put((answer, code, None))
