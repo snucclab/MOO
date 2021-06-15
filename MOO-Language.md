@@ -1045,13 +1045,17 @@
    ```yaml
    R0: LIST()
    R1: APPEND(R0, _01)  # 흰색
-   R2: APPEND(R1, _05)  # 노란색
-   R3: APPEND(R2, _05)
-   R4: APPEND(R3, _09)  # 빨간색
-   R5: APPEND(R4, _09)
-   R6: APPEND(R5, _09)
-   R7: REP_SEQ_TERM(R6, _16)  # 58번째 항
-   R8: PRINT(R7)
+   R2: LIST_MUL(R1, _03)
+   R3: LIST()
+   R4: APPEND(R3, _05)  # 노란색
+   R5: LIST_MUL(R4, _07)
+   R6: LIST()
+   R7: APPEND(R6, _09)
+   R8: LIST_MUL(R7, _11)
+   R9: LIST_CONCAT(R2, R5)
+   R10: LIST_CONCAT(R9, R8)
+   R11: REP_SEQ_TERM(R10, _16)  # 58번째 항
+   R12: PRINT(R11)
    ```
 
 26. 100개의 사탕을 태형, 남준, 윤기 3명에게 순서대로 2개씩 나누어 줍니다. 91번째 사탕을 받는 사람은 누구입니까?
@@ -1066,13 +1070,17 @@
    ```yaml
    R0: LIST()
    R1: APPEND(R0, _03)  # 태형
-   R2: APPEND(R1, _03)
-   R3: APPEND(R2, _05)  # 남준
-   R4: APPEND(R3, _05) 
-   R5: APPEND(R4, _07)  # 윤기
-   R6: APPEND(R5, _07)
-   R7: REP_SEQ_TERM(R6, _15)  # 91번째 항
-   R8: PRINT(R7)
+   R2: LIST_MUL(R1, _11)
+   R3: LIST()
+   R4: APPEND(R3, _05)  # 남준
+   R5: LIST_MUL(R4, _11)
+   R6: LIST()
+   R7: APPEND(R6, _07) # 윤기
+   R8: LIST_MUL(R7, _11)
+   R9: LIST_CONCAT(R2, R5)
+   R10: LIST_CONCAT(R9, R8)
+   R11: REP_SEQ_TERM(R10, _15)  # 91번째 항
+   R12: PRINT(R11)
    ```
 
 27. 정국이는 4와 4를 모았습니다. 지민이는 3과 6을 모았습니다. 누가 모은 수가 더 큽니까?
