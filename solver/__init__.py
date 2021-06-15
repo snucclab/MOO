@@ -144,7 +144,7 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
         elif arg[0] == 1:
             # 인덱스에 해당하는 숫자 값 가져오기
             # print("value: ", word_mappings[arg[1]][WORD])
-            if word_mappings[arg[1]][VALUE] == '':
+            if word_mappings[arg[1]][IS_NUM] == False:
                 keys.append('\''+word_mappings[arg[1]][WORD]+'\'')
             else:
                 keys.append(word_mappings[arg[1]][WORD])
@@ -154,7 +154,7 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
     # template = _load_pyt(OPR_EQ)
     # print(OPR_VALUES[OPR_TOKENS.index(name)][CONVERT])
     converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
-    #print("R"+str(op_count))
+    # print("R"+str(op_count))
     # print("**" + str(_exec_template(name, code, **converter("R"+str(op_count), *keys))))
     # print("keys: ")
     # print(*keys)
