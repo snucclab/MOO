@@ -4,7 +4,7 @@ from json import load as json_load, dump as json_save
 import torch
 from transformers import ElectraTokenizer
 
-from common.sys.const import EVALUATE_INPUT_PATH, EVALUATE_OUTPUT_PATH, EVALUATE_WEIGHT_PATH, EVALUATE_TOKENIZER_PATH
+from common.sys.const import EVALUATE_INPUT_PATH, EVALUATE_OUTPUT_PATH, EVALUATE_TOKENIZER_PATH, EVALUATE_WEIGHT_DIR
 from common.sys.convert import string_to_text_instance, equation_to_execution
 from common.sys.key import ANSWER, EQUATION, QUESTION
 from evaluate import Executor
@@ -13,7 +13,7 @@ from solver import execution_to_python_code
 
 if __name__ == '__main__':
     # Load model from './weights/checkpoint' using model.EPT.create_or_load()
-    model = EPT.create_or_load(EVALUATE_WEIGHT_PATH)
+    model = EPT.create_or_load(EVALUATE_WEIGHT_DIR)
     # Restore tokenizer from pickle
     tokenizer: ElectraTokenizer = torch.load(EVALUATE_TOKENIZER_PATH)
     # Move model to GPU if available
