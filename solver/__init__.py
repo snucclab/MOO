@@ -115,9 +115,11 @@ def execution_to_python_code(expression: List[Execution],
             return result
 
         result += str(intprt_opr(cur_opr, cur_arg, word_mappings, op_count))
+        op_count += 1
         print(result)
 
-    raise DoneNotFoundError()
+    return result
+    # raise DoneNotFoundError()
 
 
 def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: List[Dict[str, Any]],
@@ -144,8 +146,9 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
     # template = _load_pyt(OPR_EQ)
     # print(OPR_VALUES[OPR_TOKENS.index(name)][CONVERT])
     converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
-
-    return _exec_template(name, code, **converter("result", *keys))
+    #print("R"+str(op_count))
+    # print("**" + str(_exec_template(name, code, **converter("R"+str(op_count), *keys))))
+    return _exec_template(name, code, **converter("R"+str(op_count), *keys))
     # _exec_template(template, **converter(result, arg1, arg2))
 
 
@@ -153,15 +156,16 @@ def _exec_template(name: str, template: str, result: str, _locals=None, **kwargs
     _global = {'math': math, 'itertools': itertools}
 
     _locals = _locals if _locals is not None else {}
-    print(template)
+    # print(template)
     _code = template.format(**kwargs, result=result)
-
-    if name == OPR_CALL_SYMPY:
-        return _code
-    else:
-        exec(_code, _global, _locals)
-        # print(result)
-        return _locals.get(result, None)
+    return _code
+    # print("code: "+_code)
+    # if name == OPR_CALL_SYMPY:
+    #     return _code
+    # else:
+    #     exec(_code, _global, _locals)
+    #     print(result)
+    #     return _locals.get(result, None)
 
 
 def _load_pyt(name: str):
