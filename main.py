@@ -18,7 +18,7 @@ if __name__ == '__main__':
     tokenizer: ElectraTokenizer = torch.load(EVALUATE_TOKENIZER_PATH)
     # Move model to GPU if available
     if torch.cuda.is_available():
-        model = model.to('cuda:0')
+        model = model.cuda()
     # Set model as evaluation mode
     model.eval()
 

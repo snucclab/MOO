@@ -139,6 +139,8 @@ class SupervisedTrainer(Trainable):
 
         # Build models
         self._model = EPT(**new_config[KEY_MODEL])
+        if torch.cuda.is_available():
+            self._model.cuda()
 
         # Build or Re-build optimizer
         step_per_epoch = math.ceil(self._dataset.num_items / self._batch_size)
@@ -228,8 +230,8 @@ class SupervisedTrainer(Trainable):
             pickle.dump(self.__getstate__(), fp)
 
         # Save model & tokenizer
-        self._model.save(checkpoint_path)
-        with Path(checkpoint_path, 'tokenizer.pt').open('wb') as fp:
+        self._model.save(tmp_checkpoint_dir)
+        with Path(tmp_checkpoint_dir, 'tokenizer.pt').open('wb') as fp:
             torch.save(self._dataset.tokenizer, fp)
 
         rotate_checkpoint(tmp_checkpoint_dir, max_item=1)
@@ -291,7 +293,6 @@ class SupervisedTrainer(Trainable):
             self._scheduler.step()
 
         self._model.zero_grad()
-        self._model.step()
 
     def _after_update(self) -> dict:
         metric = {}
@@ -354,7 +355,7 @@ class SupervisedTrainer(Trainable):
                 # text: Text [B, S]
                 # beam: int
                 # beam_desc: int
-                output = self._model(text=batch.text, beam=configuration[KEY_BEAM])
+                output = self._model(text=batch.text.to(self._model.device), beam=configuration[KEY_BEAM])
                 output = output['expression']
 
                 for i in range(output.operator.shape[0]):
@@ -401,7 +402,8 @@ class SupervisedTrainer(Trainable):
             # num_desc?: B-List of Prediction [N, D]
             # var_desc?: B-List of Prediction [V, D] or Prediction [B, VD]
             # var_target?: Label [B, VD]
-            out = self._model(text=batch.text, expression=batch.expression)
+            out = self._model(text=batch.text.to(self._model.device), 
+                              expression=batch.expression.to(self._model.device))
             out = out['prediction']
             tgt = batch.expression.to(out.device)
 
