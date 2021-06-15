@@ -1,6 +1,5 @@
 from io import StringIO
 from contextlib import redirect_stdout
-from typing import Callable
 
 import pytest
 import random
@@ -685,44 +684,47 @@ def test_CALL_SYMPY():
     template = _load_pyt(OPR_CALL_SYMPY)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_CALL_SYMPY)][CONVERT]
 
-    # # Multi digit sum/subtraction
-    # for _ in range(500):
-    #     digits = random.randint(2, 5)
-    #     a = random.randint(10 ** (digits - 1), 10 ** digits - 1)
-    #     b = random.randint(10 ** (digits - 1), 10 ** digits - 1)
-    #     abc = [list(str(a)), list(str(b)), list(str(a+b))]
-    #
-    #     expected = {}
-    #     for d in range(1, digits + 1):
-    #         if random.random() < 0.2:
-    #             continue
-    #
-    #         character = chr(ord('A') + d - 1)
-    #         choice = random.randint(0, 2)
-    #
-    #         expected[character] = abc[choice][-d]
-    #         abc[choice][-d] = character
-    #
-    #     if random.random() < 0.5:
-    #         # addition
-    #         equation = '%s+%s=%s' % (''.join(abc[0]), ''.join(abc[1]), ''.join(abc[2]))
-    #     else:
-    #         # subtraction
-    #         equation = '%s-%s=%s' % (''.join(abc[2]), ''.join(abc[0]), ''.join(abc[1]))
-    #
-    #     target = random.choice(list(expected.keys()))
-    #     answer = int(expected[target])
-    #     assert answer == _exec_template(template, _locals=dict(equation=[equation], target=target),
-    #                                     **converter(random.choice(_RESULT_NAME), 'equation', 'target'))
-    #     assert answer == _exec_template(template, _locals=dict(equation=[equation]),
-    #                                     **converter(random.choice(_RESULT_NAME), 'equation', '"%s"' % target))
+    # Multi digit sum/subtraction
+    for _ in range(500):
+        digits = random.randint(2, 5)
+        a = random.randint(10 ** (digits - 1), 10 ** digits - 1)
+        b = random.randint(10 ** (digits - 1), 10 ** digits - 1)
+        abc = [list(str(a)), list(str(b)), list(str(a+b))]
+
+        expected = {}
+        for d in range(1, digits + 1):
+            if random.random() < 0.2:
+                continue
+
+            character = chr(ord('A') + d - 1)
+            choice = random.randint(0, 2)
+
+            expected[character] = abc[choice][-d]
+            abc[choice][-d] = character
+
+        if random.random() < 0.5:
+            # addition
+            equation = '%s+%s=%s' % (''.join(abc[0]), ''.join(abc[1]), ''.join(abc[2]))
+        else:
+            # subtraction
+            equation = '%s-%s=%s' % (''.join(abc[2]), ''.join(abc[0]), ''.join(abc[1]))
+
+        if len(expected.keys()) == 0:
+            continue
+
+        target = random.choice(list(expected.keys()))
+        answer = int(expected[target])
+        assert answer == _exec_template(template, _locals=dict(equation=[equation], target=target),
+                                        **converter(random.choice(_RESULT_NAME), 'equation', 'target'))
+        assert answer == _exec_template(template, _locals=dict(equation=[equation]),
+                                        **converter(random.choice(_RESULT_NAME), 'equation', '"%s"' % target))
 
     # System of equation
     for _ in range(500):
         arguments = random.randint(2, 4)
-        variables = [random.randint(0, 100) / 10 for _ in range(arguments)]
+        variables = [random.randint(0, 100) / 4 for _ in range(arguments)]
         keys = [chr(ord('U') + d - 1) for d in range(arguments)]
-        equations = [[random.randint(-100, 100) / 10 for _ in range(arguments)]
+        equations = [[random.randint(-100, 100) / 4 for _ in range(arguments)]
                       for _ in range(arguments)]
 
         eq_built = []
