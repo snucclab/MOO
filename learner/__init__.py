@@ -100,12 +100,6 @@ class SupervisedTrainer(Trainable):
         if KEY_SCHEDULER in config:
             assert type(config[KEY_SCHEDULER]) is dict
 
-    @classmethod
-    def get_trial_name(cls, config, trial_id):
-        # Naming convention: [Trainer-specific]-[MODEL]-[ID]
-        # Get model's trial name
-        return trial_id
-
     def stop(self):
         super().stop()
         self._tester.close()

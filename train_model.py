@@ -10,7 +10,6 @@ from torch.cuda import device_count
 
 from common.model.const import *
 from common.sys.const import EVALUATE_WEIGHT_PATH, EVALUATE_TOKENIZER_PATH
-from common.sys.util import trial_dirname_creator_generator
 from learner import *
 from shutil import copy
 
@@ -151,8 +150,7 @@ if __name__ == '__main__':
     stop_condition = build_stop_condition(args)
     analysis = tune.run(SupervisedTrainer, name=experiment_name, stop=stop_condition,
                         config=build_configuration(args), local_dir=args.log_path, checkpoint_at_end=True,
-                        checkpoint_freq=args.max_iter // 5, reuse_actors=True,
-                        trial_dirname_creator=trial_dirname_creator_generator(), raise_on_failed_trial=False,
+                        checkpoint_freq=args.max_iter // 5, reuse_actors=True, raise_on_failed_trial=False,
                         metric='dev_correct', mode='max')
 
     # Record trial information
