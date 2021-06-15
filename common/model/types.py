@@ -4,7 +4,7 @@ from typing import TypeVar, Any, ItemsView, List, Dict, Optional, Callable
 import torch
 
 from common.model.const import PAD_ID
-from common.model.util import stack_tensors, concat_tensors
+from common.model.util import concat_tensors
 from common.solver.const import OPR_MAX_ARITY, OPR_NEW_EQN_ID
 
 TypedAny = TypeVar('TypedAny')
@@ -140,8 +140,8 @@ class Text(TypeTensorBatchable, TypeSelectable):
 
     @classmethod
     def build_batch(cls, *items: 'Text') -> 'Text':
-        return Text(tokens=stack_tensors([item.tokens for item in items], pad_value=PAD_ID),
-                    word_indexes=stack_tensors([item.word_indexes for item in items], pad_value=PAD_ID),
+        return Text(tokens=concat_tensors([item.tokens for item in items], pad_value=PAD_ID),
+                    word_indexes=concat_tensors([item.word_indexes for item in items], pad_value=PAD_ID),
                     word_info=[info for item in items for info in item.word_info])
 
     def tokens_pad_fill(self, fill_value: int) -> torch.Tensor:
@@ -197,14 +197,8 @@ class Encoded(TypeTensorBatchable, TypeSelectable):
 
     @classmethod
     def build_batch(cls, *items: 'Encoded') -> 'Encoded':
-        vectors = stack_tensors([item.vector for item in items], pad_value=0.0)
-        pads = stack_tensors([item.pad for item in items], pad_value=True)
-        return Encoded(vectors, pads)
-
-    @classmethod
-    def concat(cls, *items: 'Encoded', dim: int = 0) -> 'Encoded':
-        vectors = concat_tensors([item.vector for item in items], dim=dim, pad_value=0.0)
-        pads = concat_tensors([item.pad for item in items], dim=dim, pad_value=True)
+        vectors = concat_tensors([item.vector for item in items], pad_value=0.0)
+        pads = concat_tensors([item.pad for item in items], pad_value=True)
         return Encoded(vectors, pads)
 
     @classmethod
@@ -280,8 +274,8 @@ class Expression(TypeTensorBatchable, TypeSelectable):
     @classmethod
     def build_batch(cls, *items: 'Expression') -> 'Expression':
         operands = zip(*[item.operands for item in items])
-        return Expression(operator=stack_tensors([item.operator for item in items], pad_value=PAD_ID),
-                          operands=[stack_tensors(operand_j, pad_value=PAD_ID) for operand_j in operands])
+        return Expression(operator=concat_tensors([item.operator for item in items], pad_value=PAD_ID),
+                          operands=[concat_tensors(operand_j, pad_value=PAD_ID) for operand_j in operands])
 
     @classmethod
     def get_generation_base(cls) -> 'Expression':

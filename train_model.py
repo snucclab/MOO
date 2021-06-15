@@ -127,6 +127,10 @@ def get_experiment_name(args):
     return f'{args.name}_{now}'
 
 
+def trial_dirname_creator(trial: Trial) -> str:
+    return trial.trial_id
+
+
 if __name__ == '__main__':
     args = read_arguments()
     if not Path(args.log_path).exists():
@@ -150,7 +154,8 @@ if __name__ == '__main__':
     stop_condition = build_stop_condition(args)
     analysis = tune.run(SupervisedTrainer, name=experiment_name, stop=stop_condition,
                         config=build_configuration(args), local_dir=args.log_path, checkpoint_at_end=True,
-                        checkpoint_freq=args.max_iter // 5, reuse_actors=True, raise_on_failed_trial=False,
+                        checkpoint_freq=args.max_iter // 5, reuse_actors=True,
+                        trial_dirname_creator=trial_dirname_creator, raise_on_failed_trial=False,
                         metric='dev_correct', mode='max')
 
     # Record trial information
