@@ -52,14 +52,19 @@ class Simulator:
 
         chosen_list = []
         random_dict = {}
-        for idx, key in enumerate(keys):
-            vocab_list = self.vocab.get(re.sub(r'[<\.\d>]', '', key))
+        for idx, raw_key in enumerate(keys):
+            vocab = []
+            key = re.sub(r'[<>]', '', raw_key)
+            if key in template['list-sampling']:
+                vocab_list = template['list-sampling'][key]
+            else :
+                vocab_list = self.vocab.get(re.sub(r'[<\.\d>]', '', raw_key))
             val = random.choice(vocab_list)
             while True:
                 if val not in chosen_list:
                     break
                 val = random.choice(vocab_list)
-            random_dict[key] = val
+            random_dict[raw_key] = val
             chosen_list.append(val)
 
         for key, value in random_dict.items():
