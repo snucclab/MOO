@@ -100,12 +100,6 @@ class SupervisedTrainer(Trainable):
         if KEY_SCHEDULER in config:
             assert type(config[KEY_SCHEDULER]) is dict
 
-    @classmethod
-    def get_trial_name(cls, config, trial_id):
-        # Naming convention: [Trainer-specific]-[MODEL]-[ID]
-        # Get model's trial name
-        return trial_id
-
     def stop(self):
         super().stop()
         self._tester.close()
@@ -145,6 +139,8 @@ class SupervisedTrainer(Trainable):
 
         # Build models
         self._model = EPT(**new_config[KEY_MODEL])
+        if torch.cuda.is_available():
+            self._model.cuda()
 
         # Build or Re-build optimizer
         step_per_epoch = math.ceil(self._dataset.num_items / self._batch_size)
@@ -164,7 +160,7 @@ class SupervisedTrainer(Trainable):
         report['before'] = self._before_update()
 
         # Run training
-        report['train'] = self._update_module(pretrain=False)
+        report['train'] = self._update_module()
         report[TIMESTEPS_THIS_ITER] = report['train'][TIMESTEPS_THIS_ITER]
 
         # Run evaluation periodically
@@ -234,8 +230,8 @@ class SupervisedTrainer(Trainable):
             pickle.dump(self.__getstate__(), fp)
 
         # Save model & tokenizer
-        self._model.save(checkpoint_path)
-        with Path(checkpoint_path, 'tokenizer.pt').open('wb') as fp:
+        self._model.save(tmp_checkpoint_dir)
+        with Path(tmp_checkpoint_dir, 'tokenizer.pt').open('wb') as fp:
             torch.save(self._dataset.tokenizer, fp)
 
         rotate_checkpoint(tmp_checkpoint_dir, max_item=1)
@@ -297,7 +293,6 @@ class SupervisedTrainer(Trainable):
             self._scheduler.step()
 
         self._model.zero_grad()
-        self._model.step()
 
     def _after_update(self) -> dict:
         metric = {}
@@ -360,7 +355,7 @@ class SupervisedTrainer(Trainable):
                 # text: Text [B, S]
                 # beam: int
                 # beam_desc: int
-                output = self._model(text=batch.text, beam=configuration[KEY_BEAM])
+                output = self._model(text=batch.text.to(self._model.device), beam=configuration[KEY_BEAM])
                 output = output['expression']
 
                 for i in range(output.operator.shape[0]):
@@ -371,7 +366,7 @@ class SupervisedTrainer(Trainable):
                     # Transform equation into python code using solver.execution_to_python_code()
                     code = execution_to_python_code(execution, word_info, indent=4)
                     # Execute python code with timeout (0.5s) and get an answer (type: string)
-                    answer = self._tester.run(code)
+                    _, answer = self._tester.run(code)
 
                     results.append({
                         'correct': answer == batch.answer[i],
@@ -395,7 +390,7 @@ class SupervisedTrainer(Trainable):
         self._model.train()
         return {}
 
-    def _update_module(self, pretrain) -> dict:
+    def _update_module(self) -> dict:
         reports = []
         batch_gen = list(self._dataset.get_minibatches(self._batch_size))
         for batch in batch_gen:
@@ -407,7 +402,8 @@ class SupervisedTrainer(Trainable):
             # num_desc?: B-List of Prediction [N, D]
             # var_desc?: B-List of Prediction [V, D] or Prediction [B, VD]
             # var_target?: Label [B, VD]
-            out = self._model(text=batch.text, expression=batch.expression)
+            out = self._model(text=batch.text.to(self._model.device), 
+                              expression=batch.expression.to(self._model.device))
             out = out['prediction']
             tgt = batch.expression.to(out.device)
 
@@ -418,11 +414,11 @@ class SupervisedTrainer(Trainable):
 
             losses['operator'] = SMOOTHED_CROSS_ENTROPY_LOSS(out.operator[:, :-1], tgt.operator[:, 1:], smoothing=0.01)
             report.update(**{key + '_operator': value
-                             for key, value in accuracy_of(tgt.operator, out.operator)})
+                             for key, value in accuracy_of(tgt.operator, out.operator).items()})
             for j, (o_j, t_j) in enumerate(zip(out.operands, tgt.operands)):
                 losses['operand_%s' % j] = SMOOTHED_CROSS_ENTROPY_LOSS(o_j[:, :-1], t_j[:, 1:], smoothing=0.01)
                 report.update(**{key + '_operand%s' % j: value
-                                 for key, value in accuracy_of(t_j, o_j)})
+                                 for key, value in accuracy_of(t_j, o_j).items()})
 
             with torch.no_grad():
                 all_raw = [tensor for key, tensor in report.items() if key.startswith('raw_')]

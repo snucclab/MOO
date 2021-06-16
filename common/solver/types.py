@@ -1,6 +1,6 @@
 from typing import List, Tuple
 from common.sys.key import SRC_LIST, ARITY
-from common.solver.const import OPR_SZ, OPR_VALUES
+from common.solver.const import OPR_SZ, OPR_VALUES, CON_VALUES
 
 
 class Execution:
@@ -16,7 +16,7 @@ class Execution:
     def __init__(self, function: int, arguments: List[Tuple[int, int]]):
         assert function < OPR_SZ
         assert len(arguments) == OPR_VALUES[function][ARITY]
-        assert all(t < len(SRC_LIST) for t, _ in arguments)
+        assert all(t < len(SRC_LIST) and type(i) is int and t < len(CON_VALUES) for t, i in arguments)
 
         self.function = function
         self.arguments = arguments

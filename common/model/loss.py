@@ -51,4 +51,5 @@ class SmoothedCrossEntropyLoss(torch.nn.Module):
             return loss.sum()
         elif self.reduction == 'mean':
             not_ignored = target.ne(self.ignore_index).sum(dim=-1)
-            return (loss.sum(dim=-1) / not_ignored).sum()
+            mean_per_item = (loss.sum(dim=-1) / not_ignored).masked_fill(not_ignored.eq(0), 0.0)
+            return mean_per_item.sum()

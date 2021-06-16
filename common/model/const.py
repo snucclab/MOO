@@ -2,7 +2,7 @@
 
 # Encoder configurations
 MDL_ENCODER = 'encoder'
-DEF_ENCODER = 'google/electra-base-discriminator'
+DEF_ENCODER = 'monologg/koelectra-base-v3-discriminator'
 
 # Decoder configurations
 MDL_DECODER = 'decoder'
@@ -36,4 +36,4 @@ POS_INF_SAFE = 1E10
 FLOAT_NAN = float('NaN')
 
 # Maximum length of generation steps
-MAX_GEN = 500
+MAX_GEN = 50
