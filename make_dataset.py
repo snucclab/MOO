@@ -25,7 +25,7 @@ def read_arguments():
                         help='Root directory of template YAML files')
     parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./simulate/",
                         help='Root directory of template YAML files')
-    parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=False, default=5,
+    parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=False, default=100,
                         help='Number of items generated for each template file')
     parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./simulate/output",
                         help='Root directory for saving output dataset files')
@@ -78,6 +78,7 @@ if __name__ == '__main__':
     for template in simulator.generate(args.num_item):
         for i, item in enumerate(template):
             text = string_to_text_instance(item.text, tokenizer)
+            print(item.text)
             execution = python_code_to_executions(item.code_template)
             raw_code = execution_to_python_code(execution, text.word_info[0])
             item.code, item.executed = executor.run(raw_code)

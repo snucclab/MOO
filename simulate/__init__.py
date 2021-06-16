@@ -24,7 +24,7 @@ class Simulator:
                 variable_dict[item_name] = random.randint(item_value['range'][0], item_value['range'][1])
 
             if item_value['type'] == 'float':
-                variable_dict[item_name] = random.uniform(item_value['range'][0], item_value['range'][1])
+                variable_dict[item_name] = random.randint(item_value['range'][0]*100, item_value['range'][1]*100)/100
         s_variable_dict = {key: str(value) for key, value in variable_dict.items()}
         for key, value in s_variable_dict.items():
             problem = problem.replace('<' + key + '>', value)
@@ -57,14 +57,14 @@ class Simulator:
         # print('tokenize')
 
         tokenized_problem_list = tokenize_string(problem)
-        print('tokenized_problem_list')
-        print(tokenized_problem_list)
+        #print('tokenized_problem_list')
+        #print(tokenized_problem_list)
 
         tokenized_list = []
         for value, key in enumerate(tokenized_problem_list):
             tokenized_list.append([key, value])
-        print('tokenized_list')
-        print(tokenized_list)
+        #print('tokenized_list')
+        #print(tokenized_list)
 
         tokenized_dictionary = {key: str(value) for value, key in enumerate(tokenized_problem_list)}
         # print('enumerated tokenized_problem_list')
@@ -76,13 +76,13 @@ class Simulator:
                 tokenized_list[int(value)][1] = "{}{}".format("0", value)
         for key, value in tokenized_list:
             tokenized_list[int(value)][1] = "{}{}".format("_", value)
-        print(tokenized_list)
+        #print(tokenized_list)
 
         tokenized_list_index = []
         for key, value in tokenized_list:
             tokenized_list_index.append(value)
-        print('tokenized_list_index')
-        print(tokenized_list_index)
+        #print('tokenized_list_index')
+        #print(tokenized_list_index)
         tokenized_list_index_string = ' '.join([str(token) for token in tokenized_list_index])
 
         for key, value in tokenized_dictionary.items():
@@ -90,7 +90,7 @@ class Simulator:
                 tokenized_dictionary[key] = "{}{}".format("0", value)
         for key, value in tokenized_dictionary.items():
             tokenized_dictionary[key] = "{}{}".format("_", value)
-        print(tokenized_dictionary)
+        #print(tokenized_dictionary)
         #
         # tokenized_index_list = []
         # for key, value in tokenized_dictionary.items():
@@ -100,6 +100,7 @@ class Simulator:
         # print(tokenized_index_list)
 
         equations = template['equations']
+        print(problem)
         print(equations)
 
         for variable_key, variable_value in s_variable_dict.items():
@@ -138,7 +139,7 @@ class Simulator:
         # equations = equations.replace("R23:", "")
         # equations = equations.replace("R24:", "")
 
-        print('equations')
+        #print('equations')
         equations.strip('\n')
         #equations = equations.replace("  ","\n")
         #print(equations)
@@ -186,7 +187,9 @@ class Simulator:
         :param int n: template 당 생성될 문제의 개수
         """
         results = []
-        for template in self.templates:
+        for idx, template in enumerate(self.templates):
+            print(str(idx)+"번째 템플릿 생성중")
+            print(template)
             problems = []
             for idx in range(n):
                 text, code_template = self.prob_gen(template)
