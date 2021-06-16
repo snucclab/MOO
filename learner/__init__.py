@@ -15,6 +15,7 @@ from common.model.const import MDL_ENCODER, FLOAT_NAN
 from common.model.loss import SmoothedCrossEntropyLoss
 from common.sys.convert import equation_to_execution
 from common.sys.dataset import *
+from common.sys.key import WORD
 from common.sys.pattern import NUMBER_BEGIN_PATTERN
 from evaluate import Executor
 from model import EPT
@@ -370,7 +371,6 @@ class SupervisedTrainer(Trainable):
                     # Execute python code with timeout (0.5s) and get an answer (type: string)
                     code, answer = self._tester.run(code)
 
-                    correct = False
                     if NUMBER_BEGIN_PATTERN.fullmatch(expected) and NUMBER_BEGIN_PATTERN.fullmatch(answer):
                         correct = abs(Decimal(expected) - Decimal(answer)) < 1E-2
                     else:
@@ -380,8 +380,10 @@ class SupervisedTrainer(Trainable):
                         'correct': correct,
                         'answer': answer,
                         'expected': expected,
+                        'execution': [str(x) for x in execution],
                         'code': code,
-                        'item_id': batch.item_id
+                        'item_id': batch.item_id[i],
+                        'text': ' '.join('_%02d:%s' % (t, tok[WORD]) for t, tok in word_info)
                     })
 
             results = {
