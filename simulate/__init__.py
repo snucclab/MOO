@@ -15,7 +15,6 @@ def yaml_loader(filepath):
 class Simulator:
     def prob_gen(self, template: Dict) -> [str, str]:
         problem = template['problem']
-        # print(problem)
 
         numbers = []
         variable_dict = {}
@@ -43,116 +42,39 @@ class Simulator:
         for key, value in random_dict.items():
             problem = problem.replace(key, value)
 
-        # result = re.search(r"\[([A-Za-z0-9_]+)\]", problem)
-        # result = problem.split('<', 1)[1].split('>')[0]
-        # print(result)
-
         problem = problem.replace("<", "")
         problem = problem.replace(">", "")
         problem = problem.replace(".0", "")
         problem = problem.rstrip()
-        # problem = str(count)+". "+problem
 
         problem = josa_converter.replace_josa(problem)
-        # print('tokenize')
-
         tokenized_problem_list = tokenize_string(problem)
-        #print('tokenized_problem_list')
-        #print(tokenized_problem_list)
 
         tokenized_list = []
         for value, key in enumerate(tokenized_problem_list):
             tokenized_list.append([key, value])
-        #print('tokenized_list')
-        #print(tokenized_list)
 
         tokenized_dictionary = {key: str(value) for value, key in enumerate(tokenized_problem_list)}
-        # print('enumerated tokenized_problem_list')
-        # print(tokenized_dictionary)
-        # print(tokenized_dictionary)
 
         for key, value in tokenized_list:
             if int(value) < 10:
                 tokenized_list[int(value)][1] = "{}{}".format("0", value)
         for key, value in tokenized_list:
             tokenized_list[int(value)][1] = "{}{}".format("_", value)
-        #print(tokenized_list)
 
         tokenized_list_index = []
         for key, value in tokenized_list:
             tokenized_list_index.append(value)
-        #print('tokenized_list_index')
-        #print(tokenized_list_index)
-        tokenized_list_index_string = ' '.join([str(token) for token in tokenized_list_index])
 
         for key, value in tokenized_dictionary.items():
             if int(value) < 10:
                 tokenized_dictionary[key] = "{}{}".format("0", value)
         for key, value in tokenized_dictionary.items():
             tokenized_dictionary[key] = "{}{}".format("_", value)
-        #print(tokenized_dictionary)
-        #
-        # tokenized_index_list = []
-        # for key, value in tokenized_dictionary.items():
-        #     tokenized_index_list.append(value)
-        # tokenized_index_list.sort()
-        # print('tokenized_index_list')
-        # print(tokenized_index_list)
 
         equations = template['equations']
         print(problem)
         print(equations)
-
-        for variable_key, variable_value in s_variable_dict.items():
-            equations = equations.replace(variable_key, variable_value)
-
-        for tokenized_key, tokenized_value in tokenized_dictionary.items():
-            equations = equations.replace('<'+tokenized_key+'>', tokenized_value)
-
-        equations = equations.replace("<", "")
-        equations = equations.replace(">", "")
-        equations = re.sub(r'R0: ', '', equations)
-        equations = re.sub(r'R\d+: ', '\n', equations)
-        # equations = equations.replace("R0: ", "")
-        # equations = equations.replace("R1:", "")
-        # equations = equations.replace("R2:", "")
-        # equations = equations.replace("R3:", "")
-        # equations = equations.replace("R4:", "")
-        # equations = equations.replace("R5:", "")
-        # equations = equations.replace("R6:", "")
-        # equations = equations.replace("R7:", "")
-        # equations = equations.replace("R8:", "")
-        # equations = equations.replace("R9:", "")
-        # equations = equations.replace("R10:", "")
-        # equations = equations.replace("R11:", "")
-        # equations = equations.replace("R12:", "")
-        # equations = equations.replace("R13:", "")
-        # equations = equations.replace("R14:", "")
-        # equations = equations.replace("R15:", "")
-        # equations = equations.replace("R16:", "")
-        # equations = equations.replace("R17:", "")
-        # equations = equations.replace("R18:", "")
-        # equations = equations.replace("R19:", "")
-        # equations = equations.replace("R20:", "")
-        # equations = equations.replace("R21:", "")
-        # equations = equations.replace("R22:", "")
-        # equations = equations.replace("R23:", "")
-        # equations = equations.replace("R24:", "")
-
-        #print('equations')
-        equations.strip('\n')
-        #equations = equations.replace("  ","\n")
-        #print(equations)
-
-        # zipped_token_index = zip(*[tokenized_list_index, tokenized_problem_list])
-        # print('zipped')
-        # print(tokenized_list_index)
-        # print(tokenized_problem_list)
-        tokenized_problem_list_endspaced = tokenized_problem_list
-        for i, item in enumerate(tokenized_problem_list):
-            tokenized_problem_list_endspaced[i] = "{}{}{}".format(":", item, " ")
-        zipped_token_index = ''.join(
-            [str(a) + b for a, b in zip(tokenized_list_index, tokenized_problem_list_endspaced)])
 
         return problem, equations
 
@@ -193,6 +115,8 @@ class Simulator:
             problems = []
             for idx in range(n):
                 text, code_template = self.prob_gen(template)
+                if text.find('14.12') != -1 :
+                    print(text)
                 problems.append(Problem(text, code_template))
 
             results.append(problems)
