@@ -4,8 +4,9 @@ from common.simulate.types import Problem
 import random
 import simulate.josa_converter
 import yaml
-from simulate.convert import tokenize_string
+from common.sys.convert import tokenize_string
 import re
+import copy
 
 def yaml_loader(filepath):
     with open(filepath, "r") as file_descriptor:
@@ -16,33 +17,43 @@ class Simulator:
     def prob_gen(self, template: Dict) -> [str, str]:
         problem = template['problem']
 
+        # num 끼워넣기
         numbers = []
         variable_dict = {}
-        for item_name, item_value in template['variable-sampling'].items():
+
+        for i, item in enumerate(copy.deepcopy(template['variable-sampling']).items()):
+            item_name = item[0]
+            item_value = item[1]
+            if i != 0:
+                for j, value in enumerate(item_value['range']):
+                    if type(value) is str :
+                        temp_keys = re.findall(r'<num\.\d+>',value)
+                        for key in temp_keys:
+                            value = value.replace(key, str(variable_dict[key]))
+                        item_value['range'][j] = eval(value)
+
             if item_value['type'] == 'int':
-                variable_dict[item_name] = random.randint(item_value['range'][0], item_value['range'][1])
-
+                variable_dict['<'+item_name+'>'] = random.randint(item_value['range'][0], item_value['range'][1]-1)
             if item_value['type'] == 'float':
-                variable_dict[item_name] = random.randint(item_value['range'][0]*100, item_value['range'][1]*100)/100
+                variable_dict['<'+item_name+'>'] = random.randint(item_value['range'][0]*100, item_value['range'][1]*100 -1)/100
         s_variable_dict = {key: str(value) for key, value in variable_dict.items()}
-        for key, value in s_variable_dict.items():
-            problem = problem.replace('<' + key + '>', value)
 
-        problem = re.sub('[<>]', '', problem)
+        for key, value in s_variable_dict.items():
+            problem = problem.replace(key, value)
+
         p_tokens = tokenize_string(problem)
 
         keys = []
         for idx, token in enumerate(p_tokens):
-            for key in self.vocab:
-                if key in token:
-                    keys.append(p_tokens[idx] + p_tokens[idx + 1])
+            for vocab in self.vocab:
+                if vocab == re.sub("[<.]","",token):
+                    keys.append(p_tokens[idx] + p_tokens[idx + 1] + '>')
         keys = list(set(keys))
 
         chosen_list = []
         random_dict = {}
         for idx, key in enumerate(keys):
-            # print(re.sub('\.\d+', '', key))
-            vocab_list = self.vocab.get(re.sub('\.\d+', '', key))
+            vocab_list = self.vocab.get(re.sub(r'[<\.\d>]', '', key))
             val = random.choice(vocab_list)
             while True:
                 if val not in chosen_list:
@@ -81,18 +92,29 @@ class Simulator:
 
         equations = template['equations']
 
-        for variable_key, variable_value in s_variable_dict.items():
-            equations = equations.replace(variable_key, variable_value)
-
-        for tokenized_key, tokenized_value in tokenized_dictionary.items():
-            equations = equations.replace('<'+tokenized_key+'>', tokenized_value)
-
-        equations = equations.replace("<", "")
-        equations = equations.replace(">", "")
         equations = re.sub(r'R0: ', '', equations)
         equations = re.sub(r'R\d+: ', '\n', equations)
+
+        for key, value in s_variable_dict.items():
+            if value in tokenized_dictionary:
+                equations = equations.replace(key, tokenized_dictionary[value])
+            else :
+                equations = equations.replace(key, value)
+
+        # for tokenized_key, tokenized_value in sorted(list(tokenized_dictionary.items()), key=lambda x: len(x[0]), reverse=True):
+        #     #equations = equations.replace(tokenized_key, tokenized_value)
+        #     equations = re.sub('([(,])'+ tokenized_key, r'\1'+tokenized_value, equations)
+
+
         #print(problem)
         #print(equations)
+
+        tokenized_problem_list_endspaced = tokenized_problem_list
+        for i, item in enumerate(tokenized_problem_list):
+            tokenized_problem_list_endspaced[i] = "{}{}{}".format(":", item, " ")
+        zipped_token_index = ''.join(
+            [str(a) + b for a, b in zip(tokenized_list_index, tokenized_problem_list_endspaced)])
+
         return problem, equations
 
     def load_templates(self, templates: List[dict]):

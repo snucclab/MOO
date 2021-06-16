@@ -9,9 +9,11 @@ CON_VALUES = [
     '9',
     '10',
     '11',
+    '12',
     '99',
     '100',
-    '1000'
+    '1000',
+    '10000'
 ]
 CON_TOKENS = [str(x) for x in CON_VALUES]
 CON_MAX = len(CON_VALUES)
