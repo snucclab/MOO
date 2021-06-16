@@ -18,9 +18,9 @@ list-sampling:
 function-call: None
 
 equations:
-"R0: SUB(<num.0>,<num.1>)
-R1: ADD(R0,1)
-R2: PRINT(R1)"
+  "R0: SUB(<num.0>,<num.1>)
+  R1: ADD(R0,1)
+  R2: PRINT(R1)"
 
 
 

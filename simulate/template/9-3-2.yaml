@@ -7,37 +7,37 @@ variable-sampling:
   num.0:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.1:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.2:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.3:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.4:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.5:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.6:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
 
 list-sampling: None
 
 function-call: None
 
-equation:
+equations:
   "R0: LIST()
   R1: APPEND(R0,<num.0>)
   R2: APPEND(R1,<num.1>)

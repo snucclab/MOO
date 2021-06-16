@@ -14,7 +14,7 @@ list-sampling: None
 function-call: None
 
 equations:
-  "R0: range(0,<num.0>,1)
+  "R0: RANGE(0,<num.0>,1)
   R1: MAX(R0)
   R2: MUL(<num.0>,R1)
   R3: ADD(R2,R1)

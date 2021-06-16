@@ -1,48 +1,44 @@
 problem: >
   수 8개 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5>, <num.6>, <num.7>(이)가 있다고 할 때,
-  이 중에서 <num.8>+<num.9>보다 작은 수가 몇 개인지 구하시오.
+  이 중에서 <num.8>보다 작은 수가 몇 개인지 구하시오.
 
 variable-sampling:
   num.0:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.1:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.2:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.3:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.4:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.5:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.6:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.7:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.8:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
-  num.9:
-    range: [ 1, 10000 ]
-    under-decimal: 10
-    type: float
+    type: int
 
 list-sampling: None
 
@@ -58,7 +54,6 @@ equations:
   R6: APPEND(R5,<num.5>)
   R7: APPEND(R6,<num.6>)
   R8: APPEND(R7,<num.7>)
-  R9: ADD(<num.8>,<num.9>)
-  R10: LT(R8,R9)
-  R11: SUM(R10)
-  R12: PRINT(R11)"
+  R9: LT(R8,<num.8>)
+  R10: SUM(R9)
+  R11: PRINT(R10)"

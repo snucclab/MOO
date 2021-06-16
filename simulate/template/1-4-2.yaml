@@ -16,7 +16,14 @@ variable-sampling:
     range: [ 20, 60 ]
     under-decimal: 0
     type: int
-
+  num.3:
+    range: [ 12, 13]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [ 2, 3]
+    under-decimal: 0
+    type: int  
 list-sampling: None
 
 function-call: None
@@ -26,10 +33,10 @@ equations:
   R1: APPEND(R0,<num.0>)
   R2: APPEND(R1,<num.1>)
   R3: SUM(R2)
-  R4: SUB(12,2)
+  R4: SUB(<num.3>,<num.4>)
   R5: MUL(R4,<num.2>)
   R6: ADD(R3,R5)
-  R7: DIV(R6,12)
+  R7: DIV(R6,<num.3>)
   R8: PRINT(R7)"
 
 

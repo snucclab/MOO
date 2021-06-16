@@ -4,19 +4,19 @@ variable-sampling:
   num.0:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.1:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.2:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.3:
     range: [ 1, 10000 ]
     under-decimal: 10
-    type: float
+    type: int
   num.4:
     range: [ 0, 1000 ]
     under-decimal: 0
