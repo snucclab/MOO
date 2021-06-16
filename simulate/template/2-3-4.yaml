@@ -1,0 +1,29 @@
+problem: >
+ 나이가 적은 <vocation.0>부터 <num.0>명이 한 줄로 섰을 때 <person.0>의 순서는 <position.0>에서부터 <num.1>번째입니다.
+  나이가 많은 <vocation.0>부터 다시 줄을 선다면 <person.0>(은)는 <position.0>에서부터 몇 번째에 섰습니까?
+
+variable-sampling:
+  num.0:
+    range: [2, 25]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, <num.0>]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  position: [‘앞', ‘뒤']
+
+function-call: None
+
+equations:
+"R0: SUB(<num.0>,<num.1>)
+R1: ADD(R0,1)
+R2: PRINT(R1)"
+
+
+
+
+
+

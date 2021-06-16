@@ -1,0 +1,27 @@
+problem: >
+  <num.0>부터 <num.1>까지의 짝수의 합을 계산한 결과는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 400 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ num.0+10, 1000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: ADD(<num.1>,1)
+  R1: RANGE(<num.0>,R0,2)
+  R2: SUM(R1)
+  R3: PRINT(R2)"
+
+
+
+
+

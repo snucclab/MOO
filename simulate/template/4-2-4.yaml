@@ -1,0 +1,16 @@
+problem: 미지의 소수의 자리를 왼쪽으로 두 자리 옮기면 원래의 소수보다 <num.0>만큼 작은 수가 됩니다. 원래 소수는 어떤 수였습니까?
+
+variable-sampling:
+  num.0:
+    range: [1, 25]
+    under-decimal: 0
+    type: float
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: DIV(99,100)
+  R1: DIV(<num.0>,R0)
+  R2: PRINT(R1)"

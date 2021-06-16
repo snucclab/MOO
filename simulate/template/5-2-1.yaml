@@ -1,0 +1,28 @@
+problem: >
+  <unknown.0>(을)를 <num.0>(으)로 나눈 몫은 <unknown.1>(이)고 나머지는 <unknown.2>입니다.
+  <unknown.0>, <unknown.1>, <unknown.2>(은)는 자연수이고 <unknown.2>(와)과 <unknown.2>(은)는 같은 수입니다.
+  <unknown.0>의 값으로 가능한 수 중 가장 작은 수는 무엇입니까?
+
+variable-sampling:
+  num.0:
+    range: [1, 18]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: range(0,<num.0>,1)
+  R1: MAX(R0)
+  R2: MUL(<num.0>,R1)
+  R3: ADD(R2,R1)
+  R4: PRINT(R3)"
+
+
+
+
+
+
+

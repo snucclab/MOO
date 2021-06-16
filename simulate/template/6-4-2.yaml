@@ -1,0 +1,35 @@
+problem: >
+  어떤 자연수에 <num.0>(을)를 곱하기로 계획하였는데 실수로 <num.1>(을)를 곱했더니 <num.2>(이)가 되었습니다.
+  원래 계획대로 계산하면 어떤 숫자가 나올까요?
+
+variable-sampling:
+  num.0:
+    range: [ 2, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 100 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, num.0+num.1]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: DIV(<num.2>,<num.1>)
+  R1: MUL(R0,<num.0>)
+  R2: PRINT(R1)"
+
+
+
+
+
+
+
+
+

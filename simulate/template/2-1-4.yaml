@@ -1,0 +1,27 @@
+problem: >
+  <place.0>에서 줄에 서 있는 <vocation.0>의 수는 <num.0>입니다.
+  <person.0>의 <position.0>에는 <num.1>명이 서 있습니다.
+  <person.0> <position.1>(으)로 서 있는 <vocation.0>(은)는 몇 명입니까?
+
+variable-sampling:
+  num.0:
+    range: [2, 31]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, <num.0>]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: [‘서점’,’마트’,’문구점’,’급식실’, ‘학교', ‘수영장', ‘도서관’, ‘박물관', ‘정류장', ‘강당’ ‘음식점', ‘영화관', ‘건물']
+  vocation.0: [‘학생', ‘경찰', ‘선생님', ‘중학생', ‘운동선수', ‘중학생' ,’고등학생', ‘초등학생']
+  position.0: ['앞', '뒤']
+
+function-call: None
+
+equations: 
+  "R0: SUB(<num.0>,<num.1>)
+  R1: SUB(R0,1)
+  R2: PRINT(R1)"
+

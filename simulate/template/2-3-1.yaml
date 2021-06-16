@@ -1,0 +1,30 @@
+problem: >
+  총 <num.0>명의 <vocation.0>(이)가 <body.0>(이)가 작은 순서대로 일렬로 서 있습니다.
+  <person.0>(은)는 <position.0>(으)로부터 <num.1>번째에 서게 되었습니다.
+  <body.0>(이)가 큰 순으로 다시 일렬로 선다면, <person.0>(은)는 <position.0>(으)로부터 몇 번째에 서게 됩니까?
+
+variable-sampling:
+  num.0:
+    range: [2, 40]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, <num.0>]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  position: [‘앞', ‘뒤']
+
+function-call: None
+
+equations:
+  "R0: SUB(<num.0>,<num.1>)
+  R1: ADD(R0,1)
+  R2: PRINT(R1)"
+
+
+
+
+
+
