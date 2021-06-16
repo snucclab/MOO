@@ -183,14 +183,14 @@ if __name__ == '__main__':
             best_trial = trial
 
     # Record the best configuration
-    logpath = Path(analysis.best_logdir).parent
+    logpath = Path(analysis.best_logdir)
     logger.info('--------------------------------------------------------')
     logger.info('Found best configuration (scored %.4f)', best_scores)
     logger.info(repr(best_configs))
     logger.info('--------------------------------------------------------')
-    with Path(logpath, 'best_config.pkl').open('wb') as fp:
+    with Path(logpath.parent, 'best_config.pkl').open('wb') as fp:
         pickle.dump(best_configs, fp)
-    with Path(logpath, 'best_config.yaml').open('w+t') as fp:
+    with Path(logpath.parent, 'best_config.yaml').open('w+t') as fp:
         yaml_dump(best_configs, fp)
 
     # Copy the best configuration to weights directory
@@ -205,7 +205,8 @@ if __name__ == '__main__':
         if tokenizer_path.exists():
             tokenizer_path.unlink()
 
-    copy(Path(best_trial.checkpoint, 'EPT.pt'), weight_path)
-    copy(Path(best_trial.checkpoint, 'tokenizer.pt'), tokenizer_path)
+    checkpoints = max(logpath.glob('checkpoint_*'), key=lambda path: path.name)
+    copy(str(checkpoints / 'EPT.pt'), weight_path)
+    copy(str(checkpoints / 'tokenizer.pt'), tokenizer_path)
 
     shutdown()
