@@ -14,7 +14,7 @@ variable-sampling:
     type: int
 
 list-sampling:
-  position: [‘앞', ‘뒤']
+  position: ['앞', '뒤']
   body: ['키', '몸무게', '나이']
 
 function-call: None

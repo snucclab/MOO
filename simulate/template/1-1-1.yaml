@@ -14,15 +14,14 @@ variable-sampling:
     type: int
 
 list-sampling:
-  place.0 = ['집', '학교', '교실', '도서관', '아파트', 방’, ‘연구실’, ‘건물’]
-  stationary.0 = ['상자', '책장', '책꽂이', ‘서랍’]
+  place.0 : ['집', '학교', '교실', '도서관', '아파트', '방', '연구실', '건물']
+  stationary.0 : ['상자', '책장', '책꽂이', '서랍']
 
 function-call: None
 
 equations:
   "R0: ADD(<num.0>,<num.1>)
   R1: PRINT(R0)"
-
 
 
 

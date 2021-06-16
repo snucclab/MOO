@@ -14,7 +14,7 @@ variable-sampling:
     type: int
 
 list-sampling:
-  position: [‘앞', ‘뒤']
+  position: ['앞', '뒤']
 
 function-call: None
 

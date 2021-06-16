@@ -1,7 +1,7 @@
 problem: >
   <propername.0>(이)가 자주 가는 <place.0> 1층에는 <num.0>개의 <place.1>(이)가 있습니다.
   한 <place.1> 당 <stationary.0>(을)를 <num.1>개씩 가지고 있습니다.
-  이 <place.0> 1층에 있는 <stationary.0>의 개수는 모두 몇  개 일까요?
+  이 <place.0> 1층에 있는 <stationary.0>의 개수는 모두 몇 개 일까요?
 
 variable-sampling:
   num.0:
@@ -14,8 +14,8 @@ variable-sampling:
     type: int
 
 list-sampling:
-  place.0 = ['집', '학교', '도서관', '박물관', '아파트', '강당', ‘음식점', ‘영화관', ‘건물’]
-  place.1 = [‘방’, ‘연구실’, '교실']
+  place.0 : ['집', '학교', '도서관', '박물관', '아파트', '강당', '음식점', '영화관', '건물']
+  place.1 : ['방', '연구실', '교실']
 
 function-call: None
 
