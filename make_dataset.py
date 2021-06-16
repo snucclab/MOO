@@ -11,7 +11,7 @@ from common.sys.key import QUESTION, ANSWER, EQUATION, EXECUTION
 from common.sys.pattern import *
 from evaluate import Executor
 from simulate import Simulator
-from yaml import load as yaml_load
+from yaml import load as yaml_load, safe_load
 from json import dump as json_save
 from random import shuffle, seed
 
@@ -21,11 +21,13 @@ from solver import python_code_to_executions, execution_to_python_code
 def read_arguments():
     parser = ArgumentParser()
 
-    parser.add_argument('--template', '-template', '-t', type=str, required=True,
+    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./simulate/template",
                         help='Root directory of template YAML files')
-    parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=True,
+    parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./simulate/",
+                        help='Root directory of template YAML files')
+    parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=False, default=5,
                         help='Number of items generated for each template file')
-    parser.add_argument('--output', '-out', '-o', type=str, required=True,
+    parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./simulate/output",
                         help='Root directory for saving output dataset files')
     parser.add_argument('--seed', '-seed', '-s', type=int, default=9172,
                         help='Random seed for generating items')
@@ -55,12 +57,19 @@ if __name__ == '__main__':
     for file in Path(args.template).glob('**/*.yaml'):
         with file.open('r+t', encoding='UTF-8') as fp:
             template_in_file = yaml_load(fp)
-            assert type(template_in_file) is list
+            print(template_in_file)
+            assert type(template_in_file) is dict
 
-            templates += template_in_file
+            templates.append(template_in_file)
+
+    vocab = None
+    for file in Path(args.vocab).glob('vocab.yaml'):
+        with file.open('r', encoding='UTF-8') as fp:
+            vocab = safe_load(fp)
 
     # Register templates using simulator.load_templates()
     simulator.load_templates(templates)
+    simulator.load_vocab(vocab)
 
     # Get generated items using simulator.generate()
     problems = {}
@@ -70,9 +79,9 @@ if __name__ == '__main__':
         for i, item in enumerate(template):
             text = string_to_text_instance(item.text, tokenizer)
             execution = python_code_to_executions(item.code_template)
-
             raw_code = execution_to_python_code(execution, text.word_info[0])
             item.code, item.executed = executor.run(raw_code)
+            item.answer = item.executed
             item.execution = [x.to_list() for x in execution]
 
             assert ALL_KOREAN_PATTERN.match(item.code) is None, \
