@@ -36,4 +36,4 @@ POS_INF_SAFE = 1E10
 FLOAT_NAN = float('NaN')
 
 # Maximum length of generation steps
-MAX_GEN = 500
+MAX_GEN = 50

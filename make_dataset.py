@@ -71,8 +71,8 @@ if __name__ == '__main__':
             text = string_to_text_instance(item.text, tokenizer)
             execution = python_code_to_executions(item.code_template)
 
-            item.code = execution_to_python_code(execution, text.word_info[0])
-            _, item.executed = executor.run(item.code)
+            raw_code = execution_to_python_code(execution, text.word_info[0])
+            item.code, item.executed = executor.run(raw_code)
             item.execution = [x.to_list() for x in execution]
 
             assert ALL_KOREAN_PATTERN.match(item.code) is None, \

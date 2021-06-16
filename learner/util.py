@@ -48,7 +48,7 @@ def set_seed(seed):
 def read_system_spec() -> str:
     from subprocess import check_output
 
-    return check_output(['bash', str(Path(Path(__file__).parent.parent.parent, 'system_spec.sh'))]).decode('UTF-8')
+    return check_output(['bash', str(Path(__file__).parent.parent / 'system_spec.sh')]).decode('UTF-8')
 
 
 def num_corrects(target: torch.Tensor, output: torch.Tensor) -> dict:

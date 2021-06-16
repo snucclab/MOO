@@ -2,13 +2,22 @@
 from common.sys.key import *
 
 # (1) Constants
-CON_VALUES = []
+CON_VALUES = [
+    '0',
+    '1',
+    '2',
+    '9',
+    '10',
+    '11',
+    '99',
+    '100',
+    '1000'
+]
 CON_TOKENS = [str(x) for x in CON_VALUES]
 CON_MAX = len(CON_VALUES)
 
 # (2) Operators
 OPR_NEW_EQN = '_NEW_EQN'
-OPR_NEW_VAR = '_NEW_VAR'
 OPR_DONE = '_DONE'
 OPR_EQ = 'EQ'
 OPR_ADD = 'ADD'
@@ -50,8 +59,6 @@ OPR_LIST_MUL = 'LIST_MUL'
 OPR_VALUES = [
     # 1. NEW_EQN()
     {NAME: OPR_NEW_EQN, ARITY: 0, COMMUTATIVE: True, ISVOID: False, CONVERT: None, PRECEDENCE: None},
-    # 2. NEW_VAR()
-    {NAME: OPR_NEW_VAR, ARITY: 0, COMMUTATIVE: True, ISVOID: False, CONVERT: None, PRECEDENCE: None},
     # 3. DONE()
     {NAME: OPR_DONE, ARITY: 0, COMMUTATIVE: True, ISVOID: False, CONVERT: None, PRECEDENCE: None},
     # 4. EQ(float, float)
@@ -169,7 +176,6 @@ OPR_SZ = len(OPR_TOKENS)
 
 # Special operator ids
 OPR_NEW_EQN_ID = OPR_TOKENS.index(OPR_NEW_EQN)
-OPR_NEW_VAR_ID = OPR_TOKENS.index(OPR_NEW_VAR)
 OPR_DONE_ID = OPR_TOKENS.index(OPR_DONE)
 OPR_EQ_SGN_ID = OPR_TOKENS.index(OPR_EQ)
 OPR_PLUS_ID = OPR_TOKENS.index(OPR_ADD)

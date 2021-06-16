@@ -64,3 +64,4 @@ if __name__ == '__main__':
 
     # Finalize the executor
     executor.close()
+    print("모든 확인 과정을 통과했습니다!")

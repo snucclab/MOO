@@ -52,7 +52,7 @@ class TypeSelectable(TypeBase, abc.ABC):
         cls = self.__class__
         kwargs = {}
         for key, value in self.as_dict().items():
-            if type(value) is list and isinstance(value[0], TypeSelectable):
+            if type(value) is list and isinstance(value[0], (torch.Tensor, TypeSelectable)):
                 kwargs[key] = [v[item] for v in value]
             elif isinstance(value, (torch.Tensor, TypeSelectable)):
                 kwargs[key] = value[item]
@@ -140,8 +140,8 @@ class Text(TypeTensorBatchable, TypeSelectable):
 
     @classmethod
     def build_batch(cls, *items: 'Text') -> 'Text':
-        return Text(tokens=stack_tensors([item.tokens for item in items], pad_value=PAD_ID),
-                    word_indexes=stack_tensors([item.word_indexes for item in items], pad_value=PAD_ID),
+        return Text(tokens=concat_tensors([item.tokens for item in items], pad_value=PAD_ID),
+                    word_indexes=concat_tensors([item.word_indexes for item in items], pad_value=PAD_ID),
                     word_info=[info for item in items for info in item.word_info])
 
     def tokens_pad_fill(self, fill_value: int) -> torch.Tensor:
@@ -202,12 +202,6 @@ class Encoded(TypeTensorBatchable, TypeSelectable):
         return Encoded(vectors, pads)
 
     @classmethod
-    def concat(cls, *items: 'Encoded', dim: int = 0) -> 'Encoded':
-        vectors = concat_tensors([item.vector for item in items], dim=dim, pad_value=0.0)
-        pads = concat_tensors([item.pad for item in items], dim=dim, pad_value=True)
-        return Encoded(vectors, pads)
-
-    @classmethod
     def empty(cls, *shape: int, device='cpu') -> 'Encoded':
         return Encoded(torch.empty(*shape, device=device),
                        torch.empty(*shape[:-1], dtype=torch.bool, device=device))
@@ -240,8 +234,16 @@ class ExpressionPrediction(TypeSelectable):
 
     def __init__(self, operator: torch.Tensor, operands: List[torch.Tensor]):
         super().__init__()
+        assert all(operator.shape[:-1] == operand_j.shape[:-1] for operand_j in operands), \
+            "%s vs %s" % (operator.shape, [operand_j.shape for operand_j in operands])
+        assert len(operands) == OPR_MAX_ARITY
+        assert all(operand_j.dim() == operator.dim() for operand_j in operands)
         self.operator = operator
         self.operands = operands
+
+    @property
+    def device(self) -> torch.device:
+        return self.operator.device
 
     def as_dict(self) -> dict:
         return dict(operator=self.operator, operands=self.operands)
@@ -255,8 +257,10 @@ class Expression(TypeTensorBatchable, TypeSelectable):
 
     def __init__(self, operator: torch.LongTensor, operands: List[torch.LongTensor]):
         super().__init__()
-        assert all(operator.shape == operand_j.shape for operand_j in operands)
+        assert all(operator.shape == operand_j.shape for operand_j in operands), \
+            "%s vs %s" % (operator.shape, [operand_j.shape for operand_j in operands])
         assert len(operands) == OPR_MAX_ARITY
+        assert operator.dim() == 2 and all(operand_j.dim() == 2 for operand_j in operands)
         self.operator = operator
         self.operands = operands
 
@@ -279,8 +283,8 @@ class Expression(TypeTensorBatchable, TypeSelectable):
     @classmethod
     def build_batch(cls, *items: 'Expression') -> 'Expression':
         operands = zip(*[item.operands for item in items])
-        return Expression(operator=stack_tensors([item.operator for item in items], pad_value=PAD_ID),
-                          operands=[stack_tensors(operand_j, pad_value=PAD_ID) for operand_j in operands])
+        return Expression(operator=concat_tensors([item.operator for item in items], pad_value=PAD_ID),
+                          operands=[concat_tensors(operand_j, pad_value=PAD_ID) for operand_j in operands])
 
     @classmethod
     def get_generation_base(cls) -> 'Expression':

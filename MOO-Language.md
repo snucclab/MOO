@@ -6,8 +6,6 @@
 
 1. NEW_EQN()
 
-2. NEW_VAR()
-
 3. DONE()
 
 4. EQ
