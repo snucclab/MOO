@@ -18,9 +18,9 @@ def yaml_dump(filepath, data):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument('--template_path', '-t', type=str, default='./1-1-1.yaml')
+    parser.add_argument('--template_path', '-t', type=str, default='./3-1-4.yaml')
     parser.add_argument('--samples_per_template', '-N', type=int, default=50)
-    parser.add_argument('--output_path', '-o', type=str, default='./output_for_solver2/1-1-1_samples.yaml')
+    parser.add_argument('--output_path', '-o', type=str, default='./output/3-1-4_samples.yaml')
     args = parser.parse_args()
 
     count = 1
@@ -30,16 +30,18 @@ if __name__ == "__main__":
         # print(data)
         problem = data.get('problem')
         # print(problem)
-
+        problem = re.sub('[<>]', '', problem)
+        # print(tokenize_string(problem))
+        p_tokens = tokenize_string(problem)
         vocabpath = "./vocab.yaml"
         vocab = yaml_loader(vocabpath)
         keys = []
-        for key in vocab:
-            if key in problem:
-                keys.append(key)
-            else:
-                pass
-        print(keys)
+        for idx, token in enumerate(p_tokens):
+            for key in vocab:
+                if key in token:
+                    keys.append(p_tokens[idx]+p_tokens[idx+1])
+        keys = list(set(keys))
+        # print(keys)
 
         # num_key_appearance = []
         # for key in keys:
@@ -47,14 +49,25 @@ if __name__ == "__main__":
         # print('num_key_appearance')
         # print(num_key_appearance)
 
+        chosen_list = list()
         random_dict = {}
-        for key in keys:
-            random_dict[key]=random.choice(vocab.get(key))
-        print(random_dict)
+        for idx, key in enumerate(keys):
+            # print(re.sub('\.\d+', '', key))
+            vocab_list = vocab.get(re.sub('\.\d+', '', key))
+            val =random.choice(vocab_list)
+            while True:
+                if val not in chosen_list:
+                    break
+                val = random.choice(vocab_list)
+            random_dict[key]=val
+            chosen_list.append(val)
+
+        # print(random_dict)
 
         for key, value in random_dict.items():
             problem = problem.replace(key, value)
         print(problem)
+
         # result = re.search(r"\[([A-Za-z0-9_]+)\]", problem)
         # result = problem.split('<', 1)[1].split('>')[0]
         # print(result)
@@ -62,20 +75,20 @@ if __name__ == "__main__":
         numbers = []
         variable_dict = {}
         for item_name, item_value in data['variable-sampling'].items():
-            print(item_name)
-            print(item_value)
+            # print(item_name)
+            # print(item_value)
 
             if item_value['type'] == 'int':
-                print(item_value['type'])
+                # print(item_value['type'])
                 variable_dict[item_name] = random.randint(item_value['range'][0], item_value['range'][1])
 
             if item_value['type'] == 'float':
                 variable_dict[item_name] = random.uniform(item_value['range'][0], item_value['range'][1])
-        print(variable_dict)
+        # print(variable_dict)
         s_variable_dict = {key: str(value) for key, value in variable_dict.items()}
         for key, value in s_variable_dict.items():
             problem = problem.replace(key, value)
-        print(problem)
+        # print(problem)
         # print(numbers)
         # for item in numbers:
 
@@ -86,14 +99,14 @@ if __name__ == "__main__":
         # problem = str(count)+". "+problem
 
         problem = josa_converter.replace_josa(problem)
-        print('problem')
-        print(problem)
+        # print('problem')
+        # print(problem)
 
         # print('tokenize')
 
         tokenized_problem_list = tokenize_string(problem)
-        print('tokenized_problem_list')
-        print(tokenized_problem_list)
+        # print('tokenized_problem_list')
+        # print(tokenized_problem_list)
 
         tokenized_list = []
         for value, key in enumerate(tokenized_problem_list):
