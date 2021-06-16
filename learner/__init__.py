@@ -36,7 +36,6 @@ class SupervisedTrainer(Trainable):
         self._model: Optional[EPT] = None
         # Tester
         self._tester: Executor = Executor()
-        self._test_rng: Generator = Generator(PCG64(1))
         # Training/Evaluation configuration
         self._train_config: dict = {}
         self._eval_configs: dict = {}
@@ -188,7 +187,6 @@ class SupervisedTrainer(Trainable):
         return report
 
     def __getstate__(self) -> dict:
-        # We don't store test_rng since it will be initialized on every evaluation.
         return {
             KEY_MODEL: self._model.state_dict(),
             'rng': {
@@ -331,9 +329,6 @@ class SupervisedTrainer(Trainable):
             fp.write('# Total %d items are tested.\n' % len(output['dump']))
             yaml_dump(output, fp)
 
-    def _reset_test_random_generator(self):
-        self._test_rng = Generator(PCG64(1))
-
     def _train(self):
         raise ValueError('Trainer._train() should not be called!')
 
@@ -344,7 +339,6 @@ class SupervisedTrainer(Trainable):
         raise ValueError('Trainer._restore() should not be called!')
 
     def _evaluate(self, name: str, configuration: dict) -> dict:
-        self._reset_test_random_generator()
         self._dataset.select_items_with_file(configuration[KEY_SPLIT_FILE])
         self._model.eval()
 
@@ -383,7 +377,7 @@ class SupervisedTrainer(Trainable):
                         'execution': [str(x) for x in execution],
                         'code': code,
                         'item_id': batch.item_id[i],
-                        'text': ' '.join('_%02d:%s' % (t, tok[WORD]) for t, tok in word_info)
+                        'text': ' '.join('_%02d:%s' % (t, tok[WORD]) for t, tok in enumerate(word_info))
                     })
 
             results = {
