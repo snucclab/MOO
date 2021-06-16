@@ -1,5 +1,5 @@
 import re
-from multiprocessing import Queue, Process
+from multiprocessing import Queue, Process, Lock
 from os import environ
 from queue import Empty
 from importlib import import_module
@@ -90,6 +90,7 @@ class Executor(object):
         self.solver_process = None
         self.to_solver = None
         self.from_solver = None
+        self.queue_lock = Lock()
 
         if environ.get('DEBUG', False):
             from logging import Logger, INFO
@@ -105,12 +106,13 @@ class Executor(object):
         Begin child process for running sympy
         """
         try:
-            recv = Queue(maxsize=4)
-            send = Queue(maxsize=4)
-            self.solver_process = Process(target=_execute_code, name='CodeExec', args=(send, recv))
-            self.to_solver = send
-            self.from_solver = recv
-            self.solver_process.start()
+            with self.queue_lock:
+                recv = Queue(maxsize=4)
+                send = Queue(maxsize=4)
+                self.solver_process = Process(target=_execute_code, name='CodeExec', args=(send, recv))
+                self.to_solver = send
+                self.from_solver = recv
+                self.solver_process.start()
 
             if self._debug:
                 self._debug_logger.warning('CodeExec started with pid = %s', self.solver_process.pid)
@@ -123,12 +125,14 @@ class Executor(object):
         Terminate child process for sympy
         """
         try:
-            self.to_solver.put(False)
-            self.to_solver.close()
-            self.from_solver.close()
+            with self.queue_lock:
+                self.to_solver.put(False)
+                self.to_solver.close()
+                self.from_solver.close()
 
-            if self.solver_process.is_alive():
-                self.solver_process.kill()
+                if self.solver_process.is_alive():
+                    self.solver_process.kill()
+
             if self._debug:
                 self._debug_logger.warning('CodeExec closed with pid = %s', self.solver_process.pid)
         except Exception as e:
@@ -155,8 +159,9 @@ class Executor(object):
         """
         solution = []
         try:
-            self.to_solver.put(code)
-            solution, code, exception = self.from_solver.get(timeout=self.time_limit)
+            with self.queue_lock:
+                self.to_solver.put(code)
+                solution, code, exception = self.from_solver.get(timeout=self.time_limit)
         except Exception as e:
             exception = e
             self._restart_process()

@@ -9,7 +9,7 @@ from numpy.random import Generator, PCG64
 from common.model.const import DEF_ENCODER, PAD_ID
 from common.model.types import Text, Expression
 from common.solver.types import Execution
-from common.solver.const import OPR_MAX_ARITY, OPR_NEW_EQN_ID, CON_MAX
+from common.solver.const import OPR_MAX_ARITY, OPR_NEW_EQN_ID, CON_MAX, OPR_DONE_ID
 from .convert import string_to_text_instance
 from .key import ITEM_ID, QUESTION, EXECUTION, ANSWER, SRC_CONSTANT, SRC_NUMBER
 
@@ -85,6 +85,11 @@ class BatchedExample:
                         operands[j].append(a_j + CON_MAX + word_size)
                 for j in range(len(x.arguments), OPR_MAX_ARITY):
                     operands[j].append(PAD_ID)
+
+            # End with DONE_ID
+            functions.append(OPR_DONE_ID)
+            for j in range(OPR_MAX_ARITY):
+                operands[j].append(PAD_ID)
 
             expressions.append(Expression(operator=torch.tensor([functions], dtype=torch.long),
                                           operands=[torch.tensor([o], dtype=torch.long) for o in operands]))
