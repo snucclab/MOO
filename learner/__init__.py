@@ -117,8 +117,7 @@ class SupervisedTrainer(Trainable):
         set_seed(new_config[KEY_SEED])
 
         # Set batch size
-        if self._batch_size == 0 or self._batch_size != new_config[KEY_BATCH_SZ]:
-            self._batch_size = new_config[KEY_BATCH_SZ]
+        self._batch_size = new_config[KEY_BATCH_SZ]
 
         # Read dataset
         if self._dataset is None:
