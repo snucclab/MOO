@@ -1,0 +1,350 @@
+- 국화 244송이가 꽃병에 꽂혀 있습니다.  은지, 은지.1, 은지.2, 은지.3에게 순서대로 이 꽃을 4개씩 나누어 준다고 할 때, 누가 68번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,4) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,4) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,4) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,4) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,68) R17: PRINT(R16)'
+- 꽃병 127송이가 꽃병에 꽂혀 있습니다.  유정, 유정.1, 유정.2, 유정.3에게 순서대로 이 꽃을 24개씩 나누어 준다고 할 때, 누가 51번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,24) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,24) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,24) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,24) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,51) R17: PRINT(R16)'
+- 화단 138송이가 꽃병에 꽂혀 있습니다.  지민, 지민.1, 지민.2, 지민.3에게 순서대로 이 꽃을 22개씩 나누어 준다고 할 때, 누가 60번째
+  화단을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,22) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,22) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,22) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,22) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,60) R17: PRINT(R16)'
+- 꽃병 103송이가 꽃병에 꽂혀 있습니다.  남준, 남준.1, 남준.2, 남준.3에게 순서대로 이 꽃을 17개씩 나누어 준다고 할 때, 누가 61번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,17) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,17) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,17) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,17) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,61) R17: PRINT(R16)'
+- 장미 240송이가 꽃병에 꽂혀 있습니다.  정국, 정국.1, 정국.2, 정국.3에게 순서대로 이 꽃을 20개씩 나누어 준다고 할 때, 누가 75번째
+  장미를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,20) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,20) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,20) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,20) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,75) R17: PRINT(R16)'
+- 장미 155송이가 꽃병에 꽂혀 있습니다.  석진, 석진.1, 석진.2, 석진.3에게 순서대로 이 꽃을 23개씩 나누어 준다고 할 때, 누가 69번째
+  장미를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,23) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,23) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,23) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,23) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,69) R17: PRINT(R16)'
+- 화분 169송이가 꽃병에 꽂혀 있습니다.  호석, 호석.1, 호석.2, 호석.3에게 순서대로 이 꽃을 21개씩 나누어 준다고 할 때, 누가 66번째
+  화분을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,21) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,21) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,21) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,21) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,66) R17: PRINT(R16)'
+- 카네이션 179송이가 꽃병에 꽂혀 있습니다.  호석, 호석.1, 호석.2, 호석.3에게 순서대로 이 꽃을 13개씩 나누어 준다고 할 때, 누가
+  75번째 카네이션을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,13) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,13) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,13) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,13) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,75) R17: PRINT(R16)'
+- 국화 213송이가 꽃병에 꽂혀 있습니다.  민영, 민영.1, 민영.2, 민영.3에게 순서대로 이 꽃을 14개씩 나누어 준다고 할 때, 누가 65번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,14) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,14) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,14) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,14) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,65) R17: PRINT(R16)'
+- 국화 138송이가 꽃병에 꽂혀 있습니다.  윤기, 윤기.1, 윤기.2, 윤기.3에게 순서대로 이 꽃을 14개씩 나누어 준다고 할 때, 누가 77번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,14) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,14) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,14) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,14) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,77) R17: PRINT(R16)'
+- 화단 299송이가 꽃병에 꽂혀 있습니다.  유나, 유나.1, 유나.2, 유나.3에게 순서대로 이 꽃을 28개씩 나누어 준다고 할 때, 누가 45번째
+  화단을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,28) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,28) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,28) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,28) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,45) R17: PRINT(R16)'
+- 꽃병 184송이가 꽃병에 꽂혀 있습니다.  남준, 남준.1, 남준.2, 남준.3에게 순서대로 이 꽃을 21개씩 나누어 준다고 할 때, 누가 60번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,21) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,21) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,21) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,21) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,60) R17: PRINT(R16)'
+- 백합 279송이가 꽃병에 꽂혀 있습니다.  윤기, 윤기.1, 윤기.2, 윤기.3에게 순서대로 이 꽃을 7개씩 나누어 준다고 할 때, 누가 63번째
+  백합을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,7) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,7) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,7) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,7) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,63) R17: PRINT(R16)'
+- 화분 152송이가 꽃병에 꽂혀 있습니다.  윤기, 윤기.1, 윤기.2, 윤기.3에게 순서대로 이 꽃을 24개씩 나누어 준다고 할 때, 누가 41번째
+  화분을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,24) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,24) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,24) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,24) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,41) R17: PRINT(R16)'
+- 장미 170송이가 꽃병에 꽂혀 있습니다.  윤기, 윤기.1, 윤기.2, 윤기.3에게 순서대로 이 꽃을 18개씩 나누어 준다고 할 때, 누가 68번째
+  장미를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,18) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,18) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,18) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,18) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,68) R17: PRINT(R16)'
+- 튤립 182송이가 꽃병에 꽂혀 있습니다.  태형, 태형.1, 태형.2, 태형.3에게 순서대로 이 꽃을 27개씩 나누어 준다고 할 때, 누가 61번째
+  튤립을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,27) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,27) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,27) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,27) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,61) R17: PRINT(R16)'
+- 화단 151송이가 꽃병에 꽂혀 있습니다.  민영, 민영.1, 민영.2, 민영.3에게 순서대로 이 꽃을 4개씩 나누어 준다고 할 때, 누가 80번째
+  화단을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,4) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,4) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,4) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,4) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,80) R17: PRINT(R16)'
+- 꽃병 150송이가 꽃병에 꽂혀 있습니다.  유나, 유나.1, 유나.2, 유나.3에게 순서대로 이 꽃을 6개씩 나누어 준다고 할 때, 누가 45번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,6) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,6) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,6) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,6) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,45) R17: PRINT(R16)'
+- 국화 192송이가 꽃병에 꽂혀 있습니다.  유나, 유나.1, 유나.2, 유나.3에게 순서대로 이 꽃을 23개씩 나누어 준다고 할 때, 누가 41번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,23) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,23) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,23) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,23) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,41) R17: PRINT(R16)'
+- 튤립 123송이가 꽃병에 꽂혀 있습니다.  민영, 민영.1, 민영.2, 민영.3에게 순서대로 이 꽃을 30개씩 나누어 준다고 할 때, 누가 45번째
+  튤립을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,30) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,30) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,30) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,30) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,45) R17: PRINT(R16)'
+- 국화 267송이가 꽃병에 꽂혀 있습니다.  지민, 지민.1, 지민.2, 지민.3에게 순서대로 이 꽃을 1개씩 나누어 준다고 할 때, 누가 56번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,1) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,1) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,1) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,1) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,56) R17: PRINT(R16)'
+- 화단 217송이가 꽃병에 꽂혀 있습니다.  지민, 지민.1, 지민.2, 지민.3에게 순서대로 이 꽃을 4개씩 나누어 준다고 할 때, 누가 69번째
+  화단을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,4) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,4) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,4) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,4) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,69) R17: PRINT(R16)'
+- 화분 289송이가 꽃병에 꽂혀 있습니다.  정국, 정국.1, 정국.2, 정국.3에게 순서대로 이 꽃을 30개씩 나누어 준다고 할 때, 누가 51번째
+  화분을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,30) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,30) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,30) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,30) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,51) R17: PRINT(R16)'
+- 백합 207송이가 꽃병에 꽂혀 있습니다.  남준, 남준.1, 남준.2, 남준.3에게 순서대로 이 꽃을 14개씩 나누어 준다고 할 때, 누가 41번째
+  백합을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,14) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,14) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,14) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,14) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,41) R17: PRINT(R16)'
+- 화분 282송이가 꽃병에 꽂혀 있습니다.  민영, 민영.1, 민영.2, 민영.3에게 순서대로 이 꽃을 9개씩 나누어 준다고 할 때, 누가 43번째
+  화분을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,9) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,9) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,9) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,9) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,43) R17: PRINT(R16)'
+- 국화 108송이가 꽃병에 꽂혀 있습니다.  유정, 유정.1, 유정.2, 유정.3에게 순서대로 이 꽃을 30개씩 나누어 준다고 할 때, 누가 57번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,30) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,30) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,30) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,30) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,57) R17: PRINT(R16)'
+- 튤립 203송이가 꽃병에 꽂혀 있습니다.  호석, 호석.1, 호석.2, 호석.3에게 순서대로 이 꽃을 3개씩 나누어 준다고 할 때, 누가 60번째
+  튤립을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,3) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,3) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,3) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,3) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,60) R17: PRINT(R16)'
+- 튤립 238송이가 꽃병에 꽂혀 있습니다.  석진, 석진.1, 석진.2, 석진.3에게 순서대로 이 꽃을 8개씩 나누어 준다고 할 때, 누가 52번째
+  튤립을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,8) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,8) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,8) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,8) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,52) R17: PRINT(R16)'
+- 꽃병 260송이가 꽃병에 꽂혀 있습니다.  호석, 호석.1, 호석.2, 호석.3에게 순서대로 이 꽃을 21개씩 나누어 준다고 할 때, 누가 48번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,21) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,21) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,21) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,21) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,48) R17: PRINT(R16)'
+- 꽃병 286송이가 꽃병에 꽂혀 있습니다.  윤기, 윤기.1, 윤기.2, 윤기.3에게 순서대로 이 꽃을 17개씩 나누어 준다고 할 때, 누가 72번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,17) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,17) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,17) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,17) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,72) R17: PRINT(R16)'
+- 백합 283송이가 꽃병에 꽂혀 있습니다.  태형, 태형.1, 태형.2, 태형.3에게 순서대로 이 꽃을 3개씩 나누어 준다고 할 때, 누가 53번째
+  백합을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,3) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,3) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,3) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,3) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,53) R17: PRINT(R16)'
+- 카네이션 162송이가 꽃병에 꽂혀 있습니다.  유나, 유나.1, 유나.2, 유나.3에게 순서대로 이 꽃을 16개씩 나누어 준다고 할 때, 누가
+  71번째 카네이션을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,16) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,16) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,16) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,16) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,71) R17: PRINT(R16)'
+- 장미 168송이가 꽃병에 꽂혀 있습니다.  은지, 은지.1, 은지.2, 은지.3에게 순서대로 이 꽃을 24개씩 나누어 준다고 할 때, 누가 45번째
+  장미를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,24) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,24) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,24) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,24) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,45) R17: PRINT(R16)'
+- 카네이션 145송이가 꽃병에 꽂혀 있습니다.  남준, 남준.1, 남준.2, 남준.3에게 순서대로 이 꽃을 1개씩 나누어 준다고 할 때, 누가 64번째
+  카네이션을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,1) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,1) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,1) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,1) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,64) R17: PRINT(R16)'
+- 카네이션 235송이가 꽃병에 꽂혀 있습니다.  석진, 석진.1, 석진.2, 석진.3에게 순서대로 이 꽃을 5개씩 나누어 준다고 할 때, 누가 42번째
+  카네이션을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,5) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,5) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,5) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,5) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,42) R17: PRINT(R16)'
+- 화분 211송이가 꽃병에 꽂혀 있습니다.  민영, 민영.1, 민영.2, 민영.3에게 순서대로 이 꽃을 29개씩 나누어 준다고 할 때, 누가 78번째
+  화분을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,29) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,29) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,29) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,29) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,78) R17: PRINT(R16)'
+- 카네이션 274송이가 꽃병에 꽂혀 있습니다.  지민, 지민.1, 지민.2, 지민.3에게 순서대로 이 꽃을 5개씩 나누어 준다고 할 때, 누가 43번째
+  카네이션을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,5) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,5) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,5) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,5) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,43) R17: PRINT(R16)'
+- 화단 285송이가 꽃병에 꽂혀 있습니다.  남준, 남준.1, 남준.2, 남준.3에게 순서대로 이 꽃을 21개씩 나누어 준다고 할 때, 누가 64번째
+  화단을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,21) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,21) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,21) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,21) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,64) R17: PRINT(R16)'
+- 백합 293송이가 꽃병에 꽂혀 있습니다.  태형, 태형.1, 태형.2, 태형.3에게 순서대로 이 꽃을 6개씩 나누어 준다고 할 때, 누가 57번째
+  백합을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,6) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,6) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,6) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,6) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,57) R17: PRINT(R16)'
+- 꽃병 206송이가 꽃병에 꽂혀 있습니다.  남준, 남준.1, 남준.2, 남준.3에게 순서대로 이 꽃을 7개씩 나누어 준다고 할 때, 누가 44번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,7) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,7) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,7) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,7) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,44) R17: PRINT(R16)'
+- 튤립 105송이가 꽃병에 꽂혀 있습니다.  석진, 석진.1, 석진.2, 석진.3에게 순서대로 이 꽃을 25개씩 나누어 준다고 할 때, 누가 58번째
+  튤립을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,25) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,25) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,25) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,25) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,58) R17: PRINT(R16)'
+- 국화 142송이가 꽃병에 꽂혀 있습니다.  은지, 은지.1, 은지.2, 은지.3에게 순서대로 이 꽃을 28개씩 나누어 준다고 할 때, 누가 78번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,28) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,28) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,28) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,28) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,78) R17: PRINT(R16)'
+- 백합 201송이가 꽃병에 꽂혀 있습니다.  유정, 유정.1, 유정.2, 유정.3에게 순서대로 이 꽃을 5개씩 나누어 준다고 할 때, 누가 51번째
+  백합을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,5) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,5) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,5) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,5) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,51) R17: PRINT(R16)'
+- 국화 227송이가 꽃병에 꽂혀 있습니다.  태형, 태형.1, 태형.2, 태형.3에게 순서대로 이 꽃을 3개씩 나누어 준다고 할 때, 누가 58번째
+  국화를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,3) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,3) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,3) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,3) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,58) R17: PRINT(R16)'
+- 장미 105송이가 꽃병에 꽂혀 있습니다.  정국, 정국.1, 정국.2, 정국.3에게 순서대로 이 꽃을 19개씩 나누어 준다고 할 때, 누가 79번째
+  장미를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,19) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,19) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,19) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,19) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,79) R17: PRINT(R16)'
+- 장미 300송이가 꽃병에 꽂혀 있습니다.  은지, 은지.1, 은지.2, 은지.3에게 순서대로 이 꽃을 20개씩 나누어 준다고 할 때, 누가 66번째
+  장미를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,20) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,20) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,20) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,20) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,66) R17: PRINT(R16)'
+- 화분 212송이가 꽃병에 꽂혀 있습니다.  남준, 남준.1, 남준.2, 남준.3에게 순서대로 이 꽃을 2개씩 나누어 준다고 할 때, 누가 73번째
+  화분을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,2) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,2) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,2) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,2) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,73) R17: PRINT(R16)'
+- 꽃병 260송이가 꽃병에 꽂혀 있습니다.  은지, 은지.1, 은지.2, 은지.3에게 순서대로 이 꽃을 28개씩 나누어 준다고 할 때, 누가 80번째
+  꽃병을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,28) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,28) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,28) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,28) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,80) R17: PRINT(R16)'
+- 튤립 245송이가 꽃병에 꽂혀 있습니다.  유나, 유나.1, 유나.2, 유나.3에게 순서대로 이 꽃을 27개씩 나누어 준다고 할 때, 누가 67번째
+  튤립을 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,27) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,27) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,27) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,27) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,67) R17: PRINT(R16)'
+- 장미 205송이가 꽃병에 꽂혀 있습니다.  정국, 정국.1, 정국.2, 정국.3에게 순서대로 이 꽃을 13개씩 나누어 준다고 할 때, 누가 79번째
+  장미를 받습니까?
+- 'R0: LIST() R1: APPEND(R0,propername.0) R2: LIST_MUL(R1,13) R3: LIST() R4: APPEND(R3,propername.1)
+  R5: LIST_MUL(R4,13) R6: LIST() R7: APPEND(R6,propername.2) R8: LIST_MUL(R7,13) R9:
+  LIST() R10: APPEND(R9,propername.3) R11: LIST_MUL(R10,13) R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8) R14: LIST_CONCAT(R13,R11) R15: LIST_CONCAT(R14,R14) R16:
+  REP_SEQ_TERM(R15,79) R17: PRINT(R16)'

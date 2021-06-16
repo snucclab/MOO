@@ -1,0 +1,110 @@
+- 포도 221개를 유정, 유정.1, 유정.2, 유정.3에게 돌아가면서 17개씩 나누어 준다고 할 때,  52번째 포도를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,17)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,17)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,17)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,52)  PRINT(R12)
+- 배 284개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  49번째 배를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,49)  PRINT(R12)
+- 빵 252개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 16개씩 나누어 준다고 할 때,  48번째 빵을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,16)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,16)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,16)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,48)  PRINT(R12)
+- 대파 271개를 정국, 정국.1, 정국.2, 정국.3에게 돌아가면서 10개씩 나누어 준다고 할 때,  35번째 대파를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,10)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,10)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,10)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,35)  PRINT(R12)
+- 오이 332개를 은지, 은지.1, 은지.2, 은지.3에게 돌아가면서 12개씩 나누어 준다고 할 때,  50번째 오이를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,12)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,12)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,12)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,50)  PRINT(R12)
+- 배추 227개를 태형, 태형.1, 태형.2, 태형.3에게 돌아가면서 12개씩 나누어 준다고 할 때,  50번째 배추를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,12)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,12)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,12)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,50)  PRINT(R12)
+- 라면 389개를 태형, 태형.1, 태형.2, 태형.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  37번째 라면을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,37)  PRINT(R12)
+- 대파 341개를 민영, 민영.1, 민영.2, 민영.3에게 돌아가면서 13개씩 나누어 준다고 할 때,  52번째 대파를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,13)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,13)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,13)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,52)  PRINT(R12)
+- 무 222개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  36번째 무를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,36)  PRINT(R12)
+- 아메리카노 194개를 정국, 정국.1, 정국.2, 정국.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  38번째 아메리카노를 받아가게 되는
+  사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,38)  PRINT(R12)
+- 포도 386개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 16개씩 나누어 준다고 할 때,  50번째 포도를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,16)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,16)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,16)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,50)  PRINT(R12)
+- 포도알 233개를 유정, 유정.1, 유정.2, 유정.3에게 돌아가면서 10개씩 나누어 준다고 할 때,  47번째 포도알을 받아가게 되는 사람은
+  누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,10)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,10)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,10)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,47)  PRINT(R12)
+- 포도 228개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 10개씩 나누어 준다고 할 때,  52번째 포도를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,10)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,10)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,10)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,52)  PRINT(R12)
+- 포도 230개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 11개씩 나누어 준다고 할 때,  49번째 포도를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,11)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,11)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,11)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,49)  PRINT(R12)
+- 귤 201개를 은지, 은지.1, 은지.2, 은지.3에게 돌아가면서 16개씩 나누어 준다고 할 때,  38번째 귤을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,16)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,16)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,16)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,38)  PRINT(R12)
+- 당근 231개를 민영, 민영.1, 민영.2, 민영.3에게 돌아가면서 14개씩 나누어 준다고 할 때,  33번째 당근을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,14)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,14)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,14)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,33)  PRINT(R12)
+- 감 304개를 석진, 석진.1, 석진.2, 석진.3에게 돌아가면서 19개씩 나누어 준다고 할 때,  37번째 감을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,19)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,19)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,19)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,37)  PRINT(R12)
+- 오이 334개를 지민, 지민.1, 지민.2, 지민.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  55번째 오이를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,55)  PRINT(R12)
+- 달걀 277개를 지민, 지민.1, 지민.2, 지민.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  45번째 달걀을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,45)  PRINT(R12)
+- 토마토 338개를 민영, 민영.1, 민영.2, 민영.3에게 돌아가면서 20개씩 나누어 준다고 할 때,  56번째 토마토를 받아가게 되는 사람은
+  누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,20)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,20)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,20)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,56)  PRINT(R12)
+- 포도알 369개를 은지, 은지.1, 은지.2, 은지.3에게 돌아가면서 15개씩 나누어 준다고 할 때,  37번째 포도알을 받아가게 되는 사람은
+  누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,15)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,15)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,15)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,37)  PRINT(R12)
+- 아메리카노 352개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  32번째 아메리카노를 받아가게 되는
+  사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,32)  PRINT(R12)
+- 당근 383개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 16개씩 나누어 준다고 할 때,  50번째 당근을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,16)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,16)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,16)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,50)  PRINT(R12)
+- 김밥 251개를 호석, 호석.1, 호석.2, 호석.3에게 돌아가면서 20개씩 나누어 준다고 할 때,  32번째 김밥을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,20)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,20)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,20)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,32)  PRINT(R12)
+- 포도알 207개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 19개씩 나누어 준다고 할 때,  56번째 포도알을 받아가게 되는 사람은
+  누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,19)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,19)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,19)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,56)  PRINT(R12)
+- 수박 339개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 15개씩 나누어 준다고 할 때,  34번째 수박을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,15)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,15)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,15)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,34)  PRINT(R12)
+- 당근 263개를 석진, 석진.1, 석진.2, 석진.3에게 돌아가면서 13개씩 나누어 준다고 할 때,  30번째 당근을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,13)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,13)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,13)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,30)  PRINT(R12)
+- 배 375개를 지민, 지민.1, 지민.2, 지민.3에게 돌아가면서 20개씩 나누어 준다고 할 때,  52번째 배를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,20)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,20)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,20)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,52)  PRINT(R12)
+- 빵 320개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 15개씩 나누어 준다고 할 때,  55번째 빵을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,15)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,15)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,15)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,55)  PRINT(R12)
+- 달걀 328개를 태형, 태형.1, 태형.2, 태형.3에게 돌아가면서 15개씩 나누어 준다고 할 때,  39번째 달걀을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,15)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,15)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,15)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,39)  PRINT(R12)
+- 당근 159개를 태형, 태형.1, 태형.2, 태형.3에게 돌아가면서 13개씩 나누어 준다고 할 때,  30번째 당근을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,13)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,13)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,13)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,30)  PRINT(R12)
+- 무 346개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  50번째 무를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,50)  PRINT(R12)
+- 쌀 279개를 유정, 유정.1, 유정.2, 유정.3에게 돌아가면서 20개씩 나누어 준다고 할 때,  36번째 쌀을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,20)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,20)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,20)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,36)  PRINT(R12)
+- 우유 400개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 12개씩 나누어 준다고 할 때,  31번째 우유를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,12)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,12)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,12)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,31)  PRINT(R12)
+- 대파 319개를 호석, 호석.1, 호석.2, 호석.3에게 돌아가면서 11개씩 나누어 준다고 할 때,  49번째 대파를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,11)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,11)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,11)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,49)  PRINT(R12)
+- 귤 389개를 유정, 유정.1, 유정.2, 유정.3에게 돌아가면서 12개씩 나누어 준다고 할 때,  44번째 귤을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,12)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,12)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,12)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,44)  PRINT(R12)
+- 쌀 230개를 지민, 지민.1, 지민.2, 지민.3에게 돌아가면서 11개씩 나누어 준다고 할 때,  54번째 쌀을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,11)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,11)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,11)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,54)  PRINT(R12)
+- 음료수 365개를 윤기, 윤기.1, 윤기.2, 윤기.3에게 돌아가면서 14개씩 나누어 준다고 할 때,  33번째 음료수를 받아가게 되는 사람은
+  누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,14)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,14)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,14)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,33)  PRINT(R12)
+- 주스 185개를 민영, 민영.1, 민영.2, 민영.3에게 돌아가면서 11개씩 나누어 준다고 할 때,  55번째 주스를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,11)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,11)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,11)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,55)  PRINT(R12)
+- 아메리카노 192개를 지민, 지민.1, 지민.2, 지민.3에게 돌아가면서 18개씩 나누어 준다고 할 때,  38번째 아메리카노를 받아가게 되는
+  사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,18)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,18)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,18)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,38)  PRINT(R12)
+- 포도 382개를 남준, 남준.1, 남준.2, 남준.3에게 돌아가면서 19개씩 나누어 준다고 할 때,  59번째 포도를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,19)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,19)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,19)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,59)  PRINT(R12)
+- 토마토 374개를 윤기, 윤기.1, 윤기.2, 윤기.3에게 돌아가면서 10개씩 나누어 준다고 할 때,  57번째 토마토를 받아가게 되는 사람은
+  누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,10)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,10)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,10)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,57)  PRINT(R12)
+- 음료수 185개를 은지, 은지.1, 은지.2, 은지.3에게 돌아가면서 16개씩 나누어 준다고 할 때,  52번째 음료수를 받아가게 되는 사람은
+  누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,16)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,16)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,16)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,52)  PRINT(R12)
+- 귤 227개를 민영, 민영.1, 민영.2, 민영.3에게 돌아가면서 13개씩 나누어 준다고 할 때,  58번째 귤을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,13)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,13)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,13)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,58)  PRINT(R12)
+- 배추 307개를 유정, 유정.1, 유정.2, 유정.3에게 돌아가면서 14개씩 나누어 준다고 할 때,  45번째 배추를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,14)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,14)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,14)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,45)  PRINT(R12)
+- 사탕 160개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 11개씩 나누어 준다고 할 때,  49번째 사탕을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,11)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,11)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,11)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,49)  PRINT(R12)
+- 라면 320개를 유나, 유나.1, 유나.2, 유나.3에게 돌아가면서 10개씩 나누어 준다고 할 때,  40번째 라면을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,10)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,10)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,10)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,40)  PRINT(R12)
+- 당근 298개를 호석, 호석.1, 호석.2, 호석.3에게 돌아가면서 17개씩 나누어 준다고 할 때,  50번째 당근을 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,17)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,17)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,17)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,50)  PRINT(R12)
+- 배 398개를 호석, 호석.1, 호석.2, 호석.3에게 돌아가면서 14개씩 나누어 준다고 할 때,  53번째 배를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,14)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,14)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,14)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,53)  PRINT(R12)
+- 배추 151개를 태형, 태형.1, 태형.2, 태형.3에게 돌아가면서 10개씩 나누어 준다고 할 때,  39번째 배추를 받아가게 되는 사람은 누구입니까?
+- LIST()  APPEND(R0,propername.0)  LIST_MUL(R1,10)  LIST()  APPEND(R3,propername.1)  LIST_MUL(R4,10)  LIST()  APPEND(R6,propername.2)  LIST_MUL(R7,10)  LIST_CONCAT(R2,R5)  LIST_CONCAT(R9,R8)  LIST_CONCAT(R10,R10)  REP_SEQ_TERM(R11,39)  PRINT(R12)
