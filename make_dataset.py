@@ -73,7 +73,7 @@ if __name__ == '__main__':
 
     # Get generated items using simulator.generate()
     problems = {}
-    splits = defaultdict()
+    splits = defaultdict(list)
     # Convert code_template to python codes
     for template in simulator.generate(args.num_item):
         for i, item in enumerate(template):
@@ -124,7 +124,7 @@ if __name__ == '__main__':
         obj_to_write = {str(key): {QUESTION: prob.text, ANSWER: prob.answer,
                                    EQUATION: prob.code, EXECUTION: prob.execution}
                         for key, prob in problems.items()}
-        json_save(obj_to_write, fp)
+        json_save(obj_to_write, fp, ensure_ascii=False)
     # (4) split
     for key, split in splits.items():
         with (experiments / key).open('w+t', encoding='UTF-8') as fp:

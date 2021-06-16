@@ -5,7 +5,7 @@ import random
 import simulate.josa_converter
 import yaml
 from simulate.convert import tokenize_string
-
+import re
 
 def yaml_loader(filepath):
     with open(filepath, "r") as file_descriptor:
@@ -106,38 +106,41 @@ class Simulator:
             equations = equations.replace(variable_key, variable_value)
 
         for tokenized_key, tokenized_value in tokenized_dictionary.items():
-            equations = equations.replace(tokenized_key, tokenized_value)
+            equations = equations.replace('<'+tokenized_key+'>', tokenized_value)
 
         equations = equations.replace("<", "")
         equations = equations.replace(">", "")
-        equations = equations.replace("R0: ", "")
-        equations = equations.replace("R1:", "")
-        equations = equations.replace("R2:", "")
-        equations = equations.replace("R3:", "")
-        equations = equations.replace("R4:", "")
-        equations = equations.replace("R5:", "")
-        equations = equations.replace("R6:", "")
-        equations = equations.replace("R7:", "")
-        equations = equations.replace("R8:", "")
-        equations = equations.replace("R9:", "")
-        equations = equations.replace("R10:", "")
-        equations = equations.replace("R11:", "")
-        equations = equations.replace("R12:", "")
-        equations = equations.replace("R13:", "")
-        equations = equations.replace("R14:", "")
-        equations = equations.replace("R15:", "")
-        equations = equations.replace("R16:", "")
-        equations = equations.replace("R17:", "")
-        equations = equations.replace("R18:", "")
-        equations = equations.replace("R19:", "")
-        equations = equations.replace("R20:", "")
-        equations = equations.replace("R21:", "")
-        equations = equations.replace("R22:", "")
-        equations = equations.replace("R23:", "")
-        equations = equations.replace("R24:", "")
+        equations = re.sub(r'R0: ', '', equations)
+        equations = re.sub(r'R\d+: ', '\n', equations)
+        # equations = equations.replace("R0: ", "")
+        # equations = equations.replace("R1:", "")
+        # equations = equations.replace("R2:", "")
+        # equations = equations.replace("R3:", "")
+        # equations = equations.replace("R4:", "")
+        # equations = equations.replace("R5:", "")
+        # equations = equations.replace("R6:", "")
+        # equations = equations.replace("R7:", "")
+        # equations = equations.replace("R8:", "")
+        # equations = equations.replace("R9:", "")
+        # equations = equations.replace("R10:", "")
+        # equations = equations.replace("R11:", "")
+        # equations = equations.replace("R12:", "")
+        # equations = equations.replace("R13:", "")
+        # equations = equations.replace("R14:", "")
+        # equations = equations.replace("R15:", "")
+        # equations = equations.replace("R16:", "")
+        # equations = equations.replace("R17:", "")
+        # equations = equations.replace("R18:", "")
+        # equations = equations.replace("R19:", "")
+        # equations = equations.replace("R20:", "")
+        # equations = equations.replace("R21:", "")
+        # equations = equations.replace("R22:", "")
+        # equations = equations.replace("R23:", "")
+        # equations = equations.replace("R24:", "")
 
         print('equations')
-        equations = equations.replace(" ","\n")
+        equations.strip('\n')
+        #equations = equations.replace("  ","\n")
         #print(equations)
 
         # zipped_token_index = zip(*[tokenized_list_index, tokenized_problem_list])
