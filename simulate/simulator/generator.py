@@ -18,9 +18,9 @@ def yaml_dump(filepath, data):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument('--template_path', '-t', type=str, default='./3-1-4.yaml')
+    parser.add_argument('--template_path', '-t', type=str, default='./1-2-1.yaml')
     parser.add_argument('--samples_per_template', '-N', type=int, default=50)
-    parser.add_argument('--output_path', '-o', type=str, default='./output/3-1-4_samples.yaml')
+    parser.add_argument('--output_path', '-o', type=str, default='./output/1-2-1_samples.yaml')
     args = parser.parse_args()
 
     count = 1
@@ -75,62 +75,59 @@ if __name__ == "__main__":
         numbers = []
         variable_dict = {}
         for item_name, item_value in data['variable-sampling'].items():
-            # print(item_name)
-            # print(item_value)
+
+            bad_pattern = re.compile('[<>]')
+            num_pattern = re.compile('num\.\d+')
+            start_val = item_value['range'][0]
+            end_val = item_value['range'][1]
+
+            if type(start_val) != int:
+                start_val = re.sub(bad_pattern, '', str(start_val))
+                temp_key = re.findall(num_pattern, str(start_val))[0]
+                start_val = start_val.replace(temp_key, str(variable_dict[temp_key]))
+                start_val = eval(start_val)
+
+            if type(end_val) != int:
+                end_val = re.sub(bad_pattern, '', str(end_val))
+                temp_key = re.findall(num_pattern, str(end_val))[0]
+                end_val = end_val.replace(temp_key, str(variable_dict[temp_key]))
+                end_val = eval(end_val)
 
             if item_value['type'] == 'int':
-                # print(item_value['type'])
-                variable_dict[item_name] = random.randint(item_value['range'][0], item_value['range'][1])
+                variable_dict[item_name] = random.randint(start_val, end_val)
 
             if item_value['type'] == 'float':
-                variable_dict[item_name] = random.uniform(item_value['range'][0], item_value['range'][1])
-        # print(variable_dict)
+                variable_dict[item_name] = random.uniform(start_val, end_val)
+
         s_variable_dict = {key: str(value) for key, value in variable_dict.items()}
         for key, value in s_variable_dict.items():
             problem = problem.replace(key, value)
-        # print(problem)
-        # print(numbers)
-        # for item in numbers:
 
         problem = problem.replace("<", "")
         problem = problem.replace(">", "")
         problem = problem.replace(".0", "")
         problem = problem.rstrip()
-        # problem = str(count)+". "+problem
 
         problem = josa_converter.replace_josa(problem)
-        # print('problem')
-        # print(problem)
-
-        # print('tokenize')
 
         tokenized_problem_list = tokenize_string(problem)
-        # print('tokenized_problem_list')
-        # print(tokenized_problem_list)
 
         tokenized_list = []
         for value, key in enumerate(tokenized_problem_list):
             tokenized_list.append([key, value])
-        print('tokenized_list')
-        print(tokenized_list)
 
         tokenized_dictionary = {key: str(value) for value, key in enumerate(tokenized_problem_list)}
-        # print('enumerated tokenized_problem_list')
-        # print(tokenized_dictionary)
-        # print(tokenized_dictionary)
 
         for key, value in tokenized_list:
             if int(value) < 10:
                 tokenized_list[int(value)][1] = "{}{}".format("0", value)
         for key, value in tokenized_list:
             tokenized_list[int(value)][1] = "{}{}".format("_", value)
-        print(tokenized_list)
 
         tokenized_list_index = []
         for key, value in tokenized_list:
             tokenized_list_index.append(value)
-        print('tokenized_list_index')
-        print(tokenized_list_index)
+
         tokenized_list_index_string = ' '.join([str(token) for token in tokenized_list_index])
 
 
@@ -139,38 +136,14 @@ if __name__ == "__main__":
                 tokenized_dictionary[key] = "{}{}".format("0", value)
         for key, value in tokenized_dictionary.items():
             tokenized_dictionary[key] = "{}{}".format("_", value)
-        print(tokenized_dictionary)
-        #
-        # tokenized_index_list = []
-        # for key, value in tokenized_dictionary.items():
-        #     tokenized_index_list.append(value)
-        # tokenized_index_list.sort()
-        # print('tokenized_index_list')
-        # print(tokenized_index_list)
-
 
         equations = data.get('equations')
-        #print(equations)
 
         for variable_key, variable_value in s_variable_dict.items():
             equations = equations.replace(variable_key, variable_value)
-            # print("WTF?")
-            # print(variable_key, variable_value)
-            # print(equations)
-            # print('??????????????')
 
         for tokenized_key, tokenized_value in random_dict.items():
-            # print("tokenized_key")
-            # print(tokenized_key)
-            # print("tokenized_value")
-            # print(tokenized_value)
             equations = equations.replace(tokenized_key, tokenized_value)
-        #     print(equations)
-        #     print("------------------")
-        # print('s_variable_dict')
-        # print(s_variable_dict)
-        # print('tokenized_dictionary')
-        # print(tokenized_dictionary)
 
         for tokenized_key, tokenized_value in tokenized_dictionary.items():
             if tokenized_key not in [',','(',')']:
@@ -209,10 +182,6 @@ if __name__ == "__main__":
         print('equations')
         print(equations)
 
-        # zipped_token_index = zip(*[tokenized_list_index, tokenized_problem_list])
-        # print('zipped')
-        # print(tokenized_list_index)
-        # print(tokenized_problem_list)
         tokenized_problem_list_endspaced = tokenized_problem_list
         for i, item in enumerate(tokenized_problem_list):
             tokenized_problem_list_endspaced[i] = "{}{}{}".format(":",item, " ")
@@ -223,15 +192,6 @@ if __name__ == "__main__":
         problem_with_equations.append(zipped_token_index)
         problem_with_equations.append(equations)
 
-
-
         count += 1
-
-    # print(*problems, sep = "\n")
-    # print(problems)
-
-    # equations =
-    #
-    # print(equations)
 
     yaml_dump(args.output_path, problem_with_equations)
