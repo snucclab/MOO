@@ -2,12 +2,12 @@ from typing import List
 
 import torch
 
-from .pattern import *
-from .key import *
+from common.sys.pattern import *
+from common.sys.key import *
 from common.model.types import Text, Expression
 from common.solver.types import Execution
 from common.solver.const import CON_MAX, OPR_VALUES
-from ..model.const import PAD_ID
+from common.model.const import PAD_ID
 
 
 def _remove_special_prefix(token: str) -> str:

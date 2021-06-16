@@ -4,7 +4,7 @@ import yaml
 import re
 import random
 import josa_converter
-# from convert import tokenize_string
+from convert import tokenize_string
 
 def yaml_loader(filepath):
     with open(filepath, "r") as file_descriptor:
@@ -15,11 +15,12 @@ def yaml_dump(filepath, data):
     with open(filepath, "w", encoding="utf-8") as file_descriptor:
         yaml.dump(data, file_descriptor, allow_unicode=True)
 
+
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument('--template_path', '-t', type=str, default='./3-3-2.yaml')
-    parser.add_argument('--samples_per_template', '-N', type=int, default=100)
-    parser.add_argument('--output_path', '-o', type=str, default='./output/3-3-2_samples.yaml')
+    parser.add_argument('--template_path', '-t', type=str, default='./1-1-1.yaml')
+    parser.add_argument('--samples_per_template', '-N', type=int, default=50)
+    parser.add_argument('--output_path', '-o', type=str, default='./output_for_solver2/1-1-1_samples.yaml')
     args = parser.parse_args()
 
     count = 1
@@ -35,11 +36,16 @@ if __name__ == "__main__":
         keys = []
         for key in vocab:
             if key in problem:
-                # print(key)
                 keys.append(key)
             else:
                 pass
         print(keys)
+
+        # num_key_appearance = []
+        # for key in keys:
+        #     num_key_appearance.append(key+[.])
+        # print('num_key_appearance')
+        # print(num_key_appearance)
 
         random_dict = {}
         for key in keys:
@@ -77,29 +83,115 @@ if __name__ == "__main__":
         problem = problem.replace(">", "")
         problem = problem.replace(".0", "")
         problem = problem.rstrip()
-        problem = str(count)+". "+problem
+        # problem = str(count)+". "+problem
 
         problem = josa_converter.replace_josa(problem)
-        
+        print('problem')
         print(problem)
-        
-        problem_with_equations.append(problem)
 
-        # tokenized = tokenize_string(problem)
+        # print('tokenize')
+
+        tokenized_problem_list = tokenize_string(problem)
+        print('tokenized_problem_list')
+        print(tokenized_problem_list)
+
+        tokenized_list = []
+        for value, key in enumerate(tokenized_problem_list):
+            tokenized_list.append([key, value])
+        print('tokenized_list')
+        print(tokenized_list)
+
+        tokenized_dictionary = {key: str(value) for value, key in enumerate(tokenized_problem_list)}
+        # print('enumerated tokenized_problem_list')
+        # print(tokenized_dictionary)
+        # print(tokenized_dictionary)
+
+        for key, value in tokenized_list:
+            if int(value) < 10:
+                tokenized_list[int(value)][1] = "{}{}".format("0", value)
+        for key, value in tokenized_list:
+            tokenized_list[int(value)][1] = "{}{}".format("_", value)
+        print(tokenized_list)
+
+        tokenized_list_index = []
+        for key, value in tokenized_list:
+            tokenized_list_index.append(value)
+        print('tokenized_list_index')
+        print(tokenized_list_index)
+        tokenized_list_index_string = ' '.join([str(token) for token in tokenized_list_index])
+
+
+        for key, value in tokenized_dictionary.items():
+            if int(value) < 10:
+                tokenized_dictionary[key] = "{}{}".format("0", value)
+        for key, value in tokenized_dictionary.items():
+            tokenized_dictionary[key] = "{}{}".format("_", value)
+        print(tokenized_dictionary)
+        #
+        # tokenized_index_list = []
+        # for key, value in tokenized_dictionary.items():
+        #     tokenized_index_list.append(value)
+        # tokenized_index_list.sort()
+        # print('tokenized_index_list')
+        # print(tokenized_index_list)
+
 
         equations = data.get('equations')
         print(equations)
 
-
         for variable_key, variable_value in s_variable_dict.items():
             equations = equations.replace(variable_key, variable_value)
 
+        for tokenized_key, tokenized_value in tokenized_dictionary.items():
+            equations = equations.replace(tokenized_key, tokenized_value)
+
         equations = equations.replace("<", "")
         equations = equations.replace(">", "")
+        equations = equations.replace("R0: ", "")
+        equations = equations.replace("R1:", "")
+        equations = equations.replace("R2:", "")
+        equations = equations.replace("R3:", "")
+        equations = equations.replace("R4:", "")
+        equations = equations.replace("R5:", "")
+        equations = equations.replace("R6:", "")
+        equations = equations.replace("R7:", "")
+        equations = equations.replace("R8:", "")
+        equations = equations.replace("R9:", "")
+        equations = equations.replace("R10:", "")
+        equations = equations.replace("R11:", "")
+        equations = equations.replace("R12:", "")
+        equations = equations.replace("R13:", "")
+        equations = equations.replace("R14:", "")
+        equations = equations.replace("R15:", "")
+        equations = equations.replace("R16:", "")
+        equations = equations.replace("R17:", "")
+        equations = equations.replace("R18:", "")
+        equations = equations.replace("R19:", "")
+        equations = equations.replace("R20:", "")
+        equations = equations.replace("R21:", "")
+        equations = equations.replace("R22:", "")
+        equations = equations.replace("R23:", "")
+        equations = equations.replace("R24:", "")
 
+
+        print('equations')
         print(equations)
 
+        # zipped_token_index = zip(*[tokenized_list_index, tokenized_problem_list])
+        # print('zipped')
+        # print(tokenized_list_index)
+        # print(tokenized_problem_list)
+        tokenized_problem_list_endspaced = tokenized_problem_list
+        for i, item in enumerate(tokenized_problem_list):
+            tokenized_problem_list_endspaced[i] = "{}{}{}".format(":",item, " ")
+        zipped_token_index = ''.join([str(a) + b for a, b in zip(tokenized_list_index, tokenized_problem_list_endspaced)])
+
+        problem_with_equations.append(problem)
+        problem_with_equations.append(tokenized_list_index_string)
+        problem_with_equations.append(zipped_token_index)
         problem_with_equations.append(equations)
+
+
 
         count += 1
 
