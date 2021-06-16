@@ -150,13 +150,32 @@ if __name__ == "__main__":
 
 
         equations = data.get('equations')
-        print(equations)
+        #print(equations)
 
         for variable_key, variable_value in s_variable_dict.items():
             equations = equations.replace(variable_key, variable_value)
+            # print("WTF?")
+            # print(variable_key, variable_value)
+            # print(equations)
+            # print('??????????????')
+
+        for tokenized_key, tokenized_value in random_dict.items():
+            # print("tokenized_key")
+            # print(tokenized_key)
+            # print("tokenized_value")
+            # print(tokenized_value)
+            equations = equations.replace(tokenized_key, tokenized_value)
+        #     print(equations)
+        #     print("------------------")
+        # print('s_variable_dict')
+        # print(s_variable_dict)
+        # print('tokenized_dictionary')
+        # print(tokenized_dictionary)
 
         for tokenized_key, tokenized_value in tokenized_dictionary.items():
-            equations = equations.replace(tokenized_key, tokenized_value)
+            if tokenized_key not in [',','(',')']:
+                equations = equations.replace(tokenized_key, tokenized_value)
+
 
         equations = equations.replace("<", "")
         equations = equations.replace(">", "")
