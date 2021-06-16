@@ -13,9 +13,9 @@ from solver import execution_to_python_code
 
 if __name__ == '__main__':
     # Load model from './weights/checkpoint' using model.EPT.create_or_load()
-    model = EPT.create_or_load(EVALUATE_WEIGHT_DIR)
+    model = EPT.create_or_load(str(EVALUATE_WEIGHT_DIR.absolute()))
     # Restore tokenizer from pickle
-    tokenizer: ElectraTokenizer = torch.load(EVALUATE_TOKENIZER_PATH)
+    tokenizer: ElectraTokenizer = torch.load(str(EVALUATE_TOKENIZER_PATH.absolute()))
     # Move model to GPU if available
     if torch.cuda.is_available():
         model = model.cuda()
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             answers[key] = {ANSWER: answer, EQUATION: code}
 
         # Dump answers into './answersheet.json'
-        with Path(EVALUATE_OUTPUT_PATH).open('w+t', encoding='UTF-8') as fp:
+        with EVALUATE_OUTPUT_PATH.open('w+t', encoding='UTF-8') as fp:
             json_save(answers, fp, ensure_ascii=False)
     finally:
         # Finalize everything

@@ -41,11 +41,11 @@ def build_model_config(args):
 
 if __name__ == '__main__':
     args = read_arguments()
-    if not Path(EVALUATE_WEIGHT_DIR).exists():
-        Path(EVALUATE_WEIGHT_DIR).mkdir(parents=True)
+    if not EVALUATE_WEIGHT_DIR.exists():
+        EVALUATE_WEIGHT_DIR.mkdir(parents=True)
 
     model = EPT(**build_model_config(args))
-    model.save(EVALUATE_WEIGHT_DIR)
+    model.save(str(EVALUATE_WEIGHT_DIR.absolute()))
 
     tokenizer = AutoTokenizer.from_pretrained(args.encoder)
     with Path(EVALUATE_WEIGHT_DIR, 'tokenizer.pt').open('wb') as fp:

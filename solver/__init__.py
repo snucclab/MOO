@@ -1,11 +1,11 @@
 import re
-from pathlib import Path
 from typing import List, Dict, Any, Tuple
 
 from common.solver.const import *
 from common.solver.types import Execution
+from common.sys.const import MODULE_RSC_PATH
 
-_SOLVER_ROOT_PATH = Path(__file__).parent
+_MOO_LANG_PATH = MODULE_RSC_PATH / 'moo_lang'
 
 
 def python_code_to_executions(code_template: str) -> List[Execution]:
@@ -124,7 +124,7 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
 
 
 def _load_pyt(name: str):
-    path = _SOLVER_ROOT_PATH / 'template' / (name + '.pyt')
+    path = _MOO_LANG_PATH / (name + '.pyt')
     with path.open('r+t', encoding='UTF-8') as fp:
         lines = fp.readlines()
 

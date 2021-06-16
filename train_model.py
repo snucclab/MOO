@@ -9,7 +9,7 @@ from ray.tune.utils.util import is_nan_or_inf
 from torch.cuda import device_count
 
 from common.model.const import *
-from common.sys.const import EVALUATE_WEIGHT_PATH, EVALUATE_TOKENIZER_PATH
+from common.sys.const import EVALUATE_WEIGHT_PATH, EVALUATE_TOKENIZER_PATH, EVALUATE_WEIGHT_DIR
 from learner import *
 from shutil import copy
 
@@ -194,19 +194,16 @@ if __name__ == '__main__':
         yaml_dump(best_configs, fp)
 
     # Copy the best configuration to weights directory
-    weight_path = Path(EVALUATE_WEIGHT_PATH)
-    tokenizer_path = Path(EVALUATE_TOKENIZER_PATH)
-
-    if not weight_path.parent.exists():
-        weight_path.parent.mkdir(parents=True)
+    if not EVALUATE_WEIGHT_DIR.exists():
+        EVALUATE_WEIGHT_DIR.mkdir(parents=True)
     else:
-        if weight_path.exists():
-            weight_path.unlink()
-        if tokenizer_path.exists():
-            tokenizer_path.unlink()
+        if EVALUATE_WEIGHT_PATH.exists():
+            EVALUATE_WEIGHT_PATH.unlink()
+        if EVALUATE_TOKENIZER_PATH.exists():
+            EVALUATE_TOKENIZER_PATH.unlink()
 
     checkpoints = max(logpath.glob('checkpoint_*'), key=lambda path: path.name)
-    copy(str(checkpoints / 'EPT.pt'), weight_path)
-    copy(str(checkpoints / 'tokenizer.pt'), tokenizer_path)
+    copy(checkpoints / 'EPT.pt', EVALUATE_WEIGHT_PATH)
+    copy(checkpoints / 'tokenizer.pt', EVALUATE_TOKENIZER_PATH)
 
     shutdown()

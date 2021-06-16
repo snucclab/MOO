@@ -4,13 +4,11 @@ import random
 import re
 from contextlib import redirect_stdout
 from io import StringIO
-from pathlib import Path
 
 import sympy
 
 from common.solver.const import *
-
-_ROOT_PATH = Path(__file__).parent.parent
+from common.sys.const import MODULE_RSC_PATH
 
 _RESULT_NAME = [
     'result',
@@ -35,7 +33,7 @@ def _verify_indent(name: str, template: str):
 
 
 def _load_pyt(name: str):
-    path = _ROOT_PATH / 'solver' / 'template' / (name + '.pyt')
+    path = MODULE_RSC_PATH / 'moo_lang' / (name + '.pyt')
     with path.open('r+t', encoding='UTF-8') as fp:
         lines = fp.readlines()
 

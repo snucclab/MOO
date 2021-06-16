@@ -1,11 +1,11 @@
 import pytest
 
 from common.model.const import DEF_ENCODER
+from common.sys.const import MODULE_ROOT_PATH
 from common.sys.convert import string_to_text_instance
 from evaluate import Executor
 from solver import *
 
-_ROOT_PATH = Path(__file__).parent.parent
 _NUMBERING = re.compile('^\\d+\\.')
 _OPERATION_ONLY = re.compile('^R\\d+:\\s*([^#]+)(?:#.*)?')
 
@@ -51,7 +51,7 @@ def _convert_and_run(index: int, moo_code: str, text: str, expected: str,
 
 
 def test_solver_conversion(executor, tokenizer):
-    lang_spec_md = _ROOT_PATH / 'MOO-Language.md'
+    lang_spec_md = MODULE_ROOT_PATH / 'MOO-Language.md'
     problems = []
     code_templates = []
     answers = []
