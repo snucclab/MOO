@@ -46,7 +46,12 @@ def _execute_code(recv: Queue, send: Queue):
             if '##@@@@' in code:
                 # Evaluate the code with sympy first
                 _locals = {}
-                exec(code, _global_with_sympy, _locals)
+                _stdout = StringIO()
+                with redirect_stdout(_stdout):
+                    exec(code, _global_with_sympy, _locals)
+
+                # Discard output
+                _stdout.close()
 
                 while True:
                     matched = REPLACEMENT_HEADER_PATTERN.search(code)

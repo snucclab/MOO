@@ -1,6 +1,7 @@
 import math
 import pickle
 from collections import defaultdict
+from decimal import Decimal
 from typing import Optional
 
 from ray.tune.resources import Resources
@@ -14,6 +15,7 @@ from common.model.const import MDL_ENCODER, FLOAT_NAN
 from common.model.loss import SmoothedCrossEntropyLoss
 from common.sys.convert import equation_to_execution
 from common.sys.dataset import *
+from common.sys.pattern import NUMBER_BEGIN_PATTERN
 from evaluate import Executor
 from model import EPT
 from solver import execution_to_python_code
@@ -359,17 +361,25 @@ class SupervisedTrainer(Trainable):
 
                 for i in range(output.operator.shape[0]):
                     word_info = batch.text.word_info[i]
+                    expected = batch.answer[i]
                     # Transform equation into a list of common.solver.types.Execution
                     execution = equation_to_execution(output, batch_index=i, word_size=len(word_info))
                     # /* The following two lines will be shared with train_model.py, check_dataset.py */
                     # Transform equation into python code using solver.execution_to_python_code()
                     code = execution_to_python_code(execution, word_info, indent=4)
                     # Execute python code with timeout (0.5s) and get an answer (type: string)
-                    _, answer = self._tester.run(code)
+                    code, answer = self._tester.run(code)
+
+                    correct = False
+                    if NUMBER_BEGIN_PATTERN.fullmatch(expected) and NUMBER_BEGIN_PATTERN.fullmatch(answer):
+                        correct = abs(Decimal(expected) - Decimal(answer)) < 1E-2
+                    else:
+                        correct = answer == expected
 
                     results.append({
-                        'correct': answer == batch.answer[i],
+                        'correct': correct,
                         'answer': answer,
+                        'expected': expected,
                         'code': code,
                         'item_id': batch.item_id
                     })

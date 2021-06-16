@@ -51,8 +51,8 @@ class Example:
         self.answer = answer
 
     @classmethod
-    def from_dict(cls, item: dict, tokenizer) -> 'Example':
-        return cls(item_id=item[ITEM_ID],
+    def from_dict(cls, key: str, item: dict, tokenizer) -> 'Example':
+        return cls(item_id=key,
                    text=string_to_text_instance(item[QUESTION], tokenizer),
                    execution=[Execution.from_list(x) for x in item[EXECUTION]],
                    answer=item[ANSWER])
@@ -134,8 +134,8 @@ class Dataset:
         # First, read the JSON with lines file.
         self._vocab_size = len(self._tokenizer)
         with Path(self._path).open('r+t', encoding='UTF-8') as fp:
-            items = [Example.from_dict(item, self._tokenizer)
-                     for item in load(fp).values()]
+            items = [Example.from_dict(key, item, self._tokenizer)
+                     for key, item in load(fp).items()]
 
         # Cache dataset and vocabulary.
         save({

@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
         # Dump answers into './answersheet.json'
         with Path(EVALUATE_OUTPUT_PATH).open('w+t', encoding='UTF-8') as fp:
-            json_save(answers, fp)
+            json_save(answers, fp, ensure_ascii=False)
     finally:
         # Finalize everything
         executor.close()
