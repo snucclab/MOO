@@ -6,7 +6,7 @@ for idx, value in enumerate({seq}):
 
 symbol = sympy.Symbol('n', real=True)
 general_term = sympy.polys.polyfuncs.interpolate(data_points, symbol)
-{result}_pycode = "\n{result} = %s\n" % str(general_term).replace('n', str({index}))  # Make python code
+{result}_pycode = '\n{result} = %s\n' % str(general_term).replace('n', str({index}))  # Make python code
 _result = general_term.subs({{symbol: {index} }})
 if _result.is_integer:
     {result} = int(_result)

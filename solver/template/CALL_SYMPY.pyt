@@ -14,7 +14,7 @@ if is_multidigit:
     # Multi-digit case
     assert len({LIST}) == 1
     eq = {LIST}[0]
-    a, op1, b, op2, r = re.split("([-+=])", eq)
+    a, op1, b, op2, r = re.split('([-+=])', eq)
     if op1 == '=':
         # Make as a +/- b = c
         a, op1, b, op2, r = b, op2, r, op1, a
@@ -60,9 +60,9 @@ if is_multidigit:
             carry = 0
 
         _result[digit_key] = int(digit_value)
-        _pycodes.append("# solution of %s\n{result}_%s=%s" % (equation, digit_key, digit_value))
+        _pycodes.append('# solution of %s\n{result}_%s=%s' % (equation, digit_key, digit_value))
 
-    {result}_pycode = "\n".join(_pycodes) + "\n{result} = {result}_%s\n" % {target}
+    {result}_pycode = '\n'.join(_pycodes) + '\n{result} = {result}_%s\n' % {target}
     {result} = _result[{target}]
 else:
     equations = []
@@ -83,7 +83,7 @@ else:
     else:
         {result} = float({result})
 
-    {result}_pycode = "# solution of %s\n" % (', '.join({LIST})) + \
-        "\n".join(["{result}_%s = %s" % t for t in _result.items()]) + \
-        "\n{result} = %s({result}_%s)\n" % ('int' if is_int else 'float', {target})
+    {result}_pycode = '# solution of %s\n' % (', '.join({LIST})) + \
+        '\n'.join(['{result}_%s = %s' % t for t in _result.items()]) + \
+        '\n{result} = %s({result}_%s)\n' % ('int' if is_int else 'float', {target})
 ## CODE-REPLACEMENT END for {result} @@@@##

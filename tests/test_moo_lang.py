@@ -29,7 +29,9 @@ def _verify_indent(name: str, template: str):
             line = line[:-1]
         if line:
             assert re.fullmatch('^( {4})*[^\\s]+.*$', line), \
-                '코드 들여쓰기는 반드시 공백문자 4개여야 합니다. (%s.pyt L#%3d)\n"%s"' % (name, lineno, line)
+                '코드 들여쓰기는 반드시 공백문자 4개여야 합니다. (%s.pyt L#%3d)\n\'%s\'' % (name, lineno, line)
+            assert '"' not in line, \
+                '코드에는 쌍따옴표를 사용할 수 없습니다. (%s.pyt L#%3d)\n"%s"' % (name, lineno, line)
 
 
 def _load_pyt(name: str):
@@ -63,9 +65,9 @@ def test_eq():
 
     assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '5', '5')) is True
     assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '5', '7')) is False
-    assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '5', '"a"')) is False
-    assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '"a"', '"a"')) is True
-    assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '5.0', '"a"')) is False
+    assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '5', '\'a\'')) is False
+    assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '\'a\'', '\'a\'')) is True
+    assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '5.0', '\'a\'')) is False
     assert _exec_template(template, **converter(random.choice(_RESULT_NAME), '5.0', '5.0')) is True
     assert _exec_template(template, _locals=dict(x=5), **converter(random.choice(_RESULT_NAME), 'x', '5.0')) is True
     assert _exec_template(template, _locals=dict(life=42),
@@ -164,7 +166,7 @@ def test_print():
 
         return reader.getvalue().strip()
 
-    assert '정국' == _exec_out_catch('"정국"')
+    assert '정국' == _exec_out_catch('\'정국\'')
     assert '3' == _exec_out_catch(3)
     assert '3.05' == _exec_out_catch(3.05)
     assert '3.05' == _exec_out_catch(3.0492)
@@ -213,13 +215,13 @@ def test_append():
 
         append = random.choice(_RESULT_NAME)
         items = _exec_template(template, _locals=dict(items=items),
-                               **converter(random.choice(_RESULT_NAME), 'items', '"%s"' % append))
+                               **converter(random.choice(_RESULT_NAME), 'items', '\'%s\'' % append))
         assert len(items) == 2
         assert items[-1] == append
 
         append = random.random()
         items = _exec_template(template, _locals=dict(items=items),
-                               **converter(random.choice(_RESULT_NAME), 'items', '"%s"' % append))
+                               **converter(random.choice(_RESULT_NAME), 'items', '\'%s\'' % append))
         assert len(items) == 3
         assert items[-1] == str(append)
 
@@ -522,11 +524,11 @@ def test_make_pair():
         assert result == _exec_template(template, _locals=dict(name=name, value=number),
                                         **converter(random.choice(_RESULT_NAME), 'name', 'value'))
         assert result == _exec_template(template,
-                                        **converter(random.choice(_RESULT_NAME), '"%s"' % name, number))
+                                        **converter(random.choice(_RESULT_NAME), '\'%s\'' % name, number))
 
         result = (name, name)
         assert result == _exec_template(template,
-                                        **converter(random.choice(_RESULT_NAME), '"%s"' % name, '"%s"' % name))
+                                        **converter(random.choice(_RESULT_NAME), '\'%s\'' % name, '\'%s\'' % name))
 
 
 def test_count():
@@ -636,7 +638,7 @@ def test_list_index():
         assert index == _exec_template(template, _locals=dict(items=items, item=str(item)),
                                        **converter(random.choice(_RESULT_NAME), 'items', 'item'))
         assert index == _exec_template(template, _locals=dict(items=items),
-                                       **converter(random.choice(_RESULT_NAME), 'items', '"%s"' % item))
+                                       **converter(random.choice(_RESULT_NAME), 'items', '\'%s\'' % item))
 
 
 def test_list_replace():
@@ -657,10 +659,10 @@ def test_list_replace():
                                           **converter(random.choice(_RESULT_NAME), 'items', index, 'replace'))
         assert replaced == _exec_template(template, _locals=dict(items=items, index=index),
                                           **converter(random.choice(_RESULT_NAME), 'items', 'index',
-                                                      '"%s"' % replacement))
+                                                      '\'%s\'' % replacement))
         assert replaced == _exec_template(template, _locals=dict(items=items),
                                           **converter(random.choice(_RESULT_NAME), 'items', index,
-                                                      '"%s"' % replacement))
+                                                      '\'%s\'' % replacement))
 
 
 def test_ceil():
@@ -729,7 +731,7 @@ def test_call_sympy():
         assert answer == _exec_template(template, _locals=dict(equation=[equation], target=target),
                                         **converter(random.choice(_RESULT_NAME), 'equation', 'target'))
         assert answer == _exec_template(template, _locals=dict(equation=[equation]),
-                                        **converter(random.choice(_RESULT_NAME), 'equation', '"%s"' % target))
+                                        **converter(random.choice(_RESULT_NAME), 'equation', '\'%s\'' % target))
 
     # System of equation
     for _ in range(500):
@@ -753,4 +755,4 @@ def test_call_sympy():
         assert answer == _exec_template(template, _locals=dict(equation=eq_built, target=target),
                                         **converter(random.choice(_RESULT_NAME), 'equation', 'target'))
         assert answer == _exec_template(template, _locals=dict(equation=eq_built),
-                                        **converter(random.choice(_RESULT_NAME), 'equation', '"%s"' % target))
+                                        **converter(random.choice(_RESULT_NAME), 'equation', '\'%s\'' % target))

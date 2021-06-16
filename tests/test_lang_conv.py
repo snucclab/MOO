@@ -32,6 +32,8 @@ def _verify_indent(index: int, template: str):
         if line:
             assert re.fullmatch('^( {4})*[^\\s]+.*$', line), \
                 '코드 들여쓰기는 반드시 공백문자 4개여야 합니다. (%s번 문제 L#%3d)\n"%s"' % (index + 1, lineno, line)
+            assert '"' not in line, \
+                '코드에는 쌍따옴표를 사용할 수 없습니다. (%s번 문제 L#%3d)\n"%s"' % (index + 1, lineno, line)
 
 
 def _convert_and_run(index: int, moo_code: str, text: str, expected: str,

@@ -119,7 +119,7 @@ if __name__ == '__main__':
     file_handler.setFormatter(logging.Formatter('[%(asctime)s] %(message)s', datefmt='%m/%d %H:%M:%S'))
     file_handler.setLevel(logging.INFO)
 
-    logger = logging.getLogger('Hyperparameter Optimization')
+    logger = logging.getLogger('Debug Test')
     logger.setLevel(logging.INFO)
     logger.addHandler(file_handler)
 
@@ -132,4 +132,5 @@ if __name__ == '__main__':
     for _ in range(args.max_iter):
         trainer.step()
 
-    trainer.save_checkpoint('./runs/test-checkpoint')
+    trainer.save_checkpoint(str(Path(args.log_path, 'test-checkpoint')))
+    trainer.cleanup()
