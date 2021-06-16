@@ -28,24 +28,31 @@ class Simulator:
         for key, value in s_variable_dict.items():
             problem = problem.replace('<' + key + '>', value)
 
-        keys = []
-        for key in self.vocab:
-            if key in problem:
-                keys.append(key)
-            else:
-                pass
+        problem = re.sub('[<>]', '', problem)
+        p_tokens = tokenize_string(problem)
 
+        keys = []
+        for idx, token in enumerate(p_tokens):
+            for key in self.vocab:
+                if key in token:
+                    keys.append(p_tokens[idx] + p_tokens[idx + 1])
+        keys = list(set(keys))
+
+        chosen_list = []
         random_dict = {}
-        for key in keys:
-            random_dict[key] = random.choice(self.vocab.get(key))
+        for idx, key in enumerate(keys):
+            # print(re.sub('\.\d+', '', key))
+            vocab_list = self.vocab.get(re.sub('\.\d+', '', key))
+            val = random.choice(vocab_list)
+            while True:
+                if val not in chosen_list:
+                    break
+                val = random.choice(vocab_list)
+            random_dict[key] = val
+            chosen_list.append(val)
 
         for key, value in random_dict.items():
             problem = problem.replace(key, value)
-
-        problem = problem.replace("<", "")
-        problem = problem.replace(">", "")
-        problem = problem.replace(".0", "")
-        problem = problem.rstrip()
 
         problem = josa_converter.replace_josa(problem)
         tokenized_problem_list = tokenize_string(problem)
@@ -73,9 +80,19 @@ class Simulator:
             tokenized_dictionary[key] = "{}{}".format("_", value)
 
         equations = template['equations']
-        print(problem)
-        print(equations)
 
+        for variable_key, variable_value in s_variable_dict.items():
+            equations = equations.replace(variable_key, variable_value)
+
+        for tokenized_key, tokenized_value in tokenized_dictionary.items():
+            equations = equations.replace('<'+tokenized_key+'>', tokenized_value)
+
+        equations = equations.replace("<", "")
+        equations = equations.replace(">", "")
+        equations = re.sub(r'R0: ', '', equations)
+        equations = re.sub(r'R\d+: ', '\n', equations)
+        #print(problem)
+        #print(equations)
         return problem, equations
 
     def load_templates(self, templates: List[dict]):
@@ -111,12 +128,9 @@ class Simulator:
         results = []
         for idx, template in enumerate(self.templates):
             print(str(idx)+"번째 템플릿 생성중")
-            print(template)
             problems = []
             for idx in range(n):
                 text, code_template = self.prob_gen(template)
-                if text.find('14.12') != -1 :
-                    print(text)
                 problems.append(Problem(text, code_template))
 
             results.append(problems)
