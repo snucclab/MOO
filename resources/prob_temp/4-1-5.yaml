@@ -1,0 +1,29 @@
+problem: 3개의 수 <num.0>, <num.1>, <num.2>(이)가 있습니다. 이 수들 중에서 제일 큰 수와 제일 작은 수를 더한 값은 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [1, 30]
+    under-decimal: 0
+    type: float
+  num.1:
+    range: [1, 20]
+    under-decimal: 0
+    type: float
+  num.2:
+    range: [1, 50]
+    under-decimal: 0
+    type: float
+
+list-sampling: null
+
+fuction-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: MAX(R3)
+  R5: MIN(R3)
+  R6: ADD(R4,R5)
+  R7: PRINT(R6)"
