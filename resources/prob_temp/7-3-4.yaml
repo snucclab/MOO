@@ -1,0 +1,19 @@
+problem: <num.0>, <num.1>, <num.2>, <num.3>, <num.4> 순서로 수를 연이어 늘어놓았습니다. <num.5>번째 수는 무엇입니까?
+
+variable-sampling: 
+  num.5:
+    range: [40, 70]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: difference_prog(5, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: SEQ_TERM(R3,<num.5>)
+  R5: PRINT(R4)"

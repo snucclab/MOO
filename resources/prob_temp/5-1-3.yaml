@@ -1,0 +1,22 @@
+problem: >
+ 두 자리 수의 덧셈식 <equation.0>(이)가 있습니다. 미지수 <equation.0>에 해당하는 숫자를 찾으시오.
+
+variable-sampling: None
+
+list-sampling: None
+
+function-call: gen_expr(2,2,'+','equation','unknown')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<equation.0>)
+  R2: CALL_SYMPY(R1)
+  R3: MAX(R2)
+  R4: PRINT(R3)"
+
+
+
+
+
+
+

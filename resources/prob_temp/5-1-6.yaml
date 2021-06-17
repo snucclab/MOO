@@ -1,0 +1,22 @@
+problem: >
+ 두 개의 두 자리 수를 더하는 식 <equation.0>에서 <unknown.0>에 들어갈 숫자를 구하시오.
+
+variable-sampling: None
+
+list-sampling: None
+
+function-call: gen_expr(2,2,'+','equation','unknown')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<equation.0>)
+  R2: CALL_SYMPY(R1)
+  R3: MAX(R2)
+  R4: PRINT(R3)"
+
+
+
+
+
+
+

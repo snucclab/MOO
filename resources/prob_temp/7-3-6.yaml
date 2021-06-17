@@ -1,0 +1,20 @@
+problem: >
+	<num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5>(와)과 같은 규칙을 따라 계속하여 수를 배열하여 임의의 수열을 만들었습니다.
+	<num.6>번째 수는 어떤 수입니까?
+
+variable-sampling: None
+  num.6:
+    range: [30,55]
+    under-decimal: 0
+    type: int
+list-sampling: None
+
+function-call: difference_prog(6, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: SEQ_TERM(R3,<num.6>)
+  R5: PRINT(R4)"

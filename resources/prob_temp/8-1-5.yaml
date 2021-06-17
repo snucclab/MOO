@@ -1,0 +1,24 @@
+problem: >
+  <num.0>, <num.1>, <num.2>, <num.0>, <num.1>, <num.2>(이)가 반복되어 나타나는 수열이 있습니다.
+  이 수열에서 첫 숫자에서 <num.3>번째인 수는 무엇입니까?
+
+variable-sampling:
+  num.3:
+    range: [10, 30]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: rep_prog(3)
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.0>)
+  R5: APPEND(R4,<num.1>)
+  R6: APPEND(R5,<num.2>)
+  R7: REP_SEQ_TERM(R6,<num.3>)
+  R8: PRINT(R7)"
