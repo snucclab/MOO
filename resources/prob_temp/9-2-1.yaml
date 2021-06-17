@@ -1,0 +1,23 @@
+problem: >
+  학교에는 <name.0>반, <name.1>반, <name.2>반, <name.3>반이 있습니다.
+  <name.3>반보다 <name.1>반의 인원이 적습니다.
+  한편 <name.3>반보다는 <name.0>반의 인원이 많습니다.
+  그리고 <name.2>반보다는 <name.1>반의 인원이 더 많습니다.
+  가장 적은 인원수인 반은 무엇일까요?
+
+variable-sampling: None
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: LIST()
+  R1: MAKE_PAIR(<name.1>,<name.3>)
+  R2: APPEND(R0,R1)
+  R3: MAKE_PAIR(<name.3>,<name.0>)
+  R4: APPEND(R2,R3)
+  R5: MAKE_PAIR(<name.2>,<name.1>)
+  R6: APPEND(R4,R5)
+  R7: MIN(R6)
+  R8: PRINT(R7)"
