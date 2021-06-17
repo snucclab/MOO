@@ -72,7 +72,7 @@ class Simulator:
         random_dict = {}
         for idx, raw_key in enumerate(keys):
             key = re.sub(r'[<>]', '', raw_key)
-            if key in template['list-sampling']:
+            if _check_is_not_none(template['list-sampling']) and key in template['list-sampling']:
                 vocab_list = template['list-sampling'][key]
             else:
                 vocab_list = self.vocab.get(re.sub(r'[<.\d>]', '', raw_key))
