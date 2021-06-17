@@ -17,7 +17,7 @@ variable-sampling:
 list-sampling:
   present.0: ['휴대용 선풍기', '물병', '도시락통', '우산', '노트']
 
-function-call: null
+function-call: Null
 
 equations:
   "R0: ADD(<num.0>,<num.1>)
