@@ -53,7 +53,7 @@ class SupervisedTrainer(Trainable):
             fp.write('\n--------------------  System specification ---------------------\n')
             fp.write(read_system_spec())
             fp.write('\n-------------------- Trainer configuration ---------------------\n')
-            fp.write(yaml_dump(config))
+            fp.write(yaml_dump(config, allow_unicode=True, default_style='|'))
             fp.write('\n--------------------   Model structure     ---------------------\n')
             fp.write(str(self._model))
             fp.write('\n--------------------   Model parameters    ---------------------\n')
@@ -61,7 +61,7 @@ class SupervisedTrainer(Trainable):
             fp.write('\n'.join([f'{n}: {p}' for n, p in params]))
             fp.write('\nTOTAL: %s\n' % sum([x for _, x in params]))
             fp.write('\n-------------------- Dataset statistics    ---------------------\n')
-            fp.write(yaml_dump(self._dataset.statistics))
+            fp.write(yaml_dump(self._dataset.statistics, allow_unicode=True, default_style='|'))
 
     @classmethod
     def default_resource_request(cls, config: dict) -> Resources:
@@ -327,7 +327,7 @@ class SupervisedTrainer(Trainable):
         with Path(self.logdir, '%s.yaml' % experiment_name).open('w+t', encoding='UTF-8') as fp:
             fp.write('# Output of experiment %s in iteration %s.\n' % (experiment_name, self.iteration))
             fp.write('# Total %d items are tested.\n' % len(output['dump']))
-            yaml_dump(output, fp)
+            yaml_dump(output, fp, allow_unicode=True, default_style='|')
 
     def _train(self):
         raise ValueError('Trainer._train() should not be called!')

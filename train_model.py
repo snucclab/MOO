@@ -191,7 +191,7 @@ if __name__ == '__main__':
     with Path(logpath.parent, 'best_config.pkl').open('wb') as fp:
         pickle.dump(best_configs, fp)
     with Path(logpath.parent, 'best_config.yaml').open('w+t') as fp:
-        yaml_dump(best_configs, fp)
+        yaml_dump(best_configs, fp, allow_unicode=True, default_style='|')
 
     # Copy the best configuration to weights directory
     if not EVALUATE_WEIGHT_DIR.exists():
