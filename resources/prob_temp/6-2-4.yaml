@@ -12,20 +12,14 @@ list-sampling: null
 function-call: interchange_pair(2,10,1,"two");interchange_pair(3,1,100,"three");eval_expression("<three.1>+<two.1>","sum")
 
 equations:
-  "R0: SUB(<num.1>,<num.0>)
-  R1: REVERSE_DIGIT(R0)
-  R2: REVERSE_DIGIT(<num.0>)
-  R3: ADD(R1,R2)
-  R4: PRINT(R3)"
-    
-
-
-
-
-
-
-
-
-
-
-
+  "R0: SUB(<sum.0>, <two.1>)
+  R1: GET_DIGIT(R0, 1)
+  R2: GET_DIGIT(R0, 3)
+  R3: CHANGE_DIGIT(R0, 3, R1)
+  R4: CHANGE_DIGIT(R3, 1, R2)
+  R5: GET_DIGIT(<two.1>, 1)
+  R6: GET_DIGIT(<two.1>, 2)
+  R7: CHANGE_DIGIT(<two.1>, 2, R5)
+  R8: CHANGE_DIGIT(R7, 1, R6)
+  R9: ADD(R4, R8)
+  R10: PRINT(R9)"

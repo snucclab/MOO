@@ -58,6 +58,8 @@ OPR_LIST_INDEX = 'LIST_INDEX'
 OPR_LIST_REPLACE = 'LIST_REPLACE'
 OPR_CEIL = 'CEIL'
 OPR_LIST_MUL = 'LIST_MUL'
+OPR_CHANGE_DIGIT = 'CHANGE_DIGIT'
+OPR_GET_DIGIT = 'GET_DIGIT'
 
 OPR_VALUES = [
     # 1. NEW_EQN()
@@ -171,7 +173,13 @@ OPR_VALUES = [
      CONVERT: (lambda res, *x: {'x1': x[0], 'result': res}), PRECEDENCE: None},
     # 39. LIST_MUL(lst: List[Any], n: int) -> List[Any]
     {NAME: OPR_LIST_MUL, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'lst': x[0], 'n': x[1], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'lst': x[0], 'n': x[1], 'result': res}), PRECEDENCE: None},
+    # 40. CHANGE_DIGIT(original: int, place: int, digit: int)
+    {NAME: OPR_CHANGE_DIGIT, ARITY: 3, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'original': x[0], 'place': x[1], 'change': x[2], 'result': res}), PRECEDENCE: None},
+    # 40. GET_DIGIT(original: int, place: int)
+    {NAME: OPR_GET_DIGIT, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'original': x[0], 'place': x[1], 'result': res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]

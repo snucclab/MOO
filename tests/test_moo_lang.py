@@ -754,3 +754,47 @@ def test_call_sympy():
                                         **converter(random.choice(_RESULT_NAME), 'equation', 'target'))
         assert answer == _exec_template(template, _locals=dict(equation=eq_built),
                                         **converter(random.choice(_RESULT_NAME), 'equation', '\'%s\'' % target))
+
+
+def test_change_digit():
+    template = _load_pyt(OPR_CHANGE_DIGIT)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_CHANGE_DIGIT)][CONVERT]
+
+    for _ in range(500):
+        number = random.randint(10000, 100000)
+        digit = random.randint(3, 5)
+        change_to = random.randint(1, 9)
+        change_from = int(str(number)[-digit])
+        result = number - (change_from - change_to) * (10 ** (digit - 1))
+
+        assert result == _exec_template(template, _locals=dict(n=number, p=digit, x=change_to),
+                                        **converter(random.choice(_RESULT_NAME), 'n', 'p', 'x'))
+
+        assert result == _exec_template(template, _locals=dict(p=digit, x=change_to),
+                                        **converter(random.choice(_RESULT_NAME), number, 'p', 'x'))
+
+        assert result == _exec_template(template, _locals=dict(n=number, x=change_to),
+                                        **converter(random.choice(_RESULT_NAME), 'n', digit, 'x'))
+
+        assert result == _exec_template(template, _locals=dict(n=number, p=digit),
+                                        **converter(random.choice(_RESULT_NAME), 'n', 'p', change_to))
+
+
+def test_get_digit():
+    template = _load_pyt(OPR_GET_DIGIT)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_GET_DIGIT)][CONVERT]
+
+    for _ in range(500):
+        number = random.randint(10000, 100000)
+        digit = random.randint(3, 5)
+        result = int(str(number)[-digit])
+
+        assert result == _exec_template(template, _locals=dict(n=number, p=digit),
+                                        **converter(random.choice(_RESULT_NAME), 'n', 'p'))
+
+        assert result == _exec_template(template, _locals=dict(p=digit),
+                                        **converter(random.choice(_RESULT_NAME), number, 'p'))
+
+        assert result == _exec_template(template, _locals=dict(n=number),
+                                        **converter(random.choice(_RESULT_NAME), 'n', digit))
+

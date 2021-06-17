@@ -12,29 +12,11 @@ list-sampling: null
 function-call: errorpair(2,1,"e_num");interchange_pair(3,1,10,"i_num");eval_expression("<i_num.1>-<e_num.1>", "num");eval_expression("<e_num.0> % 10", "e_digit")
 
 equations:
-  "R0: DIGIT(1,2)
-  R1: DIGIT(1,3)
-  R2: DIV(<num.0>,R1)
-  R3: TO_INT(R2)
-  R4: MUL(R3,R1)
-  R5: SUB(<num.0>,R4)
-  R6: REVERSE_DIGIT(R5)
-  R7: ADD(R6,R4)
-  R8: SUB(<num.0>,<num.2>)
-  R9: DIV(<num.2>,R0)
-  R10: TO_INT(R9)
-  R11: MUL(R10,R0)
-  R12: ADD(R11,<num.1>)
-  R13: SUB(R7,R12)
-  R14: PRINT(R13)"
-
-
-
-
-
-
-
-
-
-
-
+  "R0: SUB(<i_num.1>, <num.0>)
+  R1: CHANGE_DIGIT(R0, 1, <e_digit.0>)
+  R2: GET_DIGIT(<i_num.1>, 1)
+  R3: GET_DIGIT(<i_num.1>, 2)
+  R4: CHANGE_DIGIT(<i_num.1>, 2, R2)
+  R5: CHANGE_DIGIT(R4, 1, R3)
+  R6: SUB(R5, R1)
+  R7: PRINT(R6)"
