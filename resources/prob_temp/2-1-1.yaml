@@ -18,7 +18,7 @@ list-sampling:
   vocation.0: ['학생', '경찰', '선생님', '중학생', '운동선수', '중학생' ,'고등학생', '초등학생']
 
 
-function-call: None
+function-call: null
 
 equations: 
   "R0: SUB(<num.0>,<num.1>)

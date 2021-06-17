@@ -16,7 +16,7 @@ variable-sampling:
 list-sampling:
   place.0 : ['서점', '마트', '문구점', '학교', '교실', '도서관', '박물관', '운동장', '아파트', '강당', '방', '연구실', '건물']
 
-function-call: None
+function-call: null
 
 equations:
   "R0: MUL(<num.0>,<num.1>)

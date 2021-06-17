@@ -20,7 +20,7 @@ variable-sampling:
 list-sampling: null
   place.0: ['서점', '마트', '문구점', '집', '학교', '교실', '도서관', '박물관', '운동장', '음식점', '영화관', '연구실', '백화점', '옷가게']
 
-function-call: None
+function-call: null
 
 equations:
   "R0: SUB(<num.0>,<num.1>)

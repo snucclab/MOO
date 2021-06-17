@@ -22,7 +22,7 @@ list-sampling:
   '아버지', '어머니', '할아버지', '할머니', '손자', '손녀', '조카', '이모', '삼촌', '동생', '누나', '오빠', '언니', '고모',
   '학생', '선생님', '중학생', '초등학생', '고등학생']
 
-function-call: None
+function-call: null
 
 equations:
   "R0: SUB(<num.0>,<num.1>)

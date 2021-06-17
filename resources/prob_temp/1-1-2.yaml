@@ -19,7 +19,7 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: None
+function-call: null
 
 equations:
   "R0: SUB(<num.0>,<num.1>)

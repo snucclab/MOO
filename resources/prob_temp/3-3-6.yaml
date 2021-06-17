@@ -12,7 +12,7 @@ variable-sampling:
 list-sampling:
   present.0: [ '옷', '티셔츠', '반바지', '바지', '양말', '장갑', '머리띠', '모자' ]
 
-function-call: None
+function-call: null
 
 equations:
   "R0: LIST()

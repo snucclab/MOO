@@ -8,7 +8,7 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: None
+function-call: null
 
 equations:
   "R0: DIV(9,10)

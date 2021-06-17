@@ -26,7 +26,7 @@ list-sampling:
   person.0 : ['정국', '지민', '석진', '태형', '남준', '윤기', '호석']
   person.1 : ['민영', '유정', '은지', '유나', '동생', '누나', '오빠', '언니']
 
-function-call: None
+function-call: null
 
 equations:
   "R0: LIST()

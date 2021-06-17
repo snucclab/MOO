@@ -18,7 +18,7 @@ list-sampling:
   stationary.1: [ '상자', '책장', '책꽂이', '서랍','필통' ]
 
 
-function-call: None
+function-call: null
 
 equations:
   "R0: MUL(<num.0>,<num.1>)

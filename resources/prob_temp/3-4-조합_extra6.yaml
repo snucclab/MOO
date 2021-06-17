@@ -12,7 +12,7 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: None
+function-call: null
 
 equations:
   "R0: LIST()

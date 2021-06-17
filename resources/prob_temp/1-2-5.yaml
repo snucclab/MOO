@@ -13,7 +13,7 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: None
+function-call: null
 
 equations:
   "R0: ADD(<num.1>,1)

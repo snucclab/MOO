@@ -22,7 +22,7 @@ variable-sampling:
 list-sampling:
   animal: ['오리', '닭', '거위', '비둘기', '병아리']
 
-function-call: None
+function-call: null
 
 equations: 
   "R0: LIST()

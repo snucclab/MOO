@@ -25,7 +25,7 @@ variable-sampling:
 list-sampling: 
   position.0: ['앞' ,'왼쪽', '오른쪽']
 
-function-call: None
+function-call: null
 
 equations: 
   "R0: LIST()

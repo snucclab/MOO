@@ -16,7 +16,7 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: None
+function-call: null
 
 equations:
   "R0: RANGE(1000,10000,1)

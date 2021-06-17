@@ -19,7 +19,7 @@ list-sampling:
   place.1: ['서점', '마트', '문구점', '백화점', '옷가게']
   stationary.0 : ['상자', '책장', '책꽂이', '서랍']
 
-function-call: None
+function-call: null
 
 equations:
   "R0: ADD(<num.0>,<num.1>)

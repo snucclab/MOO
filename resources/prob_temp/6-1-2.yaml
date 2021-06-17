@@ -14,7 +14,7 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: None
+function-call: null
 
 equations:
   "R0: DIV(<num.1>,<num.0>)

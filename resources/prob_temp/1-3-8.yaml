@@ -17,7 +17,7 @@ list-sampling:
   stationary.0 : ['연필', '색연필', '지우개', '공책', '도화지', '색종이', '풀', '테이프', '바둑돌', '구슬', '나무토막', '장난감', '필통', '샤프', '샤프심', '핸드폰', '카드']
   stationary.1 : ['상자', '책장', '책꽂이', '서랍','필통']
 
-function-call: None
+function-call: null
 
 equations:
   "R0: MUL(<num.0>,<num.1>)

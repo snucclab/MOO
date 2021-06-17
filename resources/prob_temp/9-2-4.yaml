@@ -8,7 +8,7 @@ variable-sampling: null
 list-sampling:
   thing.0: ['종이', '마스크', '사탕', '책', '물병', '컵', '냉장고', '꽃']
 
-function-call: None
+function-call: null
 
 equations:
   "R0: LIST()
