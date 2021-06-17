@@ -5,9 +5,9 @@ problem: >
   계산 결과 <result.0>(이)가 나왔습니다.
   두 사람이 모두 숫자를 바르게 봤을 경우 계산 결과는 무엇일까요?
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: errorpair(3, 'three'); errorpair(4, 'four'); eval('four.0 % 10','digit'); eval('three.1 + four.1', 'result')
 
