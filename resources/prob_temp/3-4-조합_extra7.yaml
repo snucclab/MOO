@@ -14,9 +14,9 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: Null
+list-sampling: null
 
-function-call: Null
+function-call: null
 
 equations:
   "R0: ADD(<num.2>,<num.0>)
