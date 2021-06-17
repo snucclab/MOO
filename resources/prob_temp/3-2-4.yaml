@@ -1,0 +1,29 @@
+problem: >
+  3개의 자연수 <num.0>, <num.1>, <num.2>(을)를 각각 한 번씩만 이용하여 세 자리 수를 만들려고 하는데, 만들 수 있는 가지 수를 구하세요.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: COUNT(R3)
+  R5: PERM(R4,R4)
+  R6: PRINT(R5)"

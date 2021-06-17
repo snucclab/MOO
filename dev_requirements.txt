@@ -6,3 +6,4 @@ PyYAML~=5.4.1
 torch_optimizer==0.1.0
 psutil
 pytest
+tossi

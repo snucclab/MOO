@@ -1,0 +1,52 @@
+problem: >
+  두 사람이 모은 숫자들을 모아보려고 합니다.
+  <propername.0>(은)는 <num.0>(와)과 <num.1>, 그리고 <num.2>(을)를 갖고 있습니다.
+  <propername.1>(은)는 <num.3>, <num.4>, <num.5>(을)를 갖고 있습니다.
+  누가 가장 큰 숫자를 가지고 있을까요?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: float
+  num.3:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: float
+  num.4:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.5:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: MAKE_PAIR(<propername.0>,<num.0>)
+  R2: APPEND(R0,R1)
+  R3: MAKE_PAIR(<propername.0>,<num.1>)
+  R4: APPEND(R2,R3)
+  R5: MAKE_PAIR(<propername.0>,<num.2>)
+  R6: APPEND(R4,R5)
+  R7: MAKE_PAIR(<propername.1>,<num.3>)
+  R8: APPEND(R6,R7)
+  R9: MAKE_PAIR(<propername.1>,<num.4>)
+  R10: APPEND(R8,R9)
+  R11: MAKE_PAIR(<propername.1>,<num.5>)
+  R12: APPEND(R10,R11)
+  R13: MAX(R12)
+  R14: PRINT(R13)"

@@ -1,0 +1,49 @@
+problem: >
+  <person.0>(은)는 2020년 1월에는 <num.0>개의 <fruit.0>(을)를 먹었고 2월에는 <num.1>개의 <fruit.0>(을)를 먹었습니다.
+  1월과 2월을 제외한 달에는 매달 평균 <num.2>개의 <fruit.0>(을)를 먹었습니다.
+  2020년 일년 동안 <person.0>(이)가 한달에 평균 몇 개의 <fruit.0>(을)를 먹었는지 계산하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 10, 50 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 50 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 20, 60 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 12, 13]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [ 2, 3]
+    under-decimal: 0
+    type: int  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: SUM(R2)
+  R4: SUB(<num.3>,<num.4>)
+  R5: MUL(R4,<num.2>)
+  R6: ADD(R3,R5)
+  R7: DIV(R6,<num.3>)
+  R8: PRINT(R7)"
+
+
+
+
+
+
+
+
+

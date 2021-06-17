@@ -1,0 +1,31 @@
+problem: >
+  <num.0>, <num.1>, <num.2>, <num.3>(와)과 같은 규칙으로 수를 나열한 상황에서
+  <num.4>번째 수가 <unknown.0>, <num.5>번째 수가 <unknown.1>입니다.
+  <unknown.1>-<unknown.0>(을)를 구하시오.
+
+variable-sampling:
+  num.4:
+    range: [15,21]
+    under-decimal: 0
+    type: int
+  num.5:
+    range: [22, 58]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: arithmetic_prog(4, 'num')
+
+equations: 
+  "R0: SUB(<num.1>,<num.0>)
+  R1: LIST()
+  R2: APPEND(R1,<num.4>)
+  R3: APPEND(R2,<num.5>)
+  R4: MAX(R3)
+  R5: ADD(R4,1)
+  R6: RANGE(<num.0>,R5,R0)
+  R7: SEQ_TERM(R3,<num.4>)
+  R8: SEQ_TERM(R3,<num.5>)
+  R9: SUB(R8,R7)
+  R10: PRINT(R9)"

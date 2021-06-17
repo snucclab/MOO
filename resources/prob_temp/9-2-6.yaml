@@ -1,0 +1,22 @@
+problem: >
+  <ball.3>의 크기는 <ball.4>보다 큽니다.
+  <ball.0>의 크기는 <ball.1>보다 작습니다.
+  <ball.4>(은)는 <ball.2>보다 큽니다.
+  크기가 가장 작은 공은 어떤 것일까요?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: MAKE_PAIR(<ball.0>,<ball.1>)
+  R2: APPEND(R0,R1)
+  R3: MAKE_PAIR(<ball.4>,<ball.3>)
+  R4: APPEND(R2,R3)
+  R5: MAKE_PAIR(<ball.2>,<ball.4>)
+  R6: APPEND(R4,R5)
+  R7: MIN(R6)
+  R8: PRINT(R7)"

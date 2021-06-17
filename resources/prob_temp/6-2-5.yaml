@@ -1,0 +1,39 @@
+problem: >
+  <person.0>(이)가 가진 수는 세 자리 수 입니다.
+  <person.1>(이)가 가진 수는 두 자리 수 입니다.
+  <person.0>(이)가 가진 수에서 <person.1>(이)가 가진 수를 빼려고 합니다.
+  그런데 두 사람이 너무 피곤했던 나머지 <person.0>(이)가 본인이 가진 수의 10의 자리 수를 1의 자리 수와 바꾸어 <i_num.1>(으)로 잘못 보았고,
+  <person.1>(은)는 본인이 가진 수의 1의 자리 숫자가 원래 <e_digit.0>인데 다른 어떤 숫자로 착각하였습니다.
+  잘못 본 수로 뺄셈한 결과는 <num.0>이었습니다.
+  만약 두 사람이 모두 실수하지 않았더라면 뺄셈 결과가 어땠을지 계산하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: errorpair(2,1,"e_num");interchange_pair(3,10,1,"i_num");eval_expression("<i_num.1>-<e_num.1>", "num");eval_expression("<e_num.0> % 10", "e_digit")
+
+equations:
+  "R0: DIV(<num.0>,100)
+  R1: TO_INT(R0)
+  R2: MUL(R1,100)
+  R3: SUB(<num.0>,R2)
+  R4: REVERSE_DIGIT(R3)
+  R5: ADD(R4,R2)
+  R6: SUB(<num.0>,<num.2>)
+  R7: DIV(<num.2>,10)
+  R8: TO_INT(R7)
+  R9: MUL(R8,10)
+  R10: ADD(R9,<num.1>)
+  R11: SUB(R5,R10)
+  R12: PRINT(R11)"
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+problem: >
+ 두 자리 수를 더하는 식 <equation.0>(이)가 있습니다. 여기서 <unknown.0>에 해당하는 숫자는 무엇입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: unk_digit_equation(2,2,'+','equation','unknown')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<equation.0>)
+  R2: CALL_SYMPY(R1, <unknown.0>)
+  R3: PRINT(R2)"

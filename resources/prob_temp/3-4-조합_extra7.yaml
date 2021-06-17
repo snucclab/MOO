@@ -1,0 +1,29 @@
+problem: 크기와 모양이 같은 <color.0> <ball.0> <num.0>개와 <color.1> <ball.0> <num.1>개를 서로 다른 <num.2> 상자에 모두 넣는 방법의 가짓수를 구하시오. (단, 비어 있는 상자가 있을 수 있다.)
+
+variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 200 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.2>,<num.0>)
+  R1: SUB(R0,1)
+  R2: COMB(R1,<num.0>)
+  R3: ADD(<num.2>,<num.1>)
+  R4: SUB(R3,1)
+  R5: COMB(R4,<num.1>)
+  R6: MUL(R2,R5)
+  R7: PRINT(R6)"

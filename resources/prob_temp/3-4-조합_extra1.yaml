@@ -1,0 +1,20 @@
+problem: 서로 다른 종류의 <stationary.0> <num.0>개 중에서 <num.1>개를 고르는 방법의 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 10, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, <num.0> ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: COMB(<num.0>,<num.1>)
+  R1: PRINT(R0)"
+

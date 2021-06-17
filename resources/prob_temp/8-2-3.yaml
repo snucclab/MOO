@@ -1,0 +1,49 @@
+problem: >
+  <ball.0> <num.0>개, <ball.1> <num.1>개, <ball.2> <num.2>개, <ball.3> <num.3>개가 반복해서 일렬로 늘어서 있습니다.
+  <num.4>번째 공은 어떤 종류의 공인지 구하시오.
+
+
+variable-sampling:
+  num.0:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [<num.0> + <num.1> + <num.2> + <num.3>, 200]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R00,<ball.0>)
+  R2: LIST_MUL(R01,<num.0>)
+  R3: LIST()
+  R4: APPEND(R03,<ball.1>)
+  R5: LIST_MUL(R04,<num.1>)
+  R6: LIST()
+  R7: APPEND(R06,<ball.2>)
+  R8: LIST_MUL(R07,<num.2>)
+  R9: LIST()
+  R10: APPEND(R09,<ball.3>)
+  R11: LIST_MUL(R10,<num.3>)
+  R12: LIST_CONCAT(R02,R05)
+  R13: LIST_CONCAT(R08,R12)
+  R14: LIST_CONCAT(R11,R13)
+  R15: REP_SEQ_TERM(R14,<num.3>)
+  R16: PRINT(R15)"

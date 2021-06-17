@@ -1,0 +1,31 @@
+problem: >
+  일정한 규칙에 따라 <num.0>, <num.1>, <num.2>, <num.3>(와)과 같이 4개의 수를 나열했습니다.
+  이렇게 수를 나열하게 되면 <num.4>번째 수는 <unknown.0>, <num.5>번째 수는 <unknown.1>(이)가 됩니다.
+  이때 <unknown.1>-<unknown.0>(을)를 구하면 답은 얼마가 됩니까?
+
+variable-sampling:
+  num.4:
+    range: [15,21]
+    under-decimal: 0
+    type: int
+  num.5:
+    range: [22, 58]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: arithmetic_prog(4, 'num')
+
+equations: 
+  "R0: SUB(<num.1>,<num.0>)
+  R1: LIST()
+  R2: APPEND(R1,<num.4>)
+  R3: APPEND(R2,<num.5>)
+  R4: MAX(R3)
+  R5: ADD(R4,1)
+  R6: RANGE(<num.0>,R5,R0)
+  R7: SEQ_TERM(R3,<num.4>)
+  R8: SEQ_TERM(R3,<num.5>)
+  R9: SUB(R8,R7)
+  R10: PRINT(R9)"

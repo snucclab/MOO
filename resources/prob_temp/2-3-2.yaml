@@ -1,0 +1,31 @@
+problem: >
+  <body.0>의 내림차순으로 <num.0>명이 한 줄로 서 있습니다.
+  <position.0>에서부터 순서를 세었을 때 <person.0>(은)는 <num.1>번째에 서 있습니다.
+  오름차순으로 줄을 다시 선다면 <person.0>(은)는 <position.0>에서부터 몇 번째에 위치하게 됩니까?
+
+variable-sampling:
+  num.0:
+    range: [2, 15]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, <num.0>]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  position: ['앞', '뒤']
+  body: ['키', '몸무게', '나이']
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>,<num.1>)
+  R1: ADD(R0,1)
+  R2: PRINT(R1)"
+
+
+
+
+
+

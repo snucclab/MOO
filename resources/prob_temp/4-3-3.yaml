@@ -1,0 +1,34 @@
+problem: <num.0>, <num.1>, <num.2>, <num.3> 4개의 수로 나누어 떨어지는 세 자리 수는 몇 개인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [2, 3]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [4, 5]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [6, 7]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [8, 9]
+    under-decimal: 0
+    type: int
+
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: RANGE(100,1000,1)
+  R1: LIST()
+  R2: APPEND(R1,<num.0>)
+  R3: APPEND(R2,<num.1>)
+  R4: APPEND(R3,<num.2>)
+  R5: APPEND(R4,<num.3>)
+  R6: COUNT_MULTI(R0,R5)
+  R7: PRINT(R6)"

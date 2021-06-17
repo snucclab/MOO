@@ -1,0 +1,16 @@
+problem: 어떤 소수의 자릿수를 오른쪽으로 한 자리 옮겼더니 그 차가 <num.0>이었습니다. 원래 소수는 무엇입니까?
+
+variable-sampling:
+  num.0:
+    range: [1, 20]
+    under-decimal: 0
+    type: float
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: SUB(10,1)
+  R1: DIV(<num.0>,R0)
+  R2: PRINT(R1)"

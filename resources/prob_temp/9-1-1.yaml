@@ -1,0 +1,40 @@
+problem: >
+  한 사람은 각각 2개의 수를 가지는 규칙이 있습니다.
+  <propername.0>(은)는 <num.0>(와)과 <num.1>(을)를 가지고 있고, <propername.1>(은)는 <num.2>(와)과 <num.3>(을)를 가지고 있습니다.
+  두 사람이 모은 수 중에서 가장 큰 수를 가진 사람이 누구인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: MAKE_PAIR(<propername.0>,<num.0>)
+  R2: APPEND(R0,R1)
+  R3: MAKE_PAIR(<propername.0>,<num.1>)
+  R4: APPEND(R2,R3)
+  R5: MAKE_PAIR(<propername.1>,<num.2>)
+  R6: APPEND(R4,R5)
+  R7: MAKE_PAIR(<propername.1>,<num.3>)
+  R8: APPEND(R6,R7)
+  R9: MAX(R8)
+  R10: PRINT(R9)"

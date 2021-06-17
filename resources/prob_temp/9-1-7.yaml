@@ -1,0 +1,53 @@
+problem: >
+  두 사람 중 카드에 적힌 숫자들의 합이 더 큰 사람은 누구입니까?
+  조건 1. <propername.0>(은)는 <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 숫자 카드 4개를 소유하고 있습니다.
+  조건 2. <propername.1>(은)는 <num.4>(와)과 <num.5>(이)가 적힌 숫자 카드를 소유하고 있습니다.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+  num.5:
+    range: [ 1, 20000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: SUM(R4)
+  R6: MAKE_PAIR(<propername.0>,R5)
+  R7: LIST()
+  R8: APPEND(R7,<num.4>)
+  R9: APPEND(R8,<num.5>)
+  R10: SUM(R9)
+  R11: MAKE_PAIR(<propername.1>,R10)
+  R12: LIST()
+  R13: APPEND(R12,R6)
+  R14: APPEND(R13,R11)
+  R15: MAX(R14)
+  R16: PRINT(R15)"

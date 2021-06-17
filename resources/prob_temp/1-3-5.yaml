@@ -1,0 +1,34 @@
+problem: >
+  <propername.0>(이)가 종종 방문하는 <place.0> <num.2>층에는 <place.1>(이)가 <num.0>개 있습니다.
+  <place.1>마다 <num.1>개의 <stationary.0>(이)가 있습니다.
+  이 <place.0> <num.2>층에 있는 모든 <stationary.0>의 개수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 40 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 20 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0 : ['집', '학교', '도서관', '박물관', '아파트', '강당', '음식점', '영화관', '건물']
+  place.1 : ['방', '연구실', '교실']
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>,<num.1>)
+  R1: PRINT(R0)"
+
+
+
+
+
+

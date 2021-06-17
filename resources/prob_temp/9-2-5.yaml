@@ -1,0 +1,23 @@
+problem: >
+  4개의 그룹 <name.0>, <name.1>, <name.2>, <name.3>(이)가 있습니다.
+  <name.2>보다는 <name.1>의 인원이 더 많습니다.
+  <name.3>보다는 <name.0>의 인원이 많습니다.
+  <name.3>보다 <name.1>의 인원이 적습니다.
+  가장 큰 인원수인 그룹은 무엇일까요?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: MAKE_PAIR(<name.1>,<name.3>)
+  R2: APPEND(R0,R1)
+  R3: MAKE_PAIR(<name.3>,<name.0>)
+  R4: APPEND(R2,R3)
+  R5: MAKE_PAIR(<name.2>,<name.1>)
+  R6: APPEND(R4,R5)
+  R7: MAX(R6)
+  R8: PRINT(R7)"

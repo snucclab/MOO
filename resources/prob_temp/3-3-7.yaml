@@ -1,0 +1,25 @@
+problem: >
+  <family.0>(은)는 이번 주 6개의 장소에 들러야 합니다.
+  <place.0>, <place.1>, <place.2>, <place.3>, <place.4>, <place.5> 장소에 가야 하는데, 장소들 중 오늘 <num.0>개의 장소 들를 계획인데, 어떤 순서대로 오늘 갈 수 있을까요?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 6 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<place.0>)
+  R2: APPEND(R1,<place.1>)
+  R3: APPEND(R2,<place.2>)
+  R4: APPEND(R3,<place.3>)
+  R5: APPEND(R4,<place.4>)
+  R6: APPEND(R5,<place.5>)
+  R7: COUNT(R6)
+  R8: PERM(R7,<num.0>)
+  R9: PRINT(R8)"

@@ -1,0 +1,35 @@
+problem: >
+  앞에 숫자 <num.0>, <num.1>, <num.2>, <num.3> 하나씩만 있어요.
+  네 자리 수를 만드려고 하는데, 몇 가지가 나올 수 있는지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: COUNT(R4)
+  R6: PERM(R5,R5)
+  R7: PRINT(R6)"

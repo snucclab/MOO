@@ -1,0 +1,42 @@
+problem: >
+  <person.0>(은)는 네 자리 수와 세 자리 수의 덧셈을 하고자 합니다.
+  <person.0>(은)는 세 자리 수의 100의 자리 숫자와 10의 자리 숫자를 실수로 바꾸어 <i_num.1>(으)로 잘못 보았습니다.
+  그리고 네 자리 수는 일의 자리 숫자인 <e_digit.0>(을)를 다른 숫자로 잘못 보았습니다.
+  덧셈의 결과는 <num.0>이었습니다.
+  <person.0>(이)가 처음에 계획한 대로 실수 없이 덧셈을 하였다면 어떤 결과가 나왔을지 계산하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: interchange_pair(3,100,10,"i_num");errorpair(4,1,"e_num");eval_expression("<e_num.1>-<i_num.1>","num");eval_expression("<e_num.0>%10","e_digit")
+
+equations:
+  "R0: DIV(<num.0>,100)
+  R1: TO_INT(R0)
+  R2: MOD(<num.0>,100)
+  R3: MOD(R2,10)
+  R4: DIV(R2,10)
+  R5: TO_INT(R4)
+  R6: MUL(R5,100)
+  R7: MUL(R1,10)
+  R8: ADD(R6,R7)
+  R9: ADD(R8,R3)
+  R10: SUB(<num.2>,<num.0>)
+  R11: DIV(R10,10)
+  R12: TO_INT(R11)
+  R13: MUL(R12,10)
+  R14: ADD(R13,<num.1>)
+  R15: ADD(R9,R14)
+  R16: PRINT(R15)"
+
+
+
+
+
+
+
+
+
+
+

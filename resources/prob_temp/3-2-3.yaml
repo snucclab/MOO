@@ -1,0 +1,35 @@
+problem: >
+  네 자리 수를 구하려고 하는데, 숫자 <num.0>, <num.1>, <num.2>, <num.3> 하나씩만 있습니다.
+  몇 종류의 네 자리 수를 만들 수 있는지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: COUNT(R4)
+  R6: PERM(R5,R5)
+  R7: PRINT(R6)"

@@ -1,0 +1,34 @@
+problem: >
+  어떤 수에서 <num.0>(을)를 곱해야 하는데 식을 잘못 읽어서 어떤 수를 <num.0>(으)로 나누어서 그 결과가 <num.1>(이)가 나왔습니다.
+  바르게 계산한 결과를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 2, 1000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2, 1000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 1000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>,<num.1>)
+  R1: DIV(R0,<num.0>)
+  R2: PRINT(R1)"
+
+
+
+
+
+
+
+

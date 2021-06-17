@@ -1,0 +1,28 @@
+problem: 수 <num.0>, <num.1>, <num.2> 3개로 나누어 떨어질 수 있는 네 자리 수는 얼마나 됩니까?
+
+variable-sampling:
+  num.0:
+    range: [2, 4]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [5, 7]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [7, 9]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: RANGE(1000,10000,1)
+  R1: LIST()
+  R2: APPEND(R1,<num.0>)
+  R3: APPEND(R2,<num.1>)
+  R4: APPEND(R3,<num.2>)
+  R5: COUNT_MULTI(R0,R4)
+  R6: PRINT(R5)"

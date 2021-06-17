@@ -1,0 +1,30 @@
+problem: >
+  <num.0>, <num.1>, <num.2>, <num.3>, <num.4> 같이 수를 나열했을 때,
+  <num.5>번째 수가 <unknown.0>(이)라 하고 <num.6>번째 수가 <unknown.1>(이)라고 한다면 <unknown.0>+<unknown.1>(은)는 얼마입니까?
+
+variable-sampling: 
+  num.5:
+    range: [1, 10]
+    under-decimal: 0
+    type: int
+  num.6:
+    range: [15, 18]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: arithmetic_prog(5, 'num')
+
+equations: 
+  "R0: SUB(<num.1>,<num.0>)
+  R1: LIST()
+  R2: APPEND(R1, <num.5>)
+  R3: APPEND(R2, <num.6>)
+  R4: MAX(R3)
+  R5: ADD(R4,1)
+  R6: RANGE(<num.0>,R5,R0)
+  R7: SEQ_TERM(R3,<num.5>)
+  R8: SEQ_TERM(R3,<num.6>)
+  R9: ADD(R7,R8)
+  R10: PRINT(R9)"

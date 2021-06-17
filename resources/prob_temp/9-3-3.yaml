@@ -1,0 +1,37 @@
+problem: 수 4개 <num.0>, <num.1>, <num.2>, <num.3>(이)가 있다고 할 때, 이 중에서 <num.4>보다 작은 수를 나열하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.1:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.2:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.3:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.4:
+    range: [ 0, 1000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: LT(R4,<num.4>)
+  R6: SUM(R5)
+  R7: PRINT(R6)"

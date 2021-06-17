@@ -1,0 +1,22 @@
+problem: >
+  3개의 <thing.0>(이)가 있는데, 각각 <color.0>, <color.1>, <color.2>입니다.
+  <color.0>(와)과 <color.2>(은)는 <color.1>보다 작고, <color.2>(은)는 <color.0>보다 큽니다.
+  가장 작은 <thing.0>(을)를 구하시오.
+
+variable-sampling: null
+
+list-sampling:
+  thing.0: ['종이', '마스크', '사탕', '책', '물병', '컵', '냉장고', '꽃']
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: MAKE_PAIR(<color.0>,<color.1>)
+  R2: APPEND(R0,R1)
+  R3: MAKE_PAIR(<color.2>,<color.1>)
+  R4: APPEND(R2,R3)
+  R5: MAKE_PAIR(<color.0>,<color.2>)
+  R6: APPEND(R4,R5)
+  R7: MIN(R6)
+  R8: PRINT(R7)"
