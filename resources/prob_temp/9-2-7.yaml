@@ -3,12 +3,12 @@ problem: >
   <drink.2>(은)는 <drink.0>보다 용량이 크고 <drink.0>(와)과 <drink.2>(은)는 <drink.1>보다 용량이 작습니다.
   가장 작은 용량의 음료를 구하시오.
 
-variable-sampling: null
+variable-sampling: Null
 
 list-sampling:
   drink.0: ['삼다수', '코카콜라', '개토레이', '파워에이드', '스프라이트', '사이다', '펩시', '아이시스']
 
-function-call: null
+function-call: Null
 
 equations:
   "R0: LIST()

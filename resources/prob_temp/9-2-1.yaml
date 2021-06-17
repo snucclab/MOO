@@ -5,11 +5,11 @@ problem: >
   그리고 <name.2>반보다는 <name.1>반의 인원이 더 많습니다.
   가장 적은 인원수인 반은 무엇일까요?
 
-variable-sampling: null
+variable-sampling: Null
 
-list-sampling: null
+list-sampling: Null
 
-function-call: null
+function-call: Null
 
 equations:
   "R0: LIST()

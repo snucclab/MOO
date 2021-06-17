@@ -28,7 +28,7 @@ variable-sampling:
 list-sampling:
   pet.0 = ['치와와', '요크셔 테리어', '말티즈', '시츄', '비글', '퍼그', '페키니즈', '미니어쳐 슈나우저', '미니어쳐 푸들', '토이 푸들, '포메라니안', '비숑프리제']
 
-function-call: null
+function-call: Null
 
 equations:
   "R0: LIST()

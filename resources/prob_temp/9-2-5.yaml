@@ -5,11 +5,11 @@ problem: >
   <name.3>보다 <name.1>의 인원이 적습니다.
   가장 큰 인원수인 그룹은 무엇일까요?
 
-variable-sampling: null
+variable-sampling: Null
 
-list-sampling: null
+list-sampling: Null
 
-function-call: null
+function-call: Null
 
 equations:
   "R0: LIST()
