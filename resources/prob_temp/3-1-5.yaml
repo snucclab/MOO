@@ -17,7 +17,7 @@ variable-sampling:
 list-sampling:
   object.0: [ '사탕', '칫솔', '음료수', '컵', '햄버거', '책', '다이어리', '펜', '슬리퍼' ]
 
-function-call: null
+function-call: Null
 
 equations:
   "R0: SUB(<num.1>,<num.0>)

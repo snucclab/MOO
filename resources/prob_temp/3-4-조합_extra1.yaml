@@ -10,6 +10,10 @@ variable-sampling:
     under-decimal: 0
     type: int
 
+list-sampling: Null
+
+function-call: Null
+
 equations:
   "R0: COMB(<num.0>,<num.1>)
   R1: PRINT(R0)"
