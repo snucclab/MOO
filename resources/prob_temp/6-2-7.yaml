@@ -1,0 +1,38 @@
+problem: >
+  수학 수업 시간에 짝궁과 함께 각자 가진 <stationary.0>에 적힌 숫자를 더하는 학습활동을 하려고 합니다.
+  <person.0>의 <stationary.0>에 적힌 숫자는 세자리 수이고, <person.1>의 <stationary.0>에 적힌 숫자는 네 자리 수입니다.
+  그런데 숫자가 희미하게 적혀있어 <person.0>(이)가 일의 자리 숫자와 백의 자리 숫자를 바꾸어 <three.1>(이)라고 잘못 보았고,
+  <person.1>(은)는 십의 자리 숫자 <digit.0>(을)를 다른 숫자로 잘못 보았습니다.
+  그래서 계산 결과 <result.0>(이)라는 잘못된 결과가 나왔습니다.
+  두 사람이 모두 숫자를 올바르게 봤을 경우 계산 결과는 무엇일까요?
+
+variable-sampling: null
+
+list-sampling:
+  stationary.0 : ['공책', '도화지', '색종이', '바둑돌', '구슬', '상자', '나무토막', '장난감', '카드']
+
+function-call: errorpair(3, 'three'); errorpair(4, 'four'); eval('four.0 % 10','digit'); eval('three.1 + four.1', 'result')
+
+equations:
+  "R0: REVERSE_DIGIT(<num.0>)
+  R1: SUB(<num.2>,<num.0>)
+  R2: MOD(R1,100)
+  R3: MOD(R2,10)
+  R4: SUB(R1,R2)
+  R5: MUL(<num.1>,10)
+  R6: ADD(R5,R3)
+  R7: ADD(R6,R4)
+  R8: ADD(R0,R7)
+  R9: PRINT(R8)"
+
+
+
+
+
+
+
+
+
+
+
+
