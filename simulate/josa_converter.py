@@ -2,16 +2,23 @@ import re
 import tossi
 
 JOSA_REGEX = re.compile(u"\(이\)가|\(와\)과|\(을\)를|\(은\)는|\(아\)야|\(이\)여|\(으\)로|\(이\)라|\(이\)다")
-
+ALPHABET_END_REGEX = re.compile('[A-Za-z]$')
+ALPHABET_LAST_PRON = '이비씨디이프지치이이이엘엠엔오피큐알스티유이유스이지'
 
 def replace_josa(src):
     tokens = []
     base_index = 0
     for mo in JOSA_REGEX.finditer(src):
         prev_token = src[base_index:mo.start()]
-
         josa_key = mo.group()
-        tokens.append(tossi.postfix(prev_token, josa_key))
+
+        if ALPHABET_END_REGEX.search(prev_token[-1]) is not None:
+            last_alpha = prev_token[-1].lower()
+            pronounce = ALPHABET_LAST_PRON[ord(last_alpha) - ord('a')]
+            josa = tossi.postfix(pronounce, josa_key)[1:]
+            tokens.append(prev_token + josa)
+        else:
+            tokens.append(tossi.postfix(prev_token, josa_key))
 
         base_index = mo.end()
 
@@ -76,6 +83,10 @@ if __name__ == '__main__':
             self.assertEquals(replace_josa(
                 u"너(이)라면 어떨까? 나(이)라능~"),
                 u"너라면 어떨까? 나라능~")
+
+            self.assertEquals(replace_josa(
+                u"K(이)라면 어떨까? M(이)라~"),
+                u"K라면 어떨까? M이라~")
 
 
     unittest.main()

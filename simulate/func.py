@@ -8,8 +8,8 @@ UNK = [chr(ord('A') + i) for i in range(26)]
 
 
 def arithmetic_prog(n: int, prefix: str, result: dict):
-    a = random.randint(1, 500) / 10
-    d = random.randint(1, 300) / 10
+    a = Decimal(random.randint(1, 500)) / 10
+    d = Decimal(random.randint(1, 300)) / 10
     for i in range(n):
         result['<%s.%s>' % (prefix, i)] = str(a + i * d)
 
@@ -20,7 +20,7 @@ def difference_prog(n: int, prefix: str, result: dict):
     poly = sympy.polys.specialpolys.random_poly(symbol, degree, -5, 5)
 
     for i in range(n):
-        result['<%s.%s>' % (prefix, i)] = str(poly.subs({symbol: i}))
+        result['<%s.%s>' % (prefix, i)] = str(poly.subs({symbol: (i+1)}))
 
 
 def replace_unknown(target: str, prefix: str, result: dict):
