@@ -18,14 +18,11 @@ list-sampling: null
 function-call: arithmetic_prog(4, 'num')
 
 equations: 
-  "R0: SUB(<num.1>,<num.0>)
-  R1: LIST()
-  R2: APPEND(R1,<num.4>)
-  R3: APPEND(R2,<num.5>)
-  R4: MAX(R3)
-  R5: ADD(R4,1)
-  R6: RANGE(<num.0>,R5,R0)
-  R7: SEQ_TERM(R3,<num.4>)
-  R8: SEQ_TERM(R3,<num.5>)
-  R9: SUB(R8,R7)
-  R10: PRINT(R9)"
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: SEQ_TERM(R3,<num.4>)
+  R5: SEQ_TERM(R3,<num.5>)
+  R6: SUB(R5,R4)
+  R7: PRINT(R6)"
