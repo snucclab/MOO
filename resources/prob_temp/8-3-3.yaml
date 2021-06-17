@@ -1,5 +1,5 @@
 problem: >
-  <family.0>, <family.1>, <family.2>, <family.3>께 각각 <flower.0> <num.0>송이를 돌아가며 <num.1>개씩 나누어 드렸습니다.
+  <family.0>, <family.1>, <family.2>, <family.3> 4분께 각각 <flower.0> <num.0>송이를 돌아가며 <num.1>개씩 나누어 드렸습니다.
   <num.2>번째 <flower.0>을 받은 사람은 누구입니까?
 
 variable-sampling:
@@ -17,6 +17,7 @@ variable-sampling:
     type: int
 
 list-sampling:
+    family: ['아버지', '어머니', '할아버지', '할머니', '이모', '삼촌', '누나', '오빠', '언니', '고모']
     flower: ['장미','백합','튤립','카네이션','국화']
 
 function-call: null

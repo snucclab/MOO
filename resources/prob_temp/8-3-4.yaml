@@ -1,5 +1,5 @@
 problem: >
-  <propername.0>, <propername.1>, <propername.2>, <propername.3>에게 <num.0><currency.0>짜리로 <value.0><currency.0>씩
+  <propername.0>, <propername.1>, <propername.2>, <propername.3> 4명에게 <num.0><currency.0>짜리로 <value.0><currency.0>씩
   <num.2><currency.0>(을)를 나눠 준다면, <num.3>번째 지폐를 받는 사람은 누구인지 구하시오.
 
 variable-sampling:

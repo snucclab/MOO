@@ -1,6 +1,6 @@
 problem: >
   <flower.0> <num.0>송이가 꽃병에 꽂혀 있습니다. 
-  <propername.0>, <propername.1>, <propername.2>, <propername.3>에게 순서대로 이 꽃을 <num.1>개씩 나누어 준다고 할 때,
+  <propername.0>, <propername.1>, <propername.2>, <propername.3> 4명의 친구들에게 순서대로 이 꽃을 <num.1>개씩 나누어 준다고 할 때,
   누가 <num.2>번째 <flower.0>(을)를 받습니까?
 
 variable-sampling:
