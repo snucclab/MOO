@@ -1,7 +1,7 @@
 problem: >
   <num.0>, <num.1>, <num.2>, <num.3>처럼 수를 연속해서 늘어놓았습니다.
   <num.4>번째 수는 <unknown.0>(이)고 <num.5>번째 수는 <unknown.1>입니다.
-  <unknown.1>-<unknown.0>(은)는 어떤 수입니까?
+  <unknown.1>-<unknown.0>(은)는 어떤 수인찌 구하시오.
 
 variable-sampling:
   num.4:
@@ -19,10 +19,11 @@ function-call: arithmetic_prog(4, 'num')
 
 equations: 
   "R0: LIST()
-  R1: APPEND(R0,<num.0>
+  R1: APPEND(R0,<num.0>)
   R2: APPEND(R1,<num.1>)
   R3: APPEND(R2,<num.2>)
-  R4: SEQ_TERM(R3,<num.4>)
-  R5: SEQ_TERM(R3,<num.5>)
-  R6: SUB(R5,R4)
-  R7: PRINT(R6)"
+  R4: APPEND(R3,<num.3>)
+  R5: SEQ_TERM(R4,<num.4>)
+  R6: SEQ_TERM(R4,<num.5>)
+  R7: SUB(R6,R5)
+  R8: PRINT(R7)"
