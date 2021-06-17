@@ -62,6 +62,7 @@ if __name__ == '__main__':
         splits = defaultdict(list)
         # Convert code_template to python codes
         for template in simulator.generate(args.num_item):
+            print('%s 변환중' % template[0].template)
             for i, item in enumerate(template):
                 text = string_to_text_instance(item.text, tokenizer)
                 execution = python_code_to_executions(item.code_template)

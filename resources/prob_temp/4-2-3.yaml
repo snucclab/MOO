@@ -11,5 +11,6 @@ list-sampling: null
 function-call: null
 
 equations:
-  "R0: DIV(<num.0>,11)
-  R1: PRINT(R0)"
+  "R0: ADD(10, 1)
+  R1: DIV(<num.0>,R0)
+  R2: PRINT(R1)"

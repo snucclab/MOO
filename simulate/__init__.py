@@ -61,7 +61,7 @@ class Simulator:
 
                 command = command.strip()
                 command = re.sub('\\)$', ', result)', command)
-                exec(command, _GLOBAL, {'result': RESULT})
+                exec(command, _global, {'result': RESULT})
 
         for key, value in RESULT.items():
             problem = problem.replace(key, value)
@@ -91,7 +91,9 @@ class Simulator:
             random_dict[raw_key] = val
             chosen_list.append(val)
 
+
         for key, value in random_dict.items():
+            RESULT[key] = value
             problem = problem.replace(key, value)
 
         problem = josa_converter.replace_josa(problem)
@@ -123,7 +125,6 @@ class Simulator:
         for file in Path(path).glob('**/*.yaml'):
             with file.open('r+t', encoding='UTF-8') as fp:
                 template_in_file = yaml.safe_load(fp)
-                print(template_in_file)
                 assert type(template_in_file) is dict
 
                 template_in_file['id'] = str(file.absolute())

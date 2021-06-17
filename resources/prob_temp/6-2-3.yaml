@@ -10,7 +10,7 @@ variable-sampling: null
 list-sampling:
   stationary.0 : ['공책', '도화지', '색종이', '바둑돌', '구슬', '상자', '나무토막', '장난감', '카드']
 
-function-call: interchange_pair(3,1,100,'three'); errorpair(4,10,'four'); eval('four.0 % 10','digit'); eval('three.1 + four.1', 'result')
+function-call: interchange_pair(3,1,100,'three'); errorpair(4,10,'four'); eval_expression('<four.0> % 10','digit'); eval_expression('<three.1> + <four.1>', 'result')
 
 equations:
   "R0: REVERSE_DIGIT(<num.0>)

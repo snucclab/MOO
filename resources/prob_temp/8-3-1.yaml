@@ -28,10 +28,9 @@ equations:
   R4: APPEND(R3,<propername.1>)
   R5: LIST_MUL(R4,<num.1>)
   R6: LIST()
-  R7: APPEND(R6,<<propername.2>)
+  R7: APPEND(R6,<propername.2>)
   R8: LIST_MUL(R7,<num.1>)
   R9: LIST_CONCAT(R2,R5)
   R10: LIST_CONCAT(R9,R8)
-  R11: LIST_CONCAT(R10,R10)
-  R12: REP_SEQ_TERM(R11,<num.2>)
-  R13: PRINT(R12)"
+  R11: REP_SEQ_TERM(R10,<num.2>)
+  R12: PRINT(R11)"

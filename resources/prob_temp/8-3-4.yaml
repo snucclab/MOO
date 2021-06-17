@@ -1,5 +1,5 @@
 problem: >
-  <propername.0>, <propername.1>, <propername.2>, <propername.3>에게 <num.0><currency.0>짜리로 <num.1><currency.0>씩
+  <propername.0>, <propername.1>, <propername.2>, <propername.3>에게 <num.0><currency.0>짜리로 <value.0><currency.0>씩
   <num.2><currency.0>(을)를 나눠 준다면, <num.3>번째 지폐를 받는 사람은 누구인지 구하시오.
 
 variable-sampling:
@@ -8,7 +8,7 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: <num.0>*3
+    range: [2, 10]
     under-decimal: 0
     type: int
   num.2:
@@ -22,11 +22,11 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: null
+function-call: eval_expression("<num.0> * 3", "value")
 
 equations: 
   "R0: LIST()
-  R1: DIV(<num.1>,<num.0>)
+  R1: DIV(<value.0>,<num.0>)
   R2: TO_INT(R1)
   R3: APPEND(R0,<propername.0>)
   R4: LIST_MUL(R3,R2)
@@ -42,6 +42,5 @@ equations:
   R14: LIST_CONCAT(R4,R7)
   R15: LIST_CONCAT(R14,R10)
   R16: LIST_CONCAT(R15,R13)
-  R17: LIST_CONCAT(R16,R16)
-  R18: REP_SEQ_TERM(R17,<num.2>)
-  R19: PRINT(R18)"
+  R17: REP_SEQ_TERM(R16,<num.2>)
+  R18: PRINT(R17)"

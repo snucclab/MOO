@@ -137,7 +137,7 @@ def make_system(mode: str, num: int, eqn_prefix: str, unk_prefix: str, result: d
 
 
 def eval_expression(expr: str, out_prefix: str, result: dict):
-    result['<%s.0>' % out_prefix] = eval(expr)
+    result['<%s.0>' % out_prefix] = str(eval(expr))
 
 
 __all__ = [

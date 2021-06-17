@@ -9,16 +9,8 @@ list-sampling: null
 function-call: make_system('-', 2, 'equation', 'unknown')
 
 equations:
-  "R0: LIST()
+ "R0: LIST()
   R1: APPEND(R0,<equation.0>)
   R2: APPEND(R1,<equation.1>)
-  R3: CALL_SYMPY(R2)
-  R4: MAX(R3)
-  R5: PRINT(R4)"
-
-
-
-
-
-
-
+  R3: CALL_SYMPY(R2, <unknown.0>)
+  R4: PRINT(R3)"
