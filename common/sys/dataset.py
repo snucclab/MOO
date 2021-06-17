@@ -245,3 +245,8 @@ class Dataset:
 
         if item_in_a_batch:
             yield BatchedExample(item_in_a_batch)
+
+    def _get_raw_item(self, item_id: str) -> Example:
+        for item in self._whole_items:
+            if item.item_id == item_id:
+                return item

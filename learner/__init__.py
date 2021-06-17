@@ -353,12 +353,13 @@ class SupervisedTrainer(Trainable):
                 # beam_desc: int
                 output = self._model(text=batch.text.to(self._model.device), beam=configuration[KEY_BEAM])
                 output = output['expression']
+                word_size = max(len(word_info) for word_info in batch.text.word_info)
 
                 for i in range(output.operator.shape[0]):
                     word_info = batch.text.word_info[i]
                     expected = batch.answer[i]
                     # Transform equation into a list of common.solver.types.Execution
-                    execution = equation_to_execution(output, batch_index=i, word_size=len(word_info))
+                    execution = equation_to_execution(output, batch_index=i, word_size=word_size)
                     # /* The following two lines will be shared with train_model.py, check_dataset.py */
                     # Transform equation into python code using solver.execution_to_python_code()
                     code = execution_to_python_code(execution, word_info, indent=4)

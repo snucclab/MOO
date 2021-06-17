@@ -132,5 +132,8 @@ if __name__ == '__main__':
     for _ in range(args.max_iter):
         trainer.step()
 
-    trainer.save_checkpoint(str(Path(args.log_path, 'test-checkpoint')))
+    chkpt = Path(args.log_path, 'test-checkpoint')
+    if not chkpt.exists():
+        chkpt.mkdir(parents=True)
+    trainer.save_checkpoint(str(chkpt))
     trainer.cleanup()

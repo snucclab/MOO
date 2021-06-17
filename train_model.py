@@ -25,7 +25,7 @@ def read_arguments():
     env.add_argument('--name', '-name', type=str, required=True)
     env.add_argument('--dataset', '-data', type=str, required=True)
     env.add_argument('--seed', '-seed', type=int, default=1)
-    env.add_argument('--beam', '-beam', type=int, default=3)
+    env.add_argument('--beam', '-beam', type=int, default=5)
 
     env.add_argument('--max-iter', '-iter', type=int, default=100)
     env.add_argument('--stop-conditions', '-stop', type=str, nargs='*', default=[])
