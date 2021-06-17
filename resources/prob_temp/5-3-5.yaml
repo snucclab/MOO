@@ -2,7 +2,7 @@ problem: >
  서로 다른 자연수 <unknown.0>, <unknown.1>(이)가 있을 때, <equation.0>입니다.
  그리고 <equation.1>입니다. <unknown.0>의 값이 무엇인지 구하시오. 
  
-variation-sampling: None
+variable-sampling: null
 
 list-sampling: null
 

@@ -1,7 +1,7 @@
 problem: >
-	<num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5> 순서에 맞춰 규칙적으로 수를 나열합니다. 이때 <num.6>번째로 오는 수는 어떤 수가 되는지 구하시오.
+    <num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5> 순서에 맞춰 규칙적으로 수를 나열합니다. 이때 <num.6>번째로 오는 수는 어떤 수가 되는지 구하시오.
 
-variable-sampling: null
+variable-sampling:
   num.6:
     range: [20,80]
     under-decimal: 0

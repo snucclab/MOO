@@ -5,7 +5,7 @@ variable-sampling: null
 
 list-sampling: null
 
-function-call: gen_expr(3,3,'+','equation','unknown')
+function-call: unk_digit_equation(3,3,'+','equation','unknown')
 
 equations:
   "R0: LIST()

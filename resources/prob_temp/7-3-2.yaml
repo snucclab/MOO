@@ -1,7 +1,7 @@
 problem: >
-	<num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5> 순으로 수를 배열한다고 할 때, <num.6>번째 수는 무엇이 되어야 합니까?
+  <num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5> 순으로 수를 배열한다고 할 때, <num.6>번째 수는 무엇이 되어야 합니까?
 
-variable-sampling: null
+variable-sampling:
   num.6:
     range: [40,100]
     under-decimal: 0

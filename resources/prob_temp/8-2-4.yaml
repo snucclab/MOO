@@ -15,7 +15,7 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.3:
-    range: [num.0+num.1+num.2, 100]
+    range: [<num.0> + <num.1> + <num.2>, 100]
     under-decimal: 0
     type: int
 

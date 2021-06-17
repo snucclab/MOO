@@ -10,7 +10,7 @@ variable-sampling:
 
 list-sampling: null
 
-function-call: rep_prog(3)
+function-call: rep_prog(3, 'num')
 
 equations:
   "R0: LIST()

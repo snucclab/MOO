@@ -17,7 +17,7 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: null
+list-sampling:
   place.0: ['서점', '마트', '문구점', '집', '학교', '교실', '도서관', '박물관', '운동장', '음식점', '영화관', '연구실', '백화점', '옷가게']
 
 function-call: null

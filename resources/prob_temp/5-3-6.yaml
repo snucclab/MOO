@@ -2,7 +2,7 @@ problem: >
  서로 다른 두 자연수 <unknown.0>, <unknown.1>에 대하여 두 수의 관계는 <equation.0>, <equation.1>(와)과 같습니다.
  <unknown.1>(은)는 무엇인지 구하시오. 
  
-variation-sampling: None
+variable-sampling: null
 
 list-sampling: null
 

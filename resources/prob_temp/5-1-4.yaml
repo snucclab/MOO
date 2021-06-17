@@ -1,11 +1,11 @@
 problem: >
-두 자리 수와 두 자리 수의 덧셈식 <equation.0>에서 <unknown.0>에 해당하는 숫자는 무엇입니까?
+  두 자리 수와 두 자리 수의 덧셈식 <equation.0>에서 <unknown.0>에 해당하는 숫자는 무엇입니까?
 
 variable-sampling: null
 
 list-sampling: null
 
-function-call: gen_expr(2,2,'+','equation','unknown')
+function-call: unk_digit_equation(2,2,'+','equation','unknown')
 
 equations:
   "R0: LIST()

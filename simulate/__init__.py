@@ -6,10 +6,10 @@ from typing import List, Dict
 
 import yaml
 
+import importlib
 import simulate.josa_converter
 from common.simulate.types import Problem
 from common.sys.convert import tokenize_string
-from simulate.func import *
 
 
 def yaml_loader(filepath):
@@ -20,6 +20,9 @@ def yaml_loader(filepath):
 
 def _check_is_not_none(value):
     return value is not None
+
+
+_GLOBAL = importlib.import_module('simulate.func').__dict__
 
 
 class Simulator:
@@ -50,11 +53,15 @@ class Simulator:
                 RESULT['<' + item_name + '>'] = str(sampled)
 
         if _check_is_not_none(func_call):
+            _global = _GLOBAL.copy()
+
             for command in func_call.split(';'):
                 for key, value in RESULT.items():
                     command = command.replace(key, value)
 
-                exec(command)
+                command = command.strip()
+                command = re.sub('\\)$', ', result)', command)
+                exec(command, _GLOBAL, {'result': RESULT})
 
         for key, value in RESULT.items():
             problem = problem.replace(key, value)
@@ -147,7 +154,7 @@ class Simulator:
         """
         results = []
         for idx, template in enumerate(self.templates):
-            print(str(idx) + "번째 템플릿 생성중")
+            print(str(idx) + "번째 템플릿 생성중: %s" % template['id'])
             problems = []
             for idx in range(n):
                 text, code_template = self.prob_gen(template)
