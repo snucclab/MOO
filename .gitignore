@@ -1,6 +1,6 @@
 .idea/
 venv/
 **/__pycache__
-dataset/
+./dataset/
 weight/
-answersheet.json
+./answersheet.json

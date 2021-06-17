@@ -21,13 +21,13 @@ from solver import python_code_to_executions, execution_to_python_code
 def read_arguments():
     parser = ArgumentParser()
 
-    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./simulate/template",
+    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./resources/prob_temp",
                         help='Root directory of template YAML files')
-    parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./simulate/",
+    parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./resources/vocab.yaml",
                         help='Root directory of template YAML files')
     parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=False, default=100,
                         help='Number of items generated for each template file')
-    parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./simulate/output",
+    parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./resources/dataset",
                         help='Root directory for saving output dataset files')
     parser.add_argument('--seed', '-seed', '-s', type=int, default=8888,
                         help='Random seed for generating items')
@@ -52,88 +52,71 @@ if __name__ == '__main__':
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
 
-    # Read templates from templateroot
-    templates = []
-    for file in Path(args.template).glob('**/*.yaml'):
-        with file.open('r+t', encoding='UTF-8') as fp:
-            template_in_file = yaml_load(fp)
-            print(template_in_file)
-            assert type(template_in_file) is dict
-
-            templates.append(template_in_file)
-
-    vocab = None
-    for file in Path(args.vocab).glob('vocab.yaml'):
-        with file.open('r', encoding='UTF-8') as fp:
-            vocab = safe_load(fp)
-
     # Register templates using simulator.load_templates()
-    simulator.load_templates(templates)
-    simulator.load_vocab(vocab)
+    simulator.load_templates(args.template)
+    simulator.load_vocab(args.vocab)
 
-    # Get generated items using simulator.generate()
-    problems = {}
-    splits = defaultdict(list)
-    # Convert code_template to python codes
-    for template in simulator.generate(args.num_item):
-        for i, item in enumerate(template):
-            text = string_to_text_instance(item.text, tokenizer)
-            print(item.text)
-            print(item.code_template)
-            execution = python_code_to_executions(item.code_template)
-            raw_code = execution_to_python_code(execution, text.word_info[0])
-            item.code, item.executed = executor.run(raw_code)
-            item.answer = item.executed
-            item.execution = [x.to_list() for x in execution]
+    try:
+        # Get generated items using simulator.generate()
+        problems = {}
+        splits = defaultdict(list)
+        # Convert code_template to python codes
+        for template in simulator.generate(args.num_item):
+            for i, item in enumerate(template):
+                text = string_to_text_instance(item.text, tokenizer)
+                execution = python_code_to_executions(item.code_template)
+                raw_code = execution_to_python_code(execution, text.word_info[0])
+                item.code, item.executed = executor.run(raw_code)
+                item.answer = item.executed
+                item.execution = [x.to_list() for x in execution]
 
-            print(item.answer)
-            print(item.executed)
-            print(raw_code)
-            assert ALL_KOREAN_PATTERN.match(item.code) is None, \
-                '코드에는 한글이 포함될 수 없습니다.\n\t실행한 코드\n%s' % item.code
-            assert '\n' not in item.executed, \
-                '답은 오직 하나여야 합니다. 지금은 %s개의 답이 출력되었습니다: %s' % \
-                (item.executed.count('\n') + 1, item.executed.split('\n'))
-            if NUMBER_PATTERN.fullmatch(item.executed):
-                assert '.' not in item.executed or UNDER_TWO_DIGIT.fullmatch(item.executed) is not None, \
-                    '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(정수이거나 소숫점 이하 두자리)에 맞지 않습니다.' % item.executed
-            elif FRACTION_PATTERN.fullmatch(item.executed) is None:
-                assert ALL_KOREAN_PATTERN.fullmatch(item.executed) is not None, \
-                    '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(텍스트인 경우 기타 기호 없이 한글만)에 맞지 않습니다.' % item.executed
+                assert ALL_KOREAN_PATTERN.match(item.code) is None, \
+                    '코드에는 한글이 포함될 수 없습니다(Template %s).\n\t실행한 코드\n%s' % (item.template, item.code)
+                assert '\n' not in item.executed, \
+                    '답은 오직 하나여야 합니다(Template %s). 지금은 %s개의 답이 출력되었습니다: %s' % \
+                    (item.template, item.executed.count('\n') + 1, item.executed.split('\n'))
+                if NUMBER_PATTERN.fullmatch(item.executed):
+                    assert '.' not in item.executed or UNDER_TWO_DIGIT.fullmatch(item.executed) is not None, \
+                        '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(정수이거나 소숫점 이하 두자리)에 맞지 않습니다(Template %s).' % \
+                        (item.template, item.executed)
+                elif FRACTION_PATTERN.fullmatch(item.executed) is None:
+                    assert ALL_KOREAN_PATTERN.fullmatch(item.executed) is not None, \
+                        '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(텍스트인 경우 기타 기호 없이 한글만)에 맞지 않습니다(Template %s).' % \
+                        (item.executed, item.template)
 
-            assert item.answer == item.executed, \
-                '기대한 답 "%s"(이)가 계산된 답 "%s"(와)과 일치하지 않습니다!\n\t문제: "%s"\n토큰화: "%s"\n\t실행한 코드\n%s' % \
-                (item.answer, item.executed, item.text, tokenizer.decode(text.tokens), item.code)
+                assert item.answer == item.executed, \
+                    '기대한 답 "%s"(이)가 계산된 답 "%s"(와)과 일치하지 않습니다(Template %s)!\n\t문제: "%s"\n토큰화: "%s"\n\t실행한 코드\n%s' % \
+                    (item.answer, item.executed, item.template, item.text, tokenizer.decode(text.tokens), item.code)
 
-            key = str(len(problems))
-            problems[key] = item
-            splits['train' if i % 10 < 8 else ('dev' if i % 10 == 8 else 'test')].append(key)
+                key = str(len(problems))
+                problems[key] = item
+                splits['train' if i % 10 < 8 else ('dev' if i % 10 == 8 else 'test')].append(key)
 
-    # Store generated items into datasetpath
-    output = Path(args.output)
-    experiments = output / 'split'
-    if not experiments.exists():
-        experiments.mkdir(parents=True)
-    # (1) problemsheet.json
-    with (output / 'problemsheet.json').open('w+t', encoding='UTF-8') as fp:
-        obj_to_write = {str(key): {QUESTION: prob.text}
-                        for key, prob in problems.items()}
-        json_save(obj_to_write, fp)
-    # (2) answersheet.json
-    with (output / 'answersheet.json').open('w+t', encoding='UTF-8') as fp:
-        obj_to_write = {str(key): {ANSWER: prob.answer, EQUATION: prob.code}
-                        for key, prob in problems.items()}
-        json_save(obj_to_write, fp)
-    # (3) dataset.json
-    with (output / 'dataset.json').open('w+t', encoding='UTF-8') as fp:
-        obj_to_write = {str(key): {QUESTION: prob.text, ANSWER: prob.answer,
-                                   EQUATION: prob.code, EXECUTION: prob.execution}
-                        for key, prob in problems.items()}
-        json_save(obj_to_write, fp, ensure_ascii=False)
-    # (4) split
-    for key, split in splits.items():
-        with (experiments / key).open('w+t', encoding='UTF-8') as fp:
-            fp.writelines([line + '\n' for line in split])
-
-    # Finalize the executor
-    executor.close()
+        # Store generated items into datasetpath
+        output = Path(args.output)
+        experiments = output / 'split'
+        if not experiments.exists():
+            experiments.mkdir(parents=True)
+        # (1) problemsheet.json
+        with (output / 'problemsheet.json').open('w+t', encoding='UTF-8') as fp:
+            obj_to_write = {str(key): {QUESTION: prob.text}
+                            for key, prob in problems.items()}
+            json_save(obj_to_write, fp)
+        # (2) answersheet.json
+        with (output / 'answersheet.json').open('w+t', encoding='UTF-8') as fp:
+            obj_to_write = {str(key): {ANSWER: prob.answer, EQUATION: prob.code}
+                            for key, prob in problems.items()}
+            json_save(obj_to_write, fp)
+        # (3) dataset.json
+        with (output / 'dataset.json').open('w+t', encoding='UTF-8') as fp:
+            obj_to_write = {str(key): {QUESTION: prob.text, ANSWER: prob.answer,
+                                       EQUATION: prob.code, EXECUTION: prob.execution}
+                            for key, prob in problems.items()}
+            json_save(obj_to_write, fp, ensure_ascii=False)
+        # (4) split
+        for key, split in splits.items():
+            with (experiments / key).open('w+t', encoding='UTF-8') as fp:
+                fp.writelines([line + '\n' for line in split])
+    finally:
+        # Finalize the executor
+        executor.close()
