@@ -1,0 +1,26 @@
+problem: >
+  <person.0>의 <stationary.0>에 <num.0>개의 <stationary.1>(이)가 있습니다.
+  이틀 뒤 <person.1>(이)가 선물로 <stationary.1> <num.1>개를 <person.0>에게 주었습니다.
+  현재 <person.0>의 <stationary.0>에 있는 <stationary.1>(은)는 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 20 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"
+
+
+
+
