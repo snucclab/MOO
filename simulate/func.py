@@ -1,125 +1,156 @@
+import math
 import random
 from decimal import Decimal
-unk = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-def arithmetic_prog(n: int):
+import sympy
+
+UNK = [chr(ord('A') + i) for i in range(26)]
+
+
+def arithmetic_prog(n: int, prefix: str):
+    nonlocal RESULT
     a = random.randint(1, 500) / 10
     d = random.randint(1, 300) / 10
-    prog = []
     for i in range(n):
-        prog.append(a+i*d)
-    return prog
+        RESULT['<%s.%s>' % (prefix, i)] = str(a + i * d)
 
-print(arithmetic_prog(7))
 
-def difference_prog(n: int):
-    a = random.randint(1, 500) / 10
-    b = arithmetic_prog(n)
-    prog = []
-    a_n = a
+def difference_prog(n: int, prefix: str):
+    nonlocal RESULT
+    degree = random.randint(2, 4)
+    symbol = sympy.Symbol('x')
+    poly = sympy.polys.specialpolys.random_poly(symbol, degree)
+
     for i in range(n):
-        a_n += b[i]
-        prog.append(a_n)
-    return prog
+        RESULT['<%s.%s>' % (prefix, i)] = str(poly.subs({symbol: i}))
 
-print(difference_prog(6))
 
-def replace_unknown(prog: list):
-    idx = random.randrange(len(prog))
-    unk_idx = random.randrange(len(unk))
-    prog[idx] = unk[unk_idx]
-    return prog
+def replace_unknown(target: str, prefix: str):
+    nonlocal RESULT
+    unk_var = random.choice(UNK)
+    keys = [key
+            for key in RESULT.keys() if key.startswith('<%s.' % target)]
+    tgt_var = random.choice(keys)
 
-print(replace_unknown(difference_prog(7)))
+    RESULT[tgt_var] = unk_var
+    RESULT['<%s.0>' % prefix] = unk_var
 
-def rep_prog():
-    prog = []
-    for i in range(random.randint(3, 7)):
-        prog.append(random.randrange(200) / 10)
-    prog += prog
-    return prog
 
-print(rep_prog())
+def rep_prog(size: int, prefix: str):
+    nonlocal RESULT
 
-def diff_two(num0: int):
-    if (num0-2) < 0:
-        return num0+2
-    else:
-        return num0+random.choice((2, -2))
+    for i in range(size):
+        RESULT['<%s.%s>' % (prefix, i)] = str(Decimal(random.randrange(200)) / 100)
 
-print(diff_two(6))
 
-def gen_expr(operation):
-    a = random.randint(10, 99)
-    b = random.randint(10, 99)
-    unk = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    list = [a, b]
-    new_list = []
-    idx = [0, 1]
-    if operation == 'sum':
-        s = sum(list)
-        for i in list:
-            txt = str(i)
-            txt = txt.replace(txt[idx.pop(random.randrange(len(idx)))], unk.pop(random.randrange(len(unk))))
-            new_list.append(txt)
-        result = new_list[0]+'+'+new_list[1]+'='+str(s)
-        return result
-    elif operation == 'diff':
-        list.sort()
-        list.reverse()
-        d = list[0]-list[1]
-        for i in list:
-            txt = str(i)
-            txt = txt.replace(txt[idx.pop(random.randrange(len(idx)))], unk.pop(random.randrange(len(unk))))
-            new_list.append(txt)
-        result = new_list[0]+'-'+new_list[1]+'='+str(d)
-        return result
+def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, unk_prefix: str):
+    nonlocal RESULT
+    assert operator in '+-'
+    min_digit = min(digit1, digit2)
+    a = random.randint(10 ** (digit1 - 1), 10 ** digit1 - 1)
+    b = random.randint(10 ** (digit2 - 1), 10 ** digit2 - 1)
+    r = a + b
 
-print(gen_expr('sum'))
-print(gen_expr('diff'))
+    if operator == '-':
+        # a-b = r == r-a = b
+        a, b, r = r, a, b
 
-def errorpair(digits: int):
-    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    orig = str(nums.pop(nums.index(random.choice(nums))))
-    if digits > 2:
-        nums.append(0)
-    for i in range(digits-1):
-        num = nums.pop(nums.index(random.choice(nums)))
-        orig += str(num)
-    miss = []
-    for i in orig:
-        miss.append(i)
-    random.shuffle(miss)
-    err = ''.join(miss)
-    while (err == orig) or (err[0] == '0'):
-        random.shuffle(miss)
-        err = ''.join(miss)
-    return int(orig), int(err)
+    terms = [list(str(a)), list(str(b)), list(str(r))]
+    digits = [-d for d in range(1, min_digit + 1)]
+    if min_digit > 2:
+        random.shuffle(digits)
+        digits = digits[:random.randint(2, min_digit)]
 
-print(errorpair(3))
+    unknowns = UNK.copy()
+    random.shuffle(unknowns)
+    unknowns = unknowns[:len(digits)]
+    for p, var in zip(digits, unknowns):
+        choice = random.randint(0, 2)
+        terms[choice][p] = var
 
-def make_unk_pair(mode: str, num: int):
-    unk = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
-           'W', 'X', 'Y', 'Z']
+    equation = '%s%s%s=%s' % (''.join(terms[0]), operator, ''.join(terms[1]), ''.join(terms[2]))
+    RESULT['<%s.0>' % eq_prefix] = equation
+    RESULT['<%s.0>' % unk_prefix] = random.choice(unknowns)
+
+
+def interchange_pair(digit: int, pos1: int, pos2: int, prefix: str):
+    nonlocal RESULT
+
+    number = list(str(random.randint(10 ** (digit - 1), 10 ** digit - 1)))
+
+    pos_digit1 = int(math.log10(pos1)) + 1
+    pos_digit2 = int(math.log10(pos2)) + 1
+    if pos_digit1 > pos_digit2:
+        pos_digit1, pos_digit2 = pos_digit2, pos_digit1
+
+    assert 0 < pos_digit1 <= digit
+    assert 0 < pos_digit2 <= digit
+    assert pos_digit1 != pos_digit2
+
+    if pos_digit2 == digit and number[-pos_digit1] == '0':
+        number[-pos_digit1] = str(random.randint(1, 9))
+
+    if number[-pos_digit1] == number[-pos_digit2]:
+        digits = [str(i) for i in range(10)]
+        if pos_digit2 == digit:
+            del digits[0]
+
+        digits = [i for i in digits if i != number[-pos_digit1]]
+        number[-pos_digit2] = random.choice(digits)
+
+    interchanged = number.copy()
+    interchanged[-pos_digit1], interchanged[-pos_digit2] = interchanged[-pos_digit2], interchanged[-pos_digit1]
+
+    RESULT['<%s.0>' % prefix] = ''.join(number)
+    RESULT['<%s.1>' % prefix] = ''.join(interchanged)
+
+
+def errorpair(digit: int, pos: int, prefix: str):
+    nonlocal RESULT
+
+    number = list(str(random.randint(10 ** (digit - 1), 10 ** digit - 1)))
+
+    pos_digit = int(math.log10(pos)) + 1
+    assert 0 < pos_digit <= digit
+
+    interchanged = number.copy()
+    digits = [str(i) for i in range(10)]
+    if pos_digit == digit:
+        del digits[0]
+
+    digits = [i for i in digits if i != number[-pos_digit]]
+    interchanged[-pos_digit] = random.choice(digits)
+
+    RESULT['<%s.0>' % prefix] = ''.join(number)
+    RESULT['<%s.1>' % prefix] = ''.join(interchanged)
+
+
+def make_system(mode: str, num: int, prefix: str):
+    nonlocal RESULT
+    assert mode in '+-'
+
     b = random.randrange(1, 99)
-    a = b*num
-    plus = a+b
-    minus = a-b
-    if mode == 'plus':
-        unk_1 = unk.pop(unk.index(random.choice(unk)))
-        unk_2 = unk.pop(unk.index(random.choice(unk)))
-        txt_1 = unk_1+'+'+unk_2+'='+str(plus)
-        txt_2 = unk_1+'='+unk_2
-        for i in range(num-1):
-            txt_2 += '+'+unk_2
-        return txt_1, txt_2
-    if mode == 'minus':
-        unk_1 = unk.pop(unk.index(random.choice(unk)))
-        unk_2 = unk.pop(unk.index(random.choice(unk)))
-        txt_1 = unk_1 + '-' + unk_2 + '=' + str(minus)
-        txt_2 = unk_1 + '=' + unk_2
-        for i in range(num - 1):
-            txt_2 += '+' + unk_2
-        return txt_1, txt_2
+    a = b * num
+    r = a + b if mode == '+' else a - b
 
-print(make_unk_pair('minus', 5))
+    unk = UNK.copy()
+    random.shuffle(unk)
+    unk_1, unk_2 = unk[:2]
+
+    txt_1 = unk_1 + mode + unk_2 + '=' + str(r)
+    txt_2 = [unk_1 + '=' + unk_2] + ([unk_2] * (num - 1))
+    txt_2 = '+'.join(txt_2)
+
+    RESULT['<%s.0>' % prefix] = txt_1
+    RESULT['<%s.1>' % prefix] = txt_2
+
+
+__all__ = [
+    'arithmetic_prog',
+    'difference_prog',
+    'replace_unknown',
+    'rep_prog',
+    'unk_digit_equation',
+    'errorpair',
+    'make_system'
+]

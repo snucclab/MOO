@@ -1,44 +1,63 @@
+import random
+import re
+from decimal import Decimal
+from pathlib import Path
 from typing import List, Dict
 
-from common.simulate.types import Problem
-import random
-import simulate.josa_converter
 import yaml
+
+import simulate.josa_converter
+from common.simulate.types import Problem
 from common.sys.convert import tokenize_string
-import re
-import copy
+
 
 def yaml_loader(filepath):
     with open(filepath, "r") as file_descriptor:
         data = yaml.safe_load(file_descriptor)
     return data
 
+
+def _check_is_not_none(value):
+    return value != 'None'
+
+
 class Simulator:
+    vocab = []
+
     def prob_gen(self, template: Dict) -> [str, str]:
+
         problem = template['problem']
+        func_call = template.get('function-call', 'None')  # TODO fix
 
-        # num 끼워넣기
-        numbers = []
-        variable_dict = {}
+        RESULT = {}
 
-        for i, item in enumerate(copy.deepcopy(template['variable-sampling']).items()):
-            item_name = item[0]
-            item_value = item[1]
-            if i != 0:
-                for j, value in enumerate(item_value['range']):
-                    if type(value) is str :
-                        temp_keys = re.findall(r'<num\.\d+>',value)
-                        for key in temp_keys:
-                            value = value.replace(key, str(variable_dict[key]))
-                        item_value['range'][j] = eval(value)
+        ### Template에서 variable-sampling이 Null로 바뀔 때, is not None으로 교정할 것(#rsk)
+        if _check_is_not_none(template['variable-sampling']):
+            for i, (item_name, item_value) in enumerate(template['variable-sampling'].items()):
+                item_range = item_value['range'].copy()
+                if i != 0:
+                    for j, value in enumerate(item_range):
+                        if type(value) is str:
+                            temp_keys = re.findall(r'<num\.\d+>', value)
+                            for key in temp_keys:
+                                value = value.replace(key, RESULT[key])
+                            item_range[j] = eval(value)
 
-            if item_value['type'] == 'int':
-                variable_dict['<'+item_name+'>'] = random.randint(item_value['range'][0], item_value['range'][1]-1)
-            if item_value['type'] == 'float':
-                variable_dict['<'+item_name+'>'] = random.randint(item_value['range'][0]*100, item_value['range'][1]*100 -1)/100
-        s_variable_dict = {key: str(value) for key, value in variable_dict.items()}
+                if item_value['type'] == 'int':
+                    sampled = random.randint(item_range[0], item_range[1] - 1)
+                else:
+                    sampled = Decimal(random.randint(item_range[0] * 100, item_range[1] * 100 - 1)) / 100
+                RESULT['<' + item_name + '>'] = str(sampled)
 
-        for key, value in s_variable_dict.items():
+        if _check_is_not_none(func_call):
+            RESULT = {}
+            for command in func_call.split(';'):
+                for key, value in RESULT.items():
+                    command = command.replace(key, value)
+
+                exec(command)
+
+        for key, value in RESULT.items():
             problem = problem.replace(key, value)
 
         p_tokens = tokenize_string(problem)
@@ -46,19 +65,18 @@ class Simulator:
         keys = []
         for idx, token in enumerate(p_tokens):
             for vocab in self.vocab:
-                if vocab == re.sub("[<.]","",token):
+                if vocab == re.sub("[<.]", "", token):
                     keys.append(p_tokens[idx] + p_tokens[idx + 1] + '>')
         keys = list(set(keys))
 
         chosen_list = []
         random_dict = {}
         for idx, raw_key in enumerate(keys):
-            vocab = []
             key = re.sub(r'[<>]', '', raw_key)
             if key in template['list-sampling']:
                 vocab_list = template['list-sampling'][key]
-            else :
-                vocab_list = self.vocab.get(re.sub(r'[<\.\d>]', '', raw_key))
+            else:
+                vocab_list = self.vocab.get(re.sub(r'[<.\d>]', '', raw_key))
             val = random.choice(vocab_list)
             while True:
                 if val not in chosen_list:
@@ -73,70 +91,46 @@ class Simulator:
         problem = josa_converter.replace_josa(problem)
         tokenized_problem_list = tokenize_string(problem)
 
-        tokenized_list = []
-        for value, key in enumerate(tokenized_problem_list):
-            tokenized_list.append([key, value])
-
-        tokenized_dictionary = {key: str(value) for value, key in enumerate(tokenized_problem_list)}
-
-        for key, value in tokenized_list:
-            if int(value) < 10:
-                tokenized_list[int(value)][1] = "{}{}".format("0", value)
-        for key, value in tokenized_list:
-            tokenized_list[int(value)][1] = "{}{}".format("_", value)
-
-        tokenized_list_index = []
-        for key, value in tokenized_list:
-            tokenized_list_index.append(value)
-
-        for key, value in tokenized_dictionary.items():
-            if int(value) < 10:
-                tokenized_dictionary[key] = "{}{}".format("0", value)
-        for key, value in tokenized_dictionary.items():
-            tokenized_dictionary[key] = "{}{}".format("_", value)
+        tokenized_dictionary = {}
+        for index, token in enumerate(tokenized_problem_list):
+            if token not in tokenized_dictionary:
+                tokenized_dictionary[token] = '_%s' % index
 
         equations = template['equations']
+        equations = re.sub('R\\d+: ', '\n', equations)
+        equations = re.sub('\n+', '\n', equations).strip()
 
-        equations = re.sub(r'R0: ', '', equations)
-        equations = re.sub(r'R\d+: ', '\n', equations)
+        for key, value in RESULT.items():
+            equations = equations.replace(key, tokenized_dictionary.get(value, value))
 
-        for key, value in s_variable_dict.items():
-            if value in tokenized_dictionary:
-                equations = equations.replace(key, tokenized_dictionary[value])
-            else :
-                equations = equations.replace(key, value)
-
-        # for tokenized_key, tokenized_value in sorted(list(tokenized_dictionary.items()), key=lambda x: len(x[0]), reverse=True):
-        #     #equations = equations.replace(tokenized_key, tokenized_value)
-        #     equations = re.sub('([(,])'+ tokenized_key, r'\1'+tokenized_value, equations)
-
-
-        #print(problem)
-        #print(equations)
-
-        tokenized_problem_list_endspaced = tokenized_problem_list
-        for i, item in enumerate(tokenized_problem_list):
-            tokenized_problem_list_endspaced[i] = "{}{}{}".format(":", item, " ")
-        zipped_token_index = ''.join(
-            [str(a) + b for a, b in zip(tokenized_list_index, tokenized_problem_list_endspaced)])
-
+        # zipped_token_index = ' '.join(['_%d:%s' % (i, token) for i, token in enumerate(tokenized_problem_list)])
         return problem, equations
 
-    def load_templates(self, templates: List[dict]):
+    def load_templates(self, path: str):
         """
         주어진 템플릿 설정의 list를 읽어 template을 등록합니다.
 
-        :param List[dict] templates: 각 template의 설정값
+        :param str path: Path to load
         """
-        self.templates = templates
+        # Read templates from templateroot
+        self.templates = []
+        for file in Path(path).glob('**/*.yaml'):
+            with file.open('r+t', encoding='UTF-8') as fp:
+                template_in_file = yaml.safe_load(fp)
+                print(template_in_file)
+                assert type(template_in_file) is dict
 
-    def load_vocab(self, vocab : Dict):
+                template_in_file['id'] = str(file.absolute())
+                self.templates.append(template_in_file)
+
+    def load_vocab(self, path: str):
         """
         주어진 템플릿 설정의 list를 읽어 template을 등록합니다.
 
-        :param List[dict] templates: 각 template의 설정값
+        :param str path: Path to load
         """
-        self.vocab = vocab
+        with Path(path).open('rt', encoding='UTF-8') as fp:
+            self.vocab = yaml.safe_load(fp)
 
     def set_seed(self, seed: int):
         """
@@ -154,11 +148,11 @@ class Simulator:
         """
         results = []
         for idx, template in enumerate(self.templates):
-            print(str(idx)+"번째 템플릿 생성중")
+            print(str(idx) + "번째 템플릿 생성중")
             problems = []
             for idx in range(n):
                 text, code_template = self.prob_gen(template)
-                problems.append(Problem(text, code_template))
+                problems.append(Problem(template['id'], text, code_template))
 
             results.append(problems)
         return results
