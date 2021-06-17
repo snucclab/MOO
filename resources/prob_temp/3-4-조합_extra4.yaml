@@ -1,0 +1,21 @@
+problem: <num.0>개의 문자에서 중복을 허용하여 <num.1>개의 문자를 택하는 방법의 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 2, 26 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, <num.0> ]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: SUB(R0,1)
+  R2: COMB(R1,<num.1>)
+  R3: PRINT(R2)"

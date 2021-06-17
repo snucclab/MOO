@@ -1,0 +1,19 @@
+problem: >
+	<num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5> 순서에 맞춰 규칙적으로 수를 나열합니다. 이때 <num.6>번째로 오는 수는 어떤 수가 되는지 구하시오.
+
+variable-sampling: None
+  num.6:
+    range: [20,80]
+    under-decimal: 0
+    type: int
+list-sampling: None
+
+function-call: difference_prog(6, 'num')
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: SEQ_TERM(R3,<num.6>)
+  R5: PRINT(R4)"

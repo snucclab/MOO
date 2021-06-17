@@ -1,0 +1,28 @@
+problem: >
+ 서로 다른 두 자연수 <unknown.0>, <unknown.1>(이)가 있습니다.
+ <equation.0>, <equation.1>일 때, <unknown.0>의 값은 무엇입니까?
+
+variation-sampling: None
+
+list-sampling: None
+
+function-call: make_system('+', 8, 'equation', 'unknown')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<equation.0>)
+  R2: APPEND(R1,<equation.1>)
+  R3: CALL_SYMPY(R2)
+  R4: MAX(R3)
+  R5: PRINT(R4)"
+
+
+
+
+
+
+
+
+
+
+

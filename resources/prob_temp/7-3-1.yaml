@@ -1,0 +1,20 @@
+problem: >
+  <num.0>, <num.1>, <num.2>, <num.3>처럼 수를 계속해서 나열하고 있습니다. <num.4>번째 수를 구하시오.
+
+variable-sampling:
+  num.4:
+    range: [10,50]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: difference_prog(4, 'num')
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R00,<num.0>)
+  R2: APPEND(R01,<num.1>)
+  R3: APPEND(R02,<num.2>)
+  R4: SEQ_TERM(R03,<num.4>)
+  R5: PRINT(R4)"
