@@ -1,5 +1,5 @@
 problem: >
-  명절 음식을 준비하기 위해 <vegetable.0> <num.0>개를 <family.0>, <family.1>, <family.2>, <family.3>에게 각각 돌아가며 <num.1>개씩 나누어 주었습니다.
+  명절 음식을 준비하기 위해 <vegetable.0> <num.0>개를 <family.0>, <family.1>, <family.2>, <family.3> 에게 각각 돌아가며 <num.1>개씩 나누어 주었습니다.
   이때 <num.2>번째 <vegetable.0>(을)를 받은 사람이 누구인지 구하시오.
 
 variable-sampling:
