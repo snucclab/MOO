@@ -1,6 +1,6 @@
 problem: >
   <propername.0>, <propername.1>, <propername.2>, <propername.3> 중에 <num.0>명을 선택해서 <event.0>(을)를 하려고 한다.
-  <event.0>(을)를 할 수 있는 조합의 수는 몇 개입니까?
+  <event.0>(을)를 할 수 있는 조합의 수는 몇 개?
 
 variable-sampling:
   num.0:
