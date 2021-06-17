@@ -1,6 +1,7 @@
 problem: >
   <family.0>(은)는 이번 주 6개의 장소에 들러야 합니다.
-  <place.0>, <place.1>, <place.2>, <place.3>, <place.4>, <place.5> 장소에 가야 하는데, 장소들 중 오늘 <num.0>개의 장소 들를 계획인데, 어떤 순서대로 오늘 갈 수 있을까요?
+  <place.0>, <place.1>, <place.2>, <place.3>, <place.4>, <place.5> 6 군데에 가야 합니다.
+  장소들 중 오늘 <num.0>개의 장소 들를 계획인데, 어떤 순서대로 오늘 갈 수 있을까요?
 
 variable-sampling:
   num.0:
