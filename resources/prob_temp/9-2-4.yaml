@@ -3,12 +3,12 @@ problem: >
   <color.0>(와)과 <color.2>(은)는 <color.1>보다 작고, <color.2>(은)는 <color.0>보다 큽니다.
   가장 작은 <thing.0>(을)를 구하시오.
 
-variable-sampling: Null
+variable-sampling: null
 
 list-sampling:
   thing.0: ['종이', '마스크', '사탕', '책', '물병', '컵', '냉장고', '꽃']
 
-function-call: Null
+function-call: null
 
 equations:
   "R0: LIST()

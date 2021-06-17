@@ -23,7 +23,7 @@ variable-sampling:
 list-sampling:
     univeristy.0 : ['서울', '고려', '연세', '한양', '중앙', '이회여자', '한림', '조선', '한국', '서울시립']
 
-function-call: Null
+function-call: null
 
 equations:
   "R0: COMB(<num.0>,<num.2>)

@@ -33,9 +33,9 @@ variable-sampling:
     under-decimal: 10
     type: float
 
-list-sampling: Null
+list-sampling: null
 
-function-call: Null
+function-call: null
 
 equations:
   "R0: LIST()

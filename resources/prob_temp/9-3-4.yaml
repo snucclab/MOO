@@ -40,9 +40,9 @@ variable-sampling:
     under-decimal: 10
     type: int
 
-list-sampling: Null
+list-sampling: null
 
-function-call: Null
+function-call: null
 
 equations:
   "R0: LIST()

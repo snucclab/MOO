@@ -6,11 +6,11 @@ problem: >
   <name.4>(은)는 <name.3>보다 큽니다.
   가장 큰 크기의 상자를 구하시오.
 
-variable-sampling: Null
+variable-sampling: null
 
-list-sampling: Null
+list-sampling: null
 
-function-call: Null
+function-call: null
 
 
 equations:
