@@ -1,7 +1,7 @@
 problem: >
-  3개의 <thing.0>(이)가 있는데, 각각 <color.0>, <color.1>, <color.2>입니다.
-  <color.0>(와)과 <color.2>(은)는 <color.1>보다 작고, <color.2>(은)는 <color.0>보다 큽니다.
-  가장 작은 <thing.0>(을)를 구하시오.
+  <thing.0> 3개가 있는데, 각각 <color.0>, <color.1>, <color.2> 이렇게 3가지의 색을 가지고 있습니다.
+  <color.0>, <color.2> 크기는 <color.1> 보다 작고, <color.2> 크기는 <color.0> 보다 큽니다.
+  <thing.0> 중에서 가장 작은 것을 구하시오.
 
 variable-sampling: null
 

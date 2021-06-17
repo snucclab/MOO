@@ -1,8 +1,8 @@
 problem: >
-  학교에는 <name.0>반, <name.1>반, <name.2>반, <name.3>반이 있습니다.
-  <name.3>반보다 <name.1>반의 인원이 적습니다.
-  한편 <name.3>반보다는 <name.0>반의 인원이 많습니다.
-  그리고 <name.2>반보다는 <name.1>반의 인원이 더 많습니다.
+  학교에는 <name.0> 반, <name.1> 반, <name.2> 반, <name.3> 반이 있습니다.
+  <name.3> 반보다 <name.1> 반의 인원이 적습니다.
+  한편 <name.3> 반보다는 <name.0> 반의 인원이 많습니다.
+  그리고 <name.2> 반보다는 <name.1> 반의 인원이 더 많습니다.
   가장 적은 인원수인 반은 무엇일까요?
 
 variable-sampling: null
