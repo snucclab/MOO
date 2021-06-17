@@ -1,0 +1,29 @@
+problem: >
+  <num.0>개의 <food.0>(이)가 한 개의 박스마다 있습니다.
+  박스 <num.1>개에 있는 모든 <food.0>의 개수는 무엇입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 20, 60 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 30, 4000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: MUL(<num.0>,<num.1>)
+  R1: PRINT(R0)"
+
+
+
+
+
+
+
+

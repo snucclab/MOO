@@ -1,7 +1,7 @@
 problem: >
-  <propername.0>(이)가 자주 가는 <place.0> <num.2>층에는 <num.0>개의 <place.1>(이)가 있습니다.
-  한 <place.1> 당 <stationary.0>(을)를 <num.1>개씩 가지고 있습니다.
-  이 <place.0> <num.2>층에 있는 <stationary.0>의 개수는 모두 몇 개 일까요?
+  <propername.0>(이)가 종종 방문하는 <place.0> <num.2>층에는 <place.1>(이)가 <num.0>개 있습니다.
+  <place.1>마다 <num.1>개의 <stationary.0>(이)가 있습니다.
+  이 <place.0> <num.2>층에 있는 모든 <stationary.0>의 개수를 구하시오.
 
 variable-sampling:
   num.0:
