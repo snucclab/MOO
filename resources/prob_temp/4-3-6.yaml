@@ -1,4 +1,4 @@
-problem: 수 <num.0>, <num.1>, <num.2> 3개로 나누어 떨어질 수 있는 네 자리 수는 얼마나 됩니까?
+problem: 네 자리 수에서, 수 <num.0>, <num.1>, <num.2> 3개로 나누어 떨어질 수 있는 수는 몇 개가 있을까요?
 
 variable-sampling:
   num.0:
@@ -6,7 +6,7 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: [5, 7]
+    range: [5, 6]
     under-decimal: 0
     type: int
   num.2:
