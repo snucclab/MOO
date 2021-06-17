@@ -1,5 +1,5 @@
 problem: >
-  야채 <vegetable.0>, <vegetable.1>, <vegetable.2>, <vegetable.3>, <vegetable.4>, <vegetable.5>(이)가 하나씩 있고,
+  야채 <vegetable.0>, <vegetable.1>, <vegetable.2>, <vegetable.3>, <vegetable.4>, <vegetable.5> 하나씩 있고,
   그 야채들 중 <num.0>개를 고르려고 하는데, 어떻게 고를 수 있을까요?
 
 variable-sampling:
