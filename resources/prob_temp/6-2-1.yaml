@@ -1,0 +1,41 @@
+problem: >
+  <person.0>(은)는 세 자리 수에서 두 자리 수를 빼려고 합니다.
+  그런데 <person.0>(이)가 세 자리 수의 1의 자리 수와 10의 자리 수를 바꾸어 <i_num.1>(으)로 잘못 보았고,
+  두 자리 수의 1의 자리 숫자는 원래 <e_num.1>인데 다른 숫자로 착각하였습니다.
+  <person.0>(이)가 계산한 결과는 <num.0>이었습니다.
+  만약 <person.0>(이)가 두 개의 숫자를 바르게 봤다면 어떤 결과가 나왔을까요?
+
+variable-sampling:
+  num.0:
+    range: [int(<i_num.1>)-int(<e_num.1>),int(<i_num.1>)-int(<e_num.1>)+1]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: errorpair(2,1,"e_num");interchange_pair(3,1,10,"i_num")
+
+equations:
+  "R0: DIV(<num.0>,100)
+  R1: TO_INT(R0)
+  R2: MUL(R1,100)
+  R3: SUB(<num.0>,R2)
+  R4: REVERSE_DIGIT(R3)
+  R5: ADD(R4,R2)
+  R6: SUB(<num.0>,<num.2>)
+  R7: DIV(<num.2>,10)
+  R8: TO_INT(R7)
+  R9: MUL(R8,10)
+  R10: ADD(R9,<num.1>)
+  R11: SUB(R5,R10)
+  R12: PRINT(R11)"
+
+
+
+
+
+
+
+
+
+

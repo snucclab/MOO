@@ -38,7 +38,7 @@ class Simulator:
                 if i != 0:
                     for j, value in enumerate(item_range):
                         if type(value) is str:
-                            temp_keys = re.findall(r'<num\.\d+>', value)
+                            temp_keys = re.findall(r'<\w+\.\d+>', value)
                             for key in temp_keys:
                                 value = value.replace(key, RESULT[key])
                             item_range[j] = eval(value)
