@@ -125,7 +125,7 @@ def errorpair(digit: int, pos: int, prefix: str):
     RESULT['<%s.1>' % prefix] = ''.join(interchanged)
 
 
-def make_system(mode: str, num: int, prefix: str):
+def make_system(mode: str, num: int, eqn_prefix: str, unk_prefix: str):
     nonlocal RESULT
     assert mode in '+-'
 
@@ -141,8 +141,10 @@ def make_system(mode: str, num: int, prefix: str):
     txt_2 = [unk_1 + '=' + unk_2] + ([unk_2] * (num - 1))
     txt_2 = '+'.join(txt_2)
 
-    RESULT['<%s.0>' % prefix] = txt_1
-    RESULT['<%s.1>' % prefix] = txt_2
+    RESULT['<%s.0>' % eqn_prefix] = txt_1
+    RESULT['<%s.1>' % eqn_prefix] = txt_2
+    RESULT['<%s.0>' % unk_prefix] = unk_1
+    RESULT['<%s.1>' % unk_prefix] = unk_1
 
 
 __all__ = [
