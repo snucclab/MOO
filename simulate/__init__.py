@@ -66,31 +66,20 @@ class Simulator:
         for key, value in RESULT.items():
             problem = problem.replace(key, value)
 
-        p_tokens = tokenize_string(problem)
-
-        keys = []
-        for idx, token in enumerate(p_tokens):
-            for vocab in self.vocab:
-                if vocab == re.sub("[<.]", "", token):
-                    keys.append(p_tokens[idx] + p_tokens[idx + 1] + '>')
-        keys = list(set(keys))
-
+        keys = sorted(set([match.group(0) for match in re.finditer('<[^>]+>', problem)]))
         chosen_list = []
         random_dict = {}
         for idx, raw_key in enumerate(keys):
-            key = re.sub(r'[<>]', '', raw_key)
+            key = raw_key[1:-1]
             if _check_is_not_none(template['list-sampling']) and key in template['list-sampling']:
                 vocab_list = template['list-sampling'][key]
             else:
-                vocab_list = self.vocab.get(re.sub(r'[<.\d>]', '', raw_key))
+                vocab_list = self.vocab.get(re.sub(r'\.\d+$', '', key))
+
+            vocab_list = [item for item in vocab_list if item not in chosen_list]
             val = random.choice(vocab_list)
-            while True:
-                if val not in chosen_list:
-                    break
-                val = random.choice(vocab_list)
             random_dict[raw_key] = val
             chosen_list.append(val)
-
 
         for key, value in random_dict.items():
             RESULT[key] = value

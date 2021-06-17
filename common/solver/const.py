@@ -13,7 +13,8 @@ CON_VALUES = [
     '7',
     '8',
     '9',
-    '10'
+    '10',
+    '12'
 ]
 CON_TOKENS = [str(x) for x in CON_VALUES]
 CON_MAX = len(CON_VALUES)

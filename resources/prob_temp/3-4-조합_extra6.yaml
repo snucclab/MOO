@@ -1,4 +1,4 @@
-problem: 각각 <num.0>개 이상의 같은 <ball.0>, <ball.1>, <ball.2> 중에서 <num.0>개의 공을 선택하는 방법의 수를 구하시오.
+problem: 각각 <num.0>개 이상의 같은 <ball.0>, <ball.1>, <ball.2> 중에서 <num.1>개의 공을 선택하는 방법의 수를 구하시오.
 
 variable-sampling:
   num.0:
@@ -16,11 +16,11 @@ function-call: null
 
 equations:
   "R0: LIST()
-  R1: APPEND(R0,<ball,0>)
-  R2: APPEND(R1,<ball,1>)
-  R3: APPEND(R2,<ball,2>)
+  R1: APPEND(R0,<ball.0>)
+  R2: APPEND(R1,<ball.1>)
+  R3: APPEND(R2,<ball.2>)
   R4: COUNT(R3)
-  R5: SUM(R4,<num.0>)
+  R5: ADD(R4,<num.0>)
   R6: SUB(R5,1)
   R7: COMB(R6,<num.1>)
   R8: PRINT(R7)"

@@ -1,6 +1,7 @@
 ##@@@@ CODE-REPLACEMENT: {result} by {result}_pycode ##
 _MULTIDIGIT = re.compile('.*([0-9][A-Z]|[A-Z][0-9]|[A-Z]{{2,}}).*')
 _DIGITNUM = re.compile('^\\d+$')
+_VARIABLE = re.compile('([A-Z])')
 _TRANSFORMATIONS = sympy.parsing.sympy_parser.standard_transformations + (sympy.parsing.sympy_parser.convert_equals_signs,)
 
 is_multidigit = False
@@ -29,7 +30,7 @@ if is_multidigit:
 
         abr_i = a_i + b_i + r_i
         equation = '%s%s%s+(%s)=%s' % (a_i, op1, b_i, carry, r_i)
-        equation = equation.replace('E', '_E')
+        equation = _VARIABLE.sub('_\\1', equation)
 
         if _DIGITNUM.fullmatch(abr_i) is not None:
             # Digit case
@@ -46,7 +47,7 @@ if is_multidigit:
 
         sympy_eq = sympy.parse_expr(equation, transformations=_TRANSFORMATIONS)
         solutions = sympy.solve(sympy_eq, dict=True)
-        digit_key, digit_value = [(key.name if key.name != '_E' else 'E', value) for key, value in solutions[0].items()][0]
+        digit_key, digit_value = [(key.name[1:], value) for key, value in solutions[0].items()][0]
 
         if digit_value < 0:
             # 자리내림/올림 필요
@@ -68,13 +69,13 @@ else:
     equations = []
 
     for eq in {LIST}:
-        # E 처리
-        eq = eq.replace('E', '_E')
+        # 특수 이름이 대문자인 경우가 있어 _ 처리
+        eq = _VARIABLE.sub('_\\1', eq)
         eq = sympy.parse_expr(eq, transformations=_TRANSFORMATIONS)
         equations.append(eq)
 
     _result = sympy.solve(equations, dict=True)
-    _result = {{(key.name if key.name != '_E' else 'E'): value for key, value in _result[0].items()}}
+    _result = {{key.name[1:]: value for key, value in _result[0].items()}}
 
     {result} = _result[{target}]
     is_int = {result}.is_integer

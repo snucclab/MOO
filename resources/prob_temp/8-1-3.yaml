@@ -24,5 +24,5 @@ equations:
   R8: APPEND(R7,<num.2>)
   R9: APPEND(R8,<num.3>)
   R10: APPEND(R9,<num.4>)
-  R11: REP_SEQ_TERM(R10,<num.4>)
+  R11: REP_SEQ_TERM(R10,<num.5>)
   R12: PRINT(R11)"
