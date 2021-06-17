@@ -163,10 +163,11 @@ class Executor(object):
             Result of executed python code
         """
         solution = []
+        adjusted = ''
         try:
             with self.queue_lock:
                 self.to_solver.put(code)
-                solution, code, exception = self.from_solver.get(timeout=self.time_limit)
+                solution, adjusted, exception = self.from_solver.get(timeout=self.time_limit)
         except Exception as e:
             exception = e
             self._restart_process()
@@ -174,10 +175,11 @@ class Executor(object):
 
         if exception:
             if self._debug:
-                self._debug_logger.warning('Exception occurred on code execution', exc_info=exception)
-            return code, ''
+                code = '\n'.join(['#%2d: %s' % (i, line) for i, line in enumerate(code.split('\n'))])
+                self._debug_logger.warning('Exception occurred on code execution:\n%s', code, exc_info=exception)
+            return adjusted, ''
         else:
-            return code, solution
+            return adjusted, solution
 
 
 __all__ = ['Executor']

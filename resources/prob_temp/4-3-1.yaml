@@ -20,5 +20,5 @@ equations:
   R2: LIST()
   R3: APPEND(R2,<num.0>)
   R4: APPEND(R3,<num.1>)
-  R5: COUNT_MULTI(R1,R5)
+  R5: COUNT_MULTI(R1,R4)
   R6: PRINT(R5)"

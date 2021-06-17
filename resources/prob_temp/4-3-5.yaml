@@ -15,7 +15,7 @@ list-sampling: null
 function-call: null
 
 equations:
-  "R0: POW(10,2)
+  "R0: DIGIT(1,3)
   R1: RANGE(10,R0,1)
   R2: LIST()
   R3: APPEND(R2,<num.0>)
