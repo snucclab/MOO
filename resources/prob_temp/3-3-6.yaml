@@ -1,6 +1,6 @@
 problem: >
   <propername.0>(은)는 <vocation.0> 친구의 생일을 위해 선물을 사려고 합니다.
-  <num.0>개 <present.0>(을)를 택하려고 하는데, 문방구에는 <color.0>, <color.1>, <color.2>, <color.3> <present.0>(이)가 있습니다.
+  <num.0>개 <present.0> 택하려고 하는데, 문방구에는 <color.0>, <color.1>, <color.2>, <color.3> <present.0> 있습니다.
   선택할 수 있는 조합의 수는 총 몇 개입니까?
 
 variable-sampling:
