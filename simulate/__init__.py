@@ -31,14 +31,6 @@ class Simulator:
 
         RESULT = {}
 
-        if _check_is_not_none(func_call):
-            RESULT = {}
-            for command in func_call.split(';'):
-                for key, value in RESULT.items():
-                    command = command.replace(key, value)
-
-                exec(command)
-
         ### Template에서 variable-sampling이 Null로 바뀔 때, is not None으로 교정할 것(#rsk)
         if _check_is_not_none(template['variable-sampling']):
             for i, (item_name, item_value) in enumerate(template['variable-sampling'].items()):
@@ -58,7 +50,13 @@ class Simulator:
                     sampled = Decimal(random.randint(item_range[0] * 100, item_range[1] * 100 - 1)) / 100
                 RESULT['<' + item_name + '>'] = str(sampled)
 
+        if _check_is_not_none(func_call):
+            RESULT = {}
+            for command in func_call.split(';'):
+                for key, value in RESULT.items():
+                    command = command.replace(key, value)
 
+                exec(command)
 
         for key, value in RESULT.items():
             problem = problem.replace(key, value)
