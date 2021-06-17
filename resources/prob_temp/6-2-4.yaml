@@ -1,0 +1,39 @@
+problem: >
+  <person.0>(이)가 두 자리 수와 세 자리 수의 덧셈을 하려고 합니다.
+  그런데 <person.0>(이)가 졸면서 계산을 하느라 실수로 두 자리 수의 십의 자리 숫자와 일의 자리 숫자를 바꾸어 <num.0>(으)로 잘못 읽었습니다.
+  그리고 세 자리 수의 일의 자리 숫자와 백의 자리 숫자를 바꾸어 읽었습니다.
+  그 결과 <num.1>(이)가 되었습니다.
+  만약 <person.0>(이)가 졸지 않고 바르게 계산했다면 어떤 결과가 나을지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: num.0 == errorpair(2)[1]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: num.1 == errorpair(2)[1] + errorpair(3)[1]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: errorpair(2),errorpair(3)
+
+equations:
+  "R0: SUB(<num.1>,<num.0>)
+  R1: REVERSE_DIGIT(R0)
+  R2: REVERSE_DIGIT(<num.0>)
+  R3: ADD(R1,R2)
+  R4: PRINT(R3)"
+    
+
+
+
+
+
+
+
+
+
+
+

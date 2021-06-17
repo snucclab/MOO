@@ -1,7 +1,7 @@
 problem: >
   <propername.0>의 <place.0>에 있는 <stationary.0> 안에 <num.0>벌의 <clothes.0>(이)가 있습니다.
   <propername.0>(이)가 <num.1>벌의 <clothes.0>(을)를 선물받아 <stationary.0> 안에 정리하여 넣었습니다.
-  <stationary.0> 안에 총 몇 벌의 <clothes.0>(이)가 있습니까?
+  <stationary.0> 안에 총 몇 벌의 <clothes.0>(이)가 있는지 구하시오.
 
 variable-sampling:
   num.0:

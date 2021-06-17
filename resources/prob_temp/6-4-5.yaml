@@ -1,6 +1,6 @@
 problem: >
-  <num.0>에 어떤 수를 곱해야 할 것을 실수로 <num.1>에 곱하였더니 그 결과가 <num.2>이었습니다.
-  바르게 계산하면 얼마인지 구하시오.
+  어떤 수와 <num.0>의 곱셈을 하기로 했는데, 실수로 <num.1>와 곱셈을 한 결과 <num.2>(이)라는 결과를 얻었습니다.
+  바르게 계산했더라면 어떤 결과를 얻었을까요?
 
 variable-sampling:
   num.0:
@@ -16,9 +16,9 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: null
+list-sampling: None
 
-function-call: null
+function-call: None
 
 equations:
   "R0: DIV(<num.2>,<num.1>)
