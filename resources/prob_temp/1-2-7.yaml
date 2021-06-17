@@ -1,0 +1,35 @@
+problem:
+  <num.0> 이상 <num.1> 미만인 숫자들 중에서 <num.2>(으)로 나누어 떨어지는 숫자들의 모두 더하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 200 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ <num.0>+30, 2000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 3, 10 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: DIV(<num.0>,<num.2>)
+  R1: CEIL(R0)
+  R2: DIV(<num.1>,<num.2>)
+  R3: CEIL(R2)
+  R4: RANGE(R1,R3,<num.2>)
+  R5: SUM(R4)
+  R6: MUL(R5,<num.2>)
+  R7: PRINT(R6)"
+
+
+
+
+
