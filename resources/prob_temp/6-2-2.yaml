@@ -1,27 +1,15 @@
 problem: >
   <person.0>(은)는 네 자리 수와 세 자리 수의 덧셈을 하고자 합니다.
-  <person.0>(은)는 세 자리 수의 100의 자리 숫자와 10의 자리 숫자를 실수로 바꾸어 <num.0>(으)로 잘못 보았습니다.
-  그리고 네 자리 수는 일의 자리 숫자인 <num.1>(을)를 다른 숫자로 잘못 보았습니다.
-  덧셈의 결과는 <num.2>이었습니다.
+  <person.0>(은)는 세 자리 수의 100의 자리 숫자와 10의 자리 숫자를 실수로 바꾸어 <i_num.1>(으)로 잘못 보았습니다.
+  그리고 네 자리 수는 일의 자리 숫자인 <e_digit.0>(을)를 다른 숫자로 잘못 보았습니다.
+  덧셈의 결과는 <num.0>이었습니다.
   <person.0>(이)가 처음에 계획한 대로 실수 없이 덧셈을 하였다면 어떤 결과가 나왔을지 계산하시오.
 
-variable-sampling:
-  num.0:
-    range: <num.0> == errorpair(3)[1]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: <num.1> == errorpair(4)[0][3]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: <num.2> == errorpair(3)[1] + errorpair(4)[1]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling: null
 
-function-call: errorpair(3),errorpair(4)
+function-call: interchange_pair(3,100,10,"i_num");errorpair(4,1,"e_num");eval_expression("<e_num.1>-<i_num>","num");eval_expression("<e_num.0>%10","e_digit")
 
 equations:
   "R0: DIV(<num.0>,100)
