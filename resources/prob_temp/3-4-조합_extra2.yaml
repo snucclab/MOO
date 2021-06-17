@@ -1,0 +1,16 @@
+problem: 프로<sports.0> 정규시즌에 참가한 <num.0>개의 팀이 다른 팀과 모두 한 번씩 경기를 할 때, 총 경기 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: COMB(<num.0>,2)
+  R1: PRINT(R0)"
+
