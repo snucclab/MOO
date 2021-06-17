@@ -9,7 +9,7 @@ import yaml
 import simulate.josa_converter
 from common.simulate.types import Problem
 from common.sys.convert import tokenize_string
-
+from simulate.func import *
 
 def yaml_loader(filepath):
     with open(filepath, "r") as file_descriptor:
@@ -31,24 +31,6 @@ class Simulator:
 
         RESULT = {}
 
-        ### Template에서 variable-sampling이 Null로 바뀔 때, is not None으로 교정할 것(#rsk)
-        if _check_is_not_none(template['variable-sampling']):
-            for i, (item_name, item_value) in enumerate(template['variable-sampling'].items()):
-                item_range = item_value['range'].copy()
-                if i != 0:
-                    for j, value in enumerate(item_range):
-                        if type(value) is str:
-                            temp_keys = re.findall(r'<\w+\.\d+>', value)
-                            for key in temp_keys:
-                                value = value.replace(key, RESULT[key])
-                            item_range[j] = eval(value)
-
-                if item_value['type'] == 'int':
-                    sampled = random.randint(item_range[0], item_range[1] - 1)
-                else:
-                    sampled = Decimal(random.randint(item_range[0] * 100, item_range[1] * 100 - 1)) / 100
-                RESULT['<' + item_name + '>'] = str(sampled)
-
         if _check_is_not_none(func_call):
             RESULT = {}
             for command in func_call.split(';'):
@@ -56,6 +38,27 @@ class Simulator:
                     command = command.replace(key, value)
 
                 exec(command)
+
+        ### Template에서 variable-sampling이 Null로 바뀔 때, is not None으로 교정할 것(#rsk)
+        if _check_is_not_none(template['variable-sampling']):
+            for i, (item_name, item_value) in enumerate(template['variable-sampling'].items()):
+                item_range = item_value['range'].copy()
+
+                for j, value in enumerate(item_range):
+                    if type(value) is str:
+                        temp_keys = re.findall(r'<\w+\.\d+>', value)
+                        for key in temp_keys:
+                            value = value.replace(key, RESULT[key])
+                        print(value)
+                        item_range[j] = eval(value)
+
+                if item_value['type'] == 'int':
+                    sampled = random.randint(item_range[0], item_range[1] - 1)
+                else:
+                    sampled = Decimal(random.randint(item_range[0] * 100, item_range[1] * 100 - 1)) / 100
+                RESULT['<' + item_name + '>'] = str(sampled)
+
+
 
         for key, value in RESULT.items():
             problem = problem.replace(key, value)
