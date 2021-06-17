@@ -1,0 +1,27 @@
+problem: >
+  오늘은 <location.0>에서 소풍이 있는 날입니다.
+  <propername.0>(이)가 다니는 <location.0>에는 <food.0>(을)를 <num.0>명에게 무료로 나눠줄 계획입니다.
+  총 <num.1>개를 나눠주려고 하는데, 한 명이 적어도 1개의 <food.0>(을)를 받게끔 만드려고 합니다.
+  분배할 수 있는 모든 경우의 수를 알려주시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ <num.0>, 100 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  location.0: ['학교', '직장', '학부', '부서', '연구실', '학회']
+
+function-call: None
+
+equations:
+  "R0: SUB(<num.1>,<num.0>)
+  R1: ADD(<num.0>,R0)
+  R2: SUB(R1,1)
+  R3: COMB(R2,R0)
+  R4: PRINT(R3)"

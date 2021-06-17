@@ -1,0 +1,25 @@
+problem: >
+  <food.0> <num.0>개를 <propername.0>, <propername.1>, <propername.2>, <propername.3>에게 나눠주려고 합니다.
+  <food.0>(을)를 나눠줄 수 있는 방법의 수는 몇 개일까요?
+
+variable-sampling:
+  num.0:
+    range: [ 5, 100 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: None
+
+function-call: None
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<propername.0>)
+  R2: APPEND(R1,<propername.1>)
+  R3: APPEND(R2,<propername.2>)
+  R4: APPEND(R3,<propername.3>)
+  R5: COUNT(R4)
+  R6: ADD(R5,<num.0>)
+  R7: SUB(R6,1)
+  R8: COMB(R7,<num.0>)
+  R9: PRINT(R8)"
