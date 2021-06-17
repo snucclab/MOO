@@ -1,7 +1,7 @@
 problem: >
-  <ball.3>의 크기는 <ball.4>보다 큽니다.
-  <ball.0>의 크기는 <ball.1>보다 작습니다.
-  <ball.4>(은)는 <ball.2>보다 큽니다.
+  <ball.3> 크기는 <ball.4> 보다 큽니다.
+  <ball.0> 크기는 <ball.1> 보다 작습니다.
+  <ball.4> 크기는 <ball.2> 보다 큽니다.
   크기가 가장 작은 공은 어떤 것일까요?
 
 variable-sampling: null

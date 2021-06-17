@@ -1,6 +1,6 @@
 problem: >
-  3개의 음료가 있는데, 각각 <drink.0>, <drink.1>, <drink.2>입니다.
-  <drink.2>(은)는 <drink.0>보다 용량이 크고 <drink.0>(와)과 <drink.2>(은)는 <drink.1>보다 용량이 작습니다.
+  <drink.0>, <drink.1>, <drink.2> 3개의 음료가 있습니다
+  <drink.2> 용량은 <drink.0> 보다 용량이 크고 <drink.0>, <drink.2> 용량은 <drink.1> 보다 용량이 작습니다.
   가장 작은 용량의 음료를 구하시오.
 
 variable-sampling: null

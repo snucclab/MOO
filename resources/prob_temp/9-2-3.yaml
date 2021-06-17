@@ -1,9 +1,9 @@
 problem: >
-  5개의 상자 <name.0>, <name.1>, <name.2>, <name.3>, <name.4>(이)가 있습니다.
-  <name.1>(은)는 <name.3>보다 큽니다.
-  <name.0>(은)는 <name.3>보다 작습니다.
-  <name.1>(은)는 <name.2>보다 작습니다.
-  <name.4>(은)는 <name.3>보다 큽니다.
+  <name.0>, <name.1>, <name.2>, <name.3>, <name.4> 5개의 상자가 있습니다.
+  <name.1> 크기는 <name.3>보다 큽니다.
+  <name.0> 크기는 <name.3>보다 작습니다.
+  <name.1> 크기는 <name.2>보다 작습니다.
+  <name.4> 크기는 <name.3>보다 큽니다.
   가장 큰 크기의 상자를 구하시오.
 
 variable-sampling: null
