@@ -20,6 +20,7 @@ def difference_prog(n: int, prefix: str, result: dict):
     poly = sympy.polys.specialpolys.random_poly(symbol, degree, -5, 5)
 
     for i in range(n):
+        value = poly.subs({symbol: (i+1)}).evalf()
         result['<%s.%s>' % (prefix, i)] = str(poly.subs({symbol: (i+1)}))
 
 
