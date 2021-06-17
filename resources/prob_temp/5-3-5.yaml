@@ -4,7 +4,7 @@ problem: >
  
 variation-sampling: None
 
-list-sampling: None
+list-sampling: null
 
 function-call: make_system('-', 2, 'equation', 'unknown')
 

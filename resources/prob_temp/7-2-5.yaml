@@ -1,8 +1,8 @@
 problem: 5개의 수 <num.0>, <num.1>, <num.2>, <num.3>, <num.4> (이)가 다음과 같이 규칙적으로 나열되어 있습니다. 이때 <unknown.0>(은)는 얼마가 됩니까?
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: arithmetic_prog(5, 'num'); replace_unknown('num', 'unknown')
 

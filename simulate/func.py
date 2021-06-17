@@ -147,6 +147,11 @@ def make_system(mode: str, num: int, eqn_prefix: str, unk_prefix: str):
     RESULT['<%s.1>' % unk_prefix] = unk_1
 
 
+def eval_expression(expr: str, out_prefix: str):
+    nonlocal RESULT
+    RESULT['<%s.0>' % out_prefix] = eval(expr)
+
+
 __all__ = [
     'arithmetic_prog',
     'difference_prog',

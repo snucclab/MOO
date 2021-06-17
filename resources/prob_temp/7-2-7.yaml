@@ -1,8 +1,8 @@
 problem: <num.0>, <num.1>, <num.2>, <num.3>(와)과 같이 4개의 자연수를 규칙에 맞게 늘어놓았습니다. <unknown.0>(은)는 무엇입니까?
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: arithmetic_prog(4, 'num'); replace_unknown('num', 'unknown')
 

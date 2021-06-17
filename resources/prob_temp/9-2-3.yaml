@@ -6,9 +6,9 @@ problem: >
   <name.4>(은)는 <name.3>보다 큽니다.
   가장 큰 크기의 상자를 구하시오.
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: None
 

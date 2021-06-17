@@ -1,9 +1,9 @@
 problem: >
  두 개의 두 자리 수를 더하는 식 <equation.0>에서 <unknown.0>에 들어갈 숫자를 구하시오.
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: gen_expr(2,2,'+','equation','unknown')
 

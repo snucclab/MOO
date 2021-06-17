@@ -5,9 +5,9 @@ problem: >
   이렇게 총 4종의 동물들이 있습니다.
   크기가 가장 큰 동물은 어떤 동물일까요?
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: None
 

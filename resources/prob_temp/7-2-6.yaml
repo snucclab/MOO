@@ -1,8 +1,8 @@
 problem: <num.0>, <num.1>, <num.2>, <num.3>, <num.4>(와)과 같이 자연수 5개를 순서대로 나열하였습니다. <unknown.0>(은)는 어떤 수가 되어야 하는지 구하시오.
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: arithmetic_prog(5, 'num'); replace_unknown('num', 'unknown')
 

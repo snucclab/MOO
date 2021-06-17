@@ -1,9 +1,9 @@
 problem: >
 두 자리 수와 두 자리 수의 덧셈식 <equation.0>에서 <unknown.0>에 해당하는 숫자는 무엇입니까?
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: gen_expr(2,2,'+','equation','unknown')
 

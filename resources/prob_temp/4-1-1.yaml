@@ -14,7 +14,7 @@ variable-sampling:
     under-decimal: 0
     type: float
 
-list-sampling: None
+list-sampling: null
 
 fuction-call: None
 

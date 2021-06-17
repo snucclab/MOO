@@ -5,9 +5,9 @@ problem: >
   <name.3>보다 <name.1>의 인원이 적습니다.
   가장 큰 인원수인 그룹은 무엇일까요?
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: None
 

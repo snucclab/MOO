@@ -1,9 +1,9 @@
 problem: >
  두 자리 수를 더하는 식 <equation.0>(이)가 있습니다. 여기서 <unknown.0>에 해당하는 숫자는 무엇입니까?
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: gen_expr(2,2,'+','equation','unknown')
 

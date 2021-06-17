@@ -33,7 +33,7 @@ variable-sampling:
     under-decimal: 10
     type: int
 
-list-sampling: None
+list-sampling: null
 
 function-call: None
 

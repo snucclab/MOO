@@ -1,8 +1,8 @@
 problem: 자연수 5개를 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>(와)과 같이 규칙적으로 배열했습니다. <unknown.0>(을)를 구하시오.
 
-variable-sampling: None
+variable-sampling: null
 
-list-sampling: None
+list-sampling: null
 
 function-call: arithmetic_prog(5, 'num'); replace_unknown('num', 'unknown')
 

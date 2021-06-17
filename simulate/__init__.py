@@ -11,6 +11,7 @@ from common.simulate.types import Problem
 from common.sys.convert import tokenize_string
 from simulate.func import *
 
+
 def yaml_loader(filepath):
     with open(filepath, "r") as file_descriptor:
         data = yaml.safe_load(file_descriptor)
@@ -18,7 +19,7 @@ def yaml_loader(filepath):
 
 
 def _check_is_not_none(value):
-    return value != 'None'
+    return value is not None
 
 
 class Simulator:
@@ -27,11 +28,10 @@ class Simulator:
     def prob_gen(self, template: Dict) -> [str, str]:
 
         problem = template['problem']
-        func_call = template.get('function-call', 'None')  # TODO fix
+        func_call = template.get('function-call', None)
 
         RESULT = {}
 
-        ### Template에서 variable-sampling이 Null로 바뀔 때, is not None으로 교정할 것(#rsk)
         if _check_is_not_none(template['variable-sampling']):
             for i, (item_name, item_value) in enumerate(template['variable-sampling'].items()):
                 item_range = item_value['range'].copy()
@@ -41,7 +41,6 @@ class Simulator:
                         temp_keys = re.findall(r'<\w+\.\d+>', value)
                         for key in temp_keys:
                             value = value.replace(key, RESULT[key])
-                        print(value)
                         item_range[j] = eval(value)
 
                 if item_value['type'] == 'int':
@@ -51,7 +50,6 @@ class Simulator:
                 RESULT['<' + item_name + '>'] = str(sampled)
 
         if _check_is_not_none(func_call):
-            RESULT = {}
             for command in func_call.split(';'):
                 for key, value in RESULT.items():
                     command = command.replace(key, value)

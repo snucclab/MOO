@@ -8,7 +8,7 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: None
+list-sampling: null
 
 function-call: rep_prog(5,'num')
 
