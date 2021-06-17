@@ -1,4 +1,4 @@
-problem: <num.0>(와)과 <num.1>(으)로 나눈 나머지가 0인 두 자리 수는 총 몇 개입니까?
+problem: <num.0>, <num.1> 두 개의 수로 나눈 나머지가 0인 두 자리 수는 총 몇 개입니까?
 
 variable-sampling:
   num.0:

@@ -1,4 +1,4 @@
-problem: 4개의 수 <num.0>, <num.1>, <num.2>, <num.3>(으)로 나누어 떨어지는 네 자리 수의 개수를 구하시오.
+problem: 4개의 수 <num.0>, <num.1>, <num.2>, <num.3> 에 의해 나누어 떨어지는 네 자리 수의 개수를 구하시오.
 
 variable-sampling:
   num.0:
