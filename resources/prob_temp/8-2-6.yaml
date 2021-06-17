@@ -1,0 +1,44 @@
+problem: >
+  급식실에서 간식을 지급하기 위해 음식들을 식탁 위에 늘어놓았습니다.
+  <position.0>(으)로부터 <food.0> <num.0>개, <food.1> <num.1>개, <food.2> <num.2>개가 계속해서 반복되면서 늘어서 있습니다.
+  이때 <num.3>번째로 놓여져 있는 음식은 무엇입니까?
+
+
+variable-sampling: 
+  num.0:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [num.0+num.1+num.2, 100]
+    under-decimal: 0
+    type: int
+
+list-sampling: 
+  position.0: ['앞' ,'왼쪽', '오른쪽']
+
+function-call: None
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R0,<food.0>)
+  R2: LIST_MUL(R1,<num.0>)
+  R3: LIST()
+  R4: APPEND(R3,<food.1>)
+  R5: LIST_MUL(R4,<num.1>)
+  R6: LIST()
+  R7: APPEND(R6,<food.2>)
+  R8: LIST_MUL(R7,<num.2>)
+  R9: LIST_CONCAT(R2,R5)
+  R10: LIST_CONCAT(R9,R8)
+  R11: LIST_CONCAT(R10,R10)
+  R12: REP_SEQ_TERM(R11,<num.3>)
+  R13: PRINT(R12)"
