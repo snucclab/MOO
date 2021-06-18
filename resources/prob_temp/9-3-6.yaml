@@ -1,7 +1,7 @@
 problem: >
-  <propername.0>은 <family.0>(와)과 게임을 하는데, <num.6>보다 큰 수가 몇 개인지 찾으려고 합니다.
+  <propername.0>(은)는 <family.0>(와)과 게임을 하는데, <num.6>보다 큰 수가 몇 개인지 찾으려고 합니다.
   보기에는 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5>(이)가 있습니다.
-  <propername.0>과 <family.0>(은)는 몇 개를 찾았을까요?
+  <propername.0>(와)과 <family.0>(은)는 몇 개를 찾았을까요?
 
 variable-sampling:
   num.0:
