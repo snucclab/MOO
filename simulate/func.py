@@ -141,6 +141,15 @@ def eval_expression(expr: str, out_prefix: str, result: dict):
     result['<%s.0>' % out_prefix] = str(eval(expr))
 
 
+def different_number(begin: int, to: int, size: int, prefix: str, result: dict):
+    items = list(range(begin, to))
+    random.shuffle(items)
+    items = items[:size]
+
+    for i, n in enumerate(items):
+        result['<%s.%s>' % (prefix, i)] = n
+
+
 __all__ = [
     'arithmetic_prog',
     'difference_prog',
