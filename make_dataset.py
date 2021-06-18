@@ -11,9 +11,9 @@ from common.sys.key import QUESTION, ANSWER, EQUATION, EXECUTION
 from common.sys.pattern import *
 from evaluate import Executor
 from simulate import Simulator
-from yaml import load as yaml_load, safe_load
+from yaml import dump as yaml_dump
 from json import dump as json_save
-from random import shuffle, seed
+from random import seed
 
 from solver import python_code_to_executions, execution_to_python_code
 
@@ -118,6 +118,12 @@ if __name__ == '__main__':
         for key, split in splits.items():
             with (experiments / key).open('w+t', encoding='UTF-8') as fp:
                 fp.writelines([line + '\n' for line in split])
+        # (5) dataset.yaml
+        with (output / 'dataset.yaml').open('w+t', encoding='UTF-8') as fp:
+            obj_to_write = [{QUESTION: prob.text, ANSWER: prob.answer,
+                                       EQUATION: prob.code, 'id': key, 'template': prob.template}
+                            for key, prob in problems.items()]
+            yaml_dump(obj_to_write, fp, allow_unicode=True, default_style='|', line_break=True)
     finally:
         # Finalize the executor
         executor.close()
