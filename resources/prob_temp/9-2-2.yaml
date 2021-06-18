@@ -1,7 +1,7 @@
 problem: >
   <animal.0> 크기는 <animal.1> 보다 작습니다.
-  <animal.3> 크기는 <animal.4> 보다 큽니다.
-  <animal.4> 크기는 <animal.2> 보다 큽니다.
+  <animal.2> 크기는 <animal.1> 보다 큽니다.
+  <animal.3> 크기는 <animal.2> 보다 큽니다.
   이렇게 총 4종의 동물들이 있습니다.
   크기가 가장 큰 동물은 어떤 동물일까요?
 
@@ -11,14 +11,24 @@ list-sampling: null
 
 function-call: null
 
-
 equations:
   "R0: LIST()
-  R1: MAKE_PAIR(<animal.0>,<animal.1>)
-  R2: APPEND(R0,R1)
-  R3: MAKE_PAIR(<animal.4>,<animal.3>)
-  R4: APPEND(R2,R3)
-  R5: MAKE_PAIR(<animal.2>,<animal.4>)
-  R6: APPEND(R4,R5)
-  R7: MAX(R6)
-  R8: PRINT(R7)"
+  R1: APPEND(R0,<animal.0>)
+  R2: APPEND(R1,<animal.1>)
+  R3: APPEND(R2,<animal.2>)
+  R4: APPEND(R3,<animal.3>)
+  R5: LIST()
+  R6: LIST_INDEX(R4,<animal.0>)
+  R7: MAKE_PAIR(<animal.0>,R6)
+  R8: APPEND(R5,R7)
+  R9: LIST_INDEX(R4,<animal.1>)
+  R10: MAKE_PAIR(<animal.1>,R9)
+  R11: APPEND(R8,R10)
+  R12: LIST_INDEX(R4,<animal.2>)
+  R13: MAKE_PAIR(<animal.2>,R12)
+  R14: APPEND(R11,R13)
+  R15: LIST_INDEX(R4,<animal.3>)
+  R16: MAKE_PAIR(<animal.3>,R15)
+  R17: APPEND(R14,R16)
+  R18: MIN(R17)
+  R19: PRINT(R18)"
