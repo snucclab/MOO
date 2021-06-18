@@ -2,7 +2,7 @@ problem: 각각 <num.0>개 이상의 같은 <ball.0>, <ball.1>, <ball.2> 중에�
 
 variable-sampling:
   num.0:
-    range: [ 2, 10000 ]
+    range: [ 5, 50 ]
     under-decimal: 0
     type: int
   num.1:

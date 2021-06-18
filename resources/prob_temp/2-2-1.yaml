@@ -1,22 +1,18 @@
 problem: >
- <event.0>에서 <person.0>의 등수는 <num.0><rank.0>(이)고 <person.1>의 등수는 <num.1><rank.0>입니다.
-  <person.2>(은)는 <person.0>보다는 못했지만 <person.1>보다는 잘했습니다.
-  <person.2>(은)는 몇 <rank.0>(으)로 들어왔습니까?
+ <event.0>에서 <person.0> 등수는 <num.0><rank.0>(이)고 <person.1> 등수는 <num_rank.0><rank.0>입니다.
+  <person.2> 등수는 <person.0>보다는 못했지만 <person.1> 보다는 잘했습니다.
+  <person.2> 등수는 몇 <rank.0>(으)로 들어왔습니까?
 
 variable-sampling:
   num.0:
     range: [1, 9]
     under-decimal: 0
     type: int
-  num.1:
-    range: <num.0>+2
-    under-decimal: 0
-    type: int
 
 list-sampling:
   rank.0: ['등', '번째']
 
-function-call: None
+function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations: 
   "R0: LIST()

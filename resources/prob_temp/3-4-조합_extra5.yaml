@@ -2,7 +2,7 @@ problem: 서로 구별되지 않는 <num.0>개의 <ball.0>(을)를 서로 다른
 
 variable-sampling:
   num.0:
-    range: [ 2, 80 ]
+    range: [ 5, 50 ]
     under-decimal: 0
     type: int
   num.1:

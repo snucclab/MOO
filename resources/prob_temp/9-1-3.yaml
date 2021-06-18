@@ -47,7 +47,7 @@ equations:
   R10: SUM(R9)
   R11: MAKE_PAIR(<propername.1>,R10)
   R12: LIST()
-  R13: APPEND(R12,R6)
+  R13: APPEND(R12,R5)
   R14: APPEND(R13,R11)
   R15: MIN(R14)
   R16: PRINT(R15)"

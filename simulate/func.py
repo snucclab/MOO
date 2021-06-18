@@ -147,7 +147,7 @@ def different_number(begin: int, to: int, size: int, prefix: str, result: dict):
     items = items[:size]
 
     for i, n in enumerate(items):
-        result['<%s.%s>' % (prefix, i)] = n
+        result['<%s.%s>' % (prefix, i)] = str(n)
 
 
 __all__ = [

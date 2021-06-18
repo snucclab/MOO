@@ -1,6 +1,6 @@
 problem: >
  <event.0>에서 <person.0>(은)는 <num.0><rank.0>(을)를 했고,
-  <person.1>(은)는 <num.1><rank.0>(을)를 했습니다.
+  <person.1>(은)는 <num_rank.0><rank.0>(을)를 했습니다.
   <person.2>(은)는 <person.0>보다는 일찍, 하지만 <person.1>보다는 늦게 들어왔다면, 
   <person.2>(은)는 몇 <rank.0>(을)를 했는지 구하시오.
 
@@ -9,15 +9,11 @@ variable-sampling:
     range: [3, 15]
     under-decimal: 0
     type: int
-  num.1:
-    range: <num.0>-2
-    under-decimal: 0
-    type: int
 
 list-sampling:
   rank.0: ['등', '번째']
 
-function-call: None
+function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:
   "R0: LIST()
@@ -29,7 +25,7 @@ equations:
   R6: CONCAT(R5,R1)
   R7: CONCAT(R3,R6)
   R8: INDEX(R7,<person.2>)
-  R9: ADD(<num.1>,R8)
+  R9: ADD(<num_rank.0>,R8)
   R10: PRINT(R9)"
 
 
