@@ -1,8 +1,8 @@
 problem: >
  <event.0>에서 <person.0>(은)는 <num.0><rank.0>(을)를 했고,
-  <person.1>(은)는 <num_rank.0><rank.0>(을)를 했습니다.
-  <person.2>(은)는 <person.0>보다는 일찍, 그러나 <person.1>보다는 늦게 들아왔습니다.
-  <person.2>(은)는 몇 <rank.0>(을)를 했는지 구하시오.
+  <person.1> 순위는 <num.1><rank.0>(을)를 했습니다.
+  <person.2> 순위는 <person.0> 보다는 높지만, 그러나 <person.1> 보다는 낮습니다.
+  <person.2> 순위가 몇 <rank.0>인지 구하시오.
 
 variable-sampling:
   num.0:

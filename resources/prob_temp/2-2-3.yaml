@@ -1,8 +1,8 @@
 problem: >
- <event.0>에서 <person.0>(은)는 <num.0><rank.0>(으)로,
-  <person.1>(은)는 <num_rank.0><rank.0>(으)로 도착했습니다.
-  <person.2>(은)는 <person.1>(이)가 도착한 후, 그리고 <person.0>(이)가 도착하기 전에 도착했습니다.
-  <person.2>의 등수를 구하시오.
+ <event.0>에서 <person.0> 등수는 <num.0><rank.0>(으)로,
+  <person.1> 등수는 <num.1><rank.0>입니다.
+  <person.1> 도착 후, 그리고 <person.0> 도착 전의 등수가 <person.2> <rank.0>입니다.
+  <person.2> 등수를 구하시오.
 
 variable-sampling:
   num.0:
@@ -17,11 +17,11 @@ function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:
   "R0: LIST()
-  R1: APPEND(R0,<person.0>) 
+  R1: APPEND(R0,<person.0>)
   R2: LIST()
-  R3: APPEND(R2,<person.1>) 
+  R3: APPEND(R2,<person.1>)
   R4: LIST()
-  R5: APPEND(R5,<person.2>) 
+  R5: APPEND(R5,<person.2>)
   R6: CONCAT(R5,R1)
   R7: CONCAT(R3,R6)
   R8: INDEX(R7,<person.2>)

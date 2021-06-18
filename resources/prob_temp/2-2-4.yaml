@@ -1,8 +1,8 @@
 problem: >
   <place.0> <event.0>에서 <person.0>(은)는 <num.0><rank.0>(을)를,
-  <person.1>(은)는 <num_rank.0><rank.0>(을)를 기록했습니다.
-  <person.2>(은)는 <person.0>(와)과 <person.1> 사이에 들어왔습니다.
-  <person.2>의 등수는 몇 <rank.0>입니까?
+  <num.0><rank.0>(이)가 <person.1> 기록으로 알려졌습니다.
+  <person.2> 기록은 <person.0> 기록과 <person.1> 사이로 알려졌습니다.
+  <person.2> 기록은 몇 <rank.0>입니까?
 
 variable-sampling:
   num.0:
