@@ -18,7 +18,7 @@ variable-sampling:
     under-decimal: 10
     type: int
   num.4:
-    range: [ 0, 1000 ]
+    range: [ 1, 10000 ]
     under-decimal: 0
     type: int
 
