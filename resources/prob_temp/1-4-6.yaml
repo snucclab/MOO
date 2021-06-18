@@ -24,10 +24,10 @@ variable-sampling:
     range: [ 2, 3]
     under-decimal: 0
     type: int  
-list-sampling: null
+list-sampling:
+  flower.0: ['장미', '백합', '튤립', '카네이션', '국화']
 
-function-call:
-  flower: ['장미', '백합', '튤립', '카네이션', '국화']
+function-call: null
 
 equations:
   "R0: LIST()
