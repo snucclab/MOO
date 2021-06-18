@@ -30,5 +30,5 @@ equations:
   R15: LIST_INDEX(R4,<animal.3>)
   R16: MAKE_PAIR(<animal.3>,R15)
   R17: APPEND(R14,R16)
-  R18: MIN(R17)
+  R18: MAX(R17)
   R19: PRINT(R18)"
