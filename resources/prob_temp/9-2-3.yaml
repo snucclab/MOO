@@ -3,7 +3,7 @@ problem: >
   <name.1> 크기는 <name.3>보다 큽니다.
   <name.0> 크기는 <name.3>보다 작습니다.
   <name.1> 크기는 <name.2>보다 작습니다.
-  <name.4> 크기는 <name.3>보다 큽니다.
+  <name.4> 크기는 <name.3>보다 크고 <name.1>보다 작습니다.
   가장 큰 크기의 상자를 구하시오.
 
 variable-sampling: null
@@ -15,11 +15,26 @@ function-call: null
 
 equations:
   "R0: LIST()
-  R1: MAKE_PAIR(<name.3>,<name.1>)
-  R2: APPEND(R0,R1)
-  R3: MAKE_PAIR(<name.0>,<name.3>)
-  R4: APPEND(R2,R3)
-  R5: MAKE_PAIR(<name.1>,<name.2>)
-  R6: APPEND(R4,R5)
-  R7: MAX(R6)
-  R8: PRINT(R7)"
+  R1: APPEND(R0,<name.0>)
+  R2: APPEND(R1,<name.3>)
+  R3: APPEND(R2,<name.4>)
+  R4: APPEND(R3,<name.1>)
+  R5: APPEND(R3,<name.2>)
+  R6: LIST()
+  R7: LIST_INDEX(R5,<name.0>)
+  R8: MAKE_PAIR(<name.0>,R7)
+  R9: APPEND(R6,R8)
+  R10: LIST_INDEX(R5,<name.3>)
+  R11: MAKE_PAIR(<name.3>,R9)
+  R12: APPEND(R9,R11)
+  R13: LIST_INDEX(R5,<name.4>)
+  R14: MAKE_PAIR(<name.4>,R13)
+  R15: APPEND(R12,R14)
+  R16: LIST_INDEX(R5,<name.1>)
+  R17: MAKE_PAIR(<name.1>,R16)
+  R18: APPEND(R15,R17)
+  R19: LIST_INDEX(R5,<name.2>)
+  R20: MAKE_PAIR(<name.2>,R19)
+  R21: APPEND(R18,R20)
+  R22: MAX(R21)
+  R23: PRINT(R22)"
