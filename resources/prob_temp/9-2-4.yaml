@@ -12,11 +12,18 @@ function-call: null
 
 equations:
   "R0: LIST()
-  R1: MAKE_PAIR(<color.0>,<color.1>)
-  R2: APPEND(R0,R1)
-  R3: MAKE_PAIR(<color.2>,<color.1>)
-  R4: APPEND(R2,R3)
-  R5: MAKE_PAIR(<color.0>,<color.2>)
-  R6: APPEND(R4,R5)
-  R7: MIN(R6)
-  R8: PRINT(R7)"
+  R1: APPEND(R0,<color.0>)
+  R2: APPEND(R1,<color.2>)
+  R3: APPEND(R2,<color.1>)
+  R4: LIST()
+  R5: LIST_INDEX(R3,<color.0>)
+  R6: MAKE_PAIR(<color.0>,R5)
+  R7: APPEND(R4,R6)
+  R8: LIST_INDEX(R3,<color.2>)
+  R9: MAKE_PAIR(<color.2>,R8)
+  R10: APPEND(R7,R9)
+  R11: LIST_INDEX(R3,<color.1>)
+  R12: MAKE_PAIR(<color.1>,R11)
+  R13: APPEND(R10,R12)
+  R14: MIN(R13)
+  R15: PRINT(R14)"
