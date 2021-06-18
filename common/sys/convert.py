@@ -26,7 +26,8 @@ def tokenize_string(text: str) -> List[str]:
     # 숫자, 변수, 고유명사 및 연산자 앞뒤로 space 추가
     text = PROPERNOUN_PATTERN.sub(' \\1 ', text)
     text = SPACING_PATTERN.sub(' \\1 ', text)
-    text = KOREAN_PUNCT_PATTERN.sub('\\1 \\2', text)
+    text = KOREAN_PUNCT_PATTERN.sub('\\1 \\2', text) + ' '
+    text = KOREAN_JOSA_PATTERN.sub('\\1 \\2 \\3', text)
 
     # Space 여러개인 경우 하나로 통일
     text = re.sub('\\s+', ' ', text.strip())

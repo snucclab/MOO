@@ -8,7 +8,7 @@ variable-sampling: null
 list-sampling:
   drink.0: ['삼다수', '코카콜라']
   drink.1: ['게토레이', '파워에이드']
-  drink.2: ['스프라이트', '사이다', '펩시', '아이시스']
+  drink.2: ['스프라이트', '마운틴듀', '펩시', '아이시스', '닥터페퍼']
 
 function-call: null
 
