@@ -1,5 +1,5 @@
 problem: >
-  자연수 <unknown.0>(을)를 <num.0>(으)로 나누면 자연수인 몫 <unknown.1>(와)과 자연수인 몫 <unknown.2>(을)를 얻을 수 있습니다.
+  자연수 <unknown.0>(을)를 <num.0>(으)로 나누면 자연수인 몫 <unknown.1>(와)과 자연수인 나머지 <unknown.2>(을)를 얻을 수 있습니다.
   이 때 몫과 나머지는 같은 값을 가집니다. 가능한 <unknown.0> 중 가장 큰 수를 구하시오.
 
 variable-sampling:
