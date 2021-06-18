@@ -1,5 +1,5 @@
 problem: >
-  <place.0> <event.0>에서 <person.0>(은)는 <num.0><rank.0>(을)를,
+  <place.0> <event.0>에서 <person.0> 기록은 <num.0><rank.0>(으)로 알려졌고,
   <num_rank.0><rank.0>(이)가 <person.1> 기록으로 알려졌습니다.
   <person.2> 기록은 <person.0> 기록과 <person.1> 사이로 알려졌습니다.
   <person.2> 기록은 몇 <rank.0>입니까?
