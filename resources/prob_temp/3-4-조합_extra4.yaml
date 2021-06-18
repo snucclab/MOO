@@ -1,4 +1,4 @@
-problem: <num.0>개의 문자에서 중복을 허용하여 <num.1>개의 문자를 택하는 방법의 수를 구하시오.
+problem: <num.0>개의 <ball.0>에서 중복을 허용하여 <num.1>개의 <ball.0>(을)를 택하는 방법의 수를 구하시오.
 
 variable-sampling:
   num.0:

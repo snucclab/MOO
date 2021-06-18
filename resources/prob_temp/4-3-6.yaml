@@ -1,4 +1,4 @@
-problem: 네 자리 수에서, 3개의 수 <num.0>, <num.1>, <num.2> 로 나누어 떨어질 수 있는 수는 몇 개가 있을까요?
+problem: 네 자리 자연수 중에서, 3개의 수 <num.0>, <num.1>, <num.2> 로 나누어 떨어질 수 있는 수는 몇 개가 있을까요?
 
 variable-sampling:
   num.0:
