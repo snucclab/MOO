@@ -2,27 +2,11 @@ problem: >
   숫자 <num.0>, <num.1>, <num.2>, <num.3>(이)가 있는데, 한 번씩만 사용해서 네 자리 수를 만들 계획입니다.
   네 자리 수를 만들 수 있는 모든 경우의 수를 계산하세요.
 
-variable-sampling:
-  num.0:
-    range: [ 1, 9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 1, 9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 1, 9 ]
-    under-decimal: 0
-    type: int
-  num.3:
-    range: [ 1, 9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling: null
 
-function-call: null
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
   "R0: LIST()
