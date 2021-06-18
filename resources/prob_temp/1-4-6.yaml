@@ -26,7 +26,8 @@ variable-sampling:
     type: int  
 list-sampling: null
 
-function-call: null
+function-call:
+  flower: ['장미', '백합', '튤립', '카네이션', '국화']
 
 equations:
   "R0: LIST()
