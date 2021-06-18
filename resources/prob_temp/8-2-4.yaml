@@ -20,7 +20,9 @@ variable-sampling:
     type: int
 
 list-sampling:
-  animal: ['오리', '닭', '거위', '비둘기', '병아리']
+  animal.0: ['오리', '닭']
+  animal.1: ['닭', '거위']
+  animal.2: ['비둘기', '병아리']
 
 function-call: null
 
