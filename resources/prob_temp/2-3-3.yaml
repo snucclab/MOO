@@ -14,7 +14,7 @@ variable-sampling:
     type: int
 
 list-sampling:
-  position: ['앞', '뒤']
+  position.0: ['앞', '뒤']
 
 equations:
   "R0: SUB(<num.0>,<num.1>)
