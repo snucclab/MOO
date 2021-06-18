@@ -1,7 +1,6 @@
 problem: >
-  <position.0>부터 <food.0> <num.0>개, <food.1> <num.1>개, <food.2> <num.2>개가 연이어 놓여 있습니다.
+  <position.0>(으)로부터 <food.0> <num.0>개, <food.1> <num.1>개, <food.2> <num.2>개가 연이어 놓여 있습니다.
   <num.3>번째로 놓여있는 음식은 무엇인지 답하시오.
-
 
 variable-sampling: 
   num.0:
@@ -21,7 +20,8 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: null
+list-sampling:
+  position.0 : ['왼쪽', '오른쪽']
 
 function-call: null
 

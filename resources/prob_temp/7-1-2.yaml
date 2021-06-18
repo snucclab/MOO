@@ -1,7 +1,7 @@
 problem: >
   <num.0>, <num.1>, <num.2>, <num.3>처럼 수를 연속해서 늘어놓았습니다.
   <num.4>번째 수는 <unknown.0>(이)고 <num.5>번째 수는 <unknown.1>입니다.
-  <unknown.1>-<unknown.0>(은)는 어떤 수인찌 구하시오.
+  <unknown.1>-<unknown.0>(은)는 어떤 수인지 구하시오.
 
 variable-sampling:
   num.4:

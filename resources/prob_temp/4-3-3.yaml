@@ -2,19 +2,19 @@ problem: <num.0>, <num.1>, <num.2>, <num.3> 4개의 수로 나누어 떨어지�
 
 variable-sampling:
   num.0:
-    range: [2, 3]
+    range: [1, 3]
     under-decimal: 0
     type: int
   num.1:
-    range: [4, 5]
+    range: [3, 5]
     under-decimal: 0
     type: int
   num.2:
-    range: [6, 7]
+    range: [5, 7]
     under-decimal: 0
     type: int
   num.3:
-    range: [8, 9]
+    range: [7, 9]
     under-decimal: 0
     type: int
 

@@ -1,7 +1,7 @@
 problem: >
   어떤 <place.0>에서  <stationary.0> 한 개를 구매하면 <stationary.1> <num.0>개를 사은품으로 줍니다.
   <person.0>(이)가 이곳에서 <stationary.0>(을)를 <num.1>개 구매하였다면
-  <person.0>(이)가 사은픔으로 받게 되는 <stationary.1>(은)는 몇 개일까요?
+  <person.0>(이)가 사은품으로 받게 되는 <stationary.1>(은)는 몇 개일까요?
 
 variable-sampling:
   num.0:
@@ -14,6 +14,7 @@ variable-sampling:
     type: int
 
 list-sampling:
+  place.0: ['서점', '마트', '문구점']
   stationary.0 : ['연필', '색연필', '지우개', '공책', '도화지', '색종이', '풀', '테이프', '바둑돌', '구슬', '나무토막', '장난감', '필통', '샤프', '샤프심', '핸드폰', '카드']
   stationary.1 : ['상자', '책장', '책꽂이', '서랍','필통']
 

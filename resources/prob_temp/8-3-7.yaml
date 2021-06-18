@@ -1,6 +1,6 @@
 problem: >
   <num.0><currency.0>짜리 지폐로 <propername.0>, <propername.1>, <propername.2>, <propername.3> 4인에게 각각 <value.0><currency.0>씩을 돌아가면서 지급합니다.
-  지급하는 금액의 액수가 총 <num.2><currency.0>라면, <num.3>번째 지폐는 누가 받게 됩니까?
+  지급하는 금액의 액수가 총 <num.2><currency.0>(을)를 나눠줄 때, <num.3>번째 지폐는 누가 받게 됩니까?
 
 variable-sampling:
   num.0:

@@ -1,6 +1,6 @@
 problem: >
-  수가 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5>, <num.6> 총 7개 있습니다.
-  보기에서 <num.7>보다 큰 수는 총 몇 개일까요?
+  수들이 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5>, <num.6> 총 7개가 주어져 있습니다.
+  이때, <num.7>보다 큰 수는 총 몇 개일까요?
 
 variable-sampling:
   num.0:

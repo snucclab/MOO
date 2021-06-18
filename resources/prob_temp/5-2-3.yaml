@@ -1,6 +1,6 @@
 problem: >
   자연수의 나눗셈 <unknown.0> 나누기 <num.0>(을)를 하면 같은 값의 나머지와 몫, <unknown.1>(와)과 <unknown.2>(이)가 나옵니다.
-  이 때 나누어지는 수 <unknown.0>의 최대값을 구하시오.
+  이 때 나누어지는 수 <unknown.0>의 최댓값을 구하시오.
 
 variable-sampling:
   num.0:
