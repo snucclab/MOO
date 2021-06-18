@@ -1,7 +1,7 @@
 problem: >
   <propername.0>(은)는 자기 집에 있는 동갑인 <pet.0> 4 마리의 몸무게를 재어 표준 몸무게를 넘으면 다이어트를 시키려고 합니다.
   각 <pet.0>의 몸무게는 <num.0>, <num.1>, <num.2>, <num.3>kg 입니다.
-  그 나이의 표준 몸무게가 <num.4>kg이라고 할 때, <num.4>보다 큰 몸무게를 지닌 <pet.0>의 개수는?
+  그 나이의 표준 몸무게가 <num.4>kg이라고 할 때, <num.4>보다 큰 몸무게를 지닌 <pet.0>의 마리 수는?
 
 variable-sampling:
   num.0:
@@ -21,7 +21,7 @@ variable-sampling:
     under-decimal: 10
     type: float
   num.4:
-    range: [ 3, 10 ]
+    range: [ 3, 6 ]
     under-decimal: 0
     type: int
 
@@ -36,6 +36,6 @@ equations:
   R2: APPEND(R1,<num.1>)제
   R3: APPEND(R2,<num.2>)
   R4: APPEND(R3,<num.3>)
-  R5: LT(R4,<num.4>)
+  R5: GT(R4,<num.4>)
   R6: SUM(R5)
   R7: PRINT(R6)"

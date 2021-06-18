@@ -1,31 +1,31 @@
 problem: >
-  <propername.0>(은)는 <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 숫자 카드 4개를 소유하고 있습니다.
-  <propername.1>(은)는 <num.4>(와)과 <num.5>(이)가 적힌 숫자 카드를 소유하고 있습니다.
+  <propername.0>(은)는 <num.0>, <num.1>, <num.2>(이)가 적힌 숫자 카드 3개를 소유하고 있습니다.
+  <propername.1>(은)는 <num.3>, <num.4>(와)과 <num.5>(이)가 적힌 숫자 카드를 소유하고 있습니다.
   두 사람 중 카드에 적힌 숫자들의 합이 더 작은 사람은 누구입니까?
 
 variable-sampling:
   num.0:
-    range: [ 1, 10000 ]
+    range: [ 1, 100 ]
     under-decimal: 0
     type: int
   num.1:
-    range: [ 1, 10000 ]
+    range: [ 1, 100 ]
     under-decimal: 0
     type: int
   num.2:
-    range: [ 1, 10000 ]
+    range: [ 1, 100 ]
     under-decimal: 0
     type: int
   num.3:
-    range: [ 1, 10000 ]
+    range: [ 1, 100 ]
     under-decimal: 0
     type: int
   num.4:
-    range: [ 1, 10000 ]
+    range: [ 1, 100 ]
     under-decimal: 0
     type: int
   num.5:
-    range: [ 1, 10000 ]
+    range: [ 1, 100 ]
     under-decimal: 0
     type: int
 
@@ -38,10 +38,10 @@ equations:
   R1: APPEND(R0,<num.0>)
   R2: APPEND(R1,<num.1>)
   R3: APPEND(R2,<num.2>)
-  R4: APPEND(R3,<num.3>)
-  R5: SUM(R4)
-  R6: MAKE_PAIR(<propername.0>,R5)
-  R7: LIST()
+  R4: SUM(R3)
+  R5: MAKE_PAIR(<propername.0>,R4)
+  R6: LIST()
+  R7: APPEND(R6,<num.3>)
   R8: APPEND(R7,<num.4>)
   R9: APPEND(R8,<num.5>)
   R10: SUM(R9)
@@ -49,5 +49,5 @@ equations:
   R12: LIST()
   R13: APPEND(R12,R6)
   R14: APPEND(R13,R11)
-  R15: MAX(R14)
+  R15: MIN(R14)
   R16: PRINT(R15)"
