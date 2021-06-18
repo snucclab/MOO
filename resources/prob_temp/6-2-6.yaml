@@ -11,7 +11,7 @@ variable-sampling: null
 
 list-sampling: null
 
-function-call: interchange_pair(3,100,10,"i_num");errorpair(4,1,"e_num");eval_expression("<e_num.1>-<i_num.1>","num");eval_expression("<e_num.0>%10","e_digit")
+function-call: interchange_pair(3,100,10,"i_num");errorpair(4,10,"e_num");eval_expression("<e_num.1>-<i_num.1>","num");eval_expression("<e_num.0>%10","e_digit")
 
 equations:
   "R0: SUB(<num.0>, <i_num.1>)
