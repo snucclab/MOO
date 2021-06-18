@@ -79,7 +79,7 @@ if __name__ == '__main__':
                 if NUMBER_PATTERN.fullmatch(item.executed):
                     assert '.' not in item.executed or UNDER_TWO_DIGIT.fullmatch(item.executed) is not None, \
                         '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(정수이거나 소숫점 이하 두자리)에 맞지 않습니다(Template %s).' % \
-                        (item.template, item.executed)
+                        (item.executed, item.template)
                 elif FRACTION_PATTERN.fullmatch(item.executed) is None:
                     assert ALL_KOREAN_PATTERN.fullmatch(item.executed) is not None, \
                         '출력된 답 "%s"(이)가 대회에서 지정한 출력 형식(텍스트인 경우 기타 기호 없이 한글만)에 맞지 않습니다(Template %s).' % \

@@ -4,7 +4,7 @@ PROPERNOUN_PATTERN = re.compile('(\\([가나다라마바사아자차카타파하
 VARIABLE_PATTERN = re.compile('([A-Z])')
 NUMBER_PATTERN = re.compile('((?:\\+|-)?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)')
 FRACTION_PATTERN = re.compile('((?:\\+|-)?\\d+/\\d+)')
-UNDER_TWO_DIGIT = re.compile('(\\d+(?:\\.\\d{2})?)')
+UNDER_TWO_DIGIT = re.compile('(-?\\d+(?:\\.\\d{2})?)')
 OPERATOR_PATTERN = re.compile('(-|\\+|\\*+|/+|%|=|\\^)')
 ALL_KOREAN_PATTERN = re.compile('[가-힣]+')
 KOREAN_PUNCT_PATTERN = re.compile('([가-힣]+)([.,?!])')
