@@ -19,4 +19,4 @@ equations:
   R5: APPEND(R4,<num.4>)
   R6: APPEND(R5,<num.5>)
   R7: SEQ_TERM(R6,<num.6>)
-  R5: PRINT(R7)"
+  R8: PRINT(R7)"
