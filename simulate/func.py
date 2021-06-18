@@ -134,7 +134,7 @@ def make_system(mode: str, num: int, eqn_prefix: str, unk_prefix: str, result: d
     result['<%s.0>' % eqn_prefix] = txt_1
     result['<%s.1>' % eqn_prefix] = txt_2
     result['<%s.0>' % unk_prefix] = unk_1
-    result['<%s.1>' % unk_prefix] = unk_1
+    result['<%s.1>' % unk_prefix] = unk_2
 
 
 def eval_expression(expr: str, out_prefix: str, result: dict):
