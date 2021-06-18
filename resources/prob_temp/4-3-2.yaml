@@ -1,16 +1,16 @@
-problem: 수 <num.0>, <num.1>, <num.2> 3개로 나누어 떨어질 수 있는 네 자리 수는 얼마나 됩니까?
+problem: 3개의 수 <num.0>, <num.1>, <num.2> 로 나눈 나머지가 모두 0인 네 자리 수는 총 몇 개 인지 구하시오.
 
 variable-sampling:
   num.0:
-    range: [2, 4]
+    range: [2, 10]
     under-decimal: 0
     type: int
   num.1:
-    range: [5, 7]
+    range: [10, 19]
     under-decimal: 0
     type: int
   num.2:
-    range: [7, 9]
+    range: [19, 24]
     under-decimal: 0
     type: int
 
