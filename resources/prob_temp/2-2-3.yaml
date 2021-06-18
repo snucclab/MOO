@@ -1,6 +1,6 @@
 problem: >
  <event.0>에서 <person.0> 등수는 <num.0><rank.0>(으)로,
-  <person.1> 등수는 <num.1><rank.0>입니다.
+  <person.1> 등수는 <num_rank.0><rank.0>입니다.
   <person.1> 도착 후, 그리고 <person.0> 도착 전의 등수가 <person.2> <rank.0>입니다.
   <person.2> 등수를 구하시오.
 

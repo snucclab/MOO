@@ -1,6 +1,6 @@
 problem: >
  <event.0>에서 <person.0> 순위는 <num.0><rank.0>(을)를 기록됐고,
-  <person.1> 순위는 <num.1><rank.0>(을)를 기록됐습니다.
+  <person.1> 순위는 <num_rank.0><rank.0>(을)를 기록됐습니다.
   <person.2> 순위가 <person.0> 보다는 일찍, 하지만 <person.1> 보다는 늦게 들어온 것으로 기록됐다면,
   <person.2> 순위는 몇 <rank.0>(을)를 기록했는지 구하시오.
 
