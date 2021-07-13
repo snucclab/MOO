@@ -1,0 +1,35 @@
+problem: >
+  임의의 수와 <num.0>(을)를 곱하려고 했으나 실수로 임의의 수와 <num.1>(을)를 곱하여 <num.2>(이)라는 잘못된 값을 얻었습니다.
+  실수를 범하지 않았더라면 어떤 결과가 나올지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 2, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 100 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, <num.0>+<num.1>]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.2>,<num.1>)
+  R1: MUL(R0,<num.0>)
+  R2: PRINT(R1)"
+
+
+
+
+
+
+
+
+

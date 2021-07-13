@@ -1,0 +1,54 @@
+problem: >
+  수들이 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>, <num.5>, <num.6> 총 7개가 주어져 있습니다.
+  이때, <num.7>보다 큰 수는 총 몇 개일까요?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.1:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.2:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.3:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.4:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.5:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.6:
+    range: [ 1, 10000 ]
+    under-decimal: 10
+    type: int
+  num.7:
+    range: [ 0, 5000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: APPEND(R4,<num.4>)
+  R6: APPEND(R5,<num.5>)
+  R7: APPEND(R6,<num.6>)
+  R8: GT(R7,<num.7>)
+  R9: SUM(R8)
+  R10: PRINT(R9)"

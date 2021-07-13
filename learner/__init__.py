@@ -1,6 +1,7 @@
 import math
 import pickle
 from collections import defaultdict
+from decimal import Decimal
 from typing import Optional
 
 from ray.tune.resources import Resources
@@ -14,6 +15,8 @@ from common.model.const import MDL_ENCODER, FLOAT_NAN
 from common.model.loss import SmoothedCrossEntropyLoss
 from common.sys.convert import equation_to_execution
 from common.sys.dataset import *
+from common.sys.key import WORD
+from common.sys.pattern import NUMBER_BEGIN_PATTERN
 from evaluate import Executor
 from model import EPT
 from solver import execution_to_python_code
@@ -33,7 +36,6 @@ class SupervisedTrainer(Trainable):
         self._model: Optional[EPT] = None
         # Tester
         self._tester: Executor = Executor()
-        self._test_rng: Generator = Generator(PCG64(1))
         # Training/Evaluation configuration
         self._train_config: dict = {}
         self._eval_configs: dict = {}
@@ -51,7 +53,7 @@ class SupervisedTrainer(Trainable):
             fp.write('\n--------------------  System specification ---------------------\n')
             fp.write(read_system_spec())
             fp.write('\n-------------------- Trainer configuration ---------------------\n')
-            fp.write(yaml_dump(config))
+            fp.write(yaml_dump(config, allow_unicode=True, default_style='|'))
             fp.write('\n--------------------   Model structure     ---------------------\n')
             fp.write(str(self._model))
             fp.write('\n--------------------   Model parameters    ---------------------\n')
@@ -59,7 +61,7 @@ class SupervisedTrainer(Trainable):
             fp.write('\n'.join([f'{n}: {p}' for n, p in params]))
             fp.write('\nTOTAL: %s\n' % sum([x for _, x in params]))
             fp.write('\n-------------------- Dataset statistics    ---------------------\n')
-            fp.write(yaml_dump(self._dataset.statistics))
+            fp.write(yaml_dump(self._dataset.statistics, allow_unicode=True, default_style='|'))
 
     @classmethod
     def default_resource_request(cls, config: dict) -> Resources:
@@ -100,12 +102,6 @@ class SupervisedTrainer(Trainable):
         if KEY_SCHEDULER in config:
             assert type(config[KEY_SCHEDULER]) is dict
 
-    @classmethod
-    def get_trial_name(cls, config, trial_id):
-        # Naming convention: [Trainer-specific]-[MODEL]-[ID]
-        # Get model's trial name
-        return trial_id
-
     def stop(self):
         super().stop()
         self._tester.close()
@@ -123,8 +119,7 @@ class SupervisedTrainer(Trainable):
         set_seed(new_config[KEY_SEED])
 
         # Set batch size
-        if self._batch_size == 0 or self._batch_size != new_config[KEY_BATCH_SZ]:
-            self._batch_size = new_config[KEY_BATCH_SZ]
+        self._batch_size = new_config[KEY_BATCH_SZ]
 
         # Read dataset
         if self._dataset is None:
@@ -145,6 +140,8 @@ class SupervisedTrainer(Trainable):
 
         # Build models
         self._model = EPT(**new_config[KEY_MODEL])
+        if torch.cuda.is_available():
+            self._model.cuda()
 
         # Build or Re-build optimizer
         step_per_epoch = math.ceil(self._dataset.num_items / self._batch_size)
@@ -164,7 +161,7 @@ class SupervisedTrainer(Trainable):
         report['before'] = self._before_update()
 
         # Run training
-        report['train'] = self._update_module(pretrain=False)
+        report['train'] = self._update_module()
         report[TIMESTEPS_THIS_ITER] = report['train'][TIMESTEPS_THIS_ITER]
 
         # Run evaluation periodically
@@ -190,7 +187,6 @@ class SupervisedTrainer(Trainable):
         return report
 
     def __getstate__(self) -> dict:
-        # We don't store test_rng since it will be initialized on every evaluation.
         return {
             KEY_MODEL: self._model.state_dict(),
             'rng': {
@@ -234,8 +230,8 @@ class SupervisedTrainer(Trainable):
             pickle.dump(self.__getstate__(), fp)
 
         # Save model & tokenizer
-        self._model.save(checkpoint_path)
-        with Path(checkpoint_path, 'tokenizer.pt').open('wb') as fp:
+        self._model.save(tmp_checkpoint_dir)
+        with Path(tmp_checkpoint_dir, 'tokenizer.pt').open('wb') as fp:
             torch.save(self._dataset.tokenizer, fp)
 
         rotate_checkpoint(tmp_checkpoint_dir, max_item=1)
@@ -297,7 +293,6 @@ class SupervisedTrainer(Trainable):
             self._scheduler.step()
 
         self._model.zero_grad()
-        self._model.step()
 
     def _after_update(self) -> dict:
         metric = {}
@@ -332,10 +327,7 @@ class SupervisedTrainer(Trainable):
         with Path(self.logdir, '%s.yaml' % experiment_name).open('w+t', encoding='UTF-8') as fp:
             fp.write('# Output of experiment %s in iteration %s.\n' % (experiment_name, self.iteration))
             fp.write('# Total %d items are tested.\n' % len(output['dump']))
-            yaml_dump(output, fp)
-
-    def _reset_test_random_generator(self):
-        self._test_rng = Generator(PCG64(1))
+            yaml_dump(output, fp, allow_unicode=True, default_style='|')
 
     def _train(self):
         raise ValueError('Trainer._train() should not be called!')
@@ -347,7 +339,6 @@ class SupervisedTrainer(Trainable):
         raise ValueError('Trainer._restore() should not be called!')
 
     def _evaluate(self, name: str, configuration: dict) -> dict:
-        self._reset_test_random_generator()
         self._dataset.select_items_with_file(configuration[KEY_SPLIT_FILE])
         self._model.eval()
 
@@ -360,24 +351,34 @@ class SupervisedTrainer(Trainable):
                 # text: Text [B, S]
                 # beam: int
                 # beam_desc: int
-                output = self._model(text=batch.text, beam=configuration[KEY_BEAM])
+                output = self._model(text=batch.text.to(self._model.device), beam=configuration[KEY_BEAM])
                 output = output['expression']
+                word_size = max(len(word_info) for word_info in batch.text.word_info)
 
                 for i in range(output.operator.shape[0]):
                     word_info = batch.text.word_info[i]
+                    expected = batch.answer[i]
                     # Transform equation into a list of common.solver.types.Execution
-                    execution = equation_to_execution(output, batch_index=i, word_size=len(word_info))
+                    execution = equation_to_execution(output, batch_index=i, word_size=word_size)
                     # /* The following two lines will be shared with train_model.py, check_dataset.py */
                     # Transform equation into python code using solver.execution_to_python_code()
                     code = execution_to_python_code(execution, word_info, indent=4)
                     # Execute python code with timeout (0.5s) and get an answer (type: string)
-                    _, answer = self._tester.run(code)
+                    code, answer = self._tester.run(code)
+
+                    if NUMBER_BEGIN_PATTERN.fullmatch(expected) and NUMBER_BEGIN_PATTERN.fullmatch(answer):
+                        correct = abs(Decimal(expected) - Decimal(answer)) < 1E-2
+                    else:
+                        correct = answer == expected
 
                     results.append({
-                        'correct': answer == batch.answer[i],
+                        'correct': correct,
                         'answer': answer,
+                        'expected': expected,
+                        'execution': [str(x) for x in execution],
                         'code': code,
-                        'item_id': batch.item_id
+                        'item_id': batch.item_id[i],
+                        'text': ' '.join('_%02d:%s' % (t, tok[WORD]) for t, tok in enumerate(word_info))
                     })
 
             results = {
@@ -395,7 +396,7 @@ class SupervisedTrainer(Trainable):
         self._model.train()
         return {}
 
-    def _update_module(self, pretrain) -> dict:
+    def _update_module(self) -> dict:
         reports = []
         batch_gen = list(self._dataset.get_minibatches(self._batch_size))
         for batch in batch_gen:
@@ -407,7 +408,8 @@ class SupervisedTrainer(Trainable):
             # num_desc?: B-List of Prediction [N, D]
             # var_desc?: B-List of Prediction [V, D] or Prediction [B, VD]
             # var_target?: Label [B, VD]
-            out = self._model(text=batch.text, expression=batch.expression)
+            out = self._model(text=batch.text.to(self._model.device), 
+                              expression=batch.expression.to(self._model.device))
             out = out['prediction']
             tgt = batch.expression.to(out.device)
 
@@ -418,11 +420,11 @@ class SupervisedTrainer(Trainable):
 
             losses['operator'] = SMOOTHED_CROSS_ENTROPY_LOSS(out.operator[:, :-1], tgt.operator[:, 1:], smoothing=0.01)
             report.update(**{key + '_operator': value
-                             for key, value in accuracy_of(tgt.operator, out.operator)})
+                             for key, value in accuracy_of(tgt.operator, out.operator).items()})
             for j, (o_j, t_j) in enumerate(zip(out.operands, tgt.operands)):
                 losses['operand_%s' % j] = SMOOTHED_CROSS_ENTROPY_LOSS(o_j[:, :-1], t_j[:, 1:], smoothing=0.01)
                 report.update(**{key + '_operand%s' % j: value
-                                 for key, value in accuracy_of(t_j, o_j)})
+                                 for key, value in accuracy_of(t_j, o_j).items()})
 
             with torch.no_grad():
                 all_raw = [tensor for key, tensor in report.items() if key.startswith('raw_')]

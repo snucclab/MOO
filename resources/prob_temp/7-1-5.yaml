@@ -1,0 +1,29 @@
+problem: >
+  4개의 수 <num.0>, <num.1>, <num.2>, <num.3>(을)를 연속해서 나열하였습니다.
+  이때 <num.4>번째 수는 <unknown.0>(이)가 되고 <num.5>번째 수는 <unknown.1>(이)가 됩니다.
+  이 두 수를 계산한 값 <unknown.1>+<unknown.0>(은)는 얼마입니까?
+
+variable-sampling:
+  num.4:
+    range: [1,6]
+    under-decimal: 0
+    type: int
+  num.5:
+    range: [20, 30]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: arithmetic_prog(4, 'num')
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: SEQ_TERM(R4,<num.4>)
+  R6: SEQ_TERM(R4,<num.5>)
+  R7: ADD(R6,R5)
+  R8: PRINT(R7)"

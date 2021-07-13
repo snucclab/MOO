@@ -1,0 +1,28 @@
+problem: >
+  <event.0>에 <num.0>명의 <vocation.0>(이)가 몸무게가 적게 나가는 <vocation.0>부터 순서대로 한 줄 서기를 했습니다.
+  이때 <person.0>(은)는 <position.0>에서부터 <num.1>번째에 위치합니다.
+  몸무게가 많이 나가는 <vocation.0>부터 다시 한 줄 서기를 한다면, <person.0>의 순서는 <position.0>에서부터 몇 번째입니까?
+
+variable-sampling:
+  num.0:
+    range: [2, 65]
+    under-decimal: 0  
+    type: int
+  num.1:
+    range: [1, <num.0>]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  position.0: ['앞', '뒤']
+
+equations:
+  "R0: SUB(<num.0>,<num.1>)
+  R1: ADD(R0,1)
+  R2: PRINT(R1)"
+
+
+
+
+
+

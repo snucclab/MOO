@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from common.sys.key import SRC_LIST, ARITY
+from common.sys.key import SRC_LIST, ARITY, NAME, SRC_CONSTANT, SRC_NUMBER
 from common.solver.const import OPR_SZ, OPR_VALUES, CON_VALUES
 
 
@@ -28,3 +28,9 @@ class Execution:
     def from_list(cls, items: list) -> 'Execution':
         return cls(function=items[0],
                    arguments=[tuple(items[i:i+2]) for i in range(1, len(items), 2)])
+
+    def __repr__(self) -> str:
+        func = OPR_VALUES[self.function][NAME]
+        args = [CON_VALUES[idx] if src == SRC_CONSTANT else ('_' if src == SRC_NUMBER else 'R') + '%02d' % idx
+                for src, idx in self.arguments]
+        return '%s%s' % (func, tuple(args))

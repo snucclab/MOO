@@ -1,0 +1,25 @@
+problem: >
+  <person.0>(이)가 두 자리 수와 세 자리 수의 덧셈을 하려고 합니다.
+  그런데 <person.0>(이)가 졸면서 계산을 하느라 실수로 두 자리 수의 십의 자리 숫자와 일의 자리 숫자를 바꾸어 <two.1>(으)로 잘못 읽었습니다.
+  그리고 세 자리 수의 일의 자리 숫자와 백의 자리 숫자를 바꾸어 읽었습니다.
+  덧셈 결과 <sum.0>(이)가 되었습니다.
+  만약 <person.0>(이)가 졸지 않고 바르게 계산했다면 어떤 결과가 나올지 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: interchange_pair(2,10,1,"two");interchange_pair(3,1,100,"three");eval_expression("<three.1>+<two.1>","sum")
+
+equations:
+  "R0: SUB(<sum.0>, <two.1>)
+  R1: GET_DIGIT(R0, 1)
+  R2: GET_DIGIT(R0, 3)
+  R3: CHANGE_DIGIT(R0, 3, R1)
+  R4: CHANGE_DIGIT(R3, 1, R2)
+  R5: GET_DIGIT(<two.1>, 1)
+  R6: GET_DIGIT(<two.1>, 2)
+  R7: CHANGE_DIGIT(<two.1>, 2, R5)
+  R8: CHANGE_DIGIT(R7, 1, R6)
+  R9: ADD(R4, R8)
+  R10: PRINT(R9)"

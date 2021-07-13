@@ -238,7 +238,7 @@ class Problem:
     text: str
     #: 문제가 의도한 정답
     answer: str
-    #: 답을 구하기 위한 Python code template
+    #: 답을 구하기 위한 Python code moo_lang
     code_template: str
     # 문제의 i번째 단어를 변수명으로 사용하거나, 값으로 사용하는 경우, _i와 같이 참조.
     # _i가 변수명으로 사용되거나 string으로 사용되는 경우는 별도의 casting을 하지 않으며,
@@ -271,7 +271,7 @@ def generate(self, n: int) -> List[List[Problem]]:
     """
     각 template마다 n개의 새로운 문제를 생성합니다.
     
-    :param int n: template 당 생성될 문제의 개수
+    :param int n: moo_lang 당 생성될 문제의 개수
     """
 ```
 

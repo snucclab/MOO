@@ -1,0 +1,28 @@
+problem: >
+  <propername.0>(이)가 <place.0>에서 상품 한 세트를 만드는데 <num.0>개의 <ball.0>(이)가 필요합니다.
+  <propername.0>(이)가 <num.1>세트의 상품을 만들기 위해 몇 개의 <ball.0>(이)가 필요합니까?
+
+variable-sampling:
+  num.0:
+    range: [ 5, 150 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2, 100 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0 : ['서점', '마트', '문구점', '학교', '교실', '도서관', '박물관', '운동장', '아파트', '강당', '방', '연구실', '건물']
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>,<num.1>)
+  R1: PRINT(R0)"
+
+
+
+
+
+

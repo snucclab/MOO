@@ -9,8 +9,7 @@ from ray.tune.utils.util import is_nan_or_inf
 from torch.cuda import device_count
 
 from common.model.const import *
-from common.sys.const import EVALUATE_WEIGHT_PATH, EVALUATE_TOKENIZER_PATH
-from common.sys.util import trial_dirname_creator_generator
+from common.sys.const import EVALUATE_WEIGHT_PATH, EVALUATE_TOKENIZER_PATH, EVALUATE_WEIGHT_DIR
 from learner import *
 from shutil import copy
 
@@ -26,10 +25,7 @@ def read_arguments():
     env.add_argument('--name', '-name', type=str, required=True)
     env.add_argument('--dataset', '-data', type=str, required=True)
     env.add_argument('--seed', '-seed', type=int, default=1)
-    env.add_argument('--beam-desc', '-beamD', type=int, default=5)
-    env.add_argument('--beam-expr', '-beamE', type=int, default=3)
-    env.add_argument('--window-size', '-win', type=int, default=5)
-    env.add_argument('--use-simple', '-simple', action='store_true', dest='simple')
+    env.add_argument('--beam', '-beam', type=int, default=5)
 
     env.add_argument('--max-iter', '-iter', type=int, default=100)
     env.add_argument('--stop-conditions', '-stop', type=str, nargs='*', default=[])
@@ -69,7 +65,7 @@ def build_experiment_config(args):
 
         experiment_dict = {KEY_SPLIT_FILE: str(file.absolute())}
         if file.name != KEY_TRAIN:
-            experiment_dict[KEY_BEAM] = args.beam_expr
+            experiment_dict[KEY_BEAM] = args.beam
             experiment_dict[KEY_EVAL_PERIOD] = args.max_iter // 5 if file.name == KEY_DEV else args.max_iter
 
         experiments[file.name] = experiment_dict
@@ -128,8 +124,11 @@ def build_stop_condition(args):
 def get_experiment_name(args):
     from datetime import datetime
     now = datetime.now().strftime('%m%d%H%M%S')
-    field = 'simpleEq' if args.simple else 'equations'
-    return f'{args.algorithm}_{Path(args.dataset).stem}_{field}_{args.name}_{now}'
+    return f'{args.name}_{now}'
+
+
+def trial_dirname_creator(trial: Trial) -> str:
+    return trial.trial_id
 
 
 if __name__ == '__main__':
@@ -156,14 +155,14 @@ if __name__ == '__main__':
     analysis = tune.run(SupervisedTrainer, name=experiment_name, stop=stop_condition,
                         config=build_configuration(args), local_dir=args.log_path, checkpoint_at_end=True,
                         checkpoint_freq=args.max_iter // 5, reuse_actors=True,
-                        trial_dirname_creator=trial_dirname_creator_generator(), raise_on_failed_trial=False,
+                        trial_dirname_creator=trial_dirname_creator, raise_on_failed_trial=False,
                         metric='dev_correct', mode='max')
 
     # Record trial information
     logger.info('========================= DEV. RESULTS =============================')
     logger.info('Hyperparameter search is finished!')
     trials: List[Trial] = analysis.trials
-    best_scores = 0.0
+    best_scores = -1.0
     best_configs = {}
     best_trial = None
 
@@ -184,29 +183,27 @@ if __name__ == '__main__':
             best_trial = trial
 
     # Record the best configuration
-    logpath = Path(analysis.best_logdir).parent
+    logpath = Path(analysis.best_logdir)
     logger.info('--------------------------------------------------------')
     logger.info('Found best configuration (scored %.4f)', best_scores)
     logger.info(repr(best_configs))
     logger.info('--------------------------------------------------------')
-    with Path(logpath, 'best_config.pkl').open('wb') as fp:
+    with Path(logpath.parent, 'best_config.pkl').open('wb') as fp:
         pickle.dump(best_configs, fp)
-    with Path(logpath, 'best_config.yaml').open('w+t') as fp:
-        yaml_dump(best_configs, fp)
+    with Path(logpath.parent, 'best_config.yaml').open('w+t') as fp:
+        yaml_dump(best_configs, fp, allow_unicode=True, default_style='|')
 
     # Copy the best configuration to weights directory
-    weight_path = Path(EVALUATE_WEIGHT_PATH)
-    tokenizer_path = Path(EVALUATE_TOKENIZER_PATH)
-
-    if not weight_path.parent.exists():
-        weight_path.parent.mkdir(parents=True)
+    if not EVALUATE_WEIGHT_DIR.exists():
+        EVALUATE_WEIGHT_DIR.mkdir(parents=True)
     else:
-        if weight_path.exists():
-            weight_path.unlink()
-        if tokenizer_path.exists():
-            tokenizer_path.unlink()
+        if EVALUATE_WEIGHT_PATH.exists():
+            EVALUATE_WEIGHT_PATH.unlink()
+        if EVALUATE_TOKENIZER_PATH.exists():
+            EVALUATE_TOKENIZER_PATH.unlink()
 
-    copy(Path(best_trial.checkpoint, 'EPT.pt'), weight_path)
-    copy(Path(best_trial.checkpoint, 'tokenizer.pt'), tokenizer_path)
+    checkpoints = max(logpath.glob('checkpoint_*'), key=lambda path: path.name)
+    copy(checkpoints / 'EPT.pt', EVALUATE_WEIGHT_PATH)
+    copy(checkpoints / 'tokenizer.pt', EVALUATE_TOKENIZER_PATH)
 
     shutdown()

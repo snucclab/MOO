@@ -1,0 +1,20 @@
+problem: >
+  5개의 숫자 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>(을)를 한 번만 사용해서 5자리 수를 구하려고 해요.
+  만들 수 있는 다섯 자리 수는 몇 개일지 구해보세요.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 5, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: APPEND(R4,<num.4>)
+  R6: COUNT(R5)
+  R7: PERM(R6,R6)
+  R8: PRINT(R7)"

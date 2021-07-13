@@ -1,0 +1,33 @@
+problem: >
+  <university.0>대학교에서는 수시 입학 전형을 위한 입학사정관을 선정하기 위하여 공모한 결과 남자 <num.0>명과 여자 <num.1>명이 응모하였다.
+  이 중에서 남자 <num.2>명과 여자 <num.3>명을 뽑는 방법의 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 5, 50 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 5, 50 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, <num.0> ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 1, <num.1> ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+    university.0 : ['서울', '고려', '연세', '한양', '중앙', '이회여자', '한림', '조선', '한국', '서울시립']
+
+function-call: null
+
+equations:
+  "R0: COMB(<num.0>,<num.2>)
+  R1: COMB(<num.1>,<num.3>)
+  R2: MUL(R0,R1)
+  R3: PRINT(R2)"
+

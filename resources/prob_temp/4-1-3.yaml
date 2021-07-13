@@ -1,0 +1,39 @@
+problem: 5개의 수 <num.0>, <num.1>, <num.2>, <num.3>, <num.4> 중 가장 작은 수와 가장 큰 수를 골라서 더하면 어떻게 되는지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [1, 30]
+    under-decimal: 0
+    type: float
+  num.1:
+    range: [1, 30]
+    under-decimal: 0
+    type: float
+  num.2:
+    range: [1, 50]
+    under-decimal: 0
+    type: float
+  num.3:
+    range: [1, 50]
+    under-decimal: 0
+    type: float
+  num.4:
+    range: [1, 60]
+    under-decimal: 0
+    type: float
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: APPEND(R4,<num.4>)
+  R6: MAX(R5)
+  R7: MIN(R5)
+  R8: ADD(R6,R7)
+  R9: PRINT(R8)"

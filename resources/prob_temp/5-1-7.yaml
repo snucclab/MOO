@@ -1,0 +1,21 @@
+problem: >
+  두 자리 수와 세 자리 수의 덧셈식 <equation.0>에서 <unknown.0>에 들어가는 숫자를 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: unk_digit_equation(2,3,'+','equation','unknown')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<equation.0>)
+  R2: CALL_SYMPY(R1, <unknown.0>)
+  R3: PRINT(R2)"
+
+
+
+
+
+
+

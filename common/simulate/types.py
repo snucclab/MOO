@@ -1,4 +1,6 @@
 class Problem:
+    #: 문제 생성 템플릿 ID
+    template: str
     #: 생성되는 문제 1개의 텍스트 string
     text: str
     #: 문제가 의도한 정답
@@ -10,12 +12,13 @@ class Problem:
     # int나 float으로 사용되는 경우는 int(_i) 또는 float(_i)와 같이 작성
     # Solver part와 협의 하에, 반복되는 코드는 macro를 사용해 간결하게 만들 수 있습니다.
 
-    def __init__(self, text: str, answer: str, code_template: str):
+    def __init__(self, tpl_id: str, text: str, code_template: str):
+        self.template = tpl_id
         self.text = text
-        self.answer = answer
         self.code_template = code_template
 
         # 아래 부분은 make_dataset.py에서 자동으로 계산합니다.
         self.code = ''
         self.executed = ''
         self.execution = []
+        self.answer = ''

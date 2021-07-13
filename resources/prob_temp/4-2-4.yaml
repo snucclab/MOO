@@ -1,0 +1,18 @@
+problem: 미지의 소수에서 소수점의 자리를 왼쪽으로 두 자리 옮기면 원래의 소수보다 <num.0>만큼 작은 수가 됩니다. 원래 소수는 어떤 수였습니까?
+
+variable-sampling:
+  num.0:
+    range: [1, 25]
+    under-decimal: 0
+    type: float
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: POW(10,2)
+  R1: SUB(R0,1)
+  R2: DIV(R1,R0)
+  R3: DIV(<num.0>,R2)
+  R4: PRINT(R3)"

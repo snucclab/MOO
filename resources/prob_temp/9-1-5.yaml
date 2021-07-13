@@ -1,0 +1,41 @@
+problem: >
+  두 사람이 카드 게임을 하고 있습니다. 
+  숫자가 적힌 카드를 각각 2장씩 가져온 다음, 4장의 카드 중 가장 큰 숫자가 적힌 카드를 가진 사람이 이기는 게임입니다. 
+  <propername.0>(은)는 <num.0>(와)과 <num.1>(이)가 적힌 카드를 2장 가지고 있고 <propername.1>(은)는 <num.2>(와)과 <num.3>(이)가 적힌 카드를 2장 가지고 있습니다.
+  두 사람 중에 누가 이겼는지 구하시오. 
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 1, 10000 ]
+    under-decimal: 0
+    type: int
+
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: MAKE_PAIR(<propername.0>,<num.0>)
+  R2: APPEND(R0,R1)
+  R3: MAKE_PAIR(<propername.0>,<num.1>)
+  R4: APPEND(R2,R3)
+  R5: MAKE_PAIR(<propername.1>,<num.2>)
+  R6: APPEND(R4,R5)
+  R7: MAKE_PAIR(<propername.1>,<num.3>)
+  R8: APPEND(R6,R7)
+  R9: MAX(R8)
+  R10: PRINT(R9)"

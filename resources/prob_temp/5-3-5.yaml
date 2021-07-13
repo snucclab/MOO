@@ -1,0 +1,16 @@
+problem: >
+ 서로 다른 자연수 <unknown.0>, <unknown.1>(이)가 있을 때, <equation.0>입니다.
+ 그리고 <equation.1>입니다. <unknown.0>의 값이 무엇인지 구하시오. 
+ 
+variable-sampling: null
+
+list-sampling: null
+
+function-call: make_system('-', 2, 'equation', 'unknown')
+
+equations:
+ "R0: LIST()
+  R1: APPEND(R0,<equation.0>)
+  R2: APPEND(R1,<equation.1>)
+  R3: CALL_SYMPY(R2, <unknown.0>)
+  R4: PRINT(R3)"

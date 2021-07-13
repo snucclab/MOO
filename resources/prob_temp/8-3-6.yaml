@@ -1,0 +1,40 @@
+problem: >
+  명절 음식을 준비하기 위해 <vegetable.0> <num.0>개를 <family.0>, <family.1>, <family.2>, <family.3> 에게 각각 돌아가며 <num.1>개씩 나누어 주었습니다.
+  이때 <num.2>번째 <vegetable.0>(을)를 받은 사람이 누구인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [50, 200]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 10]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [15, 30]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R0,<family.0>)
+  R2: LIST_MUL(R1,<num.1>)
+  R3: LIST()
+  R4: APPEND(R3,<family.1>)
+  R5: LIST_MUL(R4,<num.1>)
+  R6: LIST()
+  R7: APPEND(R6,<family.2>)
+  R8: LIST_MUL(R7,<num.1>)
+  R9: LIST()
+  R10: APPEND(R9,<family.3>)
+  R11: LIST_MUL(R10,<num.1>)
+  R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8)
+  R14: LIST_CONCAT(R13,R11)
+  R15: REP_SEQ_TERM(R14,<num.2>)
+  R16: PRINT(R15)"

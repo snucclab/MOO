@@ -51,4 +51,9 @@ class SmoothedCrossEntropyLoss(torch.nn.Module):
             return loss.sum()
         elif self.reduction == 'mean':
             not_ignored = target.ne(self.ignore_index).sum(dim=-1)
-            return (loss.sum(dim=-1) / not_ignored).sum()
+
+            # Filter out rows whose elements are all ignored
+            loss_sum = loss.sum(dim=-1).masked_select(not_ignored.ne(0))
+            not_ignored = not_ignored.masked_select(not_ignored.ne(0))
+
+            return (loss_sum / not_ignored).sum()

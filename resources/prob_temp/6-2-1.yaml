@@ -1,0 +1,22 @@
+problem: >
+  <person.0>(은)는 세 자리 수에서 두 자리 수를 빼려고 합니다.
+  그런데 <person.0>(이)가 세 자리 수의 1의 자리 수와 10의 자리 수를 바꾸어 <i_num.1>(으)로 잘못 보았고,
+  두 자리 수의 1의 자리 숫자는 원래 <e_digit.0>인데 다른 숫자로 착각하였습니다.
+  <person.0>(이)가 계산한 결과는 <num.0>이었습니다.
+  만약 <person.0>(이)가 두 개의 숫자를 바르게 봤다면 어떤 결과가 나왔을까요?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: errorpair(2,1,"e_num");interchange_pair(3,1,10,"i_num");eval_expression("<i_num.1>-<e_num.1>", "num");eval_expression("<e_num.0> % 10", "e_digit")
+
+equations:
+  "R0: SUB(<i_num.1>, <num.0>)
+  R1: CHANGE_DIGIT(R0, 1, <e_digit.0>)
+  R2: GET_DIGIT(<i_num.1>, 1)
+  R3: GET_DIGIT(<i_num.1>, 2)
+  R4: CHANGE_DIGIT(<i_num.1>, 2, R2)
+  R5: CHANGE_DIGIT(R4, 1, R3)
+  R6: SUB(R5, R1)
+  R7: PRINT(R6)"

@@ -1,0 +1,23 @@
+problem: >
+  <propername.0>, <propername.1>, <propername.2>, <propername.3> 중에 <num.0>명을 선택해서 <event.0>(을)를 하려고 한다.
+  <event.0>(을)를 할 수 있는 조합의 수는 몇 개?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 4 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<propername.0>)
+  R2: APPEND(R1,<propername.1>)
+  R3: APPEND(R2,<propername.2>)
+  R4: APPEND(R3,<propername.3>)
+  R5: COUNT(R4)
+  R6: COMB(R5,<num.0>)
+  R7: PRINT(R6)"

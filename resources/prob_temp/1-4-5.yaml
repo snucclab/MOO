@@ -1,0 +1,47 @@
+problem: >
+  <person.0>(와)과 <person.1>(은)는 1학년 9반에 재학 중인 학생입니다.
+  <person.0>(와)과 <person.1>의 <course.0> 점수는 각각 <num.0>점, <num.1>점입니다.
+  선생님이 실수로 두 사람을 제외하고 <course.0> 점수의 평균을 구한 결과는 <num.2>점 입니다.
+  이 학급의 전체 학생 수가 <num.3>명일 때, 올바르게 계산한 이 학급의 <course.0> 평균 점수는 몇 점인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 10, 90 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 20, 40 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  person.0 : ['정국', '지민', '석진', '태형', '남준', '윤기', '호석']
+  person.1 : ['민영', '유정', '은지', '유나', '동생', '누나', '오빠', '언니']
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: SUM(R2)
+  R4: SUB(<num.3>,2)
+  R5: MUL(R4,<num.2>)
+  R6: ADD(R3,R5)
+  R7: DIV(R6,<num.3>)
+  R8: PRINT(R7)"
+
+
+
+
+
+
+
