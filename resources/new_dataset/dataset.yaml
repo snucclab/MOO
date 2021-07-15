@@ -1,0 +1,1100 @@
+- "answer": |-
+    85
+  "equation": |-
+    sum = 74 + 11
+    print(sum)
+  "id": |-
+    0
+  "question": |
+    윤기의 아파트에 있는 책꽂이 안에 74벌의 바지가 있습니다. 윤기가 11벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    102
+  "equation": |-
+    sum = 83 + 19
+    print(sum)
+  "id": |-
+    1
+  "question": |
+    석진의 교실에 있는 책꽂이 안에 83벌의 반바지가 있습니다. 석진이 19벌의 반바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 반바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    52
+  "equation": |-
+    sum = 39 + 13
+    print(sum)
+  "id": |-
+    2
+  "question": |
+    정국의 건물에 있는 책꽂이 안에 39벌의 후드티가 있습니다. 정국이 13벌의 후드티를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    53
+  "equation": |-
+    sum = 50 + 3
+    print(sum)
+  "id": |-
+    3
+  "question": |
+    민영의 아파트에 있는 책꽂이 안에 50벌의 바지가 있습니다. 민영이 3벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    48
+  "equation": |-
+    sum = 45 + 3
+    print(sum)
+  "id": |-
+    4
+  "question": |
+    호석의 건물에 있는 책장 안에 45벌의 바지가 있습니다. 호석이 3벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    44
+  "equation": |-
+    sum = 41 + 3
+    print(sum)
+  "id": |-
+    5
+  "question": |
+    태형의 방에 있는 책장 안에 41벌의 자켓이 있습니다. 태형이 3벌의 자켓을 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    42
+  "equation": |-
+    sum = 26 + 16
+    print(sum)
+  "id": |-
+    6
+  "question": |
+    유정의 아파트에 있는 서랍 안에 26벌의 바지가 있습니다. 유정이 16벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    95
+  "equation": |-
+    sum = 78 + 17
+    print(sum)
+  "id": |-
+    7
+  "question": |
+    은지의 아파트에 있는 서랍 안에 78벌의 바지가 있습니다. 은지가 17벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    111
+  "equation": |-
+    sum = 99 + 12
+    print(sum)
+  "id": |-
+    8
+  "question": |
+    지민의 학교에 있는 상자 안에 99벌의 바지가 있습니다. 지민이 12벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    17
+  "equation": |-
+    sum = 12 + 5
+    print(sum)
+  "id": |-
+    9
+  "question": |
+    정국의 연구실에 있는 서랍 안에 12벌의 블라우스가 있습니다. 정국이 5벌의 블라우스를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 블라우스가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    6
+  "equation": |-
+    sum = 5 + 1
+    print(sum)
+  "id": |-
+    10
+  "question": |
+    은지의 아파트에 있는 서랍 안에 5벌의 후드티가 있습니다. 은지가 1벌의 후드티를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    21
+  "equation": |-
+    sum = 10 + 11
+    print(sum)
+  "id": |-
+    11
+  "question": |
+    태형의 방에 있는 서랍 안에 10벌의 자켓이 있습니다. 태형이 11벌의 자켓을 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    46
+  "equation": |-
+    sum = 43 + 3
+    print(sum)
+  "id": |-
+    12
+  "question": |
+    정국의 학교에 있는 책꽂이 안에 43벌의 셔츠가 있습니다. 정국이 3벌의 셔츠를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    56
+  "equation": |-
+    sum = 47 + 9
+    print(sum)
+  "id": |-
+    13
+  "question": |
+    민영의 학교에 있는 상자 안에 47벌의 블라우스가 있습니다. 민영이 9벌의 블라우스를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 블라우스가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    49
+  "equation": |-
+    sum = 47 + 2
+    print(sum)
+  "id": |-
+    14
+  "question": |
+    지민의 학교에 있는 서랍 안에 47벌의 후드티가 있습니다. 지민이 2벌의 후드티를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    94
+  "equation": |-
+    sum = 92 + 2
+    print(sum)
+  "id": |-
+    15
+  "question": |
+    호석의 아파트에 있는 상자 안에 92벌의 자켓이 있습니다. 호석이 2벌의 자켓을 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    28
+  "equation": |-
+    sum = 17 + 11
+    print(sum)
+  "id": |-
+    16
+  "question": |
+    지민의 도서관에 있는 책장 안에 17벌의 후드티가 있습니다. 지민이 11벌의 후드티를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    38
+  "equation": |-
+    sum = 37 + 1
+    print(sum)
+  "id": |-
+    17
+  "question": |
+    유정의 교실에 있는 서랍 안에 37벌의 바지가 있습니다. 유정이 1벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    36
+  "equation": |-
+    sum = 31 + 5
+    print(sum)
+  "id": |-
+    18
+  "question": |
+    남준의 건물에 있는 책장 안에 31벌의 블라우스가 있습니다. 남준이 5벌의 블라우스를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 블라우스가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    29
+  "equation": |-
+    sum = 22 + 7
+    print(sum)
+  "id": |-
+    19
+  "question": |
+    태형의 아파트에 있는 서랍 안에 22벌의 바지가 있습니다. 태형이 7벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    20
+  "equation": |-
+    sum = 4 + 16
+    print(sum)
+  "id": |-
+    20
+  "question": |
+    은지의 방에 있는 서랍 안에 4벌의 바지가 있습니다. 은지가 16벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    16
+  "equation": |-
+    sum = 2 + 14
+    print(sum)
+  "id": |-
+    21
+  "question": |
+    지민의 집에 있는 상자 안에 2벌의 바지가 있습니다. 지민이 14벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    19
+  "equation": |-
+    sum = 2 + 17
+    print(sum)
+  "id": |-
+    22
+  "question": |
+    석진의 건물에 있는 책꽂이 안에 2벌의 자켓이 있습니다. 석진이 17벌의 자켓을 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    74
+  "equation": |-
+    sum = 64 + 10
+    print(sum)
+  "id": |-
+    23
+  "question": |
+    윤기의 방에 있는 책꽂이 안에 64벌의 청바지가 있습니다. 윤기가 10벌의 청바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    39
+  "equation": |-
+    sum = 25 + 14
+    print(sum)
+  "id": |-
+    24
+  "question": |
+    정국의 집에 있는 서랍 안에 25벌의 셔츠가 있습니다. 정국이 14벌의 셔츠를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    68
+  "equation": |-
+    sum = 65 + 3
+    print(sum)
+  "id": |-
+    25
+  "question": |
+    은지의 도서관에 있는 책꽂이 안에 65벌의 청바지가 있습니다. 은지가 3벌의 청바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    76
+  "equation": |-
+    sum = 62 + 14
+    print(sum)
+  "id": |-
+    26
+  "question": |
+    석진의 학교에 있는 책꽂이 안에 62벌의 자켓이 있습니다. 석진이 14벌의 자켓을 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    41
+  "equation": |-
+    sum = 35 + 6
+    print(sum)
+  "id": |-
+    27
+  "question": |
+    태형의 방에 있는 서랍 안에 35벌의 바지가 있습니다. 태형이 6벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    63
+  "equation": |-
+    sum = 44 + 19
+    print(sum)
+  "id": |-
+    28
+  "question": |
+    정국의 집에 있는 책꽂이 안에 44벌의 청바지가 있습니다. 정국이 19벌의 청바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    76
+  "equation": |-
+    sum = 72 + 4
+    print(sum)
+  "id": |-
+    29
+  "question": |
+    태형의 방에 있는 서랍 안에 72벌의 반바지가 있습니다. 태형이 4벌의 반바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 반바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    70
+  "equation": |-
+    sum = 59 + 11
+    print(sum)
+  "id": |-
+    30
+  "question": |
+    유나의 방에 있는 상자 안에 59벌의 자켓이 있습니다. 유나가 11벌의 자켓을 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    50
+  "equation": |-
+    sum = 42 + 8
+    print(sum)
+  "id": |-
+    31
+  "question": |
+    지민의 건물에 있는 책장 안에 42벌의 블라우스가 있습니다. 지민이 8벌의 블라우스를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 블라우스가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    39
+  "equation": |-
+    sum = 33 + 6
+    print(sum)
+  "id": |-
+    32
+  "question": |
+    민영의 방에 있는 책꽂이 안에 33벌의 바지가 있습니다. 민영이 6벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    56
+  "equation": |-
+    sum = 44 + 12
+    print(sum)
+  "id": |-
+    33
+  "question": |
+    윤기의 아파트에 있는 책장 안에 44벌의 블라우스가 있습니다. 윤기가 12벌의 블라우스를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 블라우스가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    35
+  "equation": |-
+    sum = 33 + 2
+    print(sum)
+  "id": |-
+    34
+  "question": |
+    유나의 집에 있는 책꽂이 안에 33벌의 청바지가 있습니다. 유나가 2벌의 청바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    110
+  "equation": |-
+    sum = 93 + 17
+    print(sum)
+  "id": |-
+    35
+  "question": |
+    윤기의 교실에 있는 책꽂이 안에 93벌의 블라우스가 있습니다. 윤기가 17벌의 블라우스를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 블라우스가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    105
+  "equation": |-
+    sum = 94 + 11
+    print(sum)
+  "id": |-
+    36
+  "question": |
+    호석의 연구실에 있는 책꽂이 안에 94벌의 바지가 있습니다. 호석이 11벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    68
+  "equation": |-
+    sum = 62 + 6
+    print(sum)
+  "id": |-
+    37
+  "question": |
+    태형의 아파트에 있는 서랍 안에 62벌의 후드티가 있습니다. 태형이 6벌의 후드티를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    32
+  "equation": |-
+    sum = 19 + 13
+    print(sum)
+  "id": |-
+    38
+  "question": |
+    은지의 집에 있는 책장 안에 19벌의 바지가 있습니다. 은지가 13벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    99
+  "equation": |-
+    sum = 81 + 18
+    print(sum)
+  "id": |-
+    39
+  "question": |
+    윤기의 도서관에 있는 책꽂이 안에 81벌의 바지가 있습니다. 윤기가 18벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    89
+  "equation": |-
+    sum = 87 + 2
+    print(sum)
+  "id": |-
+    40
+  "question": |
+    유나의 집에 있는 책장 안에 87벌의 바지가 있습니다. 유나가 2벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    84
+  "equation": |-
+    sum = 69 + 15
+    print(sum)
+  "id": |-
+    41
+  "question": |
+    지민의 건물에 있는 책장 안에 69벌의 반바지가 있습니다. 지민이 15벌의 반바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 반바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    103
+  "equation": |-
+    sum = 90 + 13
+    print(sum)
+  "id": |-
+    42
+  "question": |
+    정국의 아파트에 있는 상자 안에 90벌의 바지가 있습니다. 정국이 13벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    12
+  "equation": |-
+    sum = 10 + 2
+    print(sum)
+  "id": |-
+    43
+  "question": |
+    민영의 방에 있는 책장 안에 10벌의 청바지가 있습니다. 민영이 2벌의 청바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    96
+  "equation": |-
+    sum = 91 + 5
+    print(sum)
+  "id": |-
+    44
+  "question": |
+    은지의 학교에 있는 책장 안에 91벌의 바지가 있습니다. 은지가 5벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    38
+  "equation": |-
+    sum = 34 + 4
+    print(sum)
+  "id": |-
+    45
+  "question": |
+    윤기의 건물에 있는 상자 안에 34벌의 셔츠가 있습니다. 윤기가 4벌의 셔츠를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    29
+  "equation": |-
+    sum = 22 + 7
+    print(sum)
+  "id": |-
+    46
+  "question": |
+    유나의 학교에 있는 서랍 안에 22벌의 자켓이 있습니다. 유나가 7벌의 자켓을 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    97
+  "equation": |-
+    sum = 78 + 19
+    print(sum)
+  "id": |-
+    47
+  "question": |
+    태형의 아파트에 있는 책장 안에 78벌의 청바지가 있습니다. 태형이 19벌의 청바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    67
+  "equation": |-
+    sum = 65 + 2
+    print(sum)
+  "id": |-
+    48
+  "question": |
+    남준의 건물에 있는 상자 안에 65벌의 청바지가 있습니다. 남준이 2벌의 청바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    40
+  "equation": |-
+    sum = 30 + 10
+    print(sum)
+  "id": |-
+    49
+  "question": |
+    민영의 연구실에 있는 서랍 안에 30벌의 후드티가 있습니다. 민영이 10벌의 후드티를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    42
+  "equation": |-
+    sum = 38 + 4
+    print(sum)
+  "id": |-
+    50
+  "question": |
+    남준의 도서관에 있는 책장 안에 38벌의 자켓이 있습니다. 남준이 4벌의 자켓을 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    94
+  "equation": |-
+    sum = 82 + 12
+    print(sum)
+  "id": |-
+    51
+  "question": |
+    석진의 방에 있는 책장 안에 82벌의 후드티가 있습니다. 석진이 12벌의 후드티를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    26
+  "equation": |-
+    sum = 11 + 15
+    print(sum)
+  "id": |-
+    52
+  "question": |
+    윤기의 연구실에 있는 상자 안에 11벌의 바지가 있습니다. 윤기가 15벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    86
+  "equation": |-
+    sum = 82 + 4
+    print(sum)
+  "id": |-
+    53
+  "question": |
+    석진의 아파트에 있는 상자 안에 82벌의 셔츠가 있습니다. 석진이 4벌의 셔츠를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    92
+  "equation": |-
+    sum = 77 + 15
+    print(sum)
+  "id": |-
+    54
+  "question": |
+    태형의 학교에 있는 책장 안에 77벌의 후드티가 있습니다. 태형이 15벌의 후드티를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    61
+  "equation": |-
+    sum = 54 + 7
+    print(sum)
+  "id": |-
+    55
+  "question": |
+    지민의 방에 있는 책꽂이 안에 54벌의 청바지가 있습니다. 지민이 7벌의 청바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    65
+  "equation": |-
+    sum = 61 + 4
+    print(sum)
+  "id": |-
+    56
+  "question": |
+    호석의 건물에 있는 책꽂이 안에 61벌의 청바지가 있습니다. 호석이 4벌의 청바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    21
+  "equation": |-
+    sum = 11 + 10
+    print(sum)
+  "id": |-
+    57
+  "question": |
+    유정의 학교에 있는 서랍 안에 11벌의 청바지가 있습니다. 유정이 10벌의 청바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    40
+  "equation": |-
+    sum = 22 + 18
+    print(sum)
+  "id": |-
+    58
+  "question": |
+    석진의 교실에 있는 서랍 안에 22벌의 청바지가 있습니다. 석진이 18벌의 청바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    43
+  "equation": |-
+    sum = 38 + 5
+    print(sum)
+  "id": |-
+    59
+  "question": |
+    유나의 집에 있는 서랍 안에 38벌의 바지가 있습니다. 유나가 5벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    51
+  "equation": |-
+    sum = 43 + 8
+    print(sum)
+  "id": |-
+    60
+  "question": |
+    호석의 건물에 있는 책장 안에 43벌의 후드티가 있습니다. 호석이 8벌의 후드티를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    95
+  "equation": |-
+    sum = 94 + 1
+    print(sum)
+  "id": |-
+    61
+  "question": |
+    지민의 연구실에 있는 서랍 안에 94벌의 청바지가 있습니다. 지민이 1벌의 청바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    64
+  "equation": |-
+    sum = 50 + 14
+    print(sum)
+  "id": |-
+    62
+  "question": |
+    은지의 아파트에 있는 상자 안에 50벌의 자켓이 있습니다. 은지가 14벌의 자켓을 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    105
+  "equation": |-
+    sum = 88 + 17
+    print(sum)
+  "id": |-
+    63
+  "question": |
+    호석의 아파트에 있는 서랍 안에 88벌의 후드티가 있습니다. 호석이 17벌의 후드티를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    17
+  "equation": |-
+    sum = 12 + 5
+    print(sum)
+  "id": |-
+    64
+  "question": |
+    정국의 건물에 있는 상자 안에 12벌의 셔츠가 있습니다. 정국이 5벌의 셔츠를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    67
+  "equation": |-
+    sum = 52 + 15
+    print(sum)
+  "id": |-
+    65
+  "question": |
+    정국의 집에 있는 서랍 안에 52벌의 후드티가 있습니다. 정국이 15벌의 후드티를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    51
+  "equation": |-
+    sum = 45 + 6
+    print(sum)
+  "id": |-
+    66
+  "question": |
+    민영의 교실에 있는 서랍 안에 45벌의 바지가 있습니다. 민영이 6벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    45
+  "equation": |-
+    sum = 35 + 10
+    print(sum)
+  "id": |-
+    67
+  "question": |
+    유나의 도서관에 있는 책꽂이 안에 35벌의 바지가 있습니다. 유나가 10벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    43
+  "equation": |-
+    sum = 37 + 6
+    print(sum)
+  "id": |-
+    68
+  "question": |
+    유나의 아파트에 있는 책장 안에 37벌의 셔츠가 있습니다. 유나가 6벌의 셔츠를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    41
+  "equation": |-
+    sum = 40 + 1
+    print(sum)
+  "id": |-
+    69
+  "question": |
+    정국의 아파트에 있는 상자 안에 40벌의 청바지가 있습니다. 정국이 1벌의 청바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    75
+  "equation": |-
+    sum = 56 + 19
+    print(sum)
+  "id": |-
+    70
+  "question": |
+    지민의 집에 있는 서랍 안에 56벌의 셔츠가 있습니다. 지민이 19벌의 셔츠를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    81
+  "equation": |-
+    sum = 79 + 2
+    print(sum)
+  "id": |-
+    71
+  "question": |
+    유나의 방에 있는 책꽂이 안에 79벌의 후드티가 있습니다. 유나가 2벌의 후드티를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    27
+  "equation": |-
+    sum = 10 + 17
+    print(sum)
+  "id": |-
+    72
+  "question": |
+    정국의 연구실에 있는 책장 안에 10벌의 바지가 있습니다. 정국이 17벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    94
+  "equation": |-
+    sum = 82 + 12
+    print(sum)
+  "id": |-
+    73
+  "question": |
+    민영의 연구실에 있는 책장 안에 82벌의 바지가 있습니다. 민영이 12벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    112
+  "equation": |-
+    sum = 99 + 13
+    print(sum)
+  "id": |-
+    74
+  "question": |
+    지민의 도서관에 있는 서랍 안에 99벌의 블라우스가 있습니다. 지민이 13벌의 블라우스를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 블라우스가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    68
+  "equation": |-
+    sum = 64 + 4
+    print(sum)
+  "id": |-
+    75
+  "question": |
+    민영의 학교에 있는 책장 안에 64벌의 바지가 있습니다. 민영이 4벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    76
+  "equation": |-
+    sum = 70 + 6
+    print(sum)
+  "id": |-
+    76
+  "question": |
+    민영의 아파트에 있는 책꽂이 안에 70벌의 바지가 있습니다. 민영이 6벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    58
+  "equation": |-
+    sum = 56 + 2
+    print(sum)
+  "id": |-
+    77
+  "question": |
+    지민의 연구실에 있는 책장 안에 56벌의 바지가 있습니다. 지민이 2벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    66
+  "equation": |-
+    sum = 62 + 4
+    print(sum)
+  "id": |-
+    78
+  "question": |
+    은지의 교실에 있는 상자 안에 62벌의 바지가 있습니다. 은지가 4벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    82
+  "equation": |-
+    sum = 66 + 16
+    print(sum)
+  "id": |-
+    79
+  "question": |
+    민영의 집에 있는 책장 안에 66벌의 셔츠가 있습니다. 민영이 16벌의 셔츠를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    97
+  "equation": |-
+    sum = 95 + 2
+    print(sum)
+  "id": |-
+    80
+  "question": |
+    윤기의 도서관에 있는 책장 안에 95벌의 바지가 있습니다. 윤기가 2벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    46
+  "equation": |-
+    sum = 44 + 2
+    print(sum)
+  "id": |-
+    81
+  "question": |
+    남준의 아파트에 있는 상자 안에 44벌의 바지가 있습니다. 남준이 2벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    116
+  "equation": |-
+    sum = 99 + 17
+    print(sum)
+  "id": |-
+    82
+  "question": |
+    윤기의 아파트에 있는 상자 안에 99벌의 청바지가 있습니다. 윤기가 17벌의 청바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    42
+  "equation": |-
+    sum = 29 + 13
+    print(sum)
+  "id": |-
+    83
+  "question": |
+    석진의 도서관에 있는 책꽂이 안에 29벌의 후드티가 있습니다. 석진이 13벌의 후드티를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 후드티가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    92
+  "equation": |-
+    sum = 79 + 13
+    print(sum)
+  "id": |-
+    84
+  "question": |
+    석진의 건물에 있는 상자 안에 79벌의 자켓이 있습니다. 석진이 13벌의 자켓을 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 자켓이 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    58
+  "equation": |-
+    sum = 41 + 17
+    print(sum)
+  "id": |-
+    85
+  "question": |
+    태형의 도서관에 있는 책꽂이 안에 41벌의 바지가 있습니다. 태형이 17벌의 바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    55
+  "equation": |-
+    sum = 46 + 9
+    print(sum)
+  "id": |-
+    86
+  "question": |
+    남준의 교실에 있는 서랍 안에 46벌의 바지가 있습니다. 남준이 9벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    35
+  "equation": |-
+    sum = 27 + 8
+    print(sum)
+  "id": |-
+    87
+  "question": |
+    석진의 집에 있는 책장 안에 27벌의 반바지가 있습니다. 석진이 8벌의 반바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 반바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    34
+  "equation": |-
+    sum = 29 + 5
+    print(sum)
+  "id": |-
+    88
+  "question": |
+    은지의 집에 있는 서랍 안에 29벌의 반바지가 있습니다. 은지가 5벌의 반바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 반바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    23
+  "equation": |-
+    sum = 4 + 19
+    print(sum)
+  "id": |-
+    89
+  "question": |
+    석진의 교실에 있는 서랍 안에 4벌의 반바지가 있습니다. 석진이 19벌의 반바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 반바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    32
+  "equation": |-
+    sum = 31 + 1
+    print(sum)
+  "id": |-
+    90
+  "question": |
+    윤기의 집에 있는 서랍 안에 31벌의 청바지가 있습니다. 윤기가 1벌의 청바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    105
+  "equation": |-
+    sum = 88 + 17
+    print(sum)
+  "id": |-
+    91
+  "question": |
+    석진의 아파트에 있는 책꽂이 안에 88벌의 청바지가 있습니다. 석진이 17벌의 청바지를 선물받아 책꽂이 안에 정리하여 넣었습니다. 책꽂이 안에 총 몇 벌의 청바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    100
+  "equation": |-
+    sum = 82 + 18
+    print(sum)
+  "id": |-
+    92
+  "question": |
+    유정의 건물에 있는 책장 안에 82벌의 바지가 있습니다. 유정이 18벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    33
+  "equation": |-
+    sum = 16 + 17
+    print(sum)
+  "id": |-
+    93
+  "question": |
+    태형의 집에 있는 서랍 안에 16벌의 셔츠가 있습니다. 태형이 17벌의 셔츠를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    99
+  "equation": |-
+    sum = 83 + 16
+    print(sum)
+  "id": |-
+    94
+  "question": |
+    은지의 아파트에 있는 책장 안에 83벌의 셔츠가 있습니다. 은지가 16벌의 셔츠를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 셔츠가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    49
+  "equation": |-
+    sum = 38 + 11
+    print(sum)
+  "id": |-
+    95
+  "question": |
+    유나의 집에 있는 책장 안에 38벌의 바지가 있습니다. 유나가 11벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    35
+  "equation": |-
+    sum = 21 + 14
+    print(sum)
+  "id": |-
+    96
+  "question": |
+    석진의 연구실에 있는 책장 안에 21벌의 바지가 있습니다. 석진이 14벌의 바지를 선물받아 책장 안에 정리하여 넣었습니다. 책장 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    16
+  "equation": |-
+    sum = 5 + 11
+    print(sum)
+  "id": |-
+    97
+  "question": |
+    석진의 교실에 있는 서랍 안에 5벌의 바지가 있습니다. 석진이 11벌의 바지를 선물받아 서랍 안에 정리하여 넣었습니다. 서랍 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    65
+  "equation": |-
+    sum = 46 + 19
+    print(sum)
+  "id": |-
+    98
+  "question": |
+    유정의 건물에 있는 상자 안에 46벌의 바지가 있습니다. 유정이 19벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
+- "answer": |-
+    75
+  "equation": |-
+    sum = 61 + 14
+    print(sum)
+  "id": |-
+    99
+  "question": |
+    민영의 학교에 있는 상자 안에 61벌의 바지가 있습니다. 민영이 14벌의 바지를 선물받아 상자 안에 정리하여 넣었습니다. 상자 안에 총 몇 벌의 바지가 있는지 구하시오.
+  "template": |-
+    C:\Users\image\MOO\resources\new_temp\1-1-1.yaml
