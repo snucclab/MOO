@@ -148,7 +148,7 @@ class Simulator:
             problems = []
             for idx in range(n):
                 text, code_template = self.prob_gen(template)
-                problems.append(Problem(template['id'], text, code_template))
+                problems.append(Problem(template['id'], text, code_template, template['equation-variable']))
 
             results.append(problems)
         return results

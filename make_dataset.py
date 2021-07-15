@@ -21,13 +21,13 @@ from solver import python_code_to_executions, execution_to_python_code
 def read_arguments():
     parser = ArgumentParser()
 
-    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./resources/prob_temp",
+    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./resources/new_temp",
                         help='Root directory of template YAML files')
     parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./resources/vocab.yaml",
                         help='Root directory of template YAML files')
     parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=False, default=100,
                         help='Number of items generated for each template file')
-    parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./resources/dataset",
+    parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./resources/new_dataset",
                         help='Root directory for saving output dataset files')
     parser.add_argument('--seed', '-seed', '-s', type=int, default=8888,
                         help='Random seed for generating items')
@@ -66,7 +66,7 @@ if __name__ == '__main__':
             for i, item in enumerate(template):
                 text = string_to_text_instance(item.text, tokenizer)
                 execution = python_code_to_executions(item.code_template)
-                raw_code = execution_to_python_code(execution, text.word_info[0])
+                raw_code = execution_to_python_code(execution, text.word_info[0], item.result_vocab)
                 item.code, item.executed = executor.run(raw_code)
                 item.answer = item.executed
                 item.execution = [x.to_list() for x in execution]

@@ -7,7 +7,6 @@ from common.sys.const import MODULE_RSC_PATH
 
 _MOO_LANG_PATH = MODULE_RSC_PATH / 'moo_lang'
 
-
 def python_code_to_executions(code_template: str) -> List[Execution]:
     """
     주어진 python code를 execution으로 변환합니다.
@@ -61,7 +60,8 @@ def python_code_to_executions(code_template: str) -> List[Execution]:
 
 
 def execution_to_python_code(expression: List[Execution],
-                             word_mappings: List[Dict[str, Any]], indent: int = 4) -> str:
+                             word_mappings: List[Dict[str, Any]],
+                             result_vocab: Dict[str, str],indent: int = 4) -> str:
     """
     결과로 획득한 expression 을 python code 로 변환합니다.
 
@@ -93,18 +93,21 @@ def execution_to_python_code(expression: List[Execution],
         elif cur_opr[NAME] == OPR_DONE:
             break
 
-        result.append(intprt_opr(cur_opr, cur_arg, word_mappings, len(result)))
+        result.append(intprt_opr(cur_opr, cur_arg, word_mappings, result_vocab, len(result)))
 
     return '\n'.join(result)
 
 
 def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: List[Dict[str, Any]],
-               op_count: int) -> str:
+               result_vocab : Dict[str, str], op_count: int) -> str:
     keys = []
     for src, idx in args:
         if src == SRC_RESULT:
             # 이전 연산 결과 참조
-            keys.append('R' + str(idx))
+            assert 'R' + str(idx) in result_vocab, \
+                '템플릿의 result_vocab에 이전에 실행했던 라인을 지칭하는 변수에 대한 정의가 존재하지 않습니다.'
+
+            keys.append(result_vocab['R' + str(idx)])
         elif src == SRC_NUMBER:
             # 인덱스에 해당하는 숫자 값 가져오기
             word = word_mappings[idx]
@@ -118,9 +121,21 @@ def intprt_opr(opr: Dict[str, Any], args: List[Tuple[int, int]], word_mappings: 
 
     # opr 에 해당하는 template 가져와서 식 생성
     name = opr[NAME]
-    code = _load_pyt(name)
     converter = OPR_VALUES[OPR_TOKENS.index(name)][CONVERT]
-    return code.format(**converter("R" + str(op_count), *keys))
+    if "R" + str(op_count) in result_vocab:
+        code = _load_pyt(name)
+        return code.format(**converter(result_vocab["R" + str(op_count)], *keys))
+    else :
+        code = _load_opt_pyt(name)
+        return code.format(**converter(None, *keys))
+
+
+def _load_opt_pyt(name: str):
+    path = _MOO_LANG_PATH / (name + '_OPT.pyt')
+    with path.open('r+t', encoding='UTF-8') as fp:
+        lines = fp.readlines()
+
+    return ''.join(lines)
 
 
 def _load_pyt(name: str):

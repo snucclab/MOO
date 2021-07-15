@@ -12,10 +12,11 @@ class Problem:
     # int나 float으로 사용되는 경우는 int(_i) 또는 float(_i)와 같이 작성
     # Solver part와 협의 하에, 반복되는 코드는 macro를 사용해 간결하게 만들 수 있습니다.
 
-    def __init__(self, tpl_id: str, text: str, code_template: str):
+    def __init__(self, tpl_id: str, text: str, code_template: str, result_vocab : str):
         self.template = tpl_id
         self.text = text
         self.code_template = code_template
+        self.result_vocab = result_vocab
 
         # 아래 부분은 make_dataset.py에서 자동으로 계산합니다.
         self.code = ''
