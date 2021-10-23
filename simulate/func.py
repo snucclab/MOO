@@ -157,9 +157,52 @@ def div_to_int(start: int, end: int, result: dict):
         if divisor % i == 0:
             diviser.append(Decimal(i))
 
-    result['<%s.%s>' % ("divisor", 0)] = divisor
-    result['<%s.%s>' % ("diviser", 0)] = random.choice(diviser)
+    result['<%s.%s>' % ("divisor", 0)] = str(divisor)
+    result['<%s.%s>' % ("diviser", 0)] = str(random.choice(diviser))
 
+
+# start must not prime number..!
+def make_fraction(start: int, end: int, result: dict):
+    # random choice num not be prime number
+    num_list = [0] + [i for i in range(1, end + 1)]
+    for i, num in enumerate(num_list):
+        if num == 0 or num == 1:
+            continue
+        index = 2
+        while i * index < len(num_list):
+            num_list[i * index] = 0
+            index += 1
+
+    prime_list = [i for i in num_list if i != 0]
+    candidate_num_list = list(range(0, end))
+
+    for prime in sorted(prime_list, reverse=True):
+        del candidate_num_list[prime]
+    candidates = candidate_num_list[candidate_num_list.index(start):]
+
+    # find fraction
+    num = random.choice(candidates)
+    temp = num
+    divisers = []
+
+    diviser = Decimal(2)
+    while temp != Decimal(1):
+        if temp % diviser == Decimal(0):
+            divisers.append(Decimal(diviser))
+            temp /= diviser
+        else:
+            diviser += Decimal(1)
+
+    if len(divisers) >= 2:
+        divisers = random.sample(divisers, 2)
+    else:
+        divisers.append(divisers[0])
+
+    result['<%s.%s>' % ("num", 0)] = num
+    for i in range(2):
+        result['<%s.%s>' % ("fraction", i)] = str(random.randint(1,int(divisers[i])-1)) + '/' + str(divisers[i])
+
+    return result
 
 __all__ = [
     'arithmetic_prog',
@@ -169,5 +212,6 @@ __all__ = [
     'unk_digit_equation',
     'errorpair',
     'make_system',
-    'div_to_int'
+    'div_to_int',
+    'make_fraction'
 ]
