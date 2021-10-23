@@ -14,17 +14,6 @@ def arithmetic_prog(n: int, prefix: str, result: dict):
         result['<%s.%s>' % (prefix, i)] = str(a + i * d)
 
 
-def div_to_int(start: int, end: int, result: dict):
-    divisor = Decimal(random.randint(start, end))
-    diviser = []
-    for i in range(1, int(divisor+1)):
-        if divisor % i == 0:
-            diviser.append(i)
-
-    result['<%s.%s>' % ("divisor", 0)] = divisor
-    result['<%s.%s>' % ("diviser", 0)] = random.choice(diviser)
-
-
 def difference_prog(n: int, prefix: str, result: dict):
     degree = random.randint(2, 4)
     symbol = sympy.Symbol('x')
@@ -161,6 +150,17 @@ def different_number(begin: int, to: int, size: int, prefix: str, result: dict):
         result['<%s.%s>' % (prefix, i)] = str(n)
 
 
+def div_to_int(start: int, end: int, result: dict):
+    divisor = Decimal(random.randint(start, end))
+    diviser = []
+    for i in range(1, int(divisor+1)):
+        if divisor % i == 0:
+            diviser.append(Decimal(i))
+
+    result['<%s.%s>' % ("divisor", 0)] = divisor
+    result['<%s.%s>' % ("diviser", 0)] = random.choice(diviser)
+
+
 __all__ = [
     'arithmetic_prog',
     'difference_prog',
@@ -168,5 +168,6 @@ __all__ = [
     'rep_prog',
     'unk_digit_equation',
     'errorpair',
-    'make_system'
+    'make_system',
+    'div_to_int'
 ]
