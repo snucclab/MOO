@@ -14,6 +14,17 @@ def arithmetic_prog(n: int, prefix: str, result: dict):
         result['<%s.%s>' % (prefix, i)] = str(a + i * d)
 
 
+def div_to_int(start: int, end: int, result: dict):
+    divisor = Decimal(random.randint(start, end))
+    diviser = []
+    for i in range(1, int(divisor+1)):
+        if divisor % i == 0:
+            diviser.append(i)
+
+    result['<%s.%s>' % ("divisor", 0)] = divisor
+    result['<%s.%s>' % ("diviser", 0)] = random.choice(diviser)
+
+
 def difference_prog(n: int, prefix: str, result: dict):
     degree = random.randint(2, 4)
     symbol = sympy.Symbol('x')
