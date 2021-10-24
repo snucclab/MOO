@@ -203,6 +203,24 @@ def make_fraction(start: int, end: int, result: dict):
         result['<%s.%s>' % ("fraction", i)] = str(random.randint(1,int(divisers[i])-1)) + '/' + str(divisers[i])
 
 
+def round_up(digit: int, pos: int, result: dict):
+    before_round = random.randint(1 * (10 ** (digit - 1)), 1 * (10 ** digit) - 1)
+    after_round = before_round
+    round_digit = int(str(before_round)[digit - len(str(pos))])
+
+    if round_digit < 5:
+        round_digit = [0, 1, 2, 3, 4]
+        after_round -= before_round % (pos * 10)
+    else:
+        round_digit = [5, 6, 7, 8, 9]
+        after_round -= before_round % (pos * 10)
+        after_round += (pos * 10)
+
+    result['<%s.%s>' % ("beforeRound", 0)] = before_round
+    result['<%s.%s>' % ("afterRound", 0)] = after_round
+    result['<%s.%s>' % ("roundDigit", 0)] = str(round_digit)
+
+
 __all__ = [
     'arithmetic_prog',
     'difference_prog',
@@ -212,5 +230,6 @@ __all__ = [
     'errorpair',
     'make_system',
     'div_to_int',
-    'make_fraction'
+    'make_fraction',
+    'round_up'
 ]
