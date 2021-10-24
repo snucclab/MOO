@@ -202,7 +202,6 @@ def make_fraction(start: int, end: int, result: dict):
     for i in range(2):
         result['<%s.%s>' % ("fraction", i)] = str(random.randint(1,int(divisers[i])-1)) + '/' + str(divisers[i])
 
-    return result
 
 __all__ = [
     'arithmetic_prog',
