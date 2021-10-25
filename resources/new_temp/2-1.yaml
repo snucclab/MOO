@@ -5,20 +5,20 @@ problem: >
 
 variable-sampling:
   num.0:
-    range: [ 1, 30 ]
+    range: [1,30]
     under-decimal: 0
     type: int
   num.1:
-    range: [ 1, 30 ]
+    range: [1,30]
     under-decimal: 0
     type: int
   num.2:
-    range: [ 1, 50 ]
+    range: [1,50]
     under-decimal: 0
     type: int
 
 list-sampling:
-  etc.0: [‘사탕’, ‘빵’, ‘과자’, ‘달걀’, ‘초콜릿’, ‘젤리’, ‘껌’]
+  etc.0: ['사탕', '빵', '과자', '달걀', '초콜릿', '젤리', '껌']
 
 function-call: null
 

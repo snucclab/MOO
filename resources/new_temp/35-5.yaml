@@ -1,25 +1,26 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
-  <person.0>는 가장 가난 합니다.
-  <person.1>는 <person.3>보다는 가난하고 <person.3>보다는 부유합니다.
-  <person.3>는 <num.0>만원 만 더 있으면 <num.1>만원을 갖게 되고, <person.2>는 현재 <num.1>만원을 갖고 있습니다.
+  <person.0>(은)는 가장 가난 합니다.
+  <person.1>(은)는 <person.3>보다는 가난하고 <person.3>보다는 부유합니다.
+  <person.3>(은)는 <num.0>만원 만 더 있으면 <num.1>만원을 갖게 되고, <person.2>(은)는 현재 <num.1>만원을 갖고 있습니다.
   5명 중에서 2번째로 돈이 적은 사람은 누구입니까?
 
 variable-sampling:
   num.0:
-  range:[0,15]
-  under-decimal:0
-  type:int
+    range: [0,15]
+    under-decimal: 0
+    type: int
   num.1:
-    range:[15,10000]
-    under-decimal:0
-    type:int
+    range: [15,10000]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
+  R1: LIST()
   R2: APPEND(R1, <person.4>)
   R3: APPEND(R2, <person.1>)
   R4: APPEND(R3, <person.3>)
@@ -38,5 +39,5 @@ equations:
   R17: MAKE_PAIR(<person.2>, R16)
   R18: APPEND(R15,R17)
   R19: MIN(R18)
-  R20: PRINT(R19)”
+  R20: PRINT(R19)"
 

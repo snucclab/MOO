@@ -1,4 +1,5 @@
-problem: 5명의 <status.0>가 중심에서 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>km만큼 떨어져 있습니다. 1km 초과로 중심에서 떨어져 있는 <status.0>는 몇 명입니까?
+problem: >
+  5명의 <status.0>가 중심에서 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>km만큼 떨어져 있습니다. 1km 초과로 중심에서 떨어져 있는 <status.0>는 몇 명입니까?
 
 variable-sampling:
   num.0:
@@ -28,11 +29,13 @@ list-sampling:
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
   R4: APPEND(R3, <num.3>)
   R5: APPEND(R4, <num.4>)
   R6: GT(R5, 1)
-  R7: PRINT(R6)”
+  R7: SUM(R6)
+  R7: SUM(R6)
+  R8: PRINT(R7)"

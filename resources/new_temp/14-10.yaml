@@ -1,13 +1,30 @@
-problem: 어떤 학생이 2번의 시험을 치르게 됩니다. 각 시험에서 받을 수 있는 점수는 0, <num.0>, <num.1>, <num.2>, <num.3>점이 있습니다. 첫 번째 시험에서는 0점이 없다고 합니다. 학생이 받을 수 있는 1, 2차 시험 점수의 경우의 수는 얼마입니까?
+problem: >
+  어떤 학생이 2번의 시험을 치르게 됩니다. 각 시험에서 받을 수 있는 점수는 0, <num.0>, <num.1>, <num.2>, <num.3>점이 있습니다. 첫 번째 시험에서는 0점이 없다고 합니다. 학생이 받을 수 있는 1, 2차 시험 점수의 경우의 수는 얼마입니까?
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 
-function-call: different_number(1, 10, 4, ‘num’)
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, 0)
   R2: APPEND(R1, <num.0>)
   R3: APPEND(R2, <num.1>)
@@ -16,4 +33,4 @@ equations:
   R6: COUNT(R5)
   R7: COMB(R6, 2)
   R8: SUB(R7, 4)
-  R9: PRINT(R8)”
+  R9: PRINT(R8)"

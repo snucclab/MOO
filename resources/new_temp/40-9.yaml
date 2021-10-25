@@ -20,8 +20,8 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: ADD(1, <num.1>)
+  "R0: ADD(1, <num.1>)
   R1: MUL(2,R0)
   R2: DIV(<num.0>, R1)
   R3: MUL(<num.1>, R2)
-  R4: PRINT(R3)”
+  R4: PRINT(R3)"

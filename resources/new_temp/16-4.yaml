@@ -1,14 +1,15 @@
-problem: 매우 큰 <soft_food.0> 덩이가 있습니다. 여기서 임의의 <soft_food.0>를 4번 떼어, 각각의 무게를 재보았더니, <num.0>, <num.1>, <num.2>, <num.3>g으로 나타났습니다. 가장 양이 많은 <soft_food.0>와 가장 양이 적은 <soft_food.0>의 무게의 합이 얼마인지 구하시오.
+problem: >
+  매우 큰 <soft_food.0> 덩이가 있습니다. 여기서 임의의 <soft_food.0>를 4번 떼어, 각각의 무게를 재보았더니, <num.0>, <num.1>, <num.2>, <num.3>g으로 나타났습니다. 가장 양이 많은 <soft_food.0>와 가장 양이 적은 <soft_food.0>의 무게의 합이 얼마인지 구하시오.
 
 variable-sampling: null
 
 list-sampling:
-  soft_food.0: [‘치즈’, ‘버터’, ‘생크림’, ‘식빵’, ‘얼음’]
+  soft_food.0: ['치즈', '버터', '생크림', '식빵', '얼음']
 
-function-call: different_number(1, 100, 4, ‘num’)
+function-call: different_number(1, 100, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
@@ -16,4 +17,4 @@ equations:
   R5: MAX(R4)
   R6: MIN(R4)
   R7: ADD(R5, R6)
-  R8: PRINT(R7)”
+  R8: PRINT(R7)"

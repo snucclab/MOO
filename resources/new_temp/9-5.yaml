@@ -21,13 +21,14 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: 
+list-sampling:
   place.0: [ '복도', '강당', '교실', '창고' ]
+  seat.0: ['의자', '침대', '라꾸라꾸', '쇼파']
 
 function-call: null
 
 equations:
-  “R0: ADD(<num.0>, <num.1>)
+  "R0: ADD(<num.0>, <num.1>)
   R1: SUB(R0, 1)
   R2: ADD(<num.2>, <num.3>)
   R3: SUB(R2, 1)

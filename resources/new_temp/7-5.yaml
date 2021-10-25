@@ -2,7 +2,7 @@ problem: >
   <event.0>에 <person.0>(이)가 참가했습니다.
   기록 순서 상으로 <person.0>의 앞인 <person.1>의 <rank.0>(이)가 <num.0><rank.0>이고,
   뒤인 <person.2>의 <rank.0>(이)가 <num_rank.0><rank.0>입니다.
-  <person.0>은 몇 <rank.0>입니까?
+  <person.0>(은)는 몇 <rank.0>입니까?
  
 variable-sampling:
   num.0:
@@ -14,10 +14,10 @@ list-sampling:
   rank.0: ['등', '번째']
   event.0: ['달리기 시합', '계주', '달리기 경주', '수영 대회', '마라톤', '체육대회']
   
-function-call: eval_expression(‘<num.0>+2’, ‘num_rank’)
+function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <person.0>)
   R2: LIST()
   R3: APPEND(R2, <person.1>)
@@ -27,4 +27,4 @@ equations:
   R7: LIST_CONCAT(R3, R6)
   R8: LIST_INDEX(R7, <person.0>)
   R9: ADD(<num.0>, R8)
-  R10: PRINT(R9)”
+  R10: PRINT(R9)"

@@ -1,6 +1,7 @@
 problem: >
   어떤 수를 제곱해야 할 것을 잘못해서 <num.0>(으)로 나눴더니 <num.1>(이)가 되었습니다.
   바르게 계산한 결과는 얼마입니까?
+
 variable-sampling:
   num.0:
     range: [ 5, 20 ]
@@ -16,6 +17,6 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: MUL(<num.0>, <num.1>)
+  "R0: MUL(<num.0>, <num.1>)
   R1: MUL(R0, R0)
-  R3: PRINT(R1)”
+  R2: PRINT(R1)"

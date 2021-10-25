@@ -1,13 +1,30 @@
-problem: 0, <num.0>, <num.1>, <num.2>, <num.3>이 적힌 쪽지가 있습니다. 이 중 2장을 뽑고 조합하여 대기번호를 부여하려 합니다. 한 자리 수인 대기번호는 만들 수 없다고 할 때, 만들 수 있는 대기번호의 조합의 수를 구하시오.
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3>이 적힌 쪽지가 있습니다. 이 중 2장을 뽑고 조합하여 대기번호를 부여하려 합니다. 한 자리 수인 대기번호는 만들 수 없다고 할 때, 만들 수 있는 대기번호의 조합의 수를 구하시오.
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 
-function-call: different_number(1, 10, 4, ‘num’)
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, 0)
   R2: APPEND(R1, <num.0>)
   R3: APPEND(R2, <num.1>)
@@ -16,4 +33,4 @@ equations:
   R6: COUNT(R5)
   R7: COMB(R6, 2)
   R8: SUB(R7, 4)
-  R9: PRINT(R8)”
+  R9: PRINT(R8)"

@@ -1,5 +1,5 @@
 problem: >
-  어떤 수에서 <num.0> 을(를) 빼고 <num.1>를 더했더니 <num.2 >이(가) 되었습니다. 어떤 수를 구하시오.
+  어떤 수에서 <num.0>(을)를 빼고 <num.1>(을)를 더했더니 <num.2>(이)가 되었습니다. 어떤 수를 구하시오.
 
 variable-sampling:
   num.0:
@@ -9,17 +9,17 @@ variable-sampling:
   num.1:
     range: [10,20]
     under-decimal: 0
-    type:int
+    type : int
   num.2:
-    range:[18,21]
-    under-decimal:0
-    type:int
+    range: [18,21]
+    under-decimal: 0
+    type : int
 
-list-sampling:  null
+list-sampling: null
 
 function-call: null
 
 equations: 
-  “R0: SUB(<num.2>, <num,1>)
-  R1:ADD(R0, <num.0>)
-  R2:PRINT(R1)”
+  "R0: SUB(<num.2>, <num.1>)
+  R1: ADD(R0, <num.0>)
+  R2: PRINT(R1)"

@@ -15,13 +15,13 @@ list-sampling:
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <propername.0>)
   R2: APPEND(R1, <propername.1>)
   R3: APPEND(R2, <propername.2>)
   R4: APPEND(R3, <propername.3>)
-  R5: APPEND(R6, <propername.4>)
-  R6: APPEND(R6, <propername.5>)
+  R5: APPEND(R4, <propername.4>)
+  R6: APPEND(R5, <propername.5>)
   R7: APPEND(R6, <propername.6>)  
   R8: REP_SEQ_TERM(R7, <num.0>)
-  R9: PRINT(R8)”
+  R9: PRINT(R8)"

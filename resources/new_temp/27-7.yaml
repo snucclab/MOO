@@ -7,19 +7,19 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range:[20,60]
-    under-decimal:0
-    type:int
+    range: [20,60]
+    under-decimal: 0
+    type : int
   num.2:
-    range:[10,,50]
-    under-decimal:0
-    type:int
+    range: [10,50]
+    under-decimal: 0
+    type : int
 
 list-sampling: null
 
 function-call: null
 
 equations:
-  “R0: MUL(<num.1>, <num.0>)
+  "R0: MUL(<num.1>, <num.0>)
   R1: MUL(R0, <num.0>)
-  R2: PRINT(R1)”
+  R2: PRINT(R1)"

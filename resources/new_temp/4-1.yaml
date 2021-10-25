@@ -12,25 +12,23 @@ variable-sampling:
     range: [ <num.0>+1, 10 ]
     under-decimal: 0
     type: int
-
   num.2:
     range: [5, 10]
     under-decimal: 0
     type: int
-
   num.3:
     range: [1,<num.2>]
     under-decimal: 0
     type: int
 
 list-sampling:
-paper.0: [‘색종이’, ‘도화지’, ‘색지’, ‘연습장’, ‘A4 용지’, ‘이면지’, ‘골판지’]
+  paper.0: ['색종이', '도화지', '색지', '연습장', 'A4 용지', '이면지', '골판지']
 
 function-call: null
 
 equations:
-  “R0: MUL(<num.1>, <num.2>)
+  "R0: MUL(<num.1>, <num.2>)
   R1: ADD(R0, <num.3>)
   R2: DIV(R1, <num.0>)
   R3: TO_INT(R2)
-  R3: PRINT(R3)”
+  R4: PRINT(R3)"

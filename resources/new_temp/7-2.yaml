@@ -1,7 +1,7 @@
 problem: > 
   <event.0>에서 <person.0>의 순위는 <num.0><rank.0>이고,
   <person.1>의 순위는 <num_rank.0><rank.0>입니다.
-  <person.2>의 순위는 <person.1>보다는 높지만 <person.0>보다는 낮습니다.
+  <person.2>의 순위는 <person.1> 보다는 높지만 <person.0> 보다는 낮습니다.
   <person.2>의 순위는 몇 <rank.0>입니까?
   
  
@@ -12,12 +12,12 @@ variable-sampling:
     type: int
 
 list-sampling:
-  rank.0: [ ‘등’, ‘번째’ ]
+  rank.0: [ '등', '번째' ]
 
-function-call: eval_expression(‘<num.0>+2’, ‘num_rank’)
+function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <person.0>)
   R2: LIST()
   R3: APPEND(R2, <person.1>)
@@ -27,4 +27,4 @@ equations:
   R7: LIST_CONCAT(R1, R6)
   R8: LIST_INDEX(R7, <person.2>)
   R9: ADD(<num.0>, R8)
-  R10: PRINT(R9)”
+  R10: PRINT(R9)"

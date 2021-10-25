@@ -7,17 +7,22 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: [0,99]
+    range: [1,99]
     under-decimal: 0
     type: int
   num.2:
     range: [10,99]
-    under-decimal:0
+    under-decimal : 0
+    type: int
+  #!!!!!!
+  num.3:
+    range: [ 10,99 ]
+    under-decimal: 0
     type: int
   num.4:
     range: [2,9]
-    under-decimal:0
-    type:int
+    under-decimal : 0
+    type : int
 
 
 list-sampling: null
@@ -28,4 +33,5 @@ equations:
   "R0: MUL(<num.4>, <num.3>)
   R1: ADD(R0, <num.2>)
   R2: DIV(R1, <num.1>)
-  R3: SUB(R2, <num.0>)"
+  R3: SUB(R2, <num.0>)
+  R4: PRINT(R3)"

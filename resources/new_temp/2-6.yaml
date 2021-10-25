@@ -18,7 +18,7 @@ variable-sampling:
     type: int
 
 list-sampling: 
-  flower.0: [‘카네이션’, ‘라일락’, ‘코스모스’, ‘장미’, ‘백합’, ‘튤립’, ‘국화’, ‘수국]
+  flower.0: ['카네이션', '라일락', '코스모스', '장미', '백합', '튤립', '국화', '수국']
 
 function-call: null
 

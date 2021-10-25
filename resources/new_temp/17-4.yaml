@@ -1,14 +1,27 @@
-problem: <propername.0>는 0, <num.0>, <num.1>, <num.2> 4개의 숫자 중 3개를 받아, 세 자리수를 만드는 과제를 받았습니다. 맨 앞자리에는 0이 올 수 없다는 제한 조건이 있을 때, <propername.0>가 만들 수 있는 가장 작은 수는 무엇입니까?
+problem: >
+  <propername.0>는 0, <num.0>, <num.1>, <num.2> 4개의 숫자 중 3개를 받아, 세 자리수를 만드는 과제를 받았습니다. 맨 앞자리에는 0이 올 수 없다는 제한 조건이 있을 때, <propername.0>가 만들 수 있는 가장 작은 수는 무엇입니까?
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 0,9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 0,9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0,9 ]
+    under-decimal: 0
+    type: int
 
 list-sampling:
   propername.0: ['정국', '지민', '석진', '태형', '남준', '윤기', '호석', '민영', '유정', '은지', '유나']
 
-function-call: different_number(1, 10, 3, ‘num’)
+function-call: different_number(1, 10, 3, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
@@ -19,6 +32,6 @@ equations:
   R8: SUB(R7, R5)
   R9: DIGIT(R4, 3)
   R10: DIGIT(0, 2)
-  R11: SUM(R9, R10)
-  R12: SUM(R11, R8)
-  R13: PRINT(R12)”
+  R11: ADD(R9, R10)
+  R12: ADD(R11, R8)
+  R13: PRINT(R12)"

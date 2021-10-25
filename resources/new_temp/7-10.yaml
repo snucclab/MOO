@@ -7,7 +7,7 @@ problem: >
  
 variable-sampling:
   num.0:
-    range: [ 10. 20 ]
+    range: [ 10, 20 ]
     under-decimal: 0
     type: int
 
@@ -15,7 +15,7 @@ list-sampling:
   rank.0 : ['등', '번째']
   teacher.0 : ['담임선생님', '교수', '조교', '선생님', '국어선생님', '수학선생님', '원장선생님']
   
-function-call: eval_expression(‘<num.0>+2’, ‘num_rank’)
+function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:
   "R0: LIST()

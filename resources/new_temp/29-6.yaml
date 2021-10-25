@@ -1,5 +1,5 @@
 problem: >
-  어떤 수에서 <num.0>을(를) 빼고 <divider.0>(을)를 곱한 값은 <divisor.0>입니다. 어떤 수를 <divider.0>(으)로 나누고 <num.0>을(를) 더한 값은 얼마인가?
+  어떤 수에서 <num.0>(을)를 빼고 <diviser.0>(을)를 곱한 값은 <divisor.0>입니다. 어떤 수를 <diviser.0>(으)로 나누고 <num.0>(을)를 더한 값은 얼마인가?
 
 variable-sampling:
   num.0:
@@ -12,7 +12,7 @@ list-sampling: null
 function-call: div_to_int(30,50)
 
 equations:
-  "R0:ADD(<divider.0>, <num.0>)
-  R1:DIV(R0, <divider.0>)
-  R2:ADD(R1, <num.0>)
-  R3:PRINT(R2)"
+  "R0: ADD(<diviser.0>, <num.0>)
+  R1: DIV(R0, <diviser.0>)
+  R2: ADD(R1, <num.0>)
+  R3: PRINT(R2)"

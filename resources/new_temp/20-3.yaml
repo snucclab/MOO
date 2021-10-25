@@ -1,4 +1,5 @@
-problem: 한 <status.0>가 숫자의 소수점을 왼쪽으로 2자리 잘못 찍었다고 합니다. 잘못 찍은 수와 원래의 수의 차가 <num.0>이라고 합니다. 원래의 수를 구하시오.
+problem: >
+  한 <status.0>가 숫자의 소수점을 왼쪽으로 2자리 잘못 찍었다고 합니다. 잘못 찍은 수와 원래의 수의 차가 <num.0>이라고 합니다. 원래의 수를 구하시오.
 
 variable-sampling:
   num.0:
@@ -13,5 +14,5 @@ function-call: null
 
 equations:
   "R0: MUL(<num.0>, 100)
-  R1: DIV(<num.0>, 99)
+  R1: DIV(R0, 99)
   R2: PRINT(R1)"

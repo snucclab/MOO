@@ -25,15 +25,15 @@ variable-sampling:
     type: int
 
 list-sampling:
-  place.0: [‘서점’, ‘학교’, ‘도서관’, ‘교실’, ‘연구실’, ‘강의실’]
-  stationary.0: [‘책장’, ‘선반’, ‘책꽂이’]
+  place.0: ['서점', '학교', '도서관', '교실', '연구실', '강의실']
+  stationary.0: ['책장', '선반', '책꽂이']
   position.0: ['왼쪽', '오른쪽']
   position.1: [ '왼쪽', '오른쪽' ]
 
 function-call: null
 
 equations:
-  “R0: ADD(1, <num.2>)
+  "R0: ADD(1, <num.2>)
   R1: ADD(R0, <num.3>)
   R2: MUL(R1, <num.1>)
   R3: MUL(R2, <num.0>)

@@ -1,13 +1,30 @@
-problem: 0, <num.0>, <num.1>, <num.2>, <num.3>의 번호를 받은 5명의 학생이 있습니다. 이 중 회장 1명과 부회장 1명을 뽑으려 합니다. 단, 번호 0을 받은 학생은 회장은 될 수 없고, 부회장만 될 수 있다고 할 때, 회장과 부회장을 뽑는 경우의 수를 구하시오.
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3>의 번호를 받은 5명의 학생이 있습니다. 이 중 회장 1명과 부회장 1명을 뽑으려 합니다. 단, 번호 0을 받은 학생은 회장은 될 수 없고, 부회장만 될 수 있다고 할 때, 회장과 부회장을 뽑는 경우의 수를 구하시오.
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 
-function-call: different_number(1, 10, 4, ‘num’)
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, 0)
   R2: APPEND(R1, <num.0>)
   R3: APPEND(R2, <num.1>)
@@ -16,4 +33,4 @@ equations:
   R6: COUNT(R5)
   R7: COMB(R6, 2)
   R8: SUB(R7, 4)
-  R9: PRINT(R8)”
+  R9: PRINT(R8)"

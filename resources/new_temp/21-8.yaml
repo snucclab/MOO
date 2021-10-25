@@ -16,15 +16,15 @@ variable-sampling:
     type: int
   num.3:
     range: [10,30]
-    under-decimal:
+    under-decimal: 0
     type: int
 
 list-sampling: null
 
-function-call: null	
+function-call: null
 
 equations:
-  “R0:SUB(<num.0>, <num.1>)
-  R1:SUB(<num.3>, <num.2>)
-  R2:MUL(R0, R1)
-  R3:PRINT(R2)”
+  "R0: SUB(<num.0>, <num.1>)
+  R1: SUB(<num.3>, <num.2>)
+  R2: MUL(R0, R1)
+  R3: PRINT(R2)"

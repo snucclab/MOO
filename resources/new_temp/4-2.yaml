@@ -3,7 +3,6 @@ problem: >
   <num.1>개를 넣었더니 <num.2>개의 <container.0>에 넣고 <num.3>개가 남았습니다.
   원래대로 넣는다면 최대한 몇 개의 <container.0>에 넣을 수 있습니까?
 
- 
 variable-sampling:
   num.0:
     range: [ 3, 7 ]
@@ -13,26 +12,23 @@ variable-sampling:
     range: [ <num.0>+1, 10 ]
     under-decimal: 0
     type: int
-
-num.2:
+  num.2:
     range: [5, 10]
     under-decimal: 0
     type: int
-
   num.3:
     range: [1,<num.1>]
     under-decimal: 0
     type: int
 
 list-sampling:
-container.0 : ['바구니', '주머니', '가방', '봉지', '소쿠리', '쇼핑백', '상자'] 
+  container.0 : ['바구니', '주머니', '가방', '봉지', '소쿠리', '쇼핑백', '상자']
 
 function-call: null
 
 equations:
-  “R0: MUL(<num.1>, <num.2>)
+  "R0: MUL(<num.1>, <num.2>)
   R1: ADD(R0, <num.3>)
   R2: DIV(R1, <num.0>)
   R3: TO_INT(R2)
-  R3: PRINT(R3)”
-
+  R4: PRINT(R3)"

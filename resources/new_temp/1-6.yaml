@@ -1,22 +1,20 @@
 problem: >
-  <propername.0>(은)는 <family.0>에게 선물하기 위해 <flower.0>와 <flower.1>(으)로
-  꽃다발을 만들었습니다. <flower.0>(을)를 <num.0> 송이, <flower.1>(을)를 <num.1> 송이
-  사용했다면 꽃다발에 사용된 꽃은 모두 몇 송이 입니까?
+  <propername.0>(은)는 <family.0>에게 선물하기 위해 <flower.0>(와)과 <flower.1>(으)로 꽃다발을 만들었습니다.
+  <flower.0>(을)를 <num.0>송이, <flower.1>(을)를 <num.1>송이 사용했다면 꽃다발에 사용된 꽃은 모두 몇 송이 입니까?
 
 variable-sampling:
   num.0:
-    range: [ 5, 20 ]
+    range: [5,20]
     under-decimal: 0
     type: int
-  
   num.1:
-    range: [ 5, 20 ]
+    range: [5,20]
     under-decimal: 0
     type: int
 
 list-sampling: 
-  flower.0: [‘카네이션’, ‘라일락’, ‘코스모스’, ‘장미’, ‘백합’, ‘튤립’, ‘국화’, ‘수국]
-  flower.1: [‘안개꽃’, ‘프리지아’, ‘해바라기’, ‘백일홍’, ‘모란꽃’, ‘유칼리툽스’]
+  flower.0: ['카네이션', '라일락', '코스모스', '장미', '백합', '튤립', '국화', '수국']
+  flower.1: ['안개꽃', '프리지아', '해바라기', '백일홍', '모란꽃']
 
 function-call: null
 

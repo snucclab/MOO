@@ -7,19 +7,20 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range:[1,9]
-    under-decimal:0
-    type:int
+    range: [1,9]
+    under-decimal: 0
+    type : int
   num.2:
-    range:[8,]
-    under-decimal:0
-    type:int
+    #!!!!!
+    range: [8,100]
+    under-decimal: 0
+    type : int
 
 list-sampling: null
 
 function-call: null
 
 equations:
-  “R0: ADD(<num.1>, <num.2>)
+  "R0: ADD(<num.1>, <num.2>)
   R1: SUB(R0, <num.0>)
-  R2: PRINT(R1)”
+  R2: PRINT(R1)"

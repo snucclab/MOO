@@ -1,14 +1,31 @@
-problem: 0, <num.0>, <num.1>, <num.2>, <num.3>의 번호를 부여받은 5명의 <status.0>가 있습니다. 이 중 한 명을 뽑아 한 명의 번호에 10배를 하고, 다른 한 명을 더 뽑아 나온 수치를 더하여 기록하려 합니다. 처음에는 0의 번호를 받은 <status.0>를 뽑을 수 없을 때, 나올 수 있는 수치의 종류는 몇 개입니까?
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3>의 번호를 부여받은 5명의 <status.0>가 있습니다. 이 중 한 명을 뽑아 한 명의 번호에 10배를 하고, 다른 한 명을 더 뽑아 나온 수치를 더하여 기록하려 합니다. 처음에는 0의 번호를 받은 <status.0>를 뽑을 수 없을 때, 나올 수 있는 수치의 종류는 몇 개입니까?
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
 
 list-sampling:
   status.0: ['직장인', '학생', '어린이', '학부모', '공무원', '대학원생']
 
-function-call: different_number(1, 10, 4, ‘num’)
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, 0)
   R2: APPEND(R1, <num.0>)
   R3: APPEND(R2, <num.1>)
@@ -17,4 +34,4 @@ equations:
   R6: COUNT(R5)
   R7: COMB(R6, 2)
   R8: SUB(R7, 4)
-  R9: PRINT(R8)”
+  R9: PRINT(R8)"

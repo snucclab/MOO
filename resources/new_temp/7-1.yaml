@@ -1,22 +1,21 @@
 problem: > 
-  <event.0>에서 <person.0>(이)는 <num.0><rank.0>(을)를 했고,
-  <person.1>(이)는 <num_rank.0><rank.0>(을)를 했습니다.
-  <person.2>(이)는 <person.1>보다 못했지만 <person.0>보다는 잘했습니다.
-  <person.2>(이)는 몇 등입니까?"
+  <event.0>에서 <person.0>(은)는 <num.0><rank.0>(을)를 했고,
+  <person.1>(은)는 <num_rank.0><rank.0>(을)를 했습니다.
+  <person.2>(은)는 <person.1> 보다 못했지만 <person.0> 보다는 잘했습니다.
+  <person.2>(은)는 몇 등입니까?
  
 variable-sampling:
   num.0:
     range: [ 2, 17 ]
     under-decimal: 0
     type: int
-
 list-sampling:
-  rank.0: [ ‘등’, ‘번째’ ]
+  rank.0: [ '등', '번째' ]
 
-function-call: eval_expression(‘<num.0>+2’, ‘num_rank’)
+function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <person.0>)
   R2: LIST()
   R3: APPEND(R2, <person.1>)
@@ -26,4 +25,4 @@ equations:
   R7: LIST_CONCAT( R3, R6)
   R8: LIST_INDEX(R7, <person.2>)
   R9: ADD(<num_rank.0>, R8)
-  R10: PRINT(R9)”
+  R10: PRINT(R9)"

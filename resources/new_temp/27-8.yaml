@@ -1,5 +1,5 @@
 problem: >
-  어떤 수에 <divider.0>을(를) 더하고 <num.0>을(를) 곱해야하는 것을 잘못하여 <num.0>을(를) 더하고 <divider.0>을 곱했더니 <divisor.0>이(가) 되었습니다. 바르게 계산한 결과를 구하시오.
+  어떤 수에 <diviser.0>을(를) 더하고 <num.0>을(를) 곱해야하는 것을 잘못하여 <num.0>을(를) 더하고 <diviser.0>을 곱했더니 <divisor.0>이(가) 되었습니다. 바르게 계산한 결과를 구하시오.
 
 variable-sampling:
   num.0:
@@ -12,8 +12,8 @@ list-sampling: null
 function-call: div_to_int(100,200)
 
 equations:
-  “R0: DIV(<divisor.0>, <divider.0>)
+  "R0: DIV(<divisor.0>, <diviser.0>)
   R1: SUB(R0, <num.0>)
-  R2: ADD(R1, <divider.0>)
-  R3:MUL(R2, <num.0>)
-  R4:PRINT(R3)"
+  R2: ADD(R1, <diviser.0>)
+  R3: MUL(R2, <num.0>)
+  R4: PRINT(R3)"

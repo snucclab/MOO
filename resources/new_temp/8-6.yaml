@@ -19,7 +19,7 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: ADD(1,<num.0>)
+  "R0: ADD(1,<num.0>)
   R1: ADD(R0, 1)
   R2: ADD(R1, <num.1>)
-  R3: PRINT(R2)”
+  R3: PRINT(R2)"

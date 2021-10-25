@@ -8,7 +8,7 @@ variable-sampling:
     type: int
   num.1:
     range: [1,9]
-    under-decimal:0
+    under-decimal : 0
     type: int
 
 list-sampling: null
@@ -16,6 +16,6 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: ADD(<num.0>, <num.1>)
-  R1: PRINT(R0)”
+  "R0: ADD(<num.0>, <num.1>)
+  R1: PRINT(R0)"
 

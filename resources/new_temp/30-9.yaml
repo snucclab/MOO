@@ -3,20 +3,20 @@ problem: >
 
 variable-sampling:
   num.0:
-    range:[1,15]
-    under-decimal:0
-    type:int
+    range: [1,15]
+    under-decimal: 0
+    type : int
   num.1:
-    range:[1,9]
-    under-decimal:0
-    type:int
+    range: [1,9]
+    under-decimal: 0
+    type : int
   num.2:
-    range:[1,9]
-    under-decimal:0
-    type:int
+    range: [1,9]
+    under-decimal: 0
+    type : int
   num.3:
-    range:[20, 200]
-    under-decimal:0
+    range: [20, 200]
+    under-decimal: 0
     type: int
 
 list-sampling: null
@@ -24,8 +24,8 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: MUL(<num.0>, <num.2>)
-  R1:SUB(<num.3>, R0)
-  R2:MUL(<num.0>, <num.1>)
+  "R0: MUL(<num.0>, <num.2>)
+  R1: SUB(<num.3>, R0)
+  R2: MUL(<num.0>, <num.1>)
   R3: ADD(R1, R2)
-  R4: PRINT(R3)”
+  R4: PRINT(R3)"

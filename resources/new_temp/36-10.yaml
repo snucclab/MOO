@@ -8,5 +8,5 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: ADD(3,4)
-  R1: PRINT(R1)”
+  "R0: ADD(3,4)
+  R1: PRINT(R0)"

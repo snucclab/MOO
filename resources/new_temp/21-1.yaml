@@ -1,30 +1,30 @@
 problem: >
   <unknown.0>, <unknown.1> (은)는 한 자리 수 입니다. <unknown.0> (은)는 <num.0> 보다 <num.1> 큰 수이고, <unknown.1>보다 <num.2> 작은 수는 <num.3> 입니다. <unknown.0>(와)과 <unknown.1> 의 합을 구하시오.
 
-variable-sampling: 
-  num.0: 
+variable-sampling:
+  num.0:
     range: [0, 5]
     under-decimal: 0
     type: int
-  num.1: 
-    range:[0,4]
-    under-decimal:0
-    type:int
-  num.2: 
-    range:[0,9]
-    under-decimal:0
-    type:int
+  num.1:
+    range: [0,4]
+    under-decimal: 0
+    type : int
+  num.2:
+    range: [0,9]
+    under-decimal: 0
+    type : int
   num.3:
-    range:[-9, 9]
-    under-decimal:0
-    type:int
+    range: [-9, 9]
+    under-decimal: 0
+    type : int
 
 list-sampling: null
 
-function-call: null	
+function-call: null
 
 equations:
-  “R0: ADD(<num.0>, <num.1>)
+  "R0: ADD(<num.0>, <num.1>)
   R1: ADD(<num.2>, <num.3>)
   R2: ADD(R0, R1)
-  R3: PRINT(R2)”
+  R3: PRINT(R2)"

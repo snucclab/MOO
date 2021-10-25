@@ -1,13 +1,30 @@
-problem: 0, <num.0>, <num.1>, <num.2>, <num.3>의 수가 주어져 있습니다. 이 중 두 수를 선택해, 두 수를 순서를 고려하여 배치하려 합니다. 0은 맨 앞 자리에 올 수 없다고 할 때, 숫자 배치의 경우의 수를 구하시오.
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3>의 수가 주어져 있습니다. 이 중 두 수를 선택해, 두 수를 순서를 고려하여 배치하려 합니다. 0은 맨 앞 자리에 올 수 없다고 할 때, 숫자 배치의 경우의 수를 구하시오.
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 0, 9 ]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 
-function-call: different_number(1, 10, 4, ‘num’)
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, 0)
   R2: APPEND(R1, <num.0>)
   R3: APPEND(R2, <num.1>)
@@ -16,4 +33,4 @@ equations:
   R6: COUNT(R5)
   R7: COMB(R6, 2)
   R8: SUB(R7, 4)
-  R9: PRINT(R8)”
+  R9: PRINT(R8)"

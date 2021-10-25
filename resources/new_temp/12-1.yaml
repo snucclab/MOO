@@ -1,13 +1,14 @@
-problem: <num.0>, <num.1>, <num.2>, <num.3> 중에서 서로 다른 숫자 2개를 뽑아 만들 수 있는 두 자리 수 중에서 가장 큰 수와 가장 작은 수의 차를 구하시오.
+problem: >
+  <num.0>, <num.1>, <num.2>, <num.3> 중에서 서로 다른 숫자 2개를 뽑아 만들 수 있는 두 자리 수 중에서 가장 큰 수와 가장 작은 수의 차를 구하시오.
 
 variable-sampling: null
 
 list-sampling: null
 
-function-call: different_number(1, 10, 4, ‘num’)
-
+function-call: different_number(1, 10, 4, 'num')
+#R11고 SUM -> ADD
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: LIST()
@@ -18,7 +19,7 @@ equations:
   R8: MAX(R2)
   R9: MAX(R5)
   R10: LIST()
-  R11: APPEND(10, R6)
+  R11: APPEND(R10, R6)
   R12: APPEND(R11, R7)
   R13: MIN(R12)
   R14: MAX(R12)
@@ -33,8 +34,8 @@ equations:
   R23: MIN(R22)
   R24: MAX(R22)
   R25: DIGIT(R19, 2)
-  R26: SUM(R25, R24)
+  R26: ADD(R25, R24)
   R27: DIGIT(R13, 2)
-  R28: SUM(R27, R23)
+  R28: ADD(R27, R23)
   R29: SUB(R26, R28)
   R30: PRINT(R29)"

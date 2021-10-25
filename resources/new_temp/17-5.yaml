@@ -1,13 +1,27 @@
-problem: 0, <num.0>, <num.1>, <num.2> 4개의 숫자가 적힌 <stamp.0>이 있습니다. 이 중, 3개를 선택해 세 자리 숫자 <stamp.0>을 만드려 합니다. 맨 앞 자리 숫자가 0이 되는 건 안 된다고 할 때, <stamp.0>으로 만들 수 있는 가장 작은 수를 구하시오.
+problem: >
+  0, <num.0>, <num.1>, <num.2> 4개의 숫자가 적힌 <stamp.0>이 있습니다. 이 중, 3개를 선택해 세 자리 숫자 <stamp.0>을 만드려 합니다. 맨 앞 자리 숫자가 0이 되는 건 안 된다고 할 때, <stamp.0>으로 만들 수 있는 가장 작은 수를 구하시오.
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 0,9 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 0,9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0,9 ]
+    under-decimal: 0
+    type: int
 
-list-sampling: null
+list-sampling:
+  stamp.0 : ['도장', '우표', '봉투']
 
-function-call: different_number(1, 10, 3, ‘num’)
+function-call: different_number(1, 10, 3, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
@@ -18,6 +32,6 @@ equations:
   R8: SUB(R7, R5)
   R9: DIGIT(R4, 3)
   R10: DIGIT(0, 2)
-  R11: SUM(R9, R10)
-  R12: SUM(R11, R8)
-  R13: PRINT(R12)”
+  R11: ADD(R9, R10)
+  R12: ADD(R11, R8)
+  R13: PRINT(R12)"

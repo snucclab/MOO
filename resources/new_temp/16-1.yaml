@@ -1,13 +1,14 @@
-problem: <num.0>, <num.1>, <num.2>, <num.3>가 있습니다. 그중에서 가장 큰 수에서 가장 작은 수를 뺀 값은 얼마입니까?
+problem: >
+  <num.0>, <num.1>, <num.2>, <num.3>가 있습니다. 그중에서 가장 큰 수에서 가장 작은 수를 뺀 값은 얼마입니까?
 
 variable-sampling: null
 
 list-sampling: null
 
-function-call: different_number(1, 100, 4, ‘num’)
+function-call: different_number(1, 100, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
@@ -15,4 +16,4 @@ equations:
   R5: MAX(R4)
   R6: MIN(R4)
   R7: SUB(R5, R6)
-  R8: PRINT(R7)”
+  R8: PRINT(R7)"

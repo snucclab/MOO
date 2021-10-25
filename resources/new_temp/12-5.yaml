@@ -1,14 +1,15 @@
-problem: 4명의 <status.0>이 각각 <num.0>, <num.1>, <num.2>, <num.3>의 번호를 부여받았습니다. 이들 중 2명만 선택하여, 두 자리 숫자를 만들려 할 때, 나올 수 있는 가장 큰 수와 작은 수의 차를 구하시오.
+problem: >
+  4명의 <status.0>이 각각 <num.0>, <num.1>, <num.2>, <num.3>의 번호를 부여받았습니다. 이들 중 2명만 선택하여, 두 자리 숫자를 만들려 할 때, 나올 수 있는 가장 큰 수와 작은 수의 차를 구하시오.
 
 variable-sampling: null
 
 list-sampling:
   status.0: ['직장인', '학생', '어린이', '학부모', '공무원', '대학원생']
 
-function-call: different_number(1, 10, 4, ‘num’)
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: LIST()
@@ -19,7 +20,7 @@ equations:
   R8: MAX(R2)
   R9: MAX(R5)
   R10: LIST()
-  R11: APPEND(10, R6)
+  R11: APPEND(R10, R6)
   R12: APPEND(R11, R7)
   R13: MIN(R12)
   R14: MAX(R12)
@@ -34,8 +35,8 @@ equations:
   R23: MIN(R22)
   R24: MAX(R22)
   R25: DIGIT(R19, 2)
-  R26: SUM(R25, R24)
+  R26: ADD(R25, R24)
   R27: DIGIT(R13, 2)
-  R28: SUM(R27, R23)
+  R28: ADD(R27, R23)
   R29: SUB(R26, R28)
   R30: PRINT(R29)"

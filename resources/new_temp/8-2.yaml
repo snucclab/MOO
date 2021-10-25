@@ -19,5 +19,5 @@ list-sampling:
 function-call: null
 
 equations:
-  “R0: ADD(<num.0>, <num.1>)
-  R1: PRINT(R0)”
+  "R0: ADD(<num.0>, <num.1>)
+  R1: PRINT(R0)"

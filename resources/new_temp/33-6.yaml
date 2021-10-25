@@ -1,6 +1,6 @@
 problem: >
-  <person.0>이는 <person.1>이보다 빠르고 <person.2>이보다 느립니다.
-  <person.3>이는 <person.2>이보다 빠릅니다.
+  <person.0>(은)는 <person.1> 보다 빠르고 <person.2> 보다 느립니다.
+  <person.3>(은)는 <person.2> 보다 빠릅니다.
   4명 중 가장 느린 사람은 누구입니까?
 
 
@@ -11,7 +11,7 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <person.1>)
   R2: APPEND(R1, <person.0>)
   R3: APPEND(R2, <person.2>)
@@ -30,4 +30,4 @@ equations:
   R16: MAKE_PAIR(<person.3>, R15)
   R17: APPEND(R14,R16)
   R18: MIN(R17)
-  R19: PRINT(R18)”
+  R19: PRINT(R18)"

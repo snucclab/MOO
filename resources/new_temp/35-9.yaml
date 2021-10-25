@@ -1,25 +1,27 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
-  <person.0>이가 턱걸이를 가장 적게 합니다.
-  <person.1>는 <person.3>보다 적게하고 <person.3>보다 많이 합니다.
-  <person.3>는 <num.0>개만 더 할 수 있으면 <num.1>개를 하고, <person.2>는 <num.1>개를 합니다.
+  <person.0>(이)가 턱걸이를 가장 적게 합니다.
+  <person.1>(은)는 <person.3>보다 적게하고 <person.3> 보다 많이 합니다.
+  <person.3>(은)는 <num.0>개만 더 할 수 있으면 <num.1>개를 하고, <person.2>(은)는 <num.1>개를 합니다.
   5명 중에서 두번째로 적게 한 사람은 누구입니까?
 
 variable-sampling:
   num.0:
-  range:[0,15]
-  under-decimal:0
-  type:int
+    range: [0,15]
+    under-decimal: 0
+    type: int
   num.1:
-    range:[15,10000]
-    under-decimal:0
-    type:int
+    range: [15,10000]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
+
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
+  R1: LIST()
   R2: APPEND(R1, <person.4>)
   R3: APPEND(R2, <person.1>)
   R4: APPEND(R3, <person.3>)
@@ -38,5 +40,5 @@ equations:
   R17: MAKE_PAIR(<person.2>, R16)
   R18: APPEND(R15,R17)
   R19: MIN(R18)
-  R20: PRINT(R19)”
+  R20: PRINT(R19)"
 

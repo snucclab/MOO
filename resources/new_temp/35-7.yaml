@@ -1,25 +1,26 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 물 많이 마시기 내기를 하였습니다.
-  <person.0>가 가장 적게 먹었습니다.
-  <person.1>는 <person.3>보다는 적게 먹었고 <person.3>보다는 많이 마셨습니다.
-  <person.3>는 <num.0>l만 더 마셨으면 <num.1>l를 마셨고, <person.2>는 <num.1>l를 마셨습니다.
+  <person.0>(이)가 가장 적게 먹었습니다.
+  <person.1>(은)는 <person.3>보다는 적게 먹었고 <person.3> 보다는 많이 마셨습니다.
+  <person.3>(은)는 <num.0>l만 더 마셨으면 <num.1>l를 마셨고, <person.2>(은)는 <num.1>l를 마셨습니다.
   5명 중에서 4번째로 적게 마신 사람은 누구입니까?
 
 variable-sampling:
   num.0:
-  range:[0,15]
-  under-decimal:0
-  type:int
+    range: [0,15]
+    under-decimal: 0
+    type : int
   num.1:
-    range:[15,10000]
-    under-decimal:0
-    type:int
+    range: [15,10000]
+    under-decimal: 0
+    type : int
 
 list-sampling: null
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
+  R1: LIST()
   R2: APPEND(R1, <person.4>)
   R3: APPEND(R2, <person.1>)
   R4: APPEND(R3, <person.3>)
@@ -38,5 +39,5 @@ equations:
   R17: MAKE_PAIR(<person.2>, R16)
   R18: APPEND(R15,R17)
   R19: MIN(R18)
-  R20: PRINT(R19)”
+  R20: PRINT(R19)"
 

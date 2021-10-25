@@ -1,14 +1,15 @@
-problem: 99장의 <sort_paper.0>가 쌓여 있습니다. <sort_paper.0> 더미에서 <sort_paper.0>를 임의로 집어 <sort_paper.0>의 수를 세었습니다. 4번 반복했을 때, <sort_paper.0>의 수는 각각 <num.0>, <num.1>, <num.2>, <num.3>장이었습니다. 가장 많은 <sort_paper.0>를 잡았을 때의 <sort_paper.0>의 수와 가장 적은 <sort_paper.0>를 잡았을 때의 <sort_paper.0>의 수의 차는 얼마입니까?
+problem: >
+  99장의 <sort_paper.0>가 쌓여 있습니다. <sort_paper.0> 더미에서 <sort_paper.0>를 임의로 집어 <sort_paper.0>의 수를 세었습니다. 4번 반복했을 때, <sort_paper.0>의 수는 각각 <num.0>, <num.1>, <num.2>, <num.3>장이었습니다. 가장 많은 <sort_paper.0>를 잡았을 때의 <sort_paper.0>의 수와 가장 적은 <sort_paper.0>를 잡았을 때의 <sort_paper.0>의 수의 차는 얼마입니까?
 
 variable-sampling: null
 
 list-sampling:
-  sort_paper.0: [ ‘A4용지’, ‘A5용지’, ‘B5용지’, 'B4용지', ‘전지’]
+  sort_paper.0: [ 'A4용지', 'A5용지', 'B5용지', 'B4용지', '전지']
 
-function-call: different_number(1, 100, 4, ‘num’)
+function-call: different_number(1, 100, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
@@ -16,4 +17,4 @@ equations:
   R5: MAX(R4)
   R6: MIN(R4)
   R7: SUB(R5, R6)
-  R8: PRINT(R7)”
+  R8: PRINT(R7)"

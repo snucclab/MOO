@@ -1,4 +1,5 @@
-problem: 월요일부터 금요일까지 5일 간 <sport.0>을 했습니다. 각 일자별로 <sport.0>한 거리를 기록하였는데, 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>km로 나타났습니다. 1km보다 큰 거리를 <sport.0>한 날이 몇 일인지 구하시오.
+problem: >
+  월요일부터 금요일까지 5일 간 <sport.0>을 했습니다. 각 일자별로 <sport.0>한 거리를 기록하였는데, 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>km로 나타났습니다. 1km보다 큰 거리를 <sport.0>한 날이 몇 일인지 구하시오.
 
 variable-sampling:
   num.0:
@@ -23,16 +24,17 @@ variable-sampling:
     type: float
 
 list-sampling:
-  sport.0: [‘조깅’, ‘러닝’, ‘걷기 운동’, ‘러닝머신’, '수영']
+  sport.0: ['조깅', '러닝', '걷기 운동', '러닝머신', '수영']
 
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
   R4: APPEND(R3, <num.3>)
   R5: APPEND(R4, <num.4>)
   R6: GT(R5, 1)
-  R7: PRINT(R6)”
+  R7: SUM(R6)
+  R8: PRINT(R7)"

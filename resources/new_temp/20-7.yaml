@@ -1,4 +1,5 @@
-problem: 어떤 수에서 어떤 수를 100으로 나눈 수를 뺐더니, <num.0>였습니다. 어떤 수는 무엇입니까?
+problem: >
+  어떤 수에서 어떤 수를 100으로 나눈 수를 뺐더니, <num.0>였습니다. 어떤 수는 무엇입니까?
 
 variable-sampling:
   num.0:
@@ -12,5 +13,5 @@ function-call: null
 
 equations:
   "R0: MUL(<num.0>, 100)
-  R1: DIV(<num.0>, 99)
+  R1: DIV(R0, 99)
   R2: PRINT(R1)"

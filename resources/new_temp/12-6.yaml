@@ -1,13 +1,14 @@
-problem: 4개의 숫자가 각각 <num.0>, <num.1>, <num.2>, <num.3>로 주어져 있습니다. 이들 숫자를 일렬로 배치하여, 앞 2개의 수가 하나의 두 자리 숫자가 되고, 뒤 2개의 수가 하나의 두 자리 숫자가 됩니다. 앞의 수와 뒤의 수의 차의 최대값을 구하시오.
+problem: >
+  4개의 숫자가 각각 <num.0>, <num.1>, <num.2>, <num.3>로 주어져 있습니다. 이들 숫자를 일렬로 배치하여, 앞 2개의 수가 하나의 두 자리 숫자가 되고, 뒤 2개의 수가 하나의 두 자리 숫자가 됩니다. 앞의 수와 뒤의 수의 차의 최대값을 구하시오.
 
 variable-sampling: null
 
 list-sampling: null
 
-function-call: different_number(1, 10, 4, ‘num’)
+function-call: different_number(1, 10, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: LIST()
@@ -18,7 +19,7 @@ equations:
   R8: MAX(R2)
   R9: MAX(R5)
   R10: LIST()
-  R11: APPEND(10, R6)
+  R11: APPEND(R10, R6)
   R12: APPEND(R11, R7)
   R13: MIN(R12)
   R14: MAX(R12)
@@ -33,8 +34,8 @@ equations:
   R23: MIN(R22)
   R24: MAX(R22)
   R25: DIGIT(R19, 2)
-  R26: SUM(R25, R24)
+  R26: ADD(R25, R24)
   R27: DIGIT(R13, 2)
-  R28: SUM(R27, R23)
+  R28: ADD(R27, R23)
   R29: SUB(R26, R28)
   R30: PRINT(R29)"

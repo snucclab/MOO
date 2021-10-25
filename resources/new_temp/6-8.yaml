@@ -9,9 +9,9 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <propername.0>)
   R2: APPEND(R1, <propername.1>)
   R3: APPEND(R2, <propername.2>)
   R4: REP_SEQ_TERM(R3, 3)
-  R5: PRINT(R4)”
+  R5: PRINT(R4)"

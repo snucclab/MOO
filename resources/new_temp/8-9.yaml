@@ -20,6 +20,6 @@ list-sampling:
 function-call: null
 
 equations:
-  “R0: ADD(<num.0>,<num.1>)
+  "R0: ADD(<num.0>,<num.1>)
   R1: ADD(R0, 1)
-  R2: PRINT(R1)”
+  R2: PRINT(R1)"

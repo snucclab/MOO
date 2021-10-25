@@ -23,14 +23,14 @@ variable-sampling:
     type: int
 
 list-sampling:
-  contest.0 : [ ‘노래’, '수학경시’, ‘춤’, ‘웅변’, ‘피아노’, ‘합창’, '발명' ]
+  contest.0 : [ '노래', '수학경시', '춤', '웅변', '피아노', '합창', '발명' ]
   gender.0 : [ '남자', '여자' ]
   gender.1 : [ '남자', '여자' ]
 
 function-call: null
 
 equations:
-  “R0: ADD(<num.2>, <num.3>)
+  "R0: ADD(<num.2>, <num.3>)
   R1: MUL(R0, <num.1>)
   R2: MUL(R1, <num.0>)
-  R2: PRINT(R3)"
+  R3: PRINT(R2)"

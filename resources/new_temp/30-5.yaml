@@ -2,26 +2,26 @@ problem: >
  <num.0> 에 어떤 수를 더한 뒤, <num.1>을(를) 빼야 하는데 잘못하여 어떤 수에서 <num.1>을(를)  빼고 <num.0>(으)로 나누었더니 <num.2>이(가) 나왔습니다. 바르게 계산한 결과를 구하시오. 
 
 variable-sampling:
-	num.0:
-		range:[1,9]
-		under-decimal:0
-		type:int
-	num.1:
-		range:[10,20]
-		under-decimal:0
-		type:int
-	num.2:
-		range:[20,40]
-		under-decimal:0
-		type:int
+    num.0:
+        range: [1,9]
+        under-decimal: 0
+        type : int
+    num.1:
+        range: [10,20]
+        under-decimal : 0
+        type : int
+    num.2:
+        range: [20,40]
+        under-decimal : 0
+        type : int
 
 list-sampling: null
 
 function-call: null
 
 equations:
-  “R0: MUL(<num.0>, <num.1>)
-  R1:ADD(<num.1>, R0)
+  "R0: MUL(<num.0>, <num.1>)
+  R1: ADD(<num.1>, R0)
   R2: ADD(<num.0>, R1)
   R3: SUB(R2, <num.1>)
-  R4:PRINT(R3)"
+  R4: PRINT(R3)"

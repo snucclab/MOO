@@ -3,39 +3,38 @@ problem: >
 
 variable-sampling: 
   num.0:
-    range:[10,30]
-    Under-decimal:0
-    type:int
+    range: [10,30]
+    Under-decimal: 0
+    type: int
   num.1:
-    range:[1,3]
-    Under-decimal:0
-    type:int
+    range: [1,3]
+    Under-decimal: 0
+    type: int
   num.2:
-    range:[0,9]
-    under-decimal:0
-    type:int
+    range: [0,9]
+    under-decimal: 0
+    type: int
   num.3:
-    range:[15,20]
-    under-decimal:0
-    type:int
+    range: [15,20]
+    under-decimal: 0
+    type: int
   num.4:
-     range:[1,4]
-    under-decimal:0
-    type:int
+    range: [1,4]
+    under-decimal: 0
+    type: int
   num.5:
-    range:[0,5]
-    under-decimal:0
-    type:int
+    range: [0,5]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 
-function-call: null	
+function-call: null
 
 equations: 
-  “R0: MUL(<num.0>, <num.1>)
-  R1:ADD(R0, <num.2>)
+  "R0: MUL(<num.0>, <num.1>)
+  R1: ADD(R0, <num.2>)
   R2: MUL(<num.3>, <num.4>)
-  R3:SUB(R2, <num5>)
-  R4:ADD(R1, R3)
-  R5:PRINT(R5)"
-
+  R3: SUB(R2, <num.5>)
+  R4: ADD(R1, R3)
+  R5: PRINT(R4)"

@@ -1,14 +1,15 @@
-problem: 4마리의 <animal.0>가 있습니다. 각각의 무게가 <num.0>, <num.1>, <num.2>, <num.3>kg이라고 합니다. 이 중 가장 무거운 <animal.0>와 가장 가벼운 <animal.0>의 무게 차를 구하시오.
+problem: >
+  4마리의 <animal.0>가 있습니다. 각각의 무게가 <num.0>, <num.1>, <num.2>, <num.3>kg이라고 합니다. 이 중 가장 무거운 <animal.0>와 가장 가벼운 <animal.0>의 무게 차를 구하시오.
 
 variable-sampling: null
 
 list-sampling:
   animal.0: ['닭', '강아지', '고양이', '백조', '진돗개', '돌고래', '타조', '임팔라', '사슴', '노루', '고라니', '원숭이', '치타', '표범', '곰', '기린', '코끼리', '코뿔소', '물소', '하마', '물개', '바다표범', '악어', '고릴라', '침팬지', '북극곰', '고래']
 
-function-call: different_number(1, 100, 4, ‘num’)
+function-call: different_number(1, 100, 4, 'num')
 
 equations:
-  “R0: LIST()
+  "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
   R3: APPEND(R2, <num.2>)
@@ -16,4 +17,4 @@ equations:
   R5: MAX(R4)
   R6: MIN(R4)
   R7: SUB(R5, R6)
-  R8: PRINT(R7)”
+  R8: PRINT(R7)"

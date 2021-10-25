@@ -3,7 +3,7 @@ problem: >
   키가 <num.1>cm 이상인 회원 중에서 몸무게가 <num.2>kg미만인 회원은 
   키가 <num.1>cm 이상인 회원 전체의 <fraction.1>입니다. 
   헬스장에서 몸무게가 <num.2>kg이상이고 키가 <num.1>cm 이상인 회원은 모두 몇 명입니까?
- 
+
 variable-sampling :
   num.1:
     range: [ 160, 180 ]
@@ -13,7 +13,7 @@ variable-sampling :
     range: [ 50, 80 ]
     under-decimal: 0
     type: int
-  
+
 list-sampling : null
 
 function-call: make_fraction(200, 500)

@@ -24,13 +24,13 @@ variable-sampling:
     type: int
 
 list-sampling:
-  place.0: [ ‘마트’, ‘과일가게’, ‘시장’, '코스트코’, '슈퍼마켓' ]
-  container.0: [‘진열대’, '냉장고’, ‘매대’]
+  place.0: [ '마트', '과일가게', '시장', '코스트코', '슈퍼마켓' ]
+  container.0: ['진열대', '냉장고', '매대']
 
 function-call: null
 
 equations:
-  “R0: ADD(<num.2>, <num.3>)
+  "R0: ADD(<num.2>, <num.3>)
   R1: SUB(R0, 1)
   R2: MUL(R1, <num.1>)
   R3: MUL(R2, <num.0>)

@@ -26,7 +26,7 @@ list-sampling: null
 function-call: null
 
 equations:
-  “R0: ADD(<num.0>, <num.3>)
+  "R0: ADD(<num.0>, <num.3>)
   R1: SUB(R0, 1)
   R2: ADD(<num.1>, <num.2>)
   R3: SUB(R2, 1)
