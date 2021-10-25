@@ -1,0 +1,31 @@
+problem: >
+  어떤 수에 <num.0>에 <num.1>를 더해야 하는데 잘못하여 어떤 수에 <num.1>의 <num.2>배를 더했더니 <num.3>이(가) 되었습니다. 바르게 계산한 결과를 구하시오. 
+
+variable-sampling:
+  num.0:
+    range:[1,15]
+    under-decimal:0
+    type:int
+  num.1:
+    range:[1,9]
+    under-decimal:0
+    type:int
+  num.2:
+    range:[1,9]
+    under-decimal:0
+    type:int
+  num.3:
+    range:[20, 200]
+    under-decimal:0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: MUL(<num.1>, <num.2>)
+  R1:SUB(<num.3>, R0)
+  R2: ADD(R1, <num.1>)
+  R3: PRINT(R3)”
+

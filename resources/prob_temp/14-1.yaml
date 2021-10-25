@@ -1,0 +1,19 @@
+problem: 0, <num.0>, <num.1>, <num.2>, <num.3> 중 서로 다른 2개의 숫자를 뽑아서 두 자리 수를 만들려고 합니다. 만들 수 있는 두 자리 수는 모두 몇 개입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 4, ‘num’)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, 0)
+  R2: APPEND(R1, <num.0>)
+  R3: APPEND(R2, <num.1>)
+  R4: APPEND(R3, <num.2>)
+  R5: APPEND(R4, <num.3>)
+  R6: COUNT(R5)
+  R7: COMB(R6, 2)
+  R8: SUB(R7, 4)
+  R9: PRINT(R8)”

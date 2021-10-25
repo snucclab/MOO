@@ -1,0 +1,23 @@
+problem: 0, <num.0>, <num.1>, <num.2>의 숫자가 4권의 책 제목 첫 글자로 사용되고 있습니다. 이 중, 3권을 뽑아 순서대로 나열하여 세 자리 숫자를 만들려 합니다. 첫 숫자로 0을 사용하는 것은 불가능할 때, 배치할 수 있는 가장 작은 세 자리 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 3, ‘num’)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MIN(R3)
+  R5: MAX(R3)
+  R6: SUM(R3)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 3)
+  R10: DIGIT(0, 2)
+  R11: SUM(R9, R10)
+  R12: SUM(R11, R8)
+  R13: PRINT(R12)”

@@ -1,0 +1,24 @@
+problem: >
+  길이가 <num.0>㎝인 철사로 직사각형을 만들었다.
+  직사각형의 가로 길이가 <num.1>cm일 때, 세로 길이는 몇 cm입니까?
+
+
+
+variable-sampling:
+  num.0:
+    range: [1, 99]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 99]
+    under-decimal: 0
+    type: int
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: MUL(<num.1>, 2)
+  R1:SUB(<num.0>,R0)
+  R2:DIV(R1,2)
+  R3: PRINT(R2)”

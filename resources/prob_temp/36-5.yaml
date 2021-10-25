@@ -1,0 +1,9 @@
+problem: >
+  변이 3개인 도형의 변의 개수와 변이 4개인 도형의 변의 개수의 합을 구하시오.
+
+variable-sampling: null
+list-sampling: null
+function-call: null
+equations:
+  “R0: ADD(3,4)
+  R1: PRINT(R1)”

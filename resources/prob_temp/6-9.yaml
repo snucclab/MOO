@@ -1,0 +1,18 @@
+problem: >
+  동물원에 <animal.0>, <animal.1>, <animal2>, <animal.3>순으로 사육장이 배치되어 있습니다.
+  <propername.0>(이)가 동물원에서 마지막에 보게 되는 동물은 무엇입니까?   
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <animal.0>)
+  R2: APPEND(R1, <animal.1>)
+  R3: APPEND(R2, <animal.2>)
+  R4: APPEND(R3, <animal.3>)
+  R5: REP_SEQ_TERM(R4, 4)
+  R6: PRINT(R5)”

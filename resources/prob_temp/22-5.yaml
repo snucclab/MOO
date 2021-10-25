@@ -1,0 +1,18 @@
+problem: >
+  서로 다른 세 수 <unknown.0>, <unknown.1>, <unknown.2>이(가) 있습니다. 세 자리 수와 두 자리수끼리의 뺄셈식 <equation.0> 에서 <unknown.0>, <unknown.1>, <unknown.2> 의 합을 구하시오. 
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: unk_digit_equation(3,2,’-’, equation, unknown)
+
+equations:
+  “R0:LIST()
+  R1:APPEND(R0, <equation.0>)
+  R2:CALL_SYMPY(R1, <unknown.0>)
+  R3: CALL_SYMPY(R1, <unknown.1>)
+  R4: CALL_SYMPY(R1, <unknown.2>)
+  R5: ADD(R2, R3)
+  R6: ADD(R5, R4)
+  R7: PRINT(R6)"

@@ -1,0 +1,18 @@
+problem: 정확한 무게를 알 수 없는 물질이 하나 있습니다. 이 물질의 무게를 4번 측정하여 보니, 그 무게가 각각 <num.0>, <num.1>, <num.2>, <num.3>g으로 나타났습니다. 가장 무겁게 측정된 무게와 가장 가볍게 측정된 무게의 차이(오차의 범위)가 얼마인지 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 100, 4, ‘num’)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: MAX(R4)
+  R6: MIN(R4)
+  R7: SUB(R5, R6)
+  R8: PRINT(R7)”

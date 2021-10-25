@@ -1,0 +1,39 @@
+problem: 임의의 숫자가 적힌 5개의 <lot.0>이 <container.0>에 들어가 있습니다. <lot.0>에 적힌 5개의 수는 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>입니다. 이 중에서 1보다 큰 수는 모두 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.1:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.2:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.3:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.4:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+
+list-sampling:
+  lot.0: [‘공’, ’종이’, ’장난감’, ’스티커’]
+  container.0: ['주머니', '상자', '가방', '비닐봉지', '종이가방']
+
+function-call: null
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: APPEND(R4, <num.4>)
+  R6: GT(R5, 1)
+  R7: PRINT(R6)”

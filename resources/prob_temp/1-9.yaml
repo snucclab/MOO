@@ -1,0 +1,24 @@
+problem: >
+  <propername.0>(이)네 마당에는 <tree.0>(이)가 총 <num.0>그루 있었습니다.
+  식목일을 맞아 <propername.0>(이)네 가족은 <tree.0>를 추가로 <num.0> 그루 심었습니다.
+  <propername.0>(이)네 마당에 심어진 <tree.0>는 총 몇 그루 입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10  ]
+    under-decimal: 0
+    type: int
+
+  num.1:
+    range: [ 2, 12 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  tree.0: [‘사과나무’, ‘벚나무’, ‘포도나무’, ‘소나무’, ‘등나무’, ‘단풍나무’, ‘은행나무’]
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>, <num.1>)
+  R1: PRINT(R0)"

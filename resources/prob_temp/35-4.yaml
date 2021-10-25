@@ -1,0 +1,42 @@
+problem: >
+  <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
+  <person.0>는 신입사원 입니다.
+  <person.1>는 <person.3>에게는 사수이고 <person.3>에게는 선배입니다.
+  <person.3>는 <num.0>년 후에 입사 <num.1>년차가 되고, <person.2>는 올해 입사 <num.1>년차입니다.
+  5명 중에서 2번째로 늦게 입사한 사람은 누구입니까?
+
+variable-sampling:
+  num.0:
+  range:[0,15]
+  under-decimal:0
+  type:int
+  num.1:
+    range:[15,10000]
+    under-decimal:0
+    type:int
+
+list-sampling: null
+function-call: null
+
+equations:
+  “R0: LIST()
+  R2: APPEND(R1, <person.4>)
+  R3: APPEND(R2, <person.1>)
+  R4: APPEND(R3, <person.3>)
+  R5: APPEND(R3, <person.2>)
+  R6: LIST()
+  R7: LIST_INDEX(R5,<person.4>)
+  R8: MAKE_PAIR(<person.4>, R7)
+  R9: APPEND(R6,R8)
+  R10: LIST_INDEX(R5,<person.1>)
+  R11: MAKE_PAIR(<person.1>, R10)
+  R12: APPEND(R9,R11)
+  R13: LIST_INDEX(R5,<person.3>)
+  R14: MAKE_PAIR(<person.3>, R13)
+  R15: APPEND(R12,R14)
+  R16: LIST_INDEX(R5,<person.2>)
+  R17: MAKE_PAIR(<person.2>, R16)
+  R18: APPEND(R15,R17)
+  R19: MIN(R18)
+  R20: PRINT(R19)”
+

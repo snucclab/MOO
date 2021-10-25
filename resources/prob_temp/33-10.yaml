@@ -1,0 +1,33 @@
+problem: >
+  <person.3>이는 <person.2>이보다 눈이 좋습니다.
+  <person.0>이는 <person.1>이보다 눈이 좋고 <person.2>이보다 눈이 나쁩니다.
+  4명 중 가장 눈이 나쁜 사람은 누구입니까?
+
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <person.1>)
+  R2: APPEND(R1, <person.0>)
+  R3: APPEND(R2, <person.2>)
+  R4: APPEND(R3, <person.3>)
+  R5: LIST()
+  R6: LIST_INDEX(R4,<person.1>)
+  R7: MAKE_PAIR(<person.1>, R6)
+  R8: APPEND(R5,R7)
+  R9: LIST_INDEX(R4,<person.0>)
+  R10: MAKE_PAIR(<person.0>, R9)
+  R11: APPEND(R8,R10)
+  R12: LIST_INDEX(R4,<person.2>)
+  R13: MAKE_PAIR(<person.2>, R12)
+  R14: APPEND(R11,R13)
+  R15: LIST_INDEX(R4,<person.3>)
+  R16: MAKE_PAIR(<person.3>, R15)
+  R17: APPEND(R14,R16)
+  R18: MIN(R17)
+  R19: PRINT(R18)”

@@ -1,0 +1,28 @@
+problem: >
+  <propername.0>(은)는 바자회에서 <flower.0>을 판매하려고 합니다. <propername.1>(이)에게
+  <num.0>개 <propername.2>에게 <num.1>개를 판매하였더니 <num.2>개가 남았습니다.
+  처음에 <propername.0>(이)가 판매하려고 가져왔던 <flower.0>(은)는 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 5, 20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 10 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: 
+  flower.0: [‘카네이션’, ‘라일락’, ‘코스모스’, ‘장미’, ‘백합’, ‘튤립’, ‘국화’, ‘수국]
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: ADD(R0,<num.2>)
+  R2: PRINT(R1)"

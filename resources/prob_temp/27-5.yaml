@@ -1,0 +1,25 @@
+problem: >
+  어떤 수에 <num.0>을(를) 곱하고 <num.1>을(를) 더해야 하는데 잘못하여 <num.1> 을 더하고 <num.0>을 곱했더니 <num.2>이 되었습니다. 바르게 계산한 결과를 구하시오.
+
+variable-sampling: 
+  num.0:
+    range: [1,9]
+    under-decimal: 0
+    type: int
+  num.1:
+    range:[1,9]
+    under-decimal:0
+    type:int
+  num.2:
+    range:[8,]
+    under-decimal:0
+    type:int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: ADD(<num.1>, <num.2>)
+  R1: SUB(R0, <num.0>)
+  R2: PRINT(R1)”

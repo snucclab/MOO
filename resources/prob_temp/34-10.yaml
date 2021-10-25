@@ -1,0 +1,50 @@
+problem: >
+  <person.0>이는 케이크를 <num.0>개 먹었습니다.
+  <person.1>는 <person.0>이보다 <num.1>/<num.2>개 더 적게 먹었습니다.
+  <person.2>는 <num.3>/<num.4>개 먹었고, <person.3>는 <person.0>이보다 <num.5>개 더 많이 먹었습니다.
+  케이크를 가장 많이 먹은 사람은 누구입니까?
+
+variable-sampling:
+  num.0:
+    range: [0, 100]
+    under-decimal: 1
+    type: float
+  num.1:
+    range:[0,10000]
+    under-decimal:0
+    type:int
+  num.2:
+    range:[1,10000]
+    under-decimal:0
+    type:int
+  num.3:
+    range:[0,10000]
+    under-decimal:0
+    type:int
+  num.4:
+    range:[1,10000]
+    under-decimal:0
+    type:int
+  num.5:
+    range: [0, 100]
+    under-decimal: 1
+    type: float
+
+list-sampling: null
+function-call: null
+equations:
+  “R0: LIST()
+  R1: MAKE_PAIR(<person.0>,<num.0>)
+  R2: APPEND(R0, R1)
+  R3: DIV(<num.1>,<num.2>)
+  R4: SUB(<num.0>,R3)
+  R5: MAKE_PAIR(<person.1>, R4)
+  R6: APPEND(R2,R5)
+  R7: DIV(<num.3>, <num.4>)
+  R8: MAKE_PAIR(<person.2>,R7)
+  R9: APPEND(R6,R8)
+  R10: ADD(<num.0>, R10)
+  R11: MAKE_PAIR(<person.3>,R11)
+  R10: APPEND(R9,R11)
+  R11: MAX(R10)
+  R12:PRINT(R11)”

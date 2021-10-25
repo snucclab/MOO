@@ -1,0 +1,22 @@
+problem: 9페이지의 책이 있습니다. 임의의 페이지를 3번 펼쳤더니, 펼친 페이지의 번호가 각각 달랐습니다. 3번 펼친 페이지 번호의 합이 <num.0>라 할 때, 각 시행에서 나온 페이지 번호의 경우의 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 11, 20 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: COMB(<num.0> - 1, <num.0>)
+  R1: MOD(<num.0>, 2)
+  R2: MOD(<num.0>, 3)
+  R3: ADD(4, R1)
+  R4: MUL(R3, 3)
+  R5: LT(R2, 1)
+  R6: MUL(R5, 2)
+  R7: SUB(R4, R6)
+  R8: PRINT(R7)"

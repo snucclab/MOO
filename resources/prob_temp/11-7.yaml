@@ -1,0 +1,22 @@
+problem: 3개의 숫자 <num.0>, <num.1>, <num.2>를 입력할 수 있는 <button.0>가 있습니다. 이 중, 2개만을 눌러 두 자리 숫자를 입력하려 합니다. 입력할 수 있는 가장 큰 수는 무엇입니까?
+
+variable-sampling: null
+
+list-sampling:
+  button.0: ['타자기', '버튼', '키보드']
+
+function-call: different_number(1, 10, 3, ‘num’)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MAX(R2)
+  R5: MIN(R2)
+  R6: SUM(R2)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 2)
+  R10: ADD(R9, R8)
+  R11: PRINT(R10)”

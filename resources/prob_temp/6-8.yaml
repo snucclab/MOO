@@ -1,0 +1,17 @@
+problem: >
+  <propername.0>, <propername.1>, <propername.2>(이)가 달리기 경주에서 각각 1등, 2등, 3등으로
+  들어왔습니다. 셋 중 꼴찌로 들어온 사람은 누구입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <propername.0>)
+  R2: APPEND(R1, <propername.1>)
+  R3: APPEND(R2, <propername.2>)
+  R4: REP_SEQ_TERM(R3, 3)
+  R5: PRINT(R4)”

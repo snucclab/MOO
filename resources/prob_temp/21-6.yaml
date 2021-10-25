@@ -1,0 +1,30 @@
+problem: >
+  <unknown.0>, <unknown.1> 은(는) 두 자리 수입니다. <unknown.0>은(는)  <num.0>의 <num.1>배이고, <unknown.1>의 <num.2>배는 <num.3>입니다. <unknown.0>와(과) <unknown.1>의 합을 구하시오.
+
+variable-sampling: 
+  num.0:
+    range: [5,10]
+    under-decimal:0
+    type:int
+  num.1:
+    range: [2,9]
+    under-decimal:0
+    type: int
+  num.2:
+    range: [5,10]
+    under-decimal:0
+    type: int
+  num.3:
+    range;[2,9]
+    under-decimal:0
+    type:int
+
+list-sampling: null:
+
+function-call: null:
+
+equations:
+  “R0: MUL(<num.0>, <num.1>)
+  R1: MUL(<num.2>, <num.3>)
+  R2:ADD(R0, R1)
+  R3:PRINT(R2)”

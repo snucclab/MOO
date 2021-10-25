@@ -1,0 +1,17 @@
+problem: <propername.0>는 나눗셈 공부를 하고 있습니다. 몫을 유지하기 위해, 나누는 수에 100배를 하였으나, 실수로 나누어주는 수는 100배를 하지 않고 몫을 구했더니, 원래 몫보다 <num.0>만큼 더 작은 몫이 계산됐다. 원래의 몫을 구하여라.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10 ]
+    under-decimal: 0
+    type: float
+
+list-sampling:
+  propername.0: ['정국', '지민', '석진', '태형', '남준', '윤기', '호석', '민영', '유정', '은지', '유나']
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 100)
+  R1: DIV(<num.0>, 99)
+  R2: PRINT(R1)"

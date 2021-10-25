@@ -1,0 +1,25 @@
+problem: >
+  어떤 직사각형의 가로 길이는 세로 길이를 <num.1>배 시킨것과 같다.
+  둘레가 <num.0>cm이면 가로는 몇 cm입니까?
+
+
+variable-sampling:
+  num.0:
+    range: [1, 10000]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 99]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: ADD(1, <num.1>)
+  R1: MUL(2,R0)
+  R2: DIV(<num.0>, R1)
+  R3: MUL(<num.1>, R2)
+  R4: PRINT(R3)”

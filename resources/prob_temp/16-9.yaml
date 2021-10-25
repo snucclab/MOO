@@ -1,0 +1,19 @@
+problem: <book.0>의 무게가 각각 <num.0>, <num.1>, <num.2>, <num.3>g으로 나타났습니다. 가장 가벼운 <book.0>와 가장 무거운 <book.0>의 무게 차는 얼마입니까?
+
+variable-sampling: null
+
+list-sampling:
+  book.0: [‘책’, ‘노트’, ‘메모장’]
+
+function-call: different_number(1, 100, 4, ‘num’)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: MAX(R4)
+  R6: MIN(R4)
+  R7: SUB(R5, R6)
+  R8: PRINT(R7)”

@@ -1,0 +1,23 @@
+problem: 0, <num.0>, <num.1>, <num.2> 4개의 숫자가 적힌 <stamp.0>이 있습니다. 이 중, 3개를 선택해 세 자리 숫자 <stamp.0>을 만드려 합니다. 맨 앞 자리 숫자가 0이 되는 건 안 된다고 할 때, <stamp.0>으로 만들 수 있는 가장 작은 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 3, ‘num’)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MIN(R3)
+  R5: MAX(R3)
+  R6: SUM(R3)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 3)
+  R10: DIGIT(0, 2)
+  R11: SUM(R9, R10)
+  R12: SUM(R11, R8)
+  R13: PRINT(R12)”

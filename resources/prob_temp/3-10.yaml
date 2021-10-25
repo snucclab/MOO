@@ -1,0 +1,26 @@
+problem: >
+  두 수의 합이 <num.0>(이)고 차는 <num.1>입니다. 더 작은 수의 <num.2>배는 얼마입니까? 
+
+variable-sampling:
+  num.0:
+    range: [ 100, 300 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10 , 90 ]
+    under-decimal: 0
+    type: int
+  num.2: 
+    range:[ 2, 10]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>,<num.1>)
+  R1: DIV(R0, 2)
+  R2: MUL(R1, <num.2>)
+  R3: PRINT(R2)"
