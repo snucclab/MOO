@@ -1,0 +1,36 @@
+problem: >
+  <paper.0>(을)를 <num.0>명에게 똑같이 나누어 주어야 할 것을 잘못하여
+  <num.1> 명에게 똑같이 나누어 주었더니 한 사람당 <num.2>장씩 주고 <num.3>장이 남았습니다.
+  이 <paper.0>(을)를 <num.0> 명에게 똑같이 나누어 주면 한 사람당 최대한 몇 장씩 갖게 됩니까? 
+ 
+variable-sampling:
+  num.0:
+    range: [ 3, 6 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ <num.0>+1, 10 ]
+    under-decimal: 0
+    type: int
+
+  num.2:
+    range: [5, 10]
+    under-decimal: 0
+    type: int
+
+  num.3:
+    range: [1,<num.2>]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+paper.0: [‘색종이’, ‘도화지’, ‘색지’, ‘연습장’, ‘A4 용지’, ‘이면지’, ‘골판지’]
+
+function-call: null
+
+equations:
+  “R0: MUL(<num.1>, <num.2>)
+  R1: ADD(R0, <num.3>)
+  R2: DIV(R1, <num.0>)
+  R3: TO_INT(R2)
+  R3: PRINT(R3)”

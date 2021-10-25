@@ -1,0 +1,19 @@
+problem: 4명의 <status.0>가 있습니다. 각각의 몸무게가 <num.0>, <num.1>, <num.2>, <num.3>kg이라고 합니다. 몸무게가 가장 많이 나가는 <status.0>과 가장 적게 나가는 <status.0>의 차를 구하시오.
+
+variable-sampling: null
+
+list-sampling:
+  status.0: ['직장인', '학생', '어린이', '학부모', '공무원', '대학원생']
+
+function-call: different_number(1, 100, 4, ‘num’)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: MAX(R4)
+  R6: MIN(R4)
+  R7: SUB(R5, R6)
+  R8: PRINT(R7)”

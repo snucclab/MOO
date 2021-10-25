@@ -1,0 +1,22 @@
+problem: >
+  같은 반인 <propername.0>(와)과 <propername.1>(이)의 키는 <num.0>cm 차이납니다.
+  둘의 키를 더하면 <num.1>cm일 경우 반에서 가장 큰 <propername.0>(이)의 키는 몇 cm 입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 10, 30 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 300 , 360 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.1>,<num.0>)
+  R1: DIV(R0, 2)
+  R2: PRINT(R1)"

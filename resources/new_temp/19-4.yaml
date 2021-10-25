@@ -1,0 +1,22 @@
+problem: “<propername.0>가 <region.0> 중학교 2학년 7반에 전학을 왔습니다. <propername.0>가 전학 오기 전 2학년 7반 학생 수, 그리고 <propername.0>가 전학온 후 2학년 7반 학생 수를 더하면 <num.1>라고 합니다. <propername.0>가 전학온 후 2학년 7반 학생 수는 총 몇 명인지 쓰시오.”
+
+variable-sampling:
+  num.0:
+    range: [ 1, 60 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2*<num.0>+1, 2*<num.0>+2 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  propername.0: ['정국', '지민', '석진', '태형', '남준', '윤기', '호석', '민영', '유정', '은지', '유나']
+  region.0: [‘서초’, ‘송파’, ‘강남’, ‘분당’, ‘동작’, '마포', '서대문', '강동', '노원']
+
+function-call: null
+
+equations:
+  “R0: ADD(<num.0>, 1)
+  R1: DIV(R0, 2)
+  R2: PRINT(R1)”

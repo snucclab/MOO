@@ -1,0 +1,24 @@
+problem: >
+  <propername.0>(이)네 학교에서는 한 교시당 한 과목씩 시험을 칩니다.
+  <course.0>, <course.1>, <course.2>, <course.3>, <course.4>순으로 시험을 쳤다면
+  <num.0>교시에 시험을 친 과목은 무엇입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 6 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <propername.0>)
+  R2: APPEND(R1, <propername.1>)
+  R3: APPEND(R2, <propername.2>)
+  R4: APPEND(R3, <propername.3>)
+  R5: APPEND(R6, <propername.4>)
+  R6: REP_SEQ_TERM(R5, <num.0>)
+  R7: PRINT(R6)”

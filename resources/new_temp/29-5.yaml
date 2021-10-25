@@ -1,0 +1,27 @@
+problem: >
+  어떤 수에 <num.0>을(를) 더하고 <num.1>(으)로 나눈 후, <divider.0>을(를) 곱한 수는 <divisor.0> 이 됩니다. 어떤 수를 <num.2>(으)로 나눈 값을 구하시오. 
+
+variable-sampling:
+  num.0:
+    range: [2,20]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [20,30]
+    under-decimal: 0
+    type: int
+   num.2:
+    range: [2,9]
+    under-decimal: 0
+    type: int
+ 
+list-sampling: null
+
+function-call: div_to_int(100,200)
+
+
+equations:
+  "R0:MUL(<divider.0>, <num.1>)
+  R1:SUB(R0, <num.0>)
+  R2:DIV(R1, <num.2>)
+  R3:PRINT(R2)"

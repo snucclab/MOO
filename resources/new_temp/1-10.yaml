@@ -1,0 +1,24 @@
+problem: >
+  <propername.0>(이)의 <device.0>(은)는 배터리가 <num.0>% 있었습니다.
+  <propername.0>(이)가 <device.0>(으)로 강의를 들은 후 확인해보니 배터리가
+  <num.1>% 남아있었습니다. 강의를 듣는 데 사용한 <device.0> 배터리는 총 몇 % 입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 50, 101  ]
+    under-decimal: 0
+    type: int
+
+  num.1:
+    range: [ 1, <num.0> ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  device.0: [‘노트북’, ‘아이패드’, ‘갤럭시탭’, ‘휴대폰’, ‘스마트폰’, ‘맥북’] 
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>, <num.1>)
+  R1: PRINT(R0)"

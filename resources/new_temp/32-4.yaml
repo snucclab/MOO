@@ -1,0 +1,41 @@
+problem: >
+  네 코인 <unknown.0>, <unknown.1>, <unknown.2>, <unknown.3>가 있습니다.
+  <unknown.0>의 가격은 <num.0>입니다.
+  <unknown.1>는 <unknown.0>보다 <num.1> 비쌉니다.
+  <unknown.2>는 <unknown.1>보다 <num.2> 저렴합니다.
+  <unknown.3>의 가격은 <unknown.2>의 <num.3>배 입니다.
+  가장 비싼 코인은 어느 것입니까?
+
+
+variable-sampling:
+  num.0:
+    range: [0, 10000]
+    under-decimal: 0
+    type: int
+  num.1:
+    range:[0,10000]
+    under-decimal:0
+    type:int
+  num.2:
+    range:[0,10000]
+    under-decimal:0
+`	type:int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: LIST()
+  R1: MAKE_PAIR(<unknown.0>,<num.0>)
+  R2: APPEND(R0, R1)
+  R3: ADD(<num.0>,<num.1>)
+  R4: MAKE_PAIR(<unknown.1>, R2)
+  R5: APPEND(R2,R4)
+  R6: SUB(R3, <num.2>)
+  R7: MAKE_PAIR(<unknown.2>,R6)
+  R8: APPEND(R5,R7)
+  R9: MUL(R6,<num.3>)
+  R10: MAKE_PAIR(<unknown.3>,R9)
+  R11: APPEND(R8,R10)
+  R12:PRINT(R11)”

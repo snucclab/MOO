@@ -1,0 +1,24 @@
+problem: >
+  빵집을 운영하는 <propername.0>(이)는 매일 <num.0>개의 <bread.0>(을)를 굽습니다.
+  오늘 하루동안 팔린 <bread.0>(이)가 <num.1>개일 때, 팔리지 않고 남은 <bread.0>의 개수는
+  총 몇 개 입니까?
+
+
+variable-sampling:
+  num.0:
+    range: [ 30, 50  ]
+    under-decimal: 0
+    type: int
+
+  num.1:
+    range: [ 20, <num.0> ]
+    under-decimal: 0
+    type: int
+list-sampling:
+  bread.0: [‘단팥빵’, ‘완두앙금빵’, ‘에그타르트’, ‘앙버터’, ‘베이글’, ‘마늘바게트’, ‘휘낭시에’]
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>, <num.1>)
+  R1: PRINT(R0)"

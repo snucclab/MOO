@@ -1,0 +1,12 @@
+problem: >
+  네 자리 수 <beforeRound.0>을(를) 십의 자리에서 반올림하면 <afterRound.0>이(가) 됩니다. 0 부터 9까지 숫자 <roundDigit.0>에 쓸 수 있는 숫자는 모두 몇 개입니까?
+
+variable-sampling: null
+
+List-sampling: null
+
+function-call: round_up(4, 10)
+
+equations:
+  "R0: COUNT(roundDigit.0)
+  R1:PRINT(R0)"

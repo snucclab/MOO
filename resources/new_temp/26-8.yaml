@@ -1,0 +1,25 @@
+problem: >
+  <num.0> 에 <num.1> 을 더하고 <num.2> 뺐더니 어떤 수가 되었습니다. 어떤 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [1,9]
+    under-decimal:0
+    type:int
+  num.1: 
+    range:[5,10]
+    under-decimal:0
+    type:int
+  num.2:
+    range:[1,6]
+    under-decimal:0
+    type: int
+
+list-sampling:null
+
+function-call:null
+
+equations:
+  “R0:ADD(<num.0>, <num.1>)
+  R1:SUB(R0, <num.2>)
+  R2: PRINT(R1)”

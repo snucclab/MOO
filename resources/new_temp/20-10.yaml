@@ -1,0 +1,17 @@
+problem: 어떤 <stationary.0>가 있습니다. <stationary.0>를 필요한 만큼 잘라서 사용하였더니, 자른 부분이 원래 <stationary.0>의 1% 였습니다. 원래 <stationary.0>의 면적과 자른 <stationary.0>의 면적의 차이가 <num.0>라고 할 때, 원래 <stationary.0>의 면적을 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10 ]
+    under-decimal: 0
+    type: float
+
+list-sampling:
+  stationary.0: ['지우개', '도화지', '색종이', '테이프', '나무토막', '카드']
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 100)
+  R1: DIV(<num.0>, 99)
+  R2: PRINT(R1)"

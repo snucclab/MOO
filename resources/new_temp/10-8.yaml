@@ -1,0 +1,35 @@
+problem: >
+  <place.0>에 똑같은 접시보관함이 <num.0>개 있습니다. 각 접시보관함은 
+  <num.1>층이고, 각 층마다 꽂혀있는 접시의 수는 같습니다. <color.0> 접시는 
+  어느 접시보관함의 한 층의 오른쪽에서 <num.2>번째, 왼쪽에서 <num.3>번째에
+  꽂혀 있습니다. <place.0>의 접시 보관함에 꽂혀있는 접시는 모두 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 10 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: [ 집', '부엌', '가게', '식당', '박물관', '음식점', '급식실', '마트' ]
+
+function-call: null
+
+equations:
+  “R0: ADD(<num.2>, <num.3>)
+  R1: SUB(R0, 1)
+  R2: MUL(R1, <num.1>)
+  R3: MUL(R2, <num.0>)
+  R4: PRINT(R3)"

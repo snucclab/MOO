@@ -1,0 +1,28 @@
+problem: >
+  <propername.0>(이)는 가지고 있던 <etc.0> 중에서 <family.0>(에)게 <num.0>개를 주고
+  <family.1>(에)게 <num.1>개를 주었더니 <num.2>개가 남았습니다.
+  처음에 <propername.0>(이)가 가지고 있던 <etc.0>(은)는 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 30 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 30 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 1, 50 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  etc.0: [‘사탕’, ‘빵’, ‘과자’, ‘달걀’, ‘초콜릿’, ‘젤리’, ‘껌’]
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: ADD(R0,<num.2>)
+  R2: PRINT(R1)"

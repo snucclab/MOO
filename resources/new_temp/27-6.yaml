@@ -1,0 +1,21 @@
+problem: >
+  어떤 수에 <num.0>을(를) 더하고 <divider.0>을(를) 곱해야하는데, 잘못하여 <num.0>을 빼고 <divider.0>을 곱했더니 <divisor.0> 가 되었습니다. 바르게 계산한 결과를 구하시오.
+variable-sampling:
+  num.0:
+    range: [10,50]
+    under-decimal: 0
+    type: int
+  num.1:
+    range:[20,60]
+    under-decimal:0
+    type:int
+
+list-sampling: null
+
+function-call: div_to_int(50,100)
+
+equations:
+  “R0: ADD(<divider.0>, <num.0>)
+  R1: ADD(R0, <num.0>)
+  R2: MULTI(R1, <divider.0>)
+  R3:PRINT(R2)”

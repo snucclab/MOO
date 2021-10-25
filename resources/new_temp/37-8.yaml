@@ -1,0 +1,17 @@
+problem: >
+  변의 길이가 모두 같은 도형이 있다.
+  한 변의 길이가 <num.0>cm 이고 변의 개수가 세 개인 도형의 둘레는 몇 cm 입니까?
+
+variable-sampling:
+  num.0:
+	range: [1, 10000]
+ 	under-decimal: 0
+ 	type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: MUL(<num.0>, 3)
+  R1: PRINT(R0)”

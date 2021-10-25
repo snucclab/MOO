@@ -1,0 +1,28 @@
+problem: >
+  <place.0> 앞에 학생들이 줄 서 있습니다. <propername.0>(은)는 앞에서 <num.0>번째에 서 있고
+  <propername.1>(은)는 뒤에서 <num.1>번째에 서 있습니다. <propername.0>(와)과 <propername.1> 사이에
+  <num.2>명이 서 있을 때, 줄 서 있는 학생들은 모두 몇 명입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 2, 50 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2, 50 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 8, 27 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: ['서점', '문구점', '학교', '교무실', '도서관', '박물관', '운동장', '정류장', '음식점', '영화관']
+
+function-call: null
+
+equations:
+  “R0: ADD(<num.0>, <num.1>)
+  R1: ADD(R0, <num.2>)
+  R2: PRINT(R1)”

@@ -1,0 +1,16 @@
+problem: >
+  서로 다른 두 수 <unknown.0>, <unknown.1>(이)가 있습니다.두 자리 수와 한 자리 수끼리의 덧셈식 <equation.0>에서 <unknown.0>와(과) <unknown.1>중에서 작은 값을 구하시오. 
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: unk_digit_equation(2,1,”+’’, equation, unknown)
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <equation.0>
+  R2: CALL_SYMPY(R1, <unknown.0>)
+  R3: CALL_SYMPY(R1, <unknown.1>)
+  R4: MIN(R2, R3)
+  R5:  PRINT(R4)”

@@ -1,0 +1,18 @@
+problem: >
+  세 명이 같은 개수의 구슬을 가지고 있다.
+  한 명이 가진 구슬의 개수가 <num.0>개 일 때 세 명이 가진 전체 구슬의 개수는?
+
+
+variable-sampling:
+  num.0:
+	range: [1, 10000]
+ 	under-decimal: 0
+ 	type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  “R0: MUL(<num.0>, 3)
+  R1: PRINT(R0)”

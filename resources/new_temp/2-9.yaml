@@ -1,0 +1,28 @@
+problem: >
+  화단에 <flower.0>(이)가 심어져 있었습니다. 그 중 <num.0> 송이가 죽어 뽑아내고 <num.1> 송이를
+  새로 심었더니 화단에는 총 <flower.0> <num.2>송이가 심어져 있었습니다.
+  맨 처음 화단에 심어져 있던 <flower.0>는 몇 송이 입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 2, 15 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 30 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: 
+  flower.0: [‘카네이션’, ‘라일락’, ‘코스모스’, ‘장미’, ‘백합’, ‘튤립’, ‘국화’, ‘수국]
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.2>,<num.1>)
+  R1: ADD(R0,<num.0>)
+  R2: PRINT(R1)"

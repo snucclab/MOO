@@ -1,0 +1,38 @@
+problem: <nation_index.0> 지수 추이를 지켜보고 있다. 전날 대비 <nation_index.0> 지수의 변동을 5일간 살펴보니 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>만큼 올랐다고 한다. 지수가 1 초과로 오른 날은 몇 일인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.1:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.2:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.3:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.4:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+
+list-sampling:
+  nation_index.0: ['코스피', 'S&P 500', '나스닥', '코스닥', '닛케이', '다우존스']
+
+function-call: null
+
+equations:
+  “R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: APPEND(R4, <num.4>)
+  R6: GT(R5, 1)
+  R7: PRINT(R6)”
