@@ -1,6 +1,6 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
-  <person.3>(은)는 현재 <num.0>년 전 <person.2>와의 나이와 동갑이고, <person.2>(은)는 올해 <num.1>살입니다.
+  <person.3>(은)는 현재 <num.0>년 전 <person.2>(와)과 나이와 동갑이고, <person.2>(은)는 올해 <num.1>살입니다.
   <person.0>(은)는 나이가 가장 적습니다.
   <person.1>(은)는 <person.3> 에게는 동생이고 <person.3> 에게는 형입니다.
   5명 중에서 나이가 2번째로 적은 사람은 누구입니까?

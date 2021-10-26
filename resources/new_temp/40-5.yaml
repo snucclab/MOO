@@ -1,6 +1,6 @@
 problem: >
   가로 길이가 세로 길이의 <num.1>배인 직사각형이 있습니다.
-  둘레가 <num.0>cm이면  가로는 몇 cm입니까?
+  둘레가 <num.0>cm 이면  가로는 몇 cm 입니까?
 
 
 variable-sampling:

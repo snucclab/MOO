@@ -1,7 +1,7 @@
 problem: >
   <person.0>(은)는 <num.0>살 입니다.
-  <person.1>(은)는 나이가 <person.0>이보다 <num.1> 더 많고 <person.2>(은)는 <person.1>보다 <num.2> 더  어립니다.
-  나이가 가장 어린 사람은 누구입니까?
+  <person.1>(은)는 나이가 <person.0>보다 <num.1> 더 많고 <person.2>(은)는 <person.1>보다 <num.2> 더  어립니다.
+  나이가 가장 적은 사람은 누구입니까?
 
 
 variable-sampling:
