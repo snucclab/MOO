@@ -419,3 +419,15 @@ Store generated items into datasetpath
 
 * dataset.json이 위치하는 디렉터리 속 `split` 폴더에 `train`, `dev`, `test` 명칭으로 존재함
 * 각 행은 이 split에 속하는 ID 값이며, 행 구분자는 `\n`.
+
+##### docker settings
+```shell
+apt-get update
+apt-get install -y make build-essential wget curl tar unzip gcc g++ git zlib1g-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev liblzma-dev libncurses5 python3-dev
+pyenv uninstall -f ${PYTHON_VER}
+pyenv install ${PYTHON_VER}
+pyenv global ${PYTHON_VER}
+pyenv rehash
+pip3 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+python3 -m pip install transformers==4.6.1 sympy==1.8
+```
