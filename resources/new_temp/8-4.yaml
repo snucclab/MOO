@@ -1,7 +1,7 @@
 problem: >
   <vocation.0> 들이 한 줄로 서 있습니다. <person.0>(이)는 뒤에서 <num.0> 번째에 서 있습니다.
-  <person.1>(이)는 앞에서 <num.1>번째에 서 있습니다.  줄 서 있는 <vocation.0>(이)가
-  모두 <num.2> 일 때, <person.0>(이)와 <person.1>(이)가 사이에 서 있는 <vocation.0>(은)는 몇 명입니까?"
+  <person.1>(이)는 앞에서 <num.1>번째에 서 있습니다. 줄 서 있는 <vocation.0>(이)가
+  모두 <num.2> 일 때, <person.0>(와)과 <person.1>(이)가 사이에 서 있는 <vocation.0>(은)는 몇 명입니까?"
 
 variable-sampling:
   num.0:

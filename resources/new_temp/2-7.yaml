@@ -1,8 +1,8 @@
 problem: >
   <propername.0>(은)는 연못에서 <fish.0>을 기르고 있었습니다. 명절을 맞아 <family.0>에게
   <fish.0> <num.0>마리를, <family.1>에게 <fish.0> <num.1>마리를 선물했더니 
-  어항에는 <fish.0> <num.2>마리가 남아있었습니다.  <propername.0>(이)가 처음 연못에서
-  기르고 있었던 <fish.0>은 모두 몇 마리 입니까?
+  어항에는 <fish.0> <num.2>마리가 남아 있었습니다. <propername.0>(이)가 처음 연못에서
+  기르고 있었던 <fish.0>은 모두 몇 마리입니까?
 
 variable-sampling:
   num.0:
