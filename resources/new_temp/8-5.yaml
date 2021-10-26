@@ -1,0 +1,24 @@
+problem: >
+  <vocation.0>들이 한 줄로 서 있습니다. <person.0>(은)는 앞에서 <num.0>번째에 서 있습니다.
+  <person.1>(은)는 뒤에서 <num.1>번째에서 있습니다. <person.0>(와)과 <person.1> 사이에
+  서 있는 <vocation.0>(은)는 몇 명입니까?"
+
+variable-sampling:
+  num.0:
+    range: [ 2, 30 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ <num.0>+5, 80 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  vocation.0: ['학생', '경찰', '운동선수', '손님', '중학생', '초등학생', '고등학생']
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.1>, <num.0>)
+  R1: SUB(R0, 1)
+  R2: PRINT(R1)"

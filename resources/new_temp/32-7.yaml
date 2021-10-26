@@ -1,8 +1,8 @@
 problem: >
-  네 코인 <unknown.0>, <unknown.1>, <unknown.2>, <unknown.3>가 있습니다.
+  네 코인 <unknown.0>, <unknown.1>, <unknown.2>, <unknown.3>(이)가 있습니다.
   <unknown.0>의 가격은 <num.0>입니다.
-  <unknown.1>는 <unknown.0>보다 <num.1> 비쌉니다.
-  <unknown.1>는 <unknown.0>보다 <num.2> 비쌉니다.
+  <unknown.1>(은)는 <unknown.0>보다 <num.1> 비쌉니다.
+  <unknown.1>(은)는 <unknown.0>보다 <num.2> 비쌉니다.
   <unknown.3>의 가격은 <unknown.2>의 <num.3>배 입니다.
   가장 비싼 코인은 어느 것입니까?
 

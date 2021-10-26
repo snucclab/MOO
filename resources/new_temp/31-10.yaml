@@ -1,7 +1,7 @@
 problem: >
   <person.0>(은)는 하루에 화장실을 <num.0>번 갑니다.
-  <person.1>(은)는 <person.0>이보다 <num.1>번 더 많이 가고 <person.2>(은)는 <person.1>보다 <num.2>개 더 적게 갑니다.
-  하루에 화장실을 가장 적게 가고 있는 사람은 누구입니까?
+  <person.1>(은)는 <person.0>보다 <num.1>번 더 많이 가고 <person.2>(은)는 <person.1>보다 <num.2>번 더 적게 갑니다.
+  하루에 화장실을 가는 횟수가 가장 적은 사람은 누구입니까?
 
 variable-sampling:
   num.0:

@@ -1,8 +1,8 @@
 problem: >
   <propername.0>(와)과 <propername.0>의 <family.0>, <family.1>, <family.2>, <family.3>(이)가
   함께 저녁 식사를 먹었습니다. 이들의 식사 속도는 <family.1>, <family.2>, <propername.0>
-  <family.0>, <family.3> 순으로 빠르다고 합니다.모두 동시에 저녁 식사를 먹기 시작했다면 
-  <num.0>번째로 늦게 식사를 마친 사람은 누구입니까?  
+  <family.0>, <family.3> 순으로 빠르다고 합니다. 모두 동시에 저녁 식사를 먹기 시작했다면
+  <num.0>번째로 늦게 식사를 마치게 될 사람은 누구입니까?
 
 variable-sampling: 
   num.0:

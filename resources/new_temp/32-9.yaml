@@ -1,9 +1,9 @@
 problem: >
-  네 수 <unknown.0>, <unknown.1>, <unknown.2>, <unknown.3>가 있습니다.
-  <unknown.0>는 <num.0>입니다.
-  <unknown.0>는 <unknown.1>보다 <num.1>배 작은 수입니다.
-  <unknown.1>는 <unknown.2>보다 <num.2> 큰 수입니다.
-  <unknown.2>는 <unknown.3>보다 <num.3>배 작은 수입니다.
+  네 수 <unknown.0>, <unknown.1>, <unknown.2>, <unknown.3>(이)가 있습니다.
+  <unknown.0>(은)는 <num.0>입니다.
+  <unknown.0>(은)는 <unknown.1>보다 <num.1>배 작은 수입니다.
+  <unknown.1>(은)는 <unknown.2>보다 <num.2> 큰 수입니다.
+  <unknown.2>(은)는 <unknown.3>보다 <num.3>배 작은 수입니다.
   가장 큰 수는 어느 것입니까?
 
 variable-sampling:

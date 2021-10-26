@@ -1,5 +1,5 @@
 problem: >
-  <place.0>(에)서 <course.0>, <course.1>, <course.2>, <course.3>의 순서로 시험을 봤습니다. 
+  <place.0>에서 <course.0>, <course.1>, <course.2>, <course.3>의 순서로 시험을 봤습니다.
   <num.0> 번째로 시험을 본 과목은 무엇입니까?
 
 variable-sampling:
@@ -9,7 +9,7 @@ variable-sampling:
     type: int
 
 list-sampling:
-  place.0: ['학교', '학원', '수행평가']
+  place.0: ['학교', '학원', '수행평가', '중간고사', '기말고사']
 
 function-call: null
 
