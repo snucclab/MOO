@@ -151,13 +151,16 @@ def different_number(begin: int, to: int, size: int, prefix: str, result: dict):
 
 
 def div_to_int(start: int, end: int, result: dict):
+    # divisor는 start와 end 사이의 랜덤 숫자
     divisor = Decimal(random.randint(start, end))
+    # divisor의 약수들
     diviser = []
     for i in range(1, int(divisor+1)):
         if divisor % i == 0:
             diviser.append(Decimal(i))
 
     result['<%s.%s>' % ("divisor", 0)] = str(divisor)
+    # diviser는 약수 목록 중 랜덤하게 하나 뽑은 것
     result['<%s.%s>' % ("diviser", 0)] = str(random.choice(diviser))
 
 
@@ -198,7 +201,7 @@ def make_fraction(start: int, end: int, result: dict):
     else:
         divisers.append(divisers[0])
 
-    result['<%s.%s>' % ("num", 0)] = num
+    result['<%s.%s>' % ("num", 0)] = str(num)
     for i in range(2):
         result['<%s.%s>' % ("fraction", i)] = str(random.randint(1,int(divisers[i])-1)) + '/' + str(divisers[i])
 
@@ -216,8 +219,8 @@ def round_up(digit: int, pos: int, result: dict):
         after_round -= before_round % (pos * 10)
         after_round += (pos * 10)
 
-    result['<%s.%s>' % ("beforeRound", 0)] = before_round
-    result['<%s.%s>' % ("afterRound", 0)] = after_round
+    result['<%s.%s>' % ("beforeRound", 0)] = str(before_round)
+    result['<%s.%s>' % ("afterRound", 0)] = str(after_round)
     result['<%s.%s>' % ("roundDigit", 0)] = str(round_digit)
 
 

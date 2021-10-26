@@ -14,7 +14,10 @@ CON_VALUES = [
     '8',
     '9',
     '10',
-    '12'
+    '12',
+    '99',
+    '100',
+    '1000'
 ]
 CON_TOKENS = [str(x) for x in CON_VALUES]
 CON_MAX = len(CON_VALUES)
@@ -81,8 +84,8 @@ OPR_VALUES = [
     # 7. DIV(float,float)
     {NAME: OPR_DIV, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
      CONVERT: (lambda res, *x: {'x1': x[0], 'x2': x[1], 'result': res}), PRECEDENCE: None},
-    # 8. MOD(int, int)
-    {NAME: OPR_MOD, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+    # 8. MOD(int, int) # ARITY 1->2 수정해봄
+    {NAME: OPR_MOD, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
      CONVERT: (lambda res, *x: {'x1': x[0], 'x2': x[1], 'result': res}), PRECEDENCE: None},
     # 9. POW(float,float)
     {NAME: OPR_POW, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
