@@ -1,5 +1,5 @@
 problem: >
-  <person.0>의 반 전체 학생 수는 <num.0>명입니다.
+  <person.0>의 반 전체 학생 수는 <num.0> 명입니다.
   그중에서 <gender.0>학생은 전체의 <fraction.0>입니다. <gender.0>학생 중에서 안경을 낀 학생은
   <gender.0>학생 전체의 <fraction.1>입니다. <person.0>의 반에서 안경을 끼지 않은
   <gender.0>학생은 몇 명입니까?

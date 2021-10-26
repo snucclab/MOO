@@ -1,6 +1,6 @@
 problem: >
   <container.0>에 <fruit.0>이 있었습니다. <propername.0>(이)가 <container.0>에서 
-  <fruit.0> <num.0>개를 꺼내먹고 <propername.0>(이)가 <fruit.0> <num.0>개를 꺼내 먹었더니
+  <fruit.0> <num.0>개를 꺼내 먹고 <propername.0>(이)가 <fruit.0> <num.0>개를 꺼내 먹었더니
   <container.0>에는 <fruit.0> <num.2>개가 남았습니다. 처음에 <container.0>안에 있던
   <fruit.0>(은)는 몇 개 입니까?
 
