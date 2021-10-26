@@ -1,5 +1,5 @@
 problem: >
-  <unknown.0>, <unknown.1>은(는) 두 자리 수 입니다. <unknown.0>은(는) <num.0>보다 <num.1> 작은 수이고, <unknown.1>보다  <num.2> 큰 수는 <num.3> 입니다. <unknown.0> 와(과) <unknown.1>의 곱을 구하시오. 
+  <unknown.0>, <unknown.1>(은)는 두 자리 수 입니다. <unknown.0>(은)는 <num.0>보다 <num.1> 작은 수이고, <unknown.1>보다  <num.2> 큰 수는 <num.3>입니다. <unknown.0>(와)과 <unknown.1>의 곱을 구하시오.
 
 variable-sampling: 
   num.0:

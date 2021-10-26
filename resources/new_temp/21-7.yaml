@@ -1,5 +1,5 @@
 problem: >
-  <unknown.0>, <unknown.1>은(는) 두 자리 수입니다. <unknown.0>은(는) <num.0>의 <num.1>배보다 <num.2> 큰 수이고, <unknown.1>은(는) <num.3>의 <num.4>배 보다 <num.5> 작은 수 입니다. <unknown.0>과 <unknown.1>의 합을 구하시오.
+  <unknown.0>, <unknown.1>(은)는 두 자리 수입니다. <unknown.0>(은)는 <num.0>의 <num.1>배보다 <num.2> 큰 수이고, <unknown.1>(은)는 <num.3>의 <num.4>배 보다 <num.5> 작은 수 입니다. <unknown.0>과 <unknown.1>의 합을 구하시오.
 
 variable-sampling: 
   num.0:

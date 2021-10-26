@@ -1,5 +1,5 @@
 problem: >
-  어떤 수에 <num.0>(을)를 더하고 <num.1>(으)로 나눈 후, <diviser.0>(을)를 곱한 수는 <divisor.0> (이)가 됩니다. 어떤 수를 <num.2>(으)로 나눈 값을 구하시오.
+  어떤 수에 <num.0>(을)를 더하고 <num.1>(으)로 나눈 후, <diviser.0>(을)를 곱한 수는 <divisor.0>(이)가 됩니다. 어떤 수를 <num.2>(으)로 나눈 값을 구하시오.
 
 variable-sampling:
   num.0:
