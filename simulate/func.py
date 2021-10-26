@@ -206,22 +206,33 @@ def make_fraction(start: int, end: int, result: dict):
         result['<%s.%s>' % ("fraction", i)] = str(random.randint(1,int(divisers[i])-1)) + '/' + str(divisers[i])
 
 
-def round_up(digit: int, pos: int, result: dict):
+def round_up(digit: int, pos: int, flag: str, result: dict):
+    # round_digit max min count에 따라서 각각 int로 저장
     before_round = random.randint(1 * (10 ** (digit - 1)), 1 * (10 ** digit) - 1)
     after_round = before_round
     round_digit = int(str(before_round)[digit - len(str(pos))])
 
-    if round_digit < 5:
+    if round_digit < 5: # 반올림(버림)
         round_digit = [0, 1, 2, 3, 4]
         after_round -= before_round % (pos * 10)
-    else:
+        if flag=='max':
+            result['<%s.%s>' % ("roundDigit", 0)] = str(4)
+        elif flag=='min':
+            result['<%s.%s>' % ("roundDigit", 0)] = str(0)
+    else: # 반올림(올림)
         round_digit = [5, 6, 7, 8, 9]
         after_round -= before_round % (pos * 10)
         after_round += (pos * 10)
+        if flag=='max':
+            result['<%s.%s>' % ("roundDigit", 0)] = str(9)
+        elif flag=='min':
+            result['<%s.%s>' % ("roundDigit", 0)] = str(5)
 
     result['<%s.%s>' % ("beforeRound", 0)] = str(before_round)
     result['<%s.%s>' % ("afterRound", 0)] = str(after_round)
-    result['<%s.%s>' % ("roundDigit", 0)] = str(round_digit)
+    if flag=='count':
+        result['<%s.%s>' % ("roundDigit", 0)] = str(5)
+
 
 
 __all__ = [
