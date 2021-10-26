@@ -23,7 +23,7 @@ if __name__ == '__main__':
     model.eval()
 
     # Read '/home/agc2021/dataset/problemsheet.json' and store (key, text) pairs into problems
-    with Path(EVALUATE_INPUT_PATH).open('rt', encoding='UTF-8') as fp:
+    with Path(EVALUATE_INPUT_PATH).open('rt', encoding='utf-8-sig') as fp:
         problems = json_load(fp)
     # Initialize code executor
     executor = Executor(time_limit=0.5)
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             answers[key] = {ANSWER: answer, EQUATION: code}
 
         # Dump answers into './answersheet.json'
-        with EVALUATE_OUTPUT_PATH.open('w+t', encoding='UTF-8') as fp:
+        with EVALUATE_OUTPUT_PATH.open('w+t', encoding='utf-8') as fp:
             json_save(answers, fp, ensure_ascii=False)
     finally:
         # Finalize everything

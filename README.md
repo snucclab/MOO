@@ -422,12 +422,13 @@ Store generated items into datasetpath
 
 ##### docker settings
 ```shell
-apt-get update
-apt-get install -y make build-essential wget curl tar unzip gcc g++ git zlib1g-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev liblzma-dev libncurses5 python3-dev
-pyenv uninstall -f ${PYTHON_VER}
-pyenv install ${PYTHON_VER}
-pyenv global ${PYTHON_VER}
-pyenv rehash
-pip3 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+pip3 install torch==1.8.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 python3 -m pip install transformers==4.6.1 sympy==1.8
 ```
+
+##### error message
+- 환경구성 오류) [도커파일빌드] 도커 이미지 전송에 실패하였습니다. 잠시 후 다시 시도해주세요. 도커 이미지 전송은 종종 네트워크 환경으로 인해 타임아웃이 발생할 수 있습니다.:
+- 채점 오류) invalid character 'ï' looking for beginning of value
+- 이하 환경 구성 오류
+- [도커파일빌드] 빌드가 실패하였습니다. 잘못된 설치 옵션 명령어를 넣었는지 다시 한번 확인해주세요: ...(중략)... n compiling Pillow from source. Please see the install instructions at: https://pillow.readthedocs.io/en/latest/installation.html ---------------------------------------- [0m [91mERROR: Command errored out with exit status 1: /home/agc2021/.pyenv/versions/3.8.3/bin/python3.8 -u -c import sys, setuptools, tokenize; sys.argv[0] = /tmp/pip-install-v0mblh86/pillow/setup.py; __file__=/tmp/pip-install-v0mblh86/pillow/setup.py;f=getattr(tokenize, open, open)(__file__);code=f.read().replace(\r\n, \n);f.close();exec(compile(code, __file__, exec)) install --record /tmp/pip-record-b6w9ejng/install-record.txt --single-version-externally-managed --compile Check the logs for full command output. [0m [91mWARNING: You are using pip version 19.2.3, however version 21.3.1 is available. You should consider upgrading via the pip install --upgrade pip command. [0m Removing intermediate container a554a2b45b60
+- [도커파일생성] 프로젝트 구조가 올바르지 않습니다. 압축을 해제한 디렉토리 구조가 규정과 일치하는지 다시 한번 확인해주세요. - 디렉토리에 프로젝트 폴더가 존재하지 않습니다.
