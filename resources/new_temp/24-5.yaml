@@ -1,0 +1,23 @@
+problem: >
+  서로 다른 두 자연수 <unknown.0>(와)과 <unknown.1>(이)가 있습니다. <unknown.0>을(를) <num.0>(으)로 나누면 몫은 <num.1>(이)고 나머지는 <unknown.1>(이)가 됩니다. 나머지 <unknown.1>(이)가 가장 큰 홀수일 때 <unknown.0>을(를) 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [30, 40]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: RANGE(1,<num.0>,2)
+  R1: MAX(R0) 
+  R2: MUL(<num.1>,<num.0>)
+  R3: ADD(R1,R2)
+  R4: PRINT(R3)"
