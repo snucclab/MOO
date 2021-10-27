@@ -1,19 +1,7 @@
 problem: >
   0, <num.0>, <num.1>, <num.2>의 네 숫자가 주어져 있습니다. 이 중 3개를 사용해 세 자리 수를 만들어, 해당 숫자에 맞는 책 페이지를 펼치려 합니다. 맨 앞 자리에는 0을 사용할 수 없을 때, 책 가장 앞 부분을 펼치기 위해 만들어야 하는 수를 구하시오.
 
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling: null
 

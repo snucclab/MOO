@@ -2,19 +2,7 @@ problem: >
   0, <num.0>, <num.1>, <num.2> 중에서 서로 다른 숫자 3개를 뽑아 만들 수 있는 세 자리 수 중에서 가장 작은 수를 쓰시오.
 
 #!!!!!!!!!!! 17번 템플릿 !전부! 다시 보세요.
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling: null
 

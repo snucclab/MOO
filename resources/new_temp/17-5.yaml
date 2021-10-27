@@ -1,19 +1,7 @@
 problem: >
-  0, <num.0>, <num.1>, <num.2> 4개의 숫자가 적힌 <stamp.0>이 있습니다. 이 중, 3개를 선택해 세 자리 숫자 <stamp.0>을 만드려 합니다. 맨 앞 자리 숫자가 0이 되는 건 안 된다고 할 때, <stamp.0>으로 만들 수 있는 가장 작은 수를 구하시오.
+  0, <num.0>, <num.1>, <num.2> 4개의 숫자가 적힌 <stamp.0>(이)가 있습니다. 이 중, 3개를 선택해 세 자리 숫자 <stamp.0>(을)를 만드려 합니다. 맨 앞 자리 숫자가 0이 되는 건 안 된다고 할 때, <stamp.0>로 만들 수 있는 가장 작은 수를 구하시오.
 
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling:
   stamp.0 : ['도장', '우표', '봉투']

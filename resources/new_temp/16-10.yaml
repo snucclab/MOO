@@ -1,5 +1,5 @@
 problem: >
-  4대의 <digital.0>의 크기를 재었더니 각각 <num.0>, <num.1>, <num.2>, <num.3>인치로 나타났습니다. 가장 크기가 큰 <digital.0>와 가장 크기가 작은 <digital.0>의 크기 차를 구하시오.
+  4대의 <digital.0> 크기를 재었더니 각각 <num.0>, <num.1>, <num.2>, <num.3>인치로 나타났습니다. 가장 크기가 큰 <digital.0>(와)과 가장 크기가 작은 <digital.0> 크기 차를 구하시오.
 
 variable-sampling: null
 

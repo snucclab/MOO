@@ -1,19 +1,7 @@
 problem: >
   새로 산 <thing.0>에 끝 3자리 번호를 부여하려 합니다. 0, <num.0>, <num.1>, <num.2> 4가지 수만 사용 가능하며, 맨 앞에는 0을 사용하는 것이 불가능하다고 합니다. 만들 수 있는 가장 작은 수는 무엇입니까?
 
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling:
   thing.0: ['자동차', '핸드폰', '오토바이', '기기', '계정']

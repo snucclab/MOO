@@ -4,10 +4,10 @@ problem: >
 variable-sampling: null
 
 list-sampling:
-  paper.0 : ['종이', '책', '노트', '쪽지']
-  writer.0 : ['펜', '연필', '만년필', '색연필']
+  paper.0: ['종이', '책', '노트', '쪽지']
+  writer.0: ['펜', '연필', '만년필', '색연필']
 
-function-call : different_number(1, 10, 3, 'num')
+function-call: different_number(1, 10, 3, 'num')
 
 equations:
   "R0: LIST()

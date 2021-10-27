@@ -1,23 +1,7 @@
 problem: >
-  0, <num.0>, <num.1>, <num.2>, <num.3>가 적힌 <foothold.0>가 두 개 연달아 있습니다. 첫 <foothold.0>에는 0이 적힌 <foothold.0>가 없습니다. 이 2개의 <foothold.0>를 건너가는 경우의 수를 구하시오.
+  0, <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 <foothold.0>(이)가 두 개 연달아 있습니다. 첫 <foothold.0>에 0이 적힌 <foothold.0>(이)가 없습니다. 이 2개의 <foothold.0>(을)를 건너가는 경우의 수를 구하시오.
 
-variable-sampling:
-  num.0:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
-  num.3:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling:
   foothold.0: ['발판', '징검다리', '돌다리', '외나무다리', '출렁다리']

@@ -1,5 +1,5 @@
 problem: >
-  5명의 <status.0>가 중심에서 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>km만큼 떨어져 있습니다. 1km 초과로 중심에서 떨어져 있는 <status.0>는 몇 명입니까?
+  5명의 <vocation.0>(이)가 중심에서 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>km만큼 떨어져 있습니다. 1km 초과로 중심에서 떨어져 있는 <vocation.0>(은)는 몇 명입니까?
 
 variable-sampling:
   num.0:
@@ -24,7 +24,7 @@ variable-sampling:
     type: float
 
 list-sampling:
-  status.0: ['직장인', '학생', '어린이', '학부모', '공무원', '대학원생']
+  vocation.0: ['학생', '경찰', '선생님', '운동선수', '교수', '소방관', '변호사', '의사', '손님', '중학생', '초등학생', '고등학생']
 
 function-call: null
 

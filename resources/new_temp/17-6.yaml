@@ -1,19 +1,7 @@
 problem: >
   0, <num.0>, <num.1>, <num.2> 숫자가 적힌 4개의 옷이 있습니다. 3명이 이 중 3개의 옷을 선택해 입고, 순서대로 서서 세 자리 숫자를 만들려고 합니다. 이들이 만들 수 있는 가장 작은 수를 구하시오.
 
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling: null
 

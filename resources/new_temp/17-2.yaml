@@ -1,19 +1,7 @@
 problem: >
-  0, <num.0>, <num.1>, <num.2>가 적힌 4장의 카드가 있습니다. 이 중 1장을 버리고, 나머지 카드의 순서를 바꿔 세 자리 숫자를 만들려 합니다. 만들 수 있는 세 자리 수 중 가장 작은 숫자를 구하시오.
+  0, <num.0>, <num.1>, <num.2>(이)가 적힌 4장의 카드가 있습니다. 이 중 1장을 버리고, 나머지 카드의 순서를 바꿔 세 자리 숫자를 만들려 합니다. 만들 수 있는 세 자리 수 중 가장 작은 숫자를 구하시오.
 
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling: null
 

@@ -1,22 +1,10 @@
 problem: >
-  <propername.0>는 0, <num.0>, <num.1>, <num.2> 4개의 숫자 중 3개를 받아, 세 자리수를 만드는 과제를 받았습니다. 맨 앞자리에는 0이 올 수 없다는 제한 조건이 있을 때, <propername.0>가 만들 수 있는 가장 작은 수는 무엇입니까?
+  <propername.0>(은)는 0, <num.0>, <num.1>, <num.2> 4개의 숫자 중 3개를 받아, 세 자리수를 만드는 과제를 받았습니다. 맨 앞자리에는 0이 올 수 없다는 제한 조건이 있을 때, <propername.0>(이)가 만들 수 있는 가장 작은 수는 무엇입니까?
 
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling:
-  propername.0: ['정국', '지민', '석진', '태형', '남준', '윤기', '호석', '민영', '유정', '은지', '유나']
+  propername.0: ['정국', '지민', '석진', '태형', '남준', '윤기', '호석', '민영', '유정', '은지', '유나', '유정', '철수', '영희', '영수', '재명', '희진', '지수', '나연', '은혜', '세준', '윤재', '지원', '정욱', '예은', '도연', '민수', '민지', '성훈', '동현', '민경', '준표', '태우', '태호', '민주', '성호', '성민', '현우']
 
 function-call: different_number(1, 10, 3, 'num')
 

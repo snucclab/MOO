@@ -1,0 +1,21 @@
+problem: >
+  저번 달에 돈을 빌렸고, 이번 달에도 같은 금액을 빌렸으며, 저번 달 빌린 이자가 1만원이 추가되었습니다. 저번 달과 이번 달 빌린 금액과 이자를 합쳐 <num.1>만원라고 할 때, 이번 달 빌린 돈과 이자를 합쳐 몇 만원입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2*<num.0>+1, 2*<num.0>+2 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.1>, 1)
+  R1: DIV(R0, 2)
+  R2: PRINT(R1)"

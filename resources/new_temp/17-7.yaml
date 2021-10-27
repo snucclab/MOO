@@ -1,19 +1,7 @@
 problem: >
   0, <num.0>, <num.1>, <num.2>의 숫자가 4권의 책 제목 첫 글자로 사용되고 있습니다. 이 중, 3권을 뽑아 순서대로 나열하여 세 자리 숫자를 만들려 합니다. 첫 숫자로 0을 사용하는 것은 불가능할 때, 배치할 수 있는 가장 작은 세 자리 수를 구하시오.
 
-variable-sampling:
-  num.0:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0,9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling: null
 

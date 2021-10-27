@@ -1,23 +1,7 @@
 problem: >
-  0, <num.0>, <num.1>, <num.2>, <num.3>가 적힌 표지판과 함께, 갈림길이 2번 나타납니다. 첫 번째 갈림길에는 0이 적힌 표지판이 없습니다. 어떤 <passenger.0>가 2번의 갈림길을 선택할 때, <passenger.0>가 갈림길을 선택하는 경우의 수를 구하시오.
+  0, <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 표지판과 함께, 갈림길이 2번 나타납니다. 첫 번째 갈림길에는 0이 적힌 표지판이 없습니다. 어떤 <passenger.0>(이)가 2번의 갈림길을 선택할 때, <passenger.0>(이)가 갈림길을 선택하는 경우의 수를 구하시오.
 
-variable-sampling:
-  num.0:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
-  num.2:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
-  num.3:
-    range: [ 0, 9 ]
-    under-decimal: 0
-    type: int
+variable-sampling: null
 
 list-sampling:
   passenger.0: ['자동차', '행인', '자전거', '오토바이', '전동 킥보드', '등산객']

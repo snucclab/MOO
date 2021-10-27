@@ -1,5 +1,5 @@
 problem: >
-  매우 큰 <soft_food.0> 덩이가 있습니다. 여기서 임의의 <soft_food.0>를 4번 떼어, 각각의 무게를 재보았더니, <num.0>, <num.1>, <num.2>, <num.3>g으로 나타났습니다. 가장 양이 많은 <soft_food.0>와 가장 양이 적은 <soft_food.0>의 무게의 합이 얼마인지 구하시오.
+  매우 큰 <soft_food.0> 덩이가 있습니다. 여기서 임의의 <soft_food.0>(을)를 4번 떼어, 각각의 무게를 재보았더니, <num.0>, <num.1>, <num.2>, <num.3>g으로 나타났습니다. 가장 양이 많은 <soft_food.0>(와)과 가장 양이 적은 <soft_food.0> 무게의 합이 얼마인지 구하시오.
 
 variable-sampling: null
 

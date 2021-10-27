@@ -4,7 +4,7 @@ problem: >
 variable-sampling:
   num.0:
     range: [ 1, 10 ]
-    under-decimal: 0
+    under-decimal: 3
     type: float
 
 list-sampling: null

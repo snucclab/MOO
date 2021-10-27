@@ -1,14 +1,14 @@
 problem: >
-  한 <status.0>가 숫자의 소수점을 왼쪽으로 2자리 잘못 찍었다고 합니다. 잘못 찍은 수와 원래의 수의 차가 <num.0>이라고 합니다. 원래의 수를 구하시오.
+  한 <vocation.0>(이)가 숫자의 소수점을 왼쪽으로 2자리 잘못 찍었다고 합니다. 잘못 찍은 수와 원래의 수의 차가 <num.0>라고 합니다. 원래의 수를 구하시오.
 
 variable-sampling:
   num.0:
     range: [ 1, 10 ]
-    under-decimal: 0
+    under-decimal: 3
     type: float
 
 list-sampling:
-  status.0: ['직장인', '학생', '어린이', '학부모', '공무원', '대학원생']
+  vocation.0: ['학생', '경찰', '선생님', '운동선수', '교수', '소방관', '변호사', '의사', '손님', '중학생', '초등학생', '고등학생']
 
 function-call: null
 

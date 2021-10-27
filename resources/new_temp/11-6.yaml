@@ -4,10 +4,10 @@ problem: >
 variable-sampling: null
 
 list-sampling:
-  region.0 : ['서초', '송파', '강남', '분당', '동작', '마포', '서대문', '강동', '노원']
-  school.0 : ['초등학교', '중학교', '고등학교']
+  region.0: ['서초', '송파', '강남', '분당', '동작', '마포', '서대문', '강동', '노원']
+  school.0: ['초등학교', '중학교', '고등학교']
 
-function-call : different_number(1, 10, 3, 'num')
+function-call: different_number(1, 10, 3, 'num')
 
 equations:
   "R0: LIST()
