@@ -1,0 +1,37 @@
+problem: >
+  각 지역에서 <air.0>(을)를 관측하고 있습니다. 3개의 도시에서 <air.0>(을)를 관측했더니, 관측값이 지역마다 달랐고, 1부터 9 이하의 값이 관측되었다고 합니다. 세 지역의 관측값의 합이 <num.0>일 때, 각 지역의 <air.0> 관측값의 경우의 수는 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 12, 16 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  air.0: ['미세먼지', '오존', '자외선', '온도', '초미세먼지', '풍속']
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>, 1)
+  R1: COMB(R0, 2)
+  R2: MOD(<num.0>, 2)
+  R3: MUL(4, 3)
+  R4: MUL(R2, 3)
+  R5: ADD(R3, R4)
+  R6: MOD(<num.0>, 3)
+  R7: LIST()
+  R8: APPEND(R7, R6)
+  R9: LT(R8, 1)
+  R10: SUM(R9)
+  R11: MUL(R10, 2)
+  R12: SUB(R1, R5)
+  R13: ADD(R12, R11)
+  R14: SUB(<num.0>, 9)
+  R15: SUB(R14, 3)
+  R16: ADD(2, R15)
+  R17: COMB(R16, R15)
+  R18: MUL(3, R17)
+  R19: SUB(R13, R18)
+  R20: DIV(R19, 6)
+  R21: PRINT(R20)"

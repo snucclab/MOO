@@ -21,7 +21,7 @@ variable-sampling:
     type : int
   #!!
   num.3:
-    range: [ 0,10000 ]
+    range: [0,10000]
     under-decimal: 0
     type: int
 
