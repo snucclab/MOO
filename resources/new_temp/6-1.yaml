@@ -19,5 +19,5 @@ equations:
   R2: APPEND(R1, <course.1>)
   R3: APPEND(R2, <course.2>)
   R4: APPEND(R3, <course.3>)
-  R5: REP_SEQ_TERM(R4, <num.0>)
+  R5: GET_ITEM(R4, <num.0>)
   R6: PRINT(R5)"

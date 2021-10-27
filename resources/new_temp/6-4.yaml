@@ -1,6 +1,5 @@
 problem: >
-  <event.0>에서 <propername.0>, <propername.1>, <propername.2>, <propername.3>,
-  <propername.4>, <propername.5>, <propername.6> 순으로 결승점에 들어왔습니다.
+  <event.0>에서 <propername.0>, <propername.1>, <propername.2>, <propername.3>, <propername.4>, <propername.5>, <propername.6> 순으로 결승점에 들어왔습니다.
   <num.0>등은 누구입니까?
 
 variable-sampling:
@@ -23,5 +22,5 @@ equations:
   R5: APPEND(R4, <propername.4>)
   R6: APPEND(R5, <propername.5>)
   R7: APPEND(R6, <propername.6>)  
-  R8: REP_SEQ_TERM(R7, <num.0>)
+  R8: GET_ITEM(R7, <num.0>)
   R9: PRINT(R8)"

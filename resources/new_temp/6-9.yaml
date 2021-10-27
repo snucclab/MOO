@@ -14,5 +14,5 @@ equations:
   R2: APPEND(R1, <animal.1>)
   R3: APPEND(R2, <animal.2>)
   R4: APPEND(R3, <animal.3>)
-  R5: REP_SEQ_TERM(R4, 4)
+  R5: GET_ITEM(R4, 4)
   R6: PRINT(R5)"

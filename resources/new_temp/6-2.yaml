@@ -21,5 +21,5 @@ equations:
   R3: APPEND(R2, <food.2>)
   R4: APPEND(R3, <food.3>)
   R5: APPEND(R4, <food.4>)
-  R6: REP_SEQ_TERM(R5, <num.0>)
+  R6: GET_ITEM(R5, <num.0>)
   R7: PRINT(R6)"
