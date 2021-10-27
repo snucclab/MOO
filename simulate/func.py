@@ -164,11 +164,11 @@ def div_to_int(start: int, end: int, result: dict):
     result['<%s.%s>' % ("diviser", 0)] = str(random.choice(diviser))
 
 
-# start must not prime number..!
+# must not start with prime number..!
 def make_fraction(start: int, end: int, result: dict):
     # random choice num not be prime number
-    num_list = [0] + [i for i in range(1, end + 1)]
-    for i, num in enumerate(num_list):
+    num_list = [0] + [i for i in range(1, end + 1)]  # 0에서 end까지 [0, 1, ..., end]
+    for i, num in enumerate(num_list):  # 합성수 제거
         if num == 0 or num == 1:
             continue
         index = 2
@@ -176,19 +176,19 @@ def make_fraction(start: int, end: int, result: dict):
             num_list[i * index] = 0
             index += 1
 
-    prime_list = [i for i in num_list if i != 0]
-    candidate_num_list = list(range(0, end))
+    prime_list = [i for i in num_list if i != 0]  # 소수 list
+    candidate_num_list = list(range(0, end))  # 다시 0부터 end까지 list
 
-    for prime in sorted(prime_list, reverse=True):
-        del candidate_num_list[prime]
-    candidates = candidate_num_list[candidate_num_list.index(start):]
+    for prime in sorted(prime_list, reverse=True):  # 소수 내림차순으로
+        del candidate_num_list[prime]  # 후보에서 소수 없애고
+    candidates = candidate_num_list[candidate_num_list.index(start):]  # start부터로 끊어줌
 
     # find fraction
-    num = random.choice(candidates)
+    num = random.choice(candidates)   # 후보 중에 하나 랜덤으로 뽑기
     temp = num
-    divisers = []
+    divisers = []  # 후보의 약수들에서 1이랑 자기자신 제외
 
-    diviser = Decimal(2)
+    diviser = Decimal(2)  # 2부터
     while temp != Decimal(1):
         if temp % diviser == Decimal(0):
             divisers.append(Decimal(diviser))
