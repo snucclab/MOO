@@ -1,0 +1,24 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2>의 네 숫자가 주어져 있습니다. 이 중 3개를 사용해 세 자리 수를 만들어, 해당 숫자에 맞는 책 페이지를 펼치려 합니다. 맨 앞 자리에는 0을 사용할 수 없을 때, 책 가장 앞 부분을 펼치기 위해 만들어야 하는 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MIN(R3)
+  R5: MAX(R3)
+  R6: SUM(R3)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 3)
+  R10: DIGIT(0, 2)
+  R11: ADD(R9, R10)
+  R12: ADD(R11, R8)
+  R13: PRINT(R12)"

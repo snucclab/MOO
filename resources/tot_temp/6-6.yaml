@@ -1,0 +1,23 @@
+problem: >
+  <place.0> 입장을 위해 앞에서부터 <propername.0>, <propername.1>, <propername.2>, <propername.3>, <propername.4> (이)가 한 줄로 서 있다고 합니다. <num.0>번째로 입장하는 사람은 누구입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 6 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: ['놀이공원', '영화관', '아쿠아리움', '초밥집', '스키장', '경복궁']
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <propername.0>)
+  R2: APPEND(R1, <propername.1>)
+  R3: APPEND(R2, <propername.2>)
+  R4: APPEND(R3, <propername.3>)
+  R5: APPEND(R4, <propername.4>)
+  R6: GET_ITEM(R5, <num.0>)
+  R7: PRINT(R6)"

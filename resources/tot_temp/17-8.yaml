@@ -1,0 +1,25 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2>(와)과 같은 숫자를 부여 받은 4명의 <vocation.0>(이)가 있습니다. 이 중 3명을 각각 회장, 부회장, 총무로 뽑으려 합니다. 0을 가진 <vocation.0>(은)는 회장이 될 수 없습니다. 회장이 되는 <vocation.0>의 숫자에는 100배, 부회장이 되는 <vocation.0>의 숫자에는 10배를 하고, 회장, 부회장, 총무 숫자의 합을 구하려 합니다. 만들 수 있는 가장 작은 수를 구하시오.
+
+variable-sampling:
+
+list-sampling:
+  vocation.0: ['학생', '경찰', '선생님', '운동선수', '교수', '소방관', '변호사', '의사', '손님', '중학생', '초등학생', '고등학생']
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MIN(R3)
+  R5: MAX(R3)
+  R6: SUM(R3)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 3)
+  R10: DIGIT(0, 2)
+  R11: ADD(R9, R10)
+  R12: ADD(R11, R8)
+  R13: PRINT(R12)"

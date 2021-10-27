@@ -1,0 +1,25 @@
+problem: >
+  <propername.0>(와)과 <propername.0>의 <family.0>, <family.1>, <family.2>, <family.3> (이)가 함께 저녁 식사를 먹었습니다.
+  이들의 식사 속도는 <family.1>, <family.2>, <propername.0>, <family.0>, <family.3> 순으로 빠르다고 합니다.
+  모두 동시에 저녁 식사를 먹기 시작했다면 <num.0>번째로 늦게 식사를 마치게 될 사람은 누구입니까?
+
+variable-sampling: 
+  num.0:
+    range: [ 2, 5 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <family.1>)
+  R2: APPEND(R1, <family.2>)
+  R3: APPEND(R2, <propername.0>)
+  R4: APPEND(R3, <family.0>)
+  R5: APPEND(R4, <family.3>)
+  R6: SUB(6, <num.0>)
+  R7: GET_ITEM(R5, R6)
+  R8: PRINT(R7)"

@@ -1,0 +1,24 @@
+problem: >
+  <region.0><school.0> 3학년 5반에는 20명의 학생이 있습니다. 20명의 학생이 숫자가 적힌 옷을 입고 플래시몹을 준비하고 있습니다. 다른 학생들은 다른 영상을 촬영 중이고, <num.0>, <num.1>, <num.2> 숫자가 적힌 옷을 입고 있는 학생 3명만 남아 있습니다. 3명의 학생 중, 2명만 선택해 숫자 플래시몹 영상을 제작하려고 할 때, 플래시몹에 나올 수 있는 가장 큰 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling:
+  region.0: ['서초', '송파', '강남', '분당', '동작', '마포', '서대문', '강동', '노원']
+  school.0: ['초등학교', '중학교', '고등학교']
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MAX(R2)
+  R5: MIN(R2)
+  R6: SUM(R2)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 2)
+  R10: ADD(R9, R8)
+  R11: PRINT(R10)"

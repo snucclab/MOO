@@ -1,0 +1,39 @@
+problem: >
+  서로 다른 두 자연수 <unknown.0>, <unknown.1>, <unknown.2>, <unknown.3>(이)가 있습니다.
+  <unknown.0>을(를) <num.0>(으)로 나누면 몫은 <num.1>(이)고 나머지는 <unknown.1>(이)가 됩니다.
+  <unknown.2>(을)를 <num.2>(으)로 나누면 몫은 <num.3>(이)고 나머지는 <unknown.3>(이)가 됩니다.
+  나머지 <unknown.1>(와)과 <unknown.3>(이)가 가장 큰 수일 때 <unknown.0>(와)과 <unknown.3>의 합을 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [20, 30]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [40, 50]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: RANGE(0,<num.0>,1)
+  R1: MAX(R0) 
+  R2: RANGE(0,<num.2>,1)
+  R3: MAX(R2)
+  R4: MUL(<num.1>,<num.0>)
+  R5: ADD(R4,R1)
+  R6: MUL(<num.2>,<num.3>) 
+  R7: ADD(R6,R3)
+  R8: ADD(R5,R7)
+  R9: PRINT(R8)"

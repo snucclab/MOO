@@ -1,0 +1,24 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2> 숫자가 적힌 4개의 옷이 있습니다. 3명이 이 중 3개의 옷을 선택해 입고, 순서대로 서서 세 자리 숫자를 만들려고 합니다. 이들이 만들 수 있는 가장 작은 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MIN(R3)
+  R5: MAX(R3)
+  R6: SUM(R3)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 3)
+  R10: DIGIT(0, 2)
+  R11: ADD(R9, R10)
+  R12: ADD(R11, R8)
+  R13: PRINT(R12)"

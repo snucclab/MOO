@@ -1,0 +1,23 @@
+problem: >
+  <propername.0>의 필통에는 <stationary.0> <num.0>개가 있었습니다.
+  그런데 <propername.1>(이)가 <propername.0>의 필통에서 <stationary.0> <num.1>개를
+  몰래 가져갔습니다. <propername.0>의 필통에 남아있는 <stationary.1>의 개수는 총 몇 개 입니까?
+
+variable-sampling:
+  num.0:
+    range: [8,30]
+    under-decimal: 0
+    type: int
+
+  num.1:
+    range: [1,<num.0>]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>, <num.1>)
+  R1: PRINT(R0)"

@@ -1,0 +1,14 @@
+problem: >
+  <divisor.0> 에 어떤 수를 더하고 같은 수를 곱해야 하는데 잘못하여  <divisor.0> (을)를 어떤 수로 나누었더니 <diviser.0> (이)가 되었습니다. 바르게 계산한 결과를 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: div_to_int(20,50)
+
+equations:
+  "R0: DIV(<divisor.0>, <diviser.0>)
+  R1: ADD(<divisor.0>, R0)
+  R2: MUL(R1, R0)
+  R3: PRINT(R2)"

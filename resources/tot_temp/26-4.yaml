@@ -1,0 +1,20 @@
+problem: >
+  어떤 수를 <num.0>(으)로 나누었더니 <num.1>(이)가 되었습니다. 어떤 수를 구하시오. 
+
+variable-sampling:
+  num.0:
+    range: [2,9]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [10,20]
+    under-decimal: 0
+    type : int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: MUL(<num.0>, <num.1>)
+  R1: PRINT(R0)"

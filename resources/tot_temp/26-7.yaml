@@ -1,0 +1,20 @@
+problem: >
+  <num.0>에서 <num.1>(을)를 뺐더니 어떤 수가 되었습니다. 어떤 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [40,50]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [20,30]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: SUB(<num.0>, <num.1>)
+  R1: PRINT(R0)"

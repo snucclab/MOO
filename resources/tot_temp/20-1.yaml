@@ -1,0 +1,17 @@
+problem: >
+  원래 수의 소수점을 왼쪽으로 두 자리 옮기면 원래의 소수보다 <num.0>만큼 작아집니다. 원래의 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10 ]
+    under-decimal: 3
+    type: float
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 100)
+  R1: DIV(R0, 99)
+  R2: PRINT(R1)"

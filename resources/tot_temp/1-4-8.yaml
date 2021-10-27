@@ -1,0 +1,56 @@
+problem: >
+  <num.5>명의 회원들로 구성된 어떤 모임이 있습니다.
+  <person.0>, <person.1>, <person.2>, <person.3>의 지난 주 <money.0>(은)는 각각
+  <num.0><currency.0>, <num.1><currency.0>, <num.2><currency.0>, <num.3><currency.0>입니다.
+  <person.0>, <person.1>, <person.2>, <person.3>(을)를 제외한 회원들의 지난 주 평균 <money.0>(은)는 <num.4><currency.0>일 때,
+  전체 회원들의 평균 <money.0>(은)는 얼마인지 알아내시오.
+
+variable-sampling:
+  num.0:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.5:
+    range: [ 20, 50 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: SUM(R4)
+  R6: SUB(<num.5>,4)
+  R7: MUL(R6,<num.4>)
+  R8: ADD(R5,R7)
+  R9: DIV(R8,<num.5>)
+  R10: PRINT(R9)"
+
+
+
+
+
+
+

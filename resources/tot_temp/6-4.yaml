@@ -1,0 +1,26 @@
+problem: >
+  <event.0>에서 <propername.0>, <propername.1>, <propername.2>, <propername.3>, <propername.4>, <propername.5>, <propername.6> 순으로 결승점에 들어왔습니다.
+  <num.0>등은 누구입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 8 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  event.0: ['달리기 시합', '달리기 경주', '수영 경주', '마라톤 대회', '자전거 대회']
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <propername.0>)
+  R2: APPEND(R1, <propername.1>)
+  R3: APPEND(R2, <propername.2>)
+  R4: APPEND(R3, <propername.3>)
+  R5: APPEND(R4, <propername.4>)
+  R6: APPEND(R5, <propername.5>)
+  R7: APPEND(R6, <propername.6>)  
+  R8: GET_ITEM(R7, <num.0>)
+  R9: PRINT(R8)"

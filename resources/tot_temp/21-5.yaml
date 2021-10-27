@@ -1,0 +1,40 @@
+problem: >
+  <unknown.0>, <unknown.1>(은)는 두 자리 수입니다. <unknown.0>(은)는 <num.0> 보다 <num.1> 크고 <num.2> 작은 수이고, <unknown.1>보다 <num.3> 큰 수는 <num.4>입니다. <unknown.0>와(과) <unknown.1>의 차를 구하시오.
+
+variable-sampling: 
+  num.0:
+    range: [20,40]
+    under-decimal: 0
+    type : int
+  num.1:
+    range: [10,50]
+    under-decimal: 0
+    type : int
+  num.2:
+    range: [1,20]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [20,50]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [60, 90]
+    under-decimal: 0
+    type : int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: ADD(<num.0>, <num.1>)
+  R1: SUB(R0, <num.2>)
+  R2: SUB(<num.4>, <num.3>)
+  R3: LIST()
+  R4: APPEND(R3, R1)
+  R5: APPEND(R4, R2)
+  R6: MAX(R5)
+  R7: MIN(R5)
+  R8: SUB(R6, R7)
+  R9: PRINT(R8)"

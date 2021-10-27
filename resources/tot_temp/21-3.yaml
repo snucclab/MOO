@@ -1,0 +1,35 @@
+problem: > 
+  <unknown.0>, <unknown.1>(은)는 세 자리 수 입니다. <unknown.0>(은)는 <num.0> 보다  <num.1> 큰 수 이고, <unknown.1> 보다 <num.2>작은 수는  <num.3>입니다. <unknown.0>(와)과 <unknown.1>의 차를 구하시오.
+
+variable-sampling: 
+  num.0:
+    range: [100,200]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [200,600]
+    under-decimal : 0
+    type: int
+  num.2:
+    range: [100,300]
+    under-decimal : 0
+    type: int
+  num.3:
+    range: [100,600]
+    under-decimal : 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: ADD(<num.0>, <num.1>)
+  R1: ADD(<num.2>, <num.3>)
+  R2: LIST()
+  R3: APPEND(R2, R0)
+  R4: APPEND(R3, R1)
+  R5: MAX(R4)
+  R6: MIN(R4)
+  R7: SUB(R5, R6)
+  R8: PRINT(R7)"

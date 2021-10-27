@@ -1,0 +1,31 @@
+problem: > 
+  <teacher.0>(이)가 홈페이지에 올린 공지사항을
+  <propername.0>(은)는 <num.0><rank.0>(으)로 확인했고,
+  <propername.1>(은)는 <num_rank.0><rank.0>(으)로 확인했습니다.
+  <propername.2>(이)가 <propername.0> 보다는 일찍, <propername.1> 보다는 늦게 확인했다면,
+  <propername.2>(은)는 몇 <rank.0>(으)로 공지사항을 확인했습니까?
+ 
+variable-sampling:
+  num.0:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: 
+  rank.0 : ['등', '번째']
+  teacher.0 : ['담임선생님', '교수', '조교', '선생님', '국어선생님', '수학선생님', '원장선생님']
+  
+function-call: eval_expression('<num.0>+2', 'num_rank')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<propername.0>)
+  R2: LIST()
+  R3: APPEND(R2,<propername.1>)
+  R4: LIST()
+  R5: APPEND(R4,<propername.2>)
+  R6: LIST_CONCAT(R5,R1)
+  R7: LIST_CONCAT(R3,R6)
+  R8: LIST_INDEX(R7,<propername.2>)
+  R9: ADD(<num_rank.0>,R8)
+  R10: PRINT(R9)"

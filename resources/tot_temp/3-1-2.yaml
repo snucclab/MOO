@@ -1,0 +1,24 @@
+problem: >
+  서로 다른 <num.0>명의 <vocation.0>에게 같은 <etc.0>(을)를 나누어 주려고 합니다.
+  <etc.0>(은)는 총 <num.1>개 입니다.
+  <etc.0>(을)를 각자 최소 1개씩 나눠 줄 수 있는 방법은 총 몇 가지인가요?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 20, 100 ]
+    under-decimal: 0
+    type: int
+    
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: SUB(R0,1)
+  R2: COMB(R1,<num.1>)
+  R3: PRINT(R2)"

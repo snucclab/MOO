@@ -1,0 +1,37 @@
+problem: >
+  <place.0>에 똑같은 <container.0>(이)가 <num.0>개 있습니다.
+  각 <container.0>(은)는 <num.1>층이고, 각 층마다 진열된 과일의 수는 같습니다.
+  <fruit.0>(은)는 어느 <container.0> 한 층의 왼쪽에서 <num.2>번째, 
+  오른쪽에서 <num.3>번째에 진열되어 있습니다.
+  <place.0>에 진열된 과일의 수는 모두 몇 개입니까?"
+ 
+variable-sampling:
+  num.0:
+    range: [ 3, 10 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 10 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: [ '마트', '과일가게', '시장', '코스트코', '슈퍼마켓' ]
+  container.0: ['진열대', '냉장고', '매대']
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.2>, <num.3>)
+  R1: SUB(R0, 1)
+  R2: MUL(R1, <num.1>)
+  R3: MUL(R2, <num.0>)
+  R4: PRINT(R3)"

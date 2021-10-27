@@ -1,0 +1,34 @@
+problem: >
+  총 <num.0>층인 마트에 층별로 <num.1>개의 계산대가 있습니다.
+  한 계산대에서 <num.2>번째에 <propername.0>의 물건을 계산했습니다.
+  이후 <num.3>명의 물건을 더 계산한 뒤, 마지막으로 <propername.1>의 물건을 계산했습니다.
+  각 계산대에서 물건을 계산한 손님의 수가 동일할 때, 마트에서 계산한 손님의 수는 모두 몇 명입니까? 
+
+variable-sampling:
+  num.0:
+    range: [ 2, 8 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 8 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 8 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 5, 10 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.2>, <num.3>)
+  R1: ADD(R0, 1)
+  R2: MUL(R1, <num.1>)
+  R3: MUL(R2, <num.0>)
+  R4: PRINT(R3)"

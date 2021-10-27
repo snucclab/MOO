@@ -1,0 +1,42 @@
+problem: >
+  물이 든 꽃병에 <flower.0> <num.0>송이가 꽂혀 있습니다. 
+  이 꽃을 <propername.0>, <propername.1>, <propername.2>, <propername.3> 4명에게 돌아가면서 각각 <num.1>개씩 나눠주기로 했습니다.
+  이때 <num.2>번째 <flower.0>(을)를 받는 사람은 누구일까요?
+
+variable-sampling:
+  num.0:
+    range: [100, 300]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 30]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [40, 80]
+    under-decimal: 0
+    type: int
+
+list-sampling: 
+  flower.0: ['장미','백합','튤립','카네이션','국화']
+
+function-call: null
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R0,<propername.0>)
+  R2: LIST_MUL(R1,<num.1>)
+  R3: LIST()
+  R4: APPEND(R3,<propername.1>)
+  R5: LIST_MUL(R4,<num.1>)
+  R6: LIST()
+  R7: APPEND(R6,<propername.2>)
+  R8: LIST_MUL(R7,<num.1>)
+  R9: LIST()
+  R10: APPEND(R9,<propername.3>)
+  R11: LIST_MUL(R10,<num.1>)
+  R12: LIST_CONCAT(R2,R5)
+  R13: LIST_CONCAT(R12,R8)
+  R14: LIST_CONCAT(R13,R11)
+  R15: REP_SEQ_TERM(R14,<num.2>)
+  R16: PRINT(R15)"

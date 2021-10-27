@@ -1,0 +1,17 @@
+problem: >
+  어떤 물체의 부피를 100배 축소하여 만든 모형이 있습니다. 원래 물체의 부피에서 모형의 부피를 빼면 <num.0>라고 할 때, 원래 물체의 부피는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 10 ]
+    under-decimal: 3
+    type: float
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 100)
+  R1: DIV(R0, 99)
+  R2: PRINT(R1)"

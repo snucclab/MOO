@@ -1,0 +1,30 @@
+problem: 3개의 수 <num.0>, <num.1>, <num.2> 로 나눈 나머지가 모두 0인 네 자리 수는 총 몇 개 인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [2, 10]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [10, 19]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [19, 24]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIGIT(1,4)
+  R1: DIGIT(1,5)
+  R2: RANGE(R0,R1,1)
+  R3: LIST()
+  R4: APPEND(R3,<num.0>)
+  R5: APPEND(R4,<num.1>)
+  R6: APPEND(R5,<num.2>)
+  R7: COUNT_MULTI(R2,R6)
+  R8: PRINT(R7)"

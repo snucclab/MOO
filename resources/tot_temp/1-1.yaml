@@ -1,0 +1,23 @@
+problem: >
+  <container.0>에 <fruit.0>(이)가 <num.0>개 있습니다.
+  <person.0>(이)가 <container.0>에 <fruit.0> <num.1>개를 더 넣었습니다.
+  <container.0> 안에 있는 <fruit.0>(은)는 모두 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [1,50]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1,20]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  container.0 : ['바구니', '주머니', '가방', '봉지', '소쿠리', '쇼핑백', '상자']
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"

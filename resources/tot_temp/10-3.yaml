@@ -1,0 +1,35 @@
+problem: >
+  옷가게에 동일한 <container.0>(이)가 <num.0>개 있습니다.
+  각 <container.0>(은)는 <num.1>개의 층으로 되어있고, 각 층 별로 보관된 옷의 개수는 동일합니다.
+  <clothes.0>(은)는 어느 <container.0> 한 층의 왼쪽에서 <num.2>번째, 
+  오른쪽에서 <num.3>번째에 진열되어 있습니다. 옷가게에 보관된 옷은 모두 몇 벌입니까?"
+ 
+variable-sampling:
+  num.0:
+    range: [ 3, 10 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 9 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 10 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  container.0: [ '행거', '옷장', '선반' ]
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.2>, <num.3>)
+  R1: SUB(R0, 1)
+  R2: MUL(R1, <num.1>)
+  R3: MUL(R2, <num.0>)
+  R4: PRINT(R3)"

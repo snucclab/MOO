@@ -1,0 +1,19 @@
+problem: >
+  1부터 99까지 각각 다른 숫자가 적힌 카드가 있습니다. 카드를 4장 뽑았더니, 각각 <num.0>, <num.1>, <num.2>, <num.3>(이)가 나왔다고 한다. 가장 큰 값과 가장 작은 값의 차는 얼마입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 100, 4, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: MAX(R4)
+  R6: MIN(R4)
+  R7: SUB(R5, R6)
+  R8: PRINT(R7)"

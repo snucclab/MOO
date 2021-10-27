@@ -1,0 +1,25 @@
+problem: >
+  서로 다른 <num.0>명의 <vocation.0>들에게 <stationary.0> <num.1>개를 나누어 주려고 합니다.
+  <vocation.0>들은 한 명 당 최소 <stationary.0> 1개를 받습니다.
+  <stationary.0>(을)를 몇 가지의 방법으로 나눠줄 수 있을까요?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 20, 100 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.1>,<num.0>)
+  R1: ADD(<num.0>,R0)
+  R2: SUB(R1,1)
+  R3: COMB(R2,R0)
+  R4: PRINT(R3)"

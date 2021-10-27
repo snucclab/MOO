@@ -1,0 +1,28 @@
+problem: >
+  <food.0>, <food.1>, <food.2>, <food.3>, <food.4>, <food.5>, <food.6>, <food.7>, <food.8> 9가지 음식들 중 <num.0>가지를 고르려고 합니다.
+  가능한 경우의 수는 총 몇 개일까요?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 9 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<food.0>)
+  R2: APPEND(R1,<food.1>)
+  R3: APPEND(R2,<food.2>)
+  R4: APPEND(R3,<food.3>)
+  R5: APPEND(R4,<food.4>)
+  R6: APPEND(R5,<food.5>)
+  R7: APPEND(R6,<food.6>)
+  R8: APPEND(R7,<food.7>)
+  R9: APPEND(R8,<food.8>)
+  R10: COUNT(R9)
+  R11: COMB(R10,<num.0>)
+  R12: PRINT(R11)"

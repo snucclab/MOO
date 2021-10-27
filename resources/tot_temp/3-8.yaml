@@ -1,0 +1,22 @@
+problem: >
+  같은 반인 <propername.0>(와)과 <propername.1>(이)의 발 길이는 <num.0>mm 차이납니다.
+  둘의 발 길이를 더하면 <num.1>mm일 경우 반에서 가장 발이 작은 <propername.0>(이)의 발 길이는 몇 mm입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 10, 30, 2 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 450, 540 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.1>,<num.0>)
+  R1: DIV(R0, 2)
+  R2: PRINT(R1)"

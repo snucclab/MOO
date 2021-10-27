@@ -1,0 +1,22 @@
+problem: >
+  냉장고에 <food.0>(와)과 <food.1>(이)가 모두 합해서 <num.0>개 있습니다.
+  <food.0>보다 <food.1>(이)가 <num.1>개 더 적다면 <food.0>는 몇 개 있습니까?
+
+variable-sampling:
+  num.0:
+    range: [ 101, 200, 2 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 11 , 50, 2 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: DIV(R0, 2)
+  R2: PRINT(R1)"

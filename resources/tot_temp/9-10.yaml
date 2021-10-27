@@ -1,0 +1,36 @@
+problem: > 
+  무인자판기에서 <drink.0>를 선택하는 버튼은 왼쪽에서 <num.0>번째 열,
+  오른쪽에서 <num.1>번째 열, 아래에서 <num.2>번째 행, 위에서 <num.3>번째 행에
+  위치하고 있습니다. 각 행마다 존재하는 버튼의 수가 동일하다면
+  자판기에 있는 음료 버튼의 수는 총 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 4, 10 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 8 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 9 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 1, 7 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  drink.0: [ '사이다', '콜라', '코코팜', '밀키스', '데자와', '환타', '식혜', '커피', '카페라떼' ]
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>, <num.1>)
+  R1: SUB(R0, 1)
+  R2: ADD(<num.2>, <num.3>)
+  R3: SUB(R2, 1)
+  R4: MUL(R1, R3)
+  R5: PRINT(R4)"

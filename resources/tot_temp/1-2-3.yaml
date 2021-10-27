@@ -1,0 +1,36 @@
+problem: >
+  <num.0>보다 크고 <num.1>보다 작거나 같은 자연수 중 <num.2>(으)로 나눈 나머지가 0인 숫자들의 합을 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ <num.0>+100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 3, 20 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.0>,<num.2>)
+  R1: TO_INT(R0)
+  R2: ADD(R1,1)
+  R3: TO_INT(R2)
+  R4: ADD(R3,1)
+  R5: RANGE(R1,R4,<num.2>)
+  R6: SUM(R5)
+  R7: MUL(R6,<num.2>)
+  R8: PRINT(R7)"
+
+
+
+
+

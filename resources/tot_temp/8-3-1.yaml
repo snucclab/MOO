@@ -1,0 +1,36 @@
+problem: >
+  <food.0> <num.0>개를 4명의 멤버 <propername.0>, <propername.1>, <propername.2>, <propername.3> 에게 각각 돌아가면서 <num.1>개씩 나누어 준다고 할 때,
+  <num.2>번째 <food.0>(을)를 받아가게 되는 사람은 누구입니까?
+
+variable-sampling:
+  num.0:
+    range: [150, 400]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [30, 60]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations: 
+  "R0: LIST()
+  R1: APPEND(R0,<propername.0>)
+  R2: LIST_MUL(R1,<num.1>)
+  R3: LIST()
+  R4: APPEND(R3,<propername.1>)
+  R5: LIST_MUL(R4,<num.1>)
+  R6: LIST()
+  R7: APPEND(R6,<propername.2>)
+  R8: LIST_MUL(R7,<num.1>)
+  R9: LIST_CONCAT(R2,R5)
+  R10: LIST_CONCAT(R9,R8)
+  R11: REP_SEQ_TERM(R10,<num.2>)
+  R12: PRINT(R11)"

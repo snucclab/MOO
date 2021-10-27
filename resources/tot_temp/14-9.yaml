@@ -1,0 +1,21 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 표지판과 함께, 갈림길이 2번 나타납니다. 첫 번째 갈림길에는 0이 적힌 표지판이 없습니다. 어떤 <passenger.0>(이)가 2번의 갈림길을 선택할 때, <passenger.0>(이)가 갈림길을 선택하는 경우의 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling:
+  passenger.0: ['자동차', '행인', '자전거', '오토바이', '전동 킥보드', '등산객']
+
+function-call: different_number(1, 10, 4, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, 0)
+  R2: APPEND(R1, <num.0>)
+  R3: APPEND(R2, <num.1>)
+  R4: APPEND(R3, <num.2>)
+  R5: APPEND(R4, <num.3>)
+  R6: COUNT(R5)
+  R7: COMB(R6, 2)
+  R8: SUB(R7, 4)
+  R9: PRINT(R8)"

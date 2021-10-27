@@ -1,0 +1,27 @@
+problem: >
+  <num.0>에서 어떤 자연수를 빼는 계산을 한 결과는 <num.1>였습니다.
+  이 수를 <num.2>에서 뺀 계산 결과는 무엇일까요?
+
+variable-sampling:
+  num.0:
+    range: [ 10,100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2, <num.0> ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ <num.0>+<num.1>,500]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>,<num.1>)
+  R1: SUB(<num.2>,R0)
+  R2: PRINT(R1)"
+

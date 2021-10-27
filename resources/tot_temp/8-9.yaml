@@ -1,0 +1,25 @@
+problem: >
+  <game.0>에서 <propername.0>(은)는 <num.0> <rank.0>(으)로 골인했고 <propername.1>(은)는
+  마지막으로 골인했습니다. <propername.0> 골인 후 <propername.1>의 골인 전까지 <num.1>명이
+  골인했다면 골인한 사람은 총 몇 명입니까?
+  
+
+variable-sampling:
+  num.0:
+    range: [ 10, 30 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 30, 70 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  game.0 : ['보물찾기 게임', '등산대회', '마라톤 대회', '담력시험', '달리기 대회', '경보 대회']
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: ADD(R0, 1)
+  R2: PRINT(R1)"

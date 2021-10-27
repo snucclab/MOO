@@ -1,0 +1,26 @@
+problem: >
+  <person.0>가 가지고 있는 <stationary.0>에 <stationary.1>(이)가 <num.0>개의 있습니다.
+  <person.0>의 생일날 <person.1>(이)가 <stationary.1> <num.1>개를 선물로 주었습니다.
+  생일날 이후 <person.0>의 <stationary.0>에 있는 <stationary.1>의 총 개수는 무엇인지 구하세요.
+
+variable-sampling:
+  num.0:
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 20 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"
+
+
+
+

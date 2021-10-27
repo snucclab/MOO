@@ -1,0 +1,22 @@
+problem: >
+  <num.0>, <num.1>, <num.2> 숫자가 적힌 3개의 문이 2개가 나란히 놓여 있습니다. 첫 번째 통과하는 문은 십의 자리 수, 두 번째 통과하는 문은 일의 자리 수를 의미합니다. 가장 작은 숫자를 만들어 각 문을 통과해야 할 때, 통과할 수 있는 문들이 나타내는 숫자는 무엇입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MAX(R2)
+  R5: MIN(R2)
+  R6: SUM(R2)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 2)
+  R10: ADD(R9, R8)
+  R11: PRINT(R10)"

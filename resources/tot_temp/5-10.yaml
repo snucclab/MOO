@@ -1,0 +1,17 @@
+problem: >
+  운전면허시험에 응시한 사람은 총 <num.0>명입니다.
+  그중에서 시험에 통과한 사람은 전체의 <fraction.0>입니다. 시험에 통과하지 못한 사람 중에서
+  안경을 낀 사람은 시험에 통과한 사람 전체의 <fraction.1>입니다.
+  시험에 통과한 사람 중 안경을 낀 사람은 몇 명입니까?
+
+variable-sampling : null
+
+list-sampling : null
+
+function-call: make_fraction(500, 2000, 2)
+
+equations:
+  "R0: SUB(1, <fraction.0>)
+  R1: MUL(<num.0>, R0)
+  R2: MUL(R1, <fraction.1>)
+  R3: PRINT(R2)"

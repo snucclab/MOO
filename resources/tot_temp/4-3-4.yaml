@@ -1,0 +1,35 @@
+problem: 4개의 수 <num.0>, <num.1>, <num.2>, <num.3>(으)로 나누어 떨어지는 네 자리 수의 개수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [2, 3]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [4, 5]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [6, 7]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [8, 9]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIGIT(1,4)
+  R1: DIGIT(1,5)
+  R2: RANGE(R0,R1,1)
+  R3: LIST()
+  R4: APPEND(R3,<num.0>)
+  R5: APPEND(R4,<num.1>)
+  R6: APPEND(R5,<num.2>)
+  R7: APPEND(R6,<num.3>)
+  R8: COUNT_MULTI(R2,R7)
+  R9: PRINT(R8)"

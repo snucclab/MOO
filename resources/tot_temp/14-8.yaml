@@ -1,0 +1,21 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3> 번호를 부여받은 5명의 <vocation.0>(이)가 있습니다. 이 중 한 명을 뽑아 한 명의 번호에 10배를 하고, 다른 한 명을 더 뽑아 나온 수치를 더하여 기록하려 합니다. 처음에는 0의 번호를 받은 <vocation.0>(을)를 뽑을 수 없을 때, 나올 수 있는 수치의 종류는 몇 개입니까?
+
+variable-sampling: null
+
+list-sampling:
+  vocation.0: ['학생', '경찰', '선생님', '운동선수', '교수', '소방관', '변호사', '의사', '손님', '중학생', '초등학생', '고등학생']
+
+function-call: different_number(1, 10, 4, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, 0)
+  R2: APPEND(R1, <num.0>)
+  R3: APPEND(R2, <num.1>)
+  R4: APPEND(R3, <num.2>)
+  R5: APPEND(R4, <num.3>)
+  R6: COUNT(R5)
+  R7: COMB(R6, 2)
+  R8: SUB(R7, 4)
+  R9: PRINT(R8)"

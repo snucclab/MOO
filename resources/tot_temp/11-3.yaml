@@ -1,0 +1,23 @@
+problem: >
+  <screen.0>에 3개의 숫자 <num.0>, <num.1>, <num.2>(이)가 띄워져 있습니다. 이 중 하나의 수를 지우고, 숫자의 순서를 재배치하여 두 자리 숫자를 만들려 합니다. <screen.0>에 나올 수 있는 가장 큰 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling:
+  screen.0 : ['전광판', '화면', '태블릿', '노트북', '핸드폰']
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MAX(R2)
+  R5: MIN(R2)
+  R6: SUM(R2)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 2)
+  R10: ADD(R9, R8)
+  R11: PRINT(R10)"

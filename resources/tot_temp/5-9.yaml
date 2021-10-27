@@ -1,0 +1,20 @@
+problem: >
+  <num.0>명의 사람이 동전을 던졌습니다. 이 중 동전의 <position.0>면이 나온 사람은 전체의 
+  <fraction.0>입니다. <position.1>면이 나온 사람 중에서 <gender.0>자는 
+  <position.1>면이 나온 사람 중 전체의 <fraction.1>입니다.
+  동전의 <position.1>면이 나온 사람 중에서 <gender.0>자는 몇 명입니까?
+
+variable-sampling : null
+
+list-sampling : 
+  position.0 : [ '앞', '뒤' ]
+  position.1 : [ '앞', '뒤' ]
+  gender.0 : [ '여', '남' ]
+
+function-call: make_fraction(300, 1000, 2)
+
+equations:
+  "R0: SUB( 1, <fraction.0>)
+  R1: MUL(<num.0>, R0)
+  R2: MUL(R1, <fraction.1>)
+  R3: PRINT(R2)"

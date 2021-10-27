@@ -1,0 +1,41 @@
+problem: >
+  무작위 한 자리 숫자 4개가 <num.0>, <num.1>, <num.2>, <num.3>(와)과 같이 주어져 있습니다. 이 두 숫자를 조합하여 두 자리 숫자를 임의로 보유하고 있으며, 이 번호를 통해 추첨을 하게 됩니다. 여러 사람 중에서, 서로 간의 차이가 가장 큰 2명이 당첨이 된다고 할 때, 두 사람의 차가 어떤 값이어야 당첨되는지 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 4, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: LIST()
+  R4: APPEND(R3, <num.2>)
+  R5: APPEND(R4, <num.3>)
+  R6: MIN(R2)
+  R7: MIN(R5)
+  R8: MAX(R2)
+  R9: MAX(R5)
+  R10: LIST()
+  R11: APPEND(R10, R6)
+  R12: APPEND(R11, R7)
+  R13: MIN(R12)
+  R14: MAX(R12)
+  R15: LIST()
+  R16: APPEND(R15, R8)
+  R17: APPEND(R16, R9)
+  R18: MIN(R17)
+  R19: MAX(R17)
+  R20: LIST()
+  R21: APPEND(R20, R14)
+  R22: APPEND(R21, R18)
+  R23: MIN(R22)
+  R24: MAX(R22)
+  R25: DIGIT(R19, 2)
+  R26: ADD(R25, R24)
+  R27: DIGIT(R13, 2)
+  R28: ADD(R27, R23)
+  R29: SUB(R26, R28)
+  R30: PRINT(R29)"

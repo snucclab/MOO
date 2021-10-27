@@ -1,0 +1,22 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 <lot.0>(이)가 들어 있는 <container.0>(이)가 있습니다. <lot.0>(을)를 2번 뽑게 되는데, 첫 번째 <lot.0>(을)를 뽑아 나온 수의 10배와 두 번째 적힌 <lot.0>의 수를 합하여 보상을 받게 됩니다. 단, 첫 번째 뽑았을 때 0을 뽑게 된다면, <container.0>에 돌려놓고 다시 뽑을 수 있습니다. 받을 수 있는 보상의 경우의 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling:
+  lot.0: [ '공', '종이', '장난감', '스티커' ]
+  container.0: [ '주머니', '상자', '가방', '비닐봉지', '종이가방' ]
+
+function-call: different_number(1, 10, 4, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, 0)
+  R2: APPEND(R1, <num.0>)
+  R3: APPEND(R2, <num.1>)
+  R4: APPEND(R3, <num.2>)
+  R5: APPEND(R4, <num.3>)
+  R6: COUNT(R5)
+  R7: COMB(R6, 2)
+  R8: SUB(R7, 4)
+  R9: PRINT(R8)"

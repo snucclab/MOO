@@ -1,0 +1,33 @@
+problem: >
+  어떤 정수에서 <num.0>(을)를 빼야 하는데 숫자를 잘못 읽어서 <num.1>(을)를 빼었더니 <num.2>(이)가 나왔다.
+  숫자를 잘못 읽지 않았다면 어떤 결과가 나왔을지 계산하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 10, 3000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, <num.0> ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ <num.0>-<num.1>, 5000 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.2>,<num.1>)
+  R1: SUB(R0,<num.0>)
+  R2: PRINT(R1)"
+
+
+
+
+
+
+

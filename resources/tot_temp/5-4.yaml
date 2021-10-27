@@ -1,0 +1,18 @@
+problem: >
+  <person.0>의 반 전체 학생 수는 <num.0>명입니다.
+  그중에서 <gender.0>학생은 전체의 <fraction.0>입니다. <gender.0>학생 중에서 안경을 낀 학생은
+  <gender.0>학생 전체의 <fraction.1>입니다. <person.0>의 반에서 안경을 낀
+  <gender.0>학생은 몇 명입니까?
+
+variable-sampling : null
+
+list-sampling : 
+  person.0 : [ '정국', '지민', '석진', '태형', '남준', '윤기', '호석', '민영', '유정', '은지', '유나', '동생', '누나', '오빠', '언니' ]
+  gender.0 : ['남', '여']
+
+function-call: make_fraction(20, 40, 2)
+
+equations:
+  "R0: MUL(<num.0>, <fraction.0>)
+  R1: MUL(R0, <fraction.1>)
+  R2: PRINT(R1)"

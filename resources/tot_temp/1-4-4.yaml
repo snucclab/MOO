@@ -1,0 +1,55 @@
+problem: >
+  <person.0>의 <money.0>(은)는 <num.0><currency.0>, <person.1>의 <money.0>(은)는 <num.1><currency.0>,
+  <person.2>의 <money.0>(은)는 <num.2><currency.0>, <person.3>의 <money.0>(은)는 <num.3><currency.0>입니다.
+  <person.0>, <person.1>, <person.2>, <person.3>(을)를 제외한 직원들의 이번 달 <money.0>의 평균은 <num.4><currency.0>입니다.
+  총 직원 수가 <num.5>명일 때, 모든 직원들의 이번 달 <money.0> 평균값은 얼마인지 알아내시오.
+
+variable-sampling:
+  num.0:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [ 100, 1000 ]
+    under-decimal: 0
+    type: int
+  num.5:
+    range: [ 20, 50 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: APPEND(R2,<num.2>)
+  R4: APPEND(R3,<num.3>)
+  R5: SUM(R4)
+  R6: SUB(<num.5>,4)
+  R7: MUL(R6,<num.4>)
+  R8: ADD(R5,R7)
+  R9: DIV(R8,<num.5>)
+  R10: PRINT(R9)"
+
+
+
+
+
+
+

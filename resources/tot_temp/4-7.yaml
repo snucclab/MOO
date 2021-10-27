@@ -1,0 +1,23 @@
+problem: >
+  <propername.0>(이)가 반 아이들을 위해 <stationary.0>(을)를 사면서 여분으로 <num.0>개를
+  더 사오라고 하신 선생님의 말씀을 잘못 이해하여 <num.1>개를 사왔습니다. <propername.0>(이)가
+  원래 사야할 양보다 몇 개를 덜 사왔습니까?
+
+variable-sampling:
+  num.0:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2, <num.0> ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  stationary.0: ['연필', '색연필', '지우개', '공책', '도화지', '색종이', '풀', '테이프', '바둑돌', '구슬', '상자', '나무토막']
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.0>, <num.1>)
+  R1: PRINT(R0)"

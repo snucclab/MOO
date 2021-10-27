@@ -1,0 +1,23 @@
+problem: >
+  <place.0>(와)과 <propername.0> 집 간의 거리는 <num.0>km 입니다.
+  <propername.1>(이)의 집과 <propername.0>(이)의 집 사이의 거리는 <num.1>km 입니다.
+  세 장소가 일직선 상에 있고, <propername.0>이의 집은 <place.0>(와)과 <propername.1>(이)의 집
+  사이에 있다면 <place.0>(와)과 <propername.1>(이)의 집 사이의 거리는 몇 km 입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 10, 50 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 50 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: ['서점', '마트', '문구점', '학교', '수영장', '교실', '도서관', '박물관', '운동장', '주차장', '정류장', '농장', '음식점', '영화관', '연구실', '건물']
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>, <num.1>)
+  R1: PRINT(R0)"

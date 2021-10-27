@@ -1,0 +1,39 @@
+problem: >
+  어린 학생이 있습니다. 1년마다 학생의 키를 재보았더니, 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>cm만큼 자랐다고 합니다. 1년에 1cm 초과로 자란 것은 몇 번인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.1:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.2:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.3:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+  num.4:
+    range: [ 0, 2 ]
+    under-decimal: 1
+    type: float
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: APPEND(R4, <num.4>)
+  R6: GT(R5, 1)
+  R7: SUM(R6)
+  R8: PRINT(R7)"

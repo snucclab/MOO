@@ -1,0 +1,28 @@
+problem: >
+  <num.0>(을)를 미지의 수에서 뺀 결과, <num.1>가 나왔습니다.
+  같은 수에서 <num.2>(을)를 빼면 어떤 숫자가 나오는지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [2,100]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [3,100]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [2,<num.0>+<num.1>]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: SUB(R0,<num.2>)
+  R2: PRINT(R1)"
+
+

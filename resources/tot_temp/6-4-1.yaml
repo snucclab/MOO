@@ -1,0 +1,26 @@
+problem: >
+  <num.0>에 어떤 수를 곱해야 할 것을 실수로 <num.1>에 곱하였더니 그 결과가 <num.2>이었습니다.
+  바르게 계산하면 얼마인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 2, 1000 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2, 1000]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 1000]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.2>,<num.1>)
+  R1: MUL(R0,<num.0>)
+  R2: PRINT(R1)"

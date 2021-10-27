@@ -1,0 +1,50 @@
+problem: >
+  2019년 6월에 <person.0>(은)는 <num.0>송이의 <flower.0>(을)를 구매했고 7월에 <num.1>송이의 <flower.0>(을)를 구매했습니다.
+  <person.0>(이)가 계산을 해보니 이 <num.4> 달을 제외한 달에는 평균적으로 매달 <num.2>송이의 <flower.0>(을)를 구매했습니다.
+  그 해 <num.3> 개월 동안 <person.0>(이)가 한달에 평균 몇 개의 <flower.0>(을)를 구매했는지 계산하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 10, 50 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 50 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 20, 60 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 12, 13]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [ 2, 3]
+    under-decimal: 0
+    type: int  
+list-sampling:
+  flower.0: ['장미', '백합', '튤립', '카네이션', '국화']
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0,<num.0>)
+  R2: APPEND(R1,<num.1>)
+  R3: SUM(R2)
+  R4: SUB(<num.3>,<num.4>)
+  R5: MUL(R4,<num.2>)
+  R6: ADD(R3,R5)
+  R7: DIV(R6,<num.3>)
+  R8: PRINT(R7)"
+
+
+
+
+
+
+
+
+

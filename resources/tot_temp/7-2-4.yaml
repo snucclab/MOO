@@ -1,0 +1,18 @@
+problem: <num.0>, <num.1>, <num.2>, <num.3>(와)과 같이 4개의 자연수를 규칙에 맞게 늘어놓았습니다. <unknown.0>(은)는 무엇입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: arithmetic_prog(4, 'num'); replace_unknown('num', 'unknown')
+
+equations:
+  "R0: LIST()
+   R1: APPEND(R00,<num.0>)
+   R2: APPEND(R01,<num.1>)
+   R3: APPEND(R02,<num.2>)
+   R4: APPEND(R03,<num.3>)
+   R5: LIST_INDEX(R04, <unknown.0>)
+   R6: ADD(R05, 1)
+   R7: SEQ_TERM(R04,R06)
+   R8: PRINT(R07)"

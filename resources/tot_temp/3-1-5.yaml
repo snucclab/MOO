@@ -1,0 +1,27 @@
+problem: >
+  <vocation.0> <num.0>명이 있습니다.
+  이들에게 <num.1>개의 <object.0>(을)를 나눠줄 계획입니다.
+  한 명 당 최소 <object.0> 1개를 받게끔 할 것입니다.
+  몇 가지 경우의 수로 <object.0>(을)를 배분할 수 있겠습니까?
+
+variable-sampling:
+  num.0:
+    range: [ 20, 40 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ <num.0>, 100 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  object.0: [ '사탕', '칫솔', '음료수', '컵', '햄버거', '책', '다이어리', '펜', '슬리퍼' ]
+
+function-call: null
+
+equations:
+  "R0: SUB(<num.1>,<num.0>)
+  R1: ADD(<num.0>,R0)
+  R2: SUB(R1,1)
+  R3: COMB(R2,R0)
+  R4: PRINT(R3)"

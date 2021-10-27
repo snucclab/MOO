@@ -1,0 +1,25 @@
+problem: >
+  <propername.0>(이)가 <place.0>에서 장을 본 후 계산을 위해
+  <food.0>, <food.1>, <food.2>, <food.3>, <food.4> 의 순서대로 물건들을 계산대에 올려두었습니다.
+  점원이 계산대에 물건을 올린 순서대로 바코드를 찍는다면 <num.0>번째로 바코드를 찍은 물건은 무엇입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 1, 6 ]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: ['하나로마트', '마트', '코스트코', '이마트', '롯데마트']
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <food.0>)
+  R2: APPEND(R1, <food.1>)
+  R3: APPEND(R2, <food.2>)
+  R4: APPEND(R3, <food.3>)
+  R5: APPEND(R4, <food.4>)
+  R6: GET_ITEM(R5, <num.0>)
+  R7: PRINT(R6)"

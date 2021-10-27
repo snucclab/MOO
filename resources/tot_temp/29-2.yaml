@@ -1,0 +1,30 @@
+problem: >
+  어떤 수에서 <num.0>(을)를 뺀 후 <num.1>(을)를 곱하고, <num.2>(으)로 나누면 <num.3>(이)가 됩니다. 어떤 수를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [10,30]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [20,40]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [10,20]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [10,120]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.3>, <num.2>)
+  R1: DIV(R0, <num.1>)
+  R2: SUB(R1, <num.0>)
+  R3: PRINT(R2)"

@@ -1,0 +1,28 @@
+problem: >
+  주어진 수에 <num.0>(을)를 곱하려고 했으나 실수로 <num.1>(을)를 곱하여 <num.2>(이)라는 숫자가 나왔습니다.
+  만약 실수없이 올바르게 계산을 했다면 어떤 숫자가 나왔을까요?
+
+variable-sampling:
+  num.0:
+    range: [ 2, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 3, 100 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, <num.0>+<num.1>]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.2>,<num.1>)
+  R1: MUL(R0,<num.0>)
+  R2: PRINT(R1)"
+
+

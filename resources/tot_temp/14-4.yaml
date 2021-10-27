@@ -1,0 +1,21 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2>, <num.3>의 번호를 받은 5명의 <vocation.0>(이)가 있습니다. 이 중 회장 1명과 부회장 1명을 뽑으려 합니다. 단, 번호 0을 받은 <vocation.0>(은)는 회장은 될 수 없고, 부회장만 될 수 있다고 할 때, 회장과 부회장을 뽑는 경우의 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling:
+  vocation.0: ['학생', '경찰', '선생님', '운동선수', '교수', '소방관', '변호사', '의사', '손님', '중학생', '초등학생', '고등학생']
+
+function-call: different_number(1, 10, 4, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, 0)
+  R2: APPEND(R1, <num.0>)
+  R3: APPEND(R2, <num.1>)
+  R4: APPEND(R3, <num.2>)
+  R5: APPEND(R4, <num.3>)
+  R6: COUNT(R5)
+  R7: COMB(R6, 2)
+  R8: SUB(R7, 4)
+  R9: PRINT(R8)"

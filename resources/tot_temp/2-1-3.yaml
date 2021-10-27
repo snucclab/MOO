@@ -1,0 +1,27 @@
+problem: >
+  <person.0>(은)는 총 <num.0>명의 <vocation.0>(이)가 서 있는 줄에 서 있습니다.
+  <person.0> 앞에 <vocation.0> <num.1>명이 서 있을 때,
+  <person.0> 뒤에 몇 명의 <vocation.0>(이)가 서 있습니까?
+
+variable-sampling:
+  num.0:
+    range: [2, 51]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, <num.0>]
+    under-decimal: 0
+    type: int
+
+list-sampling:
+  place.0: ['서점','마트','문구점','급식실', '학교', '수영장', '도서관', '박물관', '정류장', '강당',s '음식점', '영화관', '건물']
+  vocation.0: ['학생', '경찰', '선생님', '중학생', '운동선수', '중학생' ,'고등학생', '초등학생']
+  position.0: ['앞', '뒤']
+
+function-call: null
+
+equations: 
+  "R0: SUB(<num.0>,<num.1>)
+  R1: SUB(R0,1)
+  R2: PRINT(R1)"
+

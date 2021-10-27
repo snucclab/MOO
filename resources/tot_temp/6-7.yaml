@@ -1,0 +1,17 @@
+problem: >
+  올림픽 <game.0> 단체전에 <propername.0>, <propername.1>, <propername.2> 순으로 출전한다고 합니다. 가장 선두로 경기에 나서는 선수는 누구입니까?
+
+variable-sampling: null
+
+list-sampling:
+  game.0: ['양궁', '태권도', '펜싱', '스피드 스케이팅', '수영']
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <propername.0>)
+  R2: APPEND(R1, <propername.1>)
+  R3: APPEND(R2, <propername.2>)
+  R4: GET_ITEM(R3, 1)
+  R5: PRINT(R4)"

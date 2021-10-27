@@ -1,0 +1,22 @@
+problem: >
+  3개의 번호 <num.0>, <num.1>, <num.2>(이)가 붙어 있는 책이 있습니다. 이 중 2개의 책을 선택합니다. 한 책의 숫자에는 10을 곱하고, 다른 한 책의 숫자를 더해 돈을 지불하고 대여를 한다고 할 때, 최소 대여 비용은 얼마입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MAX(R2)
+  R5: MIN(R2)
+  R6: SUM(R2)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 2)
+  R10: ADD(R9, R8)
+  R11: PRINT(R10)"

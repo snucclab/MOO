@@ -1,0 +1,35 @@
+problem: > 
+  <propername.0>(은)는 왼쪽에서 <num.0>번째 열, 오른쪽에서 <num.1>번째 열,
+  앞에서 <num.2>번째 줄, 뒤에서 <num.3>번째 줄에 서서 체조를 하고 있습니다.
+  각 줄마다 서 있는 <vocation.0>의 수가 같다고 할 때,
+  체조를 하고 있는 <vocation.0>은(는) 모두 몇 명입니까?"
+
+variable-sampling:
+  num.0:
+    range: [ 2, 10 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 2, 10 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 4, 15 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 4, 15 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>, <num.1>)
+  R1: SUB(R0, 1)
+  R2: ADD(<num.2>, <num.3>)
+  R3: SUB(R2, 1)
+  R4: MUL(R1, R3)
+  R5: PRINT(R4)"

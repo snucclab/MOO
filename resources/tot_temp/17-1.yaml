@@ -1,0 +1,25 @@
+problem: >
+  0, <num.0>, <num.1>, <num.2> 중에서 서로 다른 숫자 3개를 뽑아 만들 수 있는 세 자리 수 중에서 가장 작은 수를 쓰시오.
+
+#!!!!!!!!!!! 17번 템플릿 !전부! 다시 보세요.
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(1, 10, 3, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: MIN(R3)
+  R5: MAX(R3)
+  R6: SUM(R3)
+  R7: SUB(R6, R4)
+  R8: SUB(R7, R5)
+  R9: DIGIT(R4, 3)
+  R10: DIGIT(0, 2)
+  R11: ADD(R9, R10)
+  R12: ADD(R11, R8)
+  R13: PRINT(R12)"
