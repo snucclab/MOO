@@ -1,10 +1,10 @@
 problem: >
-  한 변의 길이가 <num.0>cm인 어떤 도형이 있다.
-  이 도형이 정삼각형일 때 도형의 둘레는 몇 cm 입니까?
+  한 변의 길이가 <num.0><lengthunit.0>인 어떤 도형이 있다.
+  이 도형이 정삼각형일 때 도형의 둘레는 몇 <lengthunit.0> 입니까?
 
 variable-sampling:
   num.0:
-    range: [1, 10000]
+    range: [1, 999]
     under-decimal: 0
     type: int
 

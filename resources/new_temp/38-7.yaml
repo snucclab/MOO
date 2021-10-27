@@ -1,15 +1,15 @@
 problem: >
   네 각의 크기가 모두 90도인 사각형이 있습니다.
-  이 사각형의 둘레의 길이가 <num.0>㎝입니다.
-  가로 길이가 <num.1>cm이면, 세로 길이는 몇 cm입니까?
+  이 사각형의 둘레의 길이가 <num.0><lengthunit.0>입니다.
+  가로 길이가 <num.1><lengthunit.0>이면, 세로 길이는 몇 <lengthunit.0>입니까?
 
 variable-sampling:
   num.0:
-    range: [1, 99]
+    range: [20, 99]
     under-decimal: 0
     type: int
   num.1:
-    range: [1, 99]
+    range: [1, 10]
     under-decimal: 0
     type: int
 list-sampling: null

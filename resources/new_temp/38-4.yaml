@@ -1,14 +1,14 @@
 problem: >
-  가로 길이가 <num.1>cm인 직사각형이 있습니다.
-  둘레의 길이가 <num.0>㎝일 때, 세로 길이는 몇 cm 입니까?
+  가로 길이가 <num.1><lengthunit.0>인 직사각형이 있습니다.
+  둘레의 길이가 <num.0><lengthunit.0>일 때, 세로 길이는 몇 <lengthunit.0> 입니까?
 
 variable-sampling:
   num.0:
-    range: [1, 99]
+    range: [20, 99]
     under-decimal: 0
     type: int
   num.1:
-    range: [1, 99]
+    range: [1, 10]
     under-decimal: 0
     type: int
 list-sampling: null

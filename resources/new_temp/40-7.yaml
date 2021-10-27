@@ -1,15 +1,15 @@
 problem: >
   어떤 직사각형의 가로 길이는 세로 길이를 <num.1>배 시킨것과 같다.
-  둘레가 <num.0>cm면 가로는 몇 cm 입니까?
+  둘레가 <num.0>cm면 가로는 몇 <lengthunit.0> 입니까?
 
 
 variable-sampling:
   num.0:
-    range: [1, 10000]
+    range: [40, 10000]
     under-decimal: 0
     type: int
   num.1:
-    range: [1, 99]
+    range: [1, 10]
     under-decimal: 0
     type: int
 
