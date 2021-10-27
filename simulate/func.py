@@ -165,8 +165,9 @@ def div_to_int(start: int, end: int, result: dict):
 
 
 # must not start with prime number..!
-def make_fraction(start: int, end: int, result: dict):
+def make_fraction(start: int, end: int, fc: int, result: dict):
     # random choice num not be prime number
+    # fc개 만큼 분수 만듦
     num_list = [0] + [i for i in range(1, end + 1)]  # 0에서 end까지 [0, 1, ..., end]
     for i, num in enumerate(num_list):  # 합성수 제거
         if num == 0 or num == 1:
@@ -202,7 +203,7 @@ def make_fraction(start: int, end: int, result: dict):
         divisers.append(divisers[0])
 
     result['<%s.%s>' % ("num", 0)] = str(num)
-    for i in range(2):
+    for i in range(fc):
         result['<%s.%s>' % ("fraction", i)] = str(random.randint(1,int(divisers[i])-1)) + '/' + str(divisers[i])
 
 
