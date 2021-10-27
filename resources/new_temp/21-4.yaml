@@ -7,7 +7,7 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1: 
-    range: [50,80]
+    range: [10,40]
     under-decimal: 0
     type: int
   num.2:
