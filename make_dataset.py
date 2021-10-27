@@ -25,7 +25,7 @@ def read_arguments():
                         help='Root directory of template YAML files')
     parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./resources/vocab.yaml",
                         help='Root directory of template YAML files')
-    parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=False, default=100,
+    parser.add_argument('--num-item', '--num-sample', '-item', '-sample', '-n', type=int, required=False, default=10,
                         help='Number of items generated for each template file')
     parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./resources/new_dataset",
                         help='Root directory for saving output dataset files')
