@@ -19,7 +19,7 @@ list-sampling :
   gender.0 : ['남', '여']
   gender.1 : ['남', '여']
 
-function-call: make_fraction(20, 50)
+function-call: make_fraction(20, 50, 2)
 
 equations:
   "R0: SUB(1, <fraction.1>)

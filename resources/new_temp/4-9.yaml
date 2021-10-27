@@ -23,5 +23,5 @@ function-call: null
 equations:
   "R0: ADD(<num.1>, <num.2>)
   R1: SUB(R0, <num.0>)
-  R2: MUL(R1, <num.0>)
+  R2: MUL(R1, <num.1>)
   R3: PRINT(R2)"
