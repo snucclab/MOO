@@ -17,7 +17,7 @@ function-call: null
 
 equations: 
   "R0: RANGE(0,<num.0>,1)
-  R1: MAX(R0) 
+  R1: MAX(R0)
   R2: MUL(<num.1>,<num.0>)
   R3: ADD(R2,R1)
   R4: MOD(R3,R1)
