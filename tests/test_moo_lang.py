@@ -663,6 +663,27 @@ def test_list_replace():
                                                       '\'%s\'' % replacement))
 
 
+def test_get_item():
+    template = _load_pyt(OPR_GET_ITEM)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_INDEX)][CONVERT]
+
+    for _ in range(500):
+        items = [random.random() * 100 for _ in range(random.randint(1, 200))]
+        item = random.choice(items)
+        index = items.index(item)
+
+        assert index == _exec_template(template, _locals=dict(items=items, item=item),
+                                       **converter(random.choice(_RESULT_NAME), 'items', 'item'))
+        assert index == _exec_template(template, _locals=dict(items=items),
+                                       **converter(random.choice(_RESULT_NAME), 'items', item))
+
+        items = [str(x) for x in items]
+        assert index == _exec_template(template, _locals=dict(items=items, item=str(item)),
+                                       **converter(random.choice(_RESULT_NAME), 'items', 'item'))
+        assert index == _exec_template(template, _locals=dict(items=items),
+                                       **converter(random.choice(_RESULT_NAME), 'items', '\'%s\'' % item))
+
+
 def test_ceil():
     template = _load_pyt(OPR_CEIL)
     converter = OPR_VALUES[OPR_TOKENS.index(OPR_CEIL)][CONVERT]
