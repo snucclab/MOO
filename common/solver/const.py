@@ -186,7 +186,7 @@ OPR_VALUES = [
      CONVERT: (lambda res, *x: {'original': x[0], 'place': x[1], 'result': res}), PRECEDENCE: None},
     # 41. GET_ITEM(ls1: List[Any], item: Union[str, int, float]) -> int
     {NAME: OPR_GET_ITEM, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'ls1': x[0], 'item': x[1], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'ls1': x[0], 'index': x[1], 'result': res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
