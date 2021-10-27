@@ -1,7 +1,7 @@
 problem: >
   <container.0>에 <vegetable.0>이(가) 있었습니다. 그 중 <num.0>개를 <propername.0>(이)가
-  가져갔습니다. 그 후 <propername.0>(이)의 <family.1>(이)가 마트에서 <vegetable.0> <num.1>개를
-  사와서 <container.0>에 넣어두었더니 <container.0>안에는 <vegetable.0> <num.2>개가
+  가져갔습니다. 그 후 <propername.0>(이)의 <family.1>(이)가 마트에서 <vegetable.0> <num.2>개를
+  사와서 <container.0>에 넣어두었더니 <container.0>안에는 <vegetable.0> <num.1>개가
   들어있었습니다. 처음에 <container.0>에 들어있던 <vegetable.0>은 몇 개 입니까?
 
 variable-sampling:
@@ -10,11 +10,11 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: [1,<num.2>]
+    range: [5, 12]
     under-decimal: 0
     type: int
   num.2:
-    range: [5,15]
+    range: [1, <num.1>]
     under-decimal: 0
     type: int
 

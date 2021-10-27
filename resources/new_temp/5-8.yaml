@@ -16,7 +16,7 @@ variable-sampling :
 
 list-sampling : null
 
-function-call: make_fraction(200, 500)
+function-call: make_fraction(200, 500, 2)
 
 equations:
   "R0: SUB(1, <fraction.0>)
