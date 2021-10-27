@@ -5,19 +5,19 @@ problem: >
 
 variable-sampling:
   num.0:
-    range: [ 3, 8]
+    range: [3,8]
     under-decimal: 0
     type: int
   num.1:
-    range: [10, 20]
+    range: [10,20]
     under-decimal: 0
     type: int
   num.2:
-    range: [ 1, <num.1> ]
+    range: [1,<num.1>]
     under-decimal: 0
     type: int
   num.3:
-    range: [ <num.0>+1, 15]
+    range: [<num.0>+1,15]
     under-decimal: 0
     type: int
 

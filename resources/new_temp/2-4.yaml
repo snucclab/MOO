@@ -10,15 +10,15 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: [5,15]
+    range: [15,20]
     under-decimal: 0
     type: int
   num.2:
-    range: [10,20]
+    range: [100,150]
     under-decimal: 0
     type: int
   num.3:
-    range: [50,100]
+    range: [250,550]
     under-decimal: 0
     type: int
 

@@ -6,11 +6,11 @@ problem: >
 
 variable-sampling:
   num.0:
-    range: [1,10]
+    range: [0,10]
     under-decimal: 0
     type: int
   num.1:
-    range: [1,10]
+    range: [1,<num.2>]
     under-decimal: 0
     type: int
   num.2:
