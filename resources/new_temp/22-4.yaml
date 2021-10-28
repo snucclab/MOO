@@ -1,0 +1,14 @@
+problem: >
+  미지수 <unknown.0>, <unknown.1>, <unknown.3>(이)가 주어졌어요. 세 자리 수만을 모아서 만든 뺄셈식 <equation.0>에서 <unknown.0>(을)를 구하면 얼마일까요?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: unk_digit_equation_multi(3,3,'-')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <equation.0>)
+  R2: CALL_SYMPY(R1, <unknown.0>)
+  R3: PRINT(R2)"
