@@ -1,7 +1,11 @@
 problem: >
-  한 변의 길이가 2인 정육면체의 겉넓이를 구하시오.
+  한 변의 길이가 <num.0> 인 정육면체의 겉넓이를 구하시오.
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [ 1,9 ]
+    under-decimal: 0
+    type: int
   
 list-sampling: null
 
