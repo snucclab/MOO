@@ -1,4 +1,4 @@
-if type({value}) is float:
-    print('%.2f' % {value})
+if type({value}) is int or int({value}) == {value}:
+    print(int({value}))
 else:
-    print({value})
+    print('%.2f' % {value})
