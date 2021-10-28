@@ -286,6 +286,41 @@ def make_triangle(result: dict):
     result['<%s.%s>' % ("triangle", 1)] = str(b)
     result['<%s.%s>' % ("triangle", 2)] = str(c)
 
+def wrong_digit_multiply(digit1: int, digit2: int, wrong_digit: int, result: dict): # wrong_digit is 1, 2, 3...
+    a = random.randint(10**(digit1-1), 10**digit1)
+    b = random.randint(10**(digit2-1), 10**digit2)
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    if wrong_digit == 1:
+        c = str(b)
+        clist = []
+        for item in c:
+            clist.append(item)
+        numbers.pop(numbers.index(c[-1]))
+        ornum = clist[-1]
+        clist[-1] = str(random.choice(numbers))
+        num = clist[-1]
+        c = "".join(clist)
+        c = int(c)
+    else:
+        if digit2 == wrong_digit:
+            numbers.pop(0)
+        c = str(b)
+        clist = []
+        for item in c:
+            clist.append(item)
+        numbers.pop(numbers.index(c[-(wrong_digit)]))
+        ornum = clist[-(wrong_digit)]
+        clist[-(wrong_digit)] = str(random.choice(numbers))
+        num = clist[-(wrong_digit)]
+        c = "".join(clist)
+        c = int(c)
+    orig = a*b
+    wrng = a*c
+    result['<%s.%s>' % ("num", 0)] = str(ornum)
+    result['<%s.%s>' % ("num", 1)] = str(num)
+    result['<%s.%s>' % ("num", 2)] = str(wrng)
+    result['<%s.%s>' % ("num", 3)] = str(orig)
+
 
 __all__ = [
     'arithmetic_prog',
@@ -299,5 +334,6 @@ __all__ = [
     'div_to_int',
     'make_fraction',
     'round_up',
-    'make_triangle'
+    'make_triangle',
+    'wrong_digit_multiply'
 ]

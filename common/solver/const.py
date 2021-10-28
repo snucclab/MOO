@@ -18,8 +18,10 @@ CON_VALUES = [
     '20',
     '99',
     '100',
+    '180',
     '1000',
-    '3.14'
+    '3.14',
+    '0.5'
 ]
 CON_TOKENS = [str(x) for x in CON_VALUES]
 CON_MAX = len(CON_VALUES)
