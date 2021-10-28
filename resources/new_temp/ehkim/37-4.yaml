@@ -8,8 +8,10 @@ variable-sampling:
     type: int
 
 list-sampling: null
+  lengthunit.0: ['km', 'm', 'cm', 'mm', '센티미터', '킬로미터', '미터', '밀리미터']
 
 function-call: null
 
 equations:
-  "R0:
+  "R0: CIRCUM(<num.0>)
+  R1: PRINT(R0)"

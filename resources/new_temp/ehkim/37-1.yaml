@@ -4,15 +4,12 @@ problem: >
 
 variable-sampling:
   num.0:
-    range: [2,20]
-    under-decimal: 0
-    type: int
-  num.1:
-    range: [200,500]
+    range: [10, 50]
     under-decimal: 0
     type: int
 
 list-sampling: null
+  lengthunit.0: ['km', 'm', '미터', '킬로미터']
 
 function-call: null
 

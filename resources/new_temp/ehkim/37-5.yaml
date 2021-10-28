@@ -13,5 +13,6 @@ function-call: null
 
 equations:
   "R0: DIV(<num.0>, 2)
-  R1: ~~ (R0)
-  R2: PRINT(R1)"
+  R1: CIRCUM(R0)
+  R2: MUL(R1, <num.1>)
+  R3: PRINT(R2)"
