@@ -1,0 +1,27 @@
+problem: >
+  부피가 <num.0><cubeunit.0>이고 높이가 <num.1><lengthunit.0>인 원뿔의 밑면의 둘레를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [20, 40]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 5]
+    under-decimal: 0
+    type: int
+  
+list-sampling:
+  lengthunit.0: [ 'cm', '센티미터' ]
+  cubeunit.0: ['세제곱센티미터' ]
+
+function-call: null
+
+equations:
+   "R0: MUL(<num.0>, 3)
+   R1: MUL(3.14, <num.1>)
+   R2: DIV(R0, R1)
+   R3: POW(R2, 0.5)
+   R4: MUL(2, R3)
+   R5: MUL(R4, 3.14)
+   R6: PRINT(R5)"

@@ -1,0 +1,23 @@
+problem: >
+  2개의 마름모의 둘레의 길이는 각각 <num.0><lengthunit.0>, <num.1><lengthunit.0> 이다.
+  첫번째 마름모의 한 변의 길이와 두번째 마름모의 한 변의 길이의 합은 무엇인가?
+
+variable-sampling:
+  num.0:
+    range: [ 20, 400, 4 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 40, 100, 4 ]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.0>,4)
+  R1: DIV(<num.1>,4)
+  R2: ADD(R0, R1)
+  R3: PRINT(R2)"
