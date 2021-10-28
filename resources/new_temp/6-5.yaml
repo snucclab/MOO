@@ -1,5 +1,5 @@
 problem: >
-  <propername.0>(이)네 학교에서는 한 교시당 한 과목씩 시험을 칩니다.
+  <propername.0>(이)가 재학 중인 학교에서는 한 교시당 한 과목씩 시험을 칩니다.
   <course.0>, <course.1>, <course.2>, <course.3>, <course.4> 순으로 시험을 쳤다면 <num.0> 교시에 시험을 친 과목은 무엇입니까?
 
 variable-sampling:
