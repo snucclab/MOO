@@ -1,6 +1,6 @@
 problem: >
   같은 반인 <propername.0>(와)과 <propername.1>의 키는 <num.0>cm 차이납니다.
-  둘의 키를 더하면 <num.1>cm일 경우 반에서 가장 큰 <propername.0>의 키는 몇 cm 입니까?
+  둘의 키를 더하면 <num.1>cm일 경우, 반에서 가장 큰 <propername.0>의 키가 몇 cm인지 구하세요.
 
 variable-sampling:
   num.0:

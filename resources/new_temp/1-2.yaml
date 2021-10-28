@@ -1,7 +1,7 @@
 problem: >
   <propername.0>(은)는 <ball.0> <num.0>개를 가지고 있었습니다.
-  그런데 생일을 맞아 <propername.0>의 <family.0>(으)로부터 <ball.0> <num.1>개를
-  선물받았습니다. <person.0>(이)가 가지고 있는 <ball.0>(은)는 모두 몇 개 입니까?
+  그런데 생일을 맞아 <propername.0>의 <family.0>(으)로부터 <ball.0> <num.1>개를 선물받았습니다.
+  <person.0>(이)가 가지고 있는 <ball.0>(은)는 모두 몇 개 입니까?
 
 variable-sampling:
   num.0:

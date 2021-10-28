@@ -1,7 +1,7 @@
 problem: >
   한 <container.0>당 <food.0> <num.0>개를 넣어야 할 것을 잘못해서
-  <num.1>개를 넣었더니 <num.2>개의 <container.0>에 넣고 <num.3>개가 남았습니다.
-  원래대로 넣는다면 최대한 몇 개의 <container.0>에 넣을 수 있습니까?
+  <num.1>개를 넣었더니 <num.2>개의 <container.0>에 넣고 <num.3>개가 남았다.
+  원래대로 넣는다면 최대한 몇 개의 <container.0>에 넣을 수 있는지 구하여라.
 
 variable-sampling:
   num.0:
