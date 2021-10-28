@@ -19,4 +19,5 @@ equations:
    "R0: MUL(<num.0>, <num.0>)
    R1: MUL(R0, 3.14)
    R2: MUL(R1, <num.1>)
-   R3: PRINT(R2)"
+   R3: DIV(R2, 3)
+   R4: PRINT(R3)"
