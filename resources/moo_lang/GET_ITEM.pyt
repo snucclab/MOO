@@ -1,3 +1,5 @@
+{result} = ''
 for idx, value in enumerate({ls1}):
-    if (idx+1) == {index}:
+    if idx == {index}:
         {result} = value
+        break
