@@ -208,8 +208,10 @@ OPR_VALUES = [
      CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
     # 46. SPHERE_VOLUME 구의 부피
     {NAME: OPR_SPHERE_VOLUME, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
     # 47. TRI_AREA 삼각형의 넓이
+    {NAME: OPR_TRI_AREA, ARITY: 3, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'a': x[0], 'b': x[1], 'c': x[2], 'result': res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
