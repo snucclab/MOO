@@ -902,3 +902,21 @@ def test_sphere_surface():
 
         assert result == _exec_template(template, _locals=dict(radius=radius),
                                         **converter(random.choice(_RESULT_NAME), 'radius'))
+
+
+def test_sphere_volume():
+    template = _load_pyt(OPR_SPHERE_VOLUME)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_SPHERE_VOLUME)][CONVERT]
+
+    for _ in range(500):
+        radius = random.random()
+        result = 4/3*math.pi*radius*radius*radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+        radius = random.randint(1, 10000)
+        result = 4/3*math.pi*radius*radius*radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
