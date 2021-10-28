@@ -1,8 +1,6 @@
 problem: > 
-  채소 가게에서 <vegetable.0> (이)가 <num.0><rank.0>(으)로 매진되고,
-  <vegetable.1>(은)는 <num_rank.0><rank.0>(으)로 매진됐습니다.
-  <vegetable.2>(은)는 <vegetable.0> 보다 늦게, <vegetable.1> 보다 빠르게 매진됐다면
-  <vegetable.2>(은)는 몇 <rank.0>(으)로 매진됐습니까?
+  채소 가게에서 <vegetable.0> (이)가 <num.0><rank.0>(으)로 매진되고, <vegetable.1>(은)는 <num_rank.0><rank.0>(으)로 매진됐습니다.
+  <vegetable.2>(은)는 <vegetable.0> 보다 늦게, <vegetable.1> 보다 빠르게 매진됐다면 <vegetable.2>(은)는 몇 <rank.0>(으)로 매진됐습니까?
  
 variable-sampling:
   num.0:

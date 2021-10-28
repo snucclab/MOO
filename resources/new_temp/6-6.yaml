@@ -1,5 +1,6 @@
 problem: >
-  <place.0> 입장을 위해 앞에서부터 <propername.0>, <propername.1>, <propername.2>, <propername.3>, <propername.4> (이)가 한 줄로 서 있다고 합니다. <num.0>번째로 입장하는 사람은 누구입니까?
+  <place.0> 입장을 위해 앞에서부터 <propername.0>, <propername.1>, <propername.2>, <propername.3>, <propername.4> (이)가 한 줄로 서 있다고 합니다.
+  <num.0>번째로 입장하는 사람은 누구입니까?
 
 variable-sampling:
   num.0:

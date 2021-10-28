@@ -1,7 +1,6 @@
 problem: >
-  <container.0>속의 <flower.0>(을)를 <num.0>명이 똑같이 <num.1> 송이씩 가져갔더니
-  <num.2> 송이가 남았습니다. <num.3>명이 똑같이 가져간다면 한 사람 당 최대 몇 명이
-  가져갈 수 있습니까?
+  <container.0>속의 <flower.0>(을)를 <num.0>명이 똑같이 <num.1> 송이씩 가져갔더니 <num.2> 송이가 남았습니다.
+  <num.3>명이 똑같이 가져간다면 한 사람 당 최대 몇 명이 가져갈 수 있습니까?
 
 variable-sampling:
   num.0:

@@ -1,9 +1,6 @@
 problem: > 
-  <teacher.0>(이)가 홈페이지에 올린 공지사항을
-  <propername.0>(은)는 <num.0><rank.0>(으)로 확인했고,
-  <propername.1>(은)는 <num_rank.0><rank.0>(으)로 확인했습니다.
-  <propername.2>(이)가 <propername.0> 보다는 일찍, <propername.1> 보다는 늦게 확인했다면,
-  <propername.2>(은)는 몇 <rank.0>(으)로 공지사항을 확인했습니까?
+  <teacher.0>(이)가 홈페이지에 올린 공지사항을 <propername.0>(은)는 <num.0><rank.0>(으)로 확인했고, <propername.1>(은)는 <num_rank.0><rank.0>(으)로 확인했습니다.
+  <propername.2>(이)가 <propername.0> 보다는 일찍, <propername.1> 보다는 늦게 확인했다면, <propername.2>(은)는 몇 <rank.0>(으)로 공지사항을 확인했습니까?
  
 variable-sampling:
   num.0:

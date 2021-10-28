@@ -1,8 +1,7 @@
 problem: >
   <place.0>(와)과 <propername.0> 집 간의 거리는 <num.0>km 입니다.
   <propername.1>의 집과 <propername.0>의 집 사이의 거리는 <num.1>km 입니다.
-  세 장소가 일직선 상에 있고, <propername.0>의 집은 <place.0>(와)과 <propername.1>의 집
-  사이에 있다면 <place.0>(와)과 <propername.1>의 집 사이의 거리는 몇 km 입니까?
+  세 장소가 일직선 상에 있고, <propername.0>의 집은 <place.0>(와)과 <propername.1>의 집 사이에 있다면 <place.0>(와)과 <propername.1>의 집 사이의 거리는 몇 km 입니까?
 
 variable-sampling:
   num.0:
