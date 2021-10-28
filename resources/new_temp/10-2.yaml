@@ -2,7 +2,7 @@ problem: >
   <place.0>에 똑같은 <container.0>(이)가 <num.0>개 있습니다.
   각 <container.0>(은)는 <num.1>층이고, 각 층마다 진열된 과일의 수는 같습니다.
   <fruit.0>(은)는 어느 <container.0> 한 층의 왼쪽에서 <num.2>번째, 오른쪽에서 <num.3>번째에 진열되어 있습니다.
-  <place.0>에 진열된 과일의 수는 모두 몇 개입니까?"
+  <place.0>에 진열된 과일의 수는 모두 몇 개입니까?
  
 variable-sampling:
   num.0:
