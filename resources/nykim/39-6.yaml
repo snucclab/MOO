@@ -1,0 +1,11 @@
+problem: >
+  겉넓이가 3인 구의 중심을 지나는 단면의 넓이는 얼마입니까?
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  #구... 반지름 구해서 그거 원 넓이...

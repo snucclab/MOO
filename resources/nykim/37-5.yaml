@@ -1,0 +1,21 @@
+problem: >
+  한 대각선의 길이가 <num.0> 이고 넓이가 <num.1> 인 마름모가 있습니다. 이 마름모의 다른 대각선의 길이를 계산하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 3,20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 50, 100 ]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.1>,2)
+  R1: DIV(R0,<num.0>)
+  R2: PRINT(R1)"

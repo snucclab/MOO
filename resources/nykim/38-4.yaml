@@ -1,0 +1,27 @@
+problem: >
+  어떤 사다리꼴의 아랫변의 길이가 <num.0>, 높이가 <num.1>이고 넓이가 <num.2>이다.
+  이 사다리꼴의 윗변의 길이는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 3,10 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 50, 100 ]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.2>,2)
+  R1: DIV(R0,<num.1>)
+  R2: SUB(R1,<num.0>)
+  R1: PRINT(R2)"

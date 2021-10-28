@@ -1,0 +1,28 @@
+problem: >
+  삼각형 ABC는 높이가 <num.0> 이고 넓이가 <num.1> 이다.
+  삼각형 ABC와 높이는 동일하고 밑변의 길이는 <num.2> 가 더 긴 삼각형 DEF의 넓이는?
+
+variable-sampling:
+  num.0:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 20, 60 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 2, 5 ]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.1>,2)
+  R1: DIV(R0,<num.0>)
+  R2: ADD(R1,<num.2>)
+  R3: MUL(R2,<num.0>)
+  R4: DIV(R3,2)"

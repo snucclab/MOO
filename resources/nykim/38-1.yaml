@@ -1,0 +1,27 @@
+problem: >
+  아랫변의 길이가 <num.0> 이고 윗변의 길이가 <num.1> 인 사다리꼴이 있다. 이 사다리꼴의 넓이가 <num.2>일때,
+  사다리꼴의 높이는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 3,20 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 30, 100 ]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: MUL(<num.2>,2)
+  R2: DIV(R1,R0)
+  R3: PRINT(R2)"

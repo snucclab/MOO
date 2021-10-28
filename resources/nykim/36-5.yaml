@@ -1,0 +1,38 @@
+problem: >
+  밑변이 <num.0> 인 삼각형 ABC의 넓이는 삼각형 DEF, 삼각형 GHI의 넓이의 합과 같다.
+  삼각형 DEF의 밑변은 <num.1> 이고 높이는 <num.2> 이며, 삼각형 GHI의 밑변은 <num.3> 이고 높이는 <num.4> 이다.
+  삼각형 ABC의 높이를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [ 2, 12 ]
+    under-decimal: 0
+    type: int
+  num.4:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.1>,<num.2>)
+  R1: MUL(<num.3>,<num.4>)
+  R2: ADD(R1,R0)
+  R3: DIV(R2,<num.0>)
+  R4: PRINT(R3)"

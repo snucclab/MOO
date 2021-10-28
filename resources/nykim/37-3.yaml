@@ -1,0 +1,22 @@
+problem: >
+  둘레의 길이가 <num.0> 마름모와 <num.1>인 마름모의 한 변의 길이의 합을 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 4, 40, 4 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 4, 100, 4 ]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.0>,4)
+  R1: DIV(<num.1>,4)
+  R2: ADD(R0, R1)
+  R3: PRINT(R2)"

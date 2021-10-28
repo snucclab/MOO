@@ -1,0 +1,21 @@
+problem: >
+  높이가 <num.0> 이고 밑변이 <num.1> 인 삼각형의 넓이를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [ 5, 15 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>,<num.1>)
+  R1: DIV(R0, 2)
+  R2: PRINT(R1)"

@@ -1,0 +1,11 @@
+problem: >
+  반지름의 길이가 9, 모선이 길이가 15 인 원뿔의 부피는 얼마입니까?
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+#피타고라스정리
