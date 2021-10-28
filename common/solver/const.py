@@ -65,6 +65,11 @@ OPR_LIST_MUL = 'LIST_MUL'
 OPR_CHANGE_DIGIT = 'CHANGE_DIGIT'
 OPR_GET_DIGIT = 'GET_DIGIT'
 OPR_LIST_SORT = 'LIST_SORT'
+OPR_CIR_AREA = 'CIR_AREA'
+OPR_CIRCUM = 'CIRCUM'
+OPR_SPHERE_SURFACE = 'SPHERE_SURFACE'
+OPR_SPHERE_VOLUME = 'SPHERE_VOLUME'
+OPR_TRI_AREA = 'TRI_AREA'
 
 OPR_VALUES = [
     # 1. NEW_EQN()
@@ -190,7 +195,15 @@ OPR_VALUES = [
      CONVERT: (lambda res, *x: {'ls1': x[0], 'index': x[1], 'result': res}), PRECEDENCE: None},
     # 42. LIST_SORT(lst: List[Union[int, float]]) -> List[Union[int, float]]
     {NAME: OPR_LIST_SORT, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'lst': x[0], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'lst': x[0], 'result': res}), PRECEDENCE: None},
+    # 이하 도형 문제들
+    # 43. CIR_AREA 원의 넓이
+    {NAME: OPR_CIR_AREA, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None}
+    # 44. CIRCUM 원의 둘레
+    # 45. SPHERE_SURFACE 구의 겉넓이
+    # 46. SPHERE_VOLUME 구의 부피
+    # 47. TRI_AREA 삼각형의 넓이
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
