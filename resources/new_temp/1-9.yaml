@@ -1,7 +1,7 @@
 problem: >
-  <propername.0>(이)네 마당에는 <tree.0>(이)가 총 <num.0> 그루 있었습니다.
-  식목일을 맞아 <propername.0>(이)네 가족은 <tree.0>(을)를 추가로 <num.1> 그루 심었습니다.
-  <propername.0>(이)네 마당에 심어진 <tree.0>(은)는 총 몇 그루 입니까?
+  <propername.0>네 마당에는 <tree.0>(이)가 총 <num.0> 그루 있었습니다.
+  식목일을 맞아 <propername.0>네 가족은 <tree.0>(을)를 추가로 <num.1> 그루 심었습니다.
+  <propername.0>네 마당에 심어진 <tree.0>(은)는 총 몇 그루 입니까?
 
 variable-sampling:
   num.0:
