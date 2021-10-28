@@ -5,7 +5,7 @@ variable-sampling: null
 
 list-sampling: null
 
-function-call: different_number(1, 100, 4, 'num')
+function-call: different_number(20, 80, 4, 'num')
 
 equations:
   "R0: LIST()

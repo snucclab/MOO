@@ -6,7 +6,7 @@ variable-sampling: null
 list-sampling:
   animal.0: ['닭', '강아지', '고양이', '백조', '진돗개', '돌고래', '타조', '임팔라', '사슴', '노루', '고라니', '원숭이', '치타', '표범', '곰', '기린', '코끼리', '코뿔소', '물소', '하마', '물개', '바다표범', '악어', '고릴라', '침팬지', '북극곰', '고래']
 
-function-call: different_number(1, 100, 4, 'num')
+function-call: different_number(20, 200, 4, 'num')
 
 equations:
   "R0: LIST()

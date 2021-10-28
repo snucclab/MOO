@@ -6,7 +6,7 @@ variable-sampling: null
 list-sampling:
   soft_food.0: ['치즈', '버터', '생크림', '식빵', '얼음']
 
-function-call: different_number(1, 100, 4, 'num')
+function-call: different_number(100, 300, 4, 'num')
 
 equations:
   "R0: LIST()

@@ -1,14 +1,13 @@
 problem: >
-  <paper.0>에 <writer.0>(으)로 두 자리 숫자를 쓰고 있습니다.
-  <num.0>, <num.1>, <num.2> 숫자만 작성이 가능할 때, 기록할 수 있는 가장 큰 수를 구하시오.
+  <paper.0>에 <writer.0>로 두 자리 숫자를 쓰고 있습니다. <num.0>, <num.1>, <num.2> 숫자만 작성이 가능할 때, 기록할 수 있는 가장 큰 수를 구하시오.
 
 variable-sampling: null
 
 list-sampling:
-  paper.0: ['종이', '책', '노트', '쪽지']
-  writer.0: ['펜', '연필', '만년필', '색연필']
+  paper.0 : ['종이', '책', '노트', '쪽지']
+  writer.0 : ['펜', '연필', '만년필', '색연필']
 
-function-call: different_number(1, 10, 3, 'num')
+function-call : different_number(1, 10, 3, 'num')
 
 equations:
   "R0: LIST()
