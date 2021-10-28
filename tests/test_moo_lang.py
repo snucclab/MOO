@@ -674,9 +674,9 @@ def test_get_item():
         index = items.index(item)
 
         assert item == _exec_template(template, _locals=dict(items=items, index=index),
-                                       **converter(random.choice(_RESULT_NAME), 'items', 'index'))
+                                      **converter(random.choice(_RESULT_NAME), 'items', 'index'))
         assert item == _exec_template(template, _locals=dict(items=items),
-                                       **converter(random.choice(_RESULT_NAME), 'items', index))
+                                      **converter(random.choice(_RESULT_NAME), 'items', index))
 
 
 def test_ceil():
@@ -874,13 +874,13 @@ def test_circum():
 
     for _ in range(500):
         radius = random.random()
-        result = 2*math.pi*radius
+        result = 2 * math.pi * radius
 
         assert result == _exec_template(template, _locals=dict(radius=radius),
                                         **converter(random.choice(_RESULT_NAME), 'radius'))
 
         radius = random.randint(1, 10000)
-        result = 2*math.pi*radius
+        result = 2 * math.pi * radius
 
         assert result == _exec_template(template, _locals=dict(radius=radius),
                                         **converter(random.choice(_RESULT_NAME), 'radius'))
@@ -892,13 +892,13 @@ def test_sphere_surface():
 
     for _ in range(500):
         radius = random.random()
-        result = 4*math.pi*radius*radius
+        result = 4 * math.pi * radius * radius
 
         assert result == _exec_template(template, _locals=dict(radius=radius),
                                         **converter(random.choice(_RESULT_NAME), 'radius'))
 
         radius = random.randint(1, 10000)
-        result = 4*math.pi*radius*radius
+        result = 4 * math.pi * radius * radius
 
         assert result == _exec_template(template, _locals=dict(radius=radius),
                                         **converter(random.choice(_RESULT_NAME), 'radius'))
@@ -910,13 +910,39 @@ def test_sphere_volume():
 
     for _ in range(500):
         radius = random.random()
-        result = 4/3*math.pi*radius*radius*radius
+        result = 4 / 3 * math.pi * radius * radius * radius
 
         assert result == _exec_template(template, _locals=dict(radius=radius),
                                         **converter(random.choice(_RESULT_NAME), 'radius'))
 
         radius = random.randint(1, 10000)
-        result = 4/3*math.pi*radius*radius*radius
+        result = 4 / 3 * math.pi * radius * radius * radius
 
         assert result == _exec_template(template, _locals=dict(radius=radius),
                                         **converter(random.choice(_RESULT_NAME), 'radius'))
+
+
+def test_poly():
+    template = _load_pyt(OPR_POLY)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_POLY)][CONVERT]
+
+    poly = {
+        '삼각형': 3,
+        '사각형': 4,
+        '오각형': 5,
+        '육각형': 6,
+        '칠각형': 7,
+        '팔각형': 8,
+        '구각형': 9,
+        '십각형': 10,
+        '십일각형': 11,
+        '십이각형': 12,
+        '이십각형': 20
+    }
+    for _ in range(500):
+
+        key = random.choice(list(poly.keys()))
+        poly_choice = poly[key]
+
+        assert poly_choice == _exec_template(template, _locals=dict(key=key),
+                                             **converter(random.choice(_RESULT_NAME), 'key'))
