@@ -1,7 +1,6 @@
 problem: >
-  <propername.0>네 반은 <course.0> 시간에 <num.0>명이 한 조를 만들 경우
-  <num.1>개 조가 만들어지고 <num.2>명이 남습니다. <num.3>명씩 조를 만들 경우
-  인원을 꽉 채운 조를 최대 몇 개 만들 수 있습니까?
+  <propername.0>네 반은 <course.0> 시간에 <num.0>명이 한 조를 만들 경우 <num.1>개 조가 만들어지고 <num.2>명이 남습니다.
+  <num.3>명씩 조를 만들 경우 인원을 꽉 채운 조를 최대 몇 개 만들 수 있습니까?
 
 variable-sampling:
   num.0:

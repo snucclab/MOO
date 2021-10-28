@@ -1,6 +1,6 @@
 problem: >
-  냉장고에 <food.0>(와)과 <food.1>(이)가 모두 합해서 <num.0>개 있습니다.
-  <food.0>보다 <food.1>(이)가 <num.1>개 더 적다면 <food.0>(은)는 몇 개 있습니까?
+  냉장고에 <food.0>(와)과 <food.1>(이)가 모두 합해서 <num.0>개 있다.
+  <food.0>보다 <food.1>(이)가 <num.1>개 더 적다면 <food.0>(은)는 몇 개 있는지 구하여라.
 
 variable-sampling:
   num.0:

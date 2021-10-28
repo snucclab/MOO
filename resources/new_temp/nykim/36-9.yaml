@@ -1,0 +1,12 @@
+problem: >
+  대각선의 길이가 각각 1 , 5 인 마름모가 있다. 마름모의 넓이는 얼마입니까?
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"

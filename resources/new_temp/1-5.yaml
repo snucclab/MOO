@@ -1,7 +1,6 @@
 problem: >
   빵집을 운영하는 <propername.0>(은)는 매일 <num.0>개의 <bread.0>(을)를 굽습니다.
-  오늘 하루동안 팔린 <bread.0>(이)가 <num.1>개일 때, 팔리지 않고 남은 <bread.0>의 개수는
-  총 몇 개 입니까?
+  오늘 하루동안 팔린 <bread.0>(이)가 <num.1>개일 때, 팔리지 않고 남은 <bread.0>의 개수는 총 몇 개 입니까?
 
 
 variable-sampling:

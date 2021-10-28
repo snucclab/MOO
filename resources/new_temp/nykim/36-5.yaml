@@ -1,0 +1,14 @@
+problem: >
+  밑변이 3 인 삼각형 ABC의 넓이는 삼각형 DEF, 삼각형 GHI의 넓이의 합과 같다.
+  삼각형 DEF의 밑변은 4 이고 높이는 3 이며, 삼각형 GHI의 밑변은 3 이고 높이는 9 이다.
+  삼각형 ABC의 높이를 구하시오.
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"
