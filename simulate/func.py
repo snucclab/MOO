@@ -75,7 +75,7 @@ def unk_digit_equation_multi(num_unk: int, num_digit: int, operator: str, result
         unk_list.pop(unk_list.index(n))
     for token in equation:
         if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            result['<%s.%s>' % ('unk', countunk)] = token
+            result['<%s.%s>' % ('unknown', countunk)] = token
             countunk+=1
 
     result['<%s.0>' % 'equation'] = equation
