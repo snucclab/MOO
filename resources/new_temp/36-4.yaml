@@ -1,8 +1,8 @@
 problem: >
-  사각형의 변의 개수와 변이 3개인 도형의 변의 개수의 합을 구하시오.
+  <squares.0>의 변의 개수와 변이 3개인 도형의 변의 개수의 합을 구하시오.
 
 variable-sampling: null
-list-sampling: null
+list-sampling:
 function-call: null
 equations:
   "R0: ADD(3,4)

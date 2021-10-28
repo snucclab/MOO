@@ -6,7 +6,7 @@ variable-sampling:
     range: [ 1, 100 ]
     under-decimal: 0
     type: int
-  num.1:
+  num.1:의 # 무조건 홀수?
     range: [ 2*<num.0>+1, 2*<num.0>+2 ]
     under-decimal: 0
     type: int
