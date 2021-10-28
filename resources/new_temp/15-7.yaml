@@ -3,7 +3,7 @@ problem: >
 
 variable-sampling:
   num.0:
-    range: [ 12, 16 ]
+    range: [ 6, 24 ]
     under-decimal: 0
     type: int
 
