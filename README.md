@@ -430,5 +430,62 @@ python3 -m pip install transformers==4.6.1 sympy==1.8
 - 환경구성 오류) [도커파일빌드] 도커 이미지 전송에 실패하였습니다. 잠시 후 다시 시도해주세요. 도커 이미지 전송은 종종 네트워크 환경으로 인해 타임아웃이 발생할 수 있습니다.:
 - 채점 오류) invalid character 'ï' looking for beginning of value
 - 이하 환경 구성 오류
-- [도커파일빌드] 빌드가 실패하였습니다. 잘못된 설치 옵션 명령어를 넣었는지 다시 한번 확인해주세요: ...(중략)... n compiling Pillow from source. Please see the install instructions at: https://pillow.readthedocs.io/en/latest/installation.html ---------------------------------------- [0m [91mERROR: Command errored out with exit status 1: /home/agc2021/.pyenv/versions/3.8.3/bin/python3.8 -u -c import sys, setuptools, tokenize; sys.argv[0] = /tmp/pip-install-v0mblh86/pillow/setup.py; __file__=/tmp/pip-install-v0mblh86/pillow/setup.py;f=getattr(tokenize, open, open)(__file__);code=f.read().replace(\r\n, \n);f.close();exec(compile(code, __file__, exec)) install --record /tmp/pip-record-b6w9ejng/install-record.txt --single-version-externally-managed --compile Check the logs for full command output. [0m [91mWARNING: You are using pip version 19.2.3, however version 21.3.1 is available. You should consider upgrading via the pip install --upgrade pip command. [0m Removing intermediate container a554a2b45b60
+- [도커파일빌드] 빌드가 실패하였습니다. 잘못된 설치 옵션 명령어를 넣었는지 다시 한번 확인해주세요: 
+    ``` python
+    ...(중략)... 
+    n compiling Pillow from source. 
+    Please see the install instructions 
+    at: https://pillow.readthedocs.io/en/latest/installation.html
+    ----------------------------------------
+    [0m [91mERROR: Command errored out with exit status 1:
+    /home/agc2021/.pyenv/versions/3.8.3/bin/python3.8 -u -c import sys, setuptools, tokenize;
+    sys.argv[0] = /tmp/pip-install-v0mblh86/pillow/setup.py;
+    __file__=/tmp/pip-install-v0mblh86/pillow/setup.py;
+    f=getattr(tokenize, open, open)(__file__);
+    code=f.read().replace(\r\n, \n);
+    f.close();
+    exec(compile(code, __file__, exec))
+    install --record /tmp/pip-record-b6w9ejng/install-record.txt --single-version-externally-managed --compile
+    Check the logs for full command output.
+    [0m [91mWARNING: You are using pip version 19.2.3,
+    however version 21.3.1 is available. You should consider upgrading via the pip install --upgrade pip command. 
+    [0m Removing intermediate container a554a2b45b60
+    ``` 
 - [도커파일생성] 프로젝트 구조가 올바르지 않습니다. 압축을 해제한 디렉토리 구조가 규정과 일치하는지 다시 한번 확인해주세요. - 디렉토리에 프로젝트 폴더가 존재하지 않습니다.
+- [추론모델실행] answersheet_5_00_{teamID}.json 파일이 없습니다.
+    ``` bash
+    Traceback (most recent call last):
+    File "main.py", line 16, in
+    model = EPT.create_or_load(str(EVALUATE_WEIGHT_DIR.absolute()))
+    File "/home/agc2021/model/ept/chkpt.py", line 29, in create_or_load
+    model.load_state_dict(state)
+    File "/home/agc2021/.pyenv/versions/3.8.3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1223, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+    RuntimeError: Error(s) in loading state_dict for EPT:
+    size mismatch for decoder.operator_word_embedding.weight: copying a param with shape torch.Size([41, 768]) from checkpoint, the shape in current model is torch.Size([40, 768]).
+    size mismatch for operator.weight: copying a param with shape torch.Size([41, 768]) from checkpoint, the shape in current model is torch.Size([40, 768]).
+    size mismatch for operator.bias: copying a param with shape torch.Size([41]) from checkpoint, the shape in current model is torch.Size([40]).
+    ```
+- [추론모델실행] answersheet_5_00_{teamID}.json 파일이 없습니다.
+    ``` bash
+    Traceback (most recent call last):
+    File "main.py", line 16, in
+    model = EPT.create_or_load(str(EVALUATE_WEIGHT_DIR.absolute()))
+    File "/home/agc2021/model/ept/chkpt.py", line 29, in create_or_load
+    model.load_state_dict(state)
+    File "/home/agc2021/.pyenv/versions/3.8.3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1223, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+    RuntimeError: Error(s) in loading state_dict for EPT:
+    size mismatch for decoder.operator_word_embedding.weight: copying a param with shape torch.Size([41, 768]) from checkpoint, the shape in current model is torch.Size([47, 768]).
+    size mismatch for operator.weight: copying a param with shape torch.Size([41, 768]) from checkpoint, the shape in current model is torch.Size([47, 768]).
+    size mismatch for operator.bias: copying a param with shape torch.Size([41]) from checkpoint, the shape in current model is torch.Size([47]).
+    ```
+- [추론모델실행] answersheet_5_00_{teamID}.json 파일이 없습니다.
+    ``` bash
+    Traceback (most recent call last):
+    File "main.py", line 37, in
+    instance = string_to_text_instance(text[QUESTION], tokenizer)
+    File "/home/agc2021/common/sys/convert.py", line 87, in string_to_text_instance
+    assert string_left.startswith(token_string)
+    AssertionError
+    ```
