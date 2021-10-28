@@ -15,6 +15,7 @@ CON_VALUES = [
     '9',
     '10',
     '12',
+    '20',
     '99',
     '100',
     '1000'
@@ -70,6 +71,7 @@ OPR_CIRCUM = 'CIRCUM'
 OPR_SPHERE_SURFACE = 'SPHERE_SURFACE'
 OPR_SPHERE_VOLUME = 'SPHERE_VOLUME'
 OPR_TRI_AREA = 'TRI_AREA'
+OPR_POLY = 'POLY'
 
 OPR_VALUES = [
     # 1. NEW_EQN()
@@ -211,7 +213,10 @@ OPR_VALUES = [
      CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
     # 47. TRI_AREA 삼각형의 넓이
     {NAME: OPR_TRI_AREA, ARITY: 3, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'a': x[0], 'b': x[1], 'c': x[2], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'a': x[0], 'b': x[1], 'c': x[2], 'result': res}), PRECEDENCE: None},
+    # 48. POLY 다각형 각/변 개수
+    {NAME: OPR_POLY, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'key': x[0], 'result': res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
