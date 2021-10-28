@@ -49,9 +49,9 @@ RUN pip3 install torch==1.8.1+cu111 -f https://download.pytorch.org/whl/torch_st
 # 하단의 코드를 수정하여 발생하는 문제에 대해서는 
 # 저희는 책임지지 않습니다.                      
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ #
-RUN chown -R ${USER}:${USER} ${PYENV_ROOT}/ && chown -R ${USER}:${USER} ${HOME}/
+RUN chown -R ${USER}:${USER} ${PYENV_ROOT}
 RUN mkdir -p /home/agc2021/
-RUN chown -R ${USER}:${USER} /home/agc2021/
+RUN chown -R ${USER}:${USER} ${HOME}/
 COPY --chown=${USER}:${USER} . ${HOME}/
 USER ${USER}
 
@@ -60,6 +60,6 @@ WORKDIR ${HOME}
 
 ### Update python package manger ###
 RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel --user
-RUN python3 -m pip install kubernetes==17.17.0 grpcio==1.37.0 grpcio-tools==1.37.0 pika==1.2.0  --user
+RUN python3 -m pip install kubernetes==17.17.0 grpcio==1.37.0 grpcio-tools==1.37.0 pika==1.2.0 chardet==4.0.0  --user
 RUN python3 -m pip install -r requirements.txt --user
 
