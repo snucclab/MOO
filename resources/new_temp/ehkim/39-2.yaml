@@ -1,6 +1,6 @@
 problem: >
   한 변의 길이가 <num.0><lengthunit.0>인 정사각형이 있습니다.
-  가로의 길이가 <num.1><lengthunit.0>인 평행사변형이 같은 넓이를 가질 때, 이 평행사변형의 세로의 길이를 구하세요.
+  가로의 길이가 <num.1><lengthunit.0>인 평행사변형이 같은 넓이를 가질 때, 이 평행사변형의 높이의 길이를 구하세요.
 
 variable-sampling:
   num.0:
