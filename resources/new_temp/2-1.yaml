@@ -17,7 +17,7 @@ variable-sampling:
     type: int
 
 list-sampling:
-  etc.0: ['사탕', '빵', '과자', '달걀', '초콜릿', '젤리', '껌']
+  etc.0: ['사탕', '빵', '과자', '달걀', '초콜릿', '젤리', '껌', '카라멜', '쿠키', '조각케이크', '영양제', '달고나']
 
 function-call: null
 

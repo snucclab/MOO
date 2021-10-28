@@ -1,5 +1,5 @@
 problem: >
-  <propername.0>(은)는 연못에서 <fish.0>을 기르고 있었습니다.
+  <propername.0>(은)는 연못에서 <fish.0>(을)를 기르고 있었습니다.
   명절을 맞아 <family.0>에게 <fish.0> <num.0>마리를, <family.1>에게 <fish.0> <num.1>마리를 선물했더니 어항에는 <fish.0> <num.2>마리가 남아 있었습니다.
   <propername.0>(이)가 처음 연못에서 기르고 있었던 <fish.0>(은)는 모두 몇 마리입니까?
 
@@ -18,7 +18,7 @@ variable-sampling:
     type: int
 
 list-sampling: 
-  fish.0: ['금붕어', '잉어', '송사리', '참붕어', '버들붕어', '각시붕어']
+  fish.0: ['금붕어', '잉어', '송사리', '참붕어', '버들붕어', '각시붕어', '구피', '비단잉어', '거북', '개구리']
 
 function-call: null
 
