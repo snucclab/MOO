@@ -7,7 +7,7 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: null
+list-sampling:
   lengthunit.0: ['km', 'm', 'cm', 'mm', '센티미터', '킬로미터', '미터', '밀리미터']
 
 function-call: null
