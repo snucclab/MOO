@@ -664,11 +664,12 @@ def test_list_replace():
 
 
 def test_get_item():
+    # reverse of LIST_INDEX
     template = _load_pyt(OPR_GET_ITEM)
-    converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_INDEX)][CONVERT]
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_GET_ITEM)][CONVERT]
     # items가 리스트, item이 우리가 찾는 인덱스의 아이템
     for _ in range(500):
-        items = [random.random() * 100 for _ in range(random.randint(1, 200))]
+        items = [str(random.random() * 100) for _ in range(random.randint(1, 200))]
         item = random.choice(items)
         index = items.index(item)
 
@@ -676,23 +677,6 @@ def test_get_item():
                                        **converter(random.choice(_RESULT_NAME), 'items', 'index'))
         assert item == _exec_template(template, _locals=dict(items=items),
                                        **converter(random.choice(_RESULT_NAME), 'items', index))
-
-
-    # for _ in range(500):
-    #     items = [random.random() * 100 for _ in range(random.randint(1, 200))]
-    #     item = random.choice(items)
-    #     index = items.index(item)
-    #
-    #     assert index == _exec_template(template, _locals=dict(items=items, item=item),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', 'item'))
-    #     assert index == _exec_template(template, _locals=dict(items=items),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', item))
-    #
-    #     items = [str(x) for x in items]
-    #     assert index == _exec_template(template, _locals=dict(items=items, item=str(item)),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', 'item'))
-    #     assert index == _exec_template(template, _locals=dict(items=items),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', '\'%s\'' % item))
 
 
 def test_ceil():
