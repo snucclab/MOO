@@ -64,6 +64,7 @@ OPR_CEIL = 'CEIL'
 OPR_LIST_MUL = 'LIST_MUL'
 OPR_CHANGE_DIGIT = 'CHANGE_DIGIT'
 OPR_GET_DIGIT = 'GET_DIGIT'
+OPR_LIST_SORT = 'LIST_SORT'
 
 OPR_VALUES = [
     # 1. NEW_EQN()
@@ -186,7 +187,10 @@ OPR_VALUES = [
      CONVERT: (lambda res, *x: {'original': x[0], 'place': x[1], 'result': res}), PRECEDENCE: None},
     # 41. GET_ITEM(ls1: List[Any], item: Union[str, int, float]) -> int
     {NAME: OPR_GET_ITEM, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'ls1': x[0], 'index': x[1], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'ls1': x[0], 'index': x[1], 'result': res}), PRECEDENCE: None},
+    # 42. LIST_SORT(lst: List[Union[int, float]]) -> List[Union[int, float]]
+    {NAME: OPR_LIST_SORT, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'lst': x[0], 'result': res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]
