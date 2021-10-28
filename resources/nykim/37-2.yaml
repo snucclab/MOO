@@ -1,5 +1,5 @@
 problem: >
-  둘레의 길이가 <num.0> 마름모와 <num.1> 인 마름모의 한 변의 길이의 차를 구하시오.
+  둘레의 길이가 <num.0><lengthunit.0> 마름모와 <num.1><lengthunit.0> 인 마름모의 한 변의 길이의 차를 구하시오.
 
 variable-sampling:
   num.0:

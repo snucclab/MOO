@@ -1,6 +1,6 @@
 problem: >
-  아랫변의 길이가 <num.0> 이고 윗변의 길이가 <num.1> 인 사다리꼴이 있다. 이 사다리꼴의 넓이가 <num.2>일때,
-  사다리꼴의 높이는 얼마입니까?
+  아랫변의 길이가 <num.0><lengthunit.0> 이고 윗변의 길이가 <num.1><lengthunit.0> 인 사다리꼴이 있다.
+  이 사다리꼴의 넓이가 <num.2><squareunit.0>일 때, 사다리꼴의 높이는 얼마입니까?
 
 variable-sampling:
   num.0:
@@ -16,7 +16,9 @@ variable-sampling:
     under-decimal: 0
     type: int
   
-list-sampling: null
+list-sampling:
+  lengthunit.0: ['m', '미터']
+  squareunit.0: ['㎡', '제곱미터']
 
 function-call: null
 

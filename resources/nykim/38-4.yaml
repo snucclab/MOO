@@ -24,4 +24,4 @@ equations:
   "R0: MUL(<num.2>,2)
   R1: DIV(R0,<num.1>)
   R2: SUB(R1,<num.0>)
-  R1: PRINT(R2)"
+  R3: PRINT(R2)"

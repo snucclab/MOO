@@ -1,5 +1,5 @@
 problem: >
-  높이가 <num.0> 이고 밑변이 <num.1> 인 삼각형의 넓이를 구하시오.
+  높이가 <num.0><lengthunit.0> 이고 밑변이 <num.1><lengthunit.0> 인 삼각형의 넓이를 구하시오.
 
 variable-sampling:
   num.0:

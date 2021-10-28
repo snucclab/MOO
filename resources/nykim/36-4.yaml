@@ -1,6 +1,6 @@
 problem: >
-  삼각형 ABC는 높이가 <num.0> 이고 넓이가 <num.1> 이다.
-  삼각형 ABC와 높이는 동일하고 밑변의 길이는 <num.2> 가 더 긴 삼각형 DEF의 넓이는?
+  삼각형 ABC의 높이는 <num.0><lengthunit.0> 이고 넓이는 <num.1><squareunit.0> 이다.
+  삼각형 ABC와 높이는 동일하고 밑변의 길이는 <num.2><lengthunit.0> 더 긴 삼각형 DEF의 면적은 몇 <squareunit.0>인가?
 
 variable-sampling:
   num.0:
@@ -16,7 +16,9 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: null
+list-sampling:
+  lengthunit.0: ['cm', '센티미터']
+  squareunit.0: ['㎠', '제곱센티미터']
 
 function-call: null
 
@@ -25,4 +27,5 @@ equations:
   R1: DIV(R0,<num.0>)
   R2: ADD(R1,<num.2>)
   R3: MUL(R2,<num.0>)
-  R4: DIV(R3,2)"
+  R4: DIV(R3,2)
+  R5: PRINT(R4)"

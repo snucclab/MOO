@@ -1,6 +1,6 @@
 problem: >
-  밑변이 <num.0> 인 삼각형 ABC의 넓이는 삼각형 DEF, 삼각형 GHI의 넓이의 합과 같다.
-  삼각형 DEF의 밑변은 <num.1> 이고 높이는 <num.2> 이며, 삼각형 GHI의 밑변은 <num.3> 이고 높이는 <num.4> 이다.
+  밑변이 <num.0><lengthunit.0> 인 삼각형 ABC의 넓이는 삼각형 DEF, 삼각형 GHI의 넓이의 합과 같다.
+  삼각형 DEF의 밑변은 <num.1><lengthunit.0> 이고 높이는 <num.2><lengthunit.0> 이며, 삼각형 GHI의 밑변은 <num.3><lengthunit.0> 이고 높이는 <num.4><lengthunit.0> 이다.
   삼각형 ABC의 높이를 구하시오.
 
 variable-sampling:

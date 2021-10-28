@@ -1,5 +1,5 @@
 problem: >
-  한 대각선의 길이가 <num.0> 이고 넓이가 <num.1> 인 마름모가 있습니다. 이 마름모의 다른 대각선의 길이를 계산하시오.
+  한 대각선의 길이가 <num.0><lengthunit.0> 이고 넓이가 <num.1><squareunit.0> 인 마름모가 있습니다. 이 마름모의 다른 대각선의 길이를 계산하시오.
 
 variable-sampling:
   num.0:
@@ -11,7 +11,9 @@ variable-sampling:
     under-decimal: 0
     type: int
   
-list-sampling: null
+list-sampling:
+  lengthunit.0: ['cm', '센티미터']
+  squareunit.0: ['㎠', '제곱센티미터']
 
 function-call: null
 

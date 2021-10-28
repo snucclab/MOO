@@ -1,5 +1,5 @@
 problem: >
-  마름모의 둘레가 <num.0> 일 때 한 변의 길이는 얼마입니까?
+  마름모의 둘레가 <num.0><lengthunit.0> 일 때 한 변의 길이는 얼마입니까?
 
 variable-sampling:
   num.0:
@@ -13,5 +13,5 @@ list-sampling: null
 function-call: null
 
 equations:
-  "R0: MUL(<num.0>,4)
+  "R0: DIV(<num.0>,4)
   R1: PRINT(R0)"
