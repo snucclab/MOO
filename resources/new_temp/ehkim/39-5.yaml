@@ -1,0 +1,16 @@
+problem: >
+  한 변의 길이가 <num.0><lengthunit.0> 인 정삼각형 2개가 있습니다. 정삼각형을 이어붙여 평행사변형을 만들 때, 평행사변형의 둘레의 길이를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 4)
+  R1: PRINT(R0)"

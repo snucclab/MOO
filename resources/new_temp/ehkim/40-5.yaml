@@ -1,0 +1,11 @@
+problem: >
+  높이가 <num.0><lengthunit.0>, 밑면의 길이가 <num.1><lengthunit.0>, 밑면의 세로가 <num.2><lengthunit.0>인 직육면체가 있습니다.
+  이 직육면체의 전체 모서리의 길이의 합을 구하세요.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:

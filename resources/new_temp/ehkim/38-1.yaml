@@ -1,0 +1,14 @@
+problem: >
+  어떤 직각삼각형의 빗변의 길이가 <num.0><lengthunit.0>이고 밑변의 길이는 <num.1><lengthunit.0>입니다. 이 직각삼각형의 넓이는 얼마입니까?
+
+  //피타고라스 써서 변수를 안 맞추어주면 답이 지저분하게 나옴.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(3,4)
+  R1: PRINT(R0)"

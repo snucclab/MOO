@@ -1,0 +1,33 @@
+problem: >
+  빗변을 제외한 두 변의 길이가 <num.0><lengthunit.0>와 <num.1><lengthunit.0> 인 직각삼각형 모양의 타일을 겹치지 않게 이어 붙여서 가로가 <num.2><lengthunit.0>,
+  세로가 <num.3><lengthunit.0> 인 직사각형 모양의 현관 바닥을 빈틈없이 덮기 위해 필요한 최소한의 타일 수는 몇 장입니까?
+
+variable-sampling:
+  num.0:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [100, 200]
+    under-decimal: 0
+    type: int
+  num.3:
+    range: [100, 200]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, <num.1>)
+  R1: DIV(R0, 2)
+  R2: MUL(<num.2>, <num.3>)
+  R3: DIV(R2, R1)
+  R4: CEIL(R3)
+  R5: PRINT(R4)"

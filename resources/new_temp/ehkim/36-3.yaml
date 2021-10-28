@@ -1,0 +1,23 @@
+problem: >
+  모선의 길이가 <num.0><lengthunit.0>, 밑면의 반지름이 <num.1><lengthunit.0> 인 원뿔이 있습니다.
+  이 원뿔을 앞에서 본 모양이 삼각형일때, 이 삼각형의 세 변의 길이의 합은 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [10,20]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [10,20]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 2)
+  R1: MUl(<num.1>, 2)
+  R2: ADD(R0, R1)
+  R3: PRINT(R2)"

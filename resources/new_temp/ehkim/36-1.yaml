@@ -1,0 +1,23 @@
+problem: >
+  어떤 원뿔을 앞에서 본 모양은 이등변 삼각형입니다.
+  이등변삼각형의 밑변은 <num.0><lengthunit.0>(이)고 나머지 변의 길이는 <num.1><lengthunit.0> 입니다.
+  이 원뿔의 부피를 구하세요.
+
+//식은 빗변의 길이인 <num.1>와 <num.0>으로 피타고라스를 해서 높이를 구함. 높이와 밑변의 넓이와 1/3 곱해서 부피곱함.
+
+variable-sampling:
+  num.0:
+    range: [20, 40]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [20, 30]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+

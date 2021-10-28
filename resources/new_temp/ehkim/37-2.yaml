@@ -1,0 +1,12 @@
+problem: >
+  길이가 <num.0><lengthunit.0> 인 철사를 남기거나 겹치는 부분 없이 모두 사용하여 원을 한 개 만들었습니다.
+  만든 원의 반지름의 길이는 얼마입니까?
+//<num.0>을 2파이로 나눔. 그걸 또 2로 나눔
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0:

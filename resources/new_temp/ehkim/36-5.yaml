@@ -1,0 +1,14 @@
+problem: >
+  빗변의 길이가 <num.0><lengthunit.0> 이고 높이가 <num.1><lengthunit.0> 인 직각삼각형이 있습니다.
+  이 직각삼각형의 높이를 축으로 한 바퀴 돌릴 때 나오는 입체도형의 부피는 얼마입니까?
+
+  //피타고라스 안 쓰고 풀 수 있긴 한데 그렇다면 답이 아주 매우 더러워질듯?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:
+

@@ -1,0 +1,12 @@
+problem: >
+  부피가 <num.0><lengthunit.0>인 직육면체가 있습니다.
+  이 직육면체의 밑면의 세로의 길이가 일 때, 밑면의 가로의 길이는 세로의 <num.1>배입니다.
+  높이는 세로의 길이의 <num.2>배라고 할 때, 전체 모서리의 길이의 합을 구하세요.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: null
+
+equations:

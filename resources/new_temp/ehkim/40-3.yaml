@@ -1,0 +1,11 @@
+problem: >
+  높이가 <num.0><lengthunit.0> 인 어떤 직육면체가 있습니다.
+  직육면체의 밑면의 넓이가 <num.1><lengthunit.1>일 때 이 직육면체의 부피를 구하세요.
+
+variable-sampling:
+
+list-sampling: null
+
+function-call: null
+
+equations:
