@@ -1,6 +1,6 @@
 problem: >
   <propername.0>(와)과 <propername.1>의 용돈을 합하면 <num.0>원이다.
-  <propername.1>(이)가 <propername.0>보다 용돈을 <num.1>원 더 받을 경우 <propername.1>의 용돈은 얼마인가?
+  <propername.1>(이)가 <propername.0>보다 용돈을 <num.1>원 더 받을 경우 <propername.1>의 용돈이 얼마인지 계산한 결과를 답하시오.
 
 variable-sampling:
   num.0:
