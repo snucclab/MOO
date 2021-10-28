@@ -1,8 +1,7 @@
 problem: >
-  <container.0>에 <fruit.0>이 있었습니다. <propername.0>(이)가 <container.0>에서 
-  <fruit.0> <num.0>개를 꺼내 먹고 <propername.0>(이)가 <fruit.0> <num.0>개를 꺼내 먹었더니
-  <container.0>에는 <fruit.0> <num.2>개가 남았습니다. 처음에 <container.0>안에 있던
-  <fruit.0>(은)는 몇 개 입니까?
+  <container.0>에 <fruit.0>(이)가 있었습니다.
+  <propername.0>(이)가 <container.0>에서 <fruit.0> <num.0>개를 꺼내 먹고 <propername.0>(이)가 <fruit.0> <num.0>개를 꺼내 먹었더니 <container.0>에는 <fruit.0> <num.2>개가 남았습니다.
+  처음에 <container.0>안에 있던 <fruit.0>의 개수를 계산하세요.
 
 variable-sampling:
   num.0:
@@ -19,7 +18,7 @@ variable-sampling:
     type: int
 
 list-sampling:
-   container.0 : ['바구니', '주머니', '가방', '봉지', '소쿠리', '쇼핑백', '상자'] 
+   container.0 : ['바구니', '주머니', '가방', '봉지', '소쿠리', '쇼핑백', '상자', '핸드백', '종이상자', '백팩']
 
 function-call: null
 

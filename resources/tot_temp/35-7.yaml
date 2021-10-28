@@ -1,7 +1,7 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 물 많이 마시기 내기를 하였습니다.
   <person.0>(이)가 가장 적게 먹었습니다.
-  <person.1>(은)는 <person.3>보다는 적게 먹었고 <person.3> 보다는 많이 마셨습니다.
+  <person.1>(은)는 <person.4>보다는 적게 먹었고 <person.3> 보다는 많이 마셨습니다.
   <person.3>(은)는 <num.0>l만 더 마셨으면 <num.1>l를 마셨고, <person.2>(은)는 <num.1>l를 마셨습니다.
   5명 중에서 4번째로 적게 마신 사람은 누구입니까?
 

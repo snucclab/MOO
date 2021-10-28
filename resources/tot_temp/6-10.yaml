@@ -20,6 +20,7 @@ equations:
   R3: APPEND(R2, <propername.0>)
   R4: APPEND(R3, <family.0>)
   R5: APPEND(R4, <family.3>)
-  R6: SUB(6, <num.0>)
-  R7: GET_ITEM(R5, R6)
-  R8: PRINT(R7)"
+  R6: COUNT(R5)
+  R7: SUB(R6, <num.0>)
+  R8: GET_ITEM(R5, R7)
+  R9: PRINT(R7)"

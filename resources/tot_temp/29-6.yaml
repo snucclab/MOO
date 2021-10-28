@@ -12,7 +12,8 @@ list-sampling: null
 function-call: div_to_int(30,50)
 
 equations:
-  "R0: ADD(<diviser.0>, <num.0>)
-  R1: DIV(R0, <diviser.0>)
-  R2: ADD(R1, <num.0>)
-  R3: PRINT(R2)"
+  "R0: DIV(<divisor.0>,<diviser.0>)
+  R1: ADD(R0, <num.0>)
+  R2: DIV(R1, <diviser.0>)
+  R3: ADD(R2, <num.0>)
+  R4: PRINT(R3)"

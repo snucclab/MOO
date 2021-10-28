@@ -1,12 +1,12 @@
 problem: >
-  4명의 <vocation.0>(이)가 있습니다. 각각의 몸무게가 <num.0>, <num.1>, <num.2>, <num.3>kg라고 합니다. 몸무게가 가장 많이 나가는 <vocation.0>(와)과 가장 적게 나가는 <vocation.0>의 차를 구하시오.
+  4명의 <vocation.0>(이)가 있습니다. 각각의 몸무게가 <num.0>, <num.1>, <num.2>, <num.3>kg라고 합니다. 몸무게가 가장 많이 나가는 <vocation.0>(와)과 가장 적게 나가는 <vocation.0>의 몸무게의 차를 구하시오.
 
 variable-sampling: null
 
 list-sampling:
   vocation.0: ['학생', '경찰', '선생님', '운동선수', '교수', '소방관', '변호사', '의사', '손님', '중학생', '초등학생', '고등학생']
 
-function-call: different_number(1, 100, 4, 'num')
+function-call: different_number(30, 350, 4, 'num')
 
 equations:
   "R0: LIST()

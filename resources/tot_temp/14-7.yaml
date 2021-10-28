@@ -1,5 +1,7 @@
 problem: >
-  0, <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 <foothold.0>(이)가 두 개 연달아 있습니다. 첫 <foothold.0>에 0이 적힌 <foothold.0>(이)가 없습니다. 이 2개의 <foothold.0>(을)를 건너가는 경우의 수를 구하시오.
+  0, <num.0>, <num.1>, <num.2>, <num.3>(이)가 적힌 <foothold.0>(이)가 두 개 연달아 있습니다.
+  첫 <foothold.0>에 0이 적힌 <foothold.0>(이)가 없습니다.
+  이 2개의 <foothold.0>(을)를 건너가는 경우의 수를 구하시오.
 
 variable-sampling: null
 

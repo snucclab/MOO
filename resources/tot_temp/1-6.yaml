@@ -1,6 +1,6 @@
 problem: >
   <propername.0>(은)는 <family.0>에게 선물하기 위해 <flower.0>(와)과 <flower.1>(으)로 꽃다발을 만들었습니다.
-  <flower.0>(을)를 <num.0>송이, <flower.1>(을)를 <num.1>송이 사용했다면 꽃다발에 사용된 꽃은 모두 몇 송이 입니까?
+  <flower.0>(을)를 <num.0>송이, <flower.1>(을)를 <num.1>송이 사용했다면 꽃다발에 사용된 꽃이 총 몇 송이인지 계산하시오.
 
 variable-sampling:
   num.0:

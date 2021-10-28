@@ -1,10 +1,8 @@
 problem: > 
-  <event.0>에서 <person.0>의 순위는 <num.0><rank.0>이고,
-  <person.1>의 순위는 <num_rank.0><rank.0>입니다.
+  <event.0>에서 <person.0>의 순위는 <num.0><rank.0>이고, <person.1>의 순위는 <num_rank.0><rank.0>입니다.
   <person.2>의 순위는 <person.1> 보다는 높지만 <person.0> 보다는 낮습니다.
   <person.2>의 순위는 몇 <rank.0>입니까?
-  
- 
+
 variable-sampling:
   num.0:
     range: [ 2, 17 ]

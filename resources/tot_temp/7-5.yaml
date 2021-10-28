@@ -1,7 +1,6 @@
 problem: > 
   <event.0>에 <person.0>(이)가 참가했습니다.
-  기록 순서 상으로 <person.0>의 앞인 <person.1>의 <rank.0>(이)가 <num.0><rank.0>이고,
-  뒤인 <person.2>의 <rank.0>(이)가 <num_rank.0><rank.0>입니다.
+  기록 순서 상으로 <person.0>의 앞인 <person.1>의 <rank.0>(이)가 <num.0><rank.0>이고, 뒤인 <person.2>의 <rank.0>(이)가 <num_rank.0><rank.0>입니다.
   <person.0>(은)는 몇 <rank.0>입니까?
  
 variable-sampling:

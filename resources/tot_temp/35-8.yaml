@@ -1,7 +1,7 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
   <person.0>(이)가 가장 가볍습니다.
-  <person.1>(은)는 <person.3>보다 적게 나가고 <person.3> 보다는 많이 나갑니다.
+  <person.1>(은)는 <person.4>보다 적게 나가고 <person.3> 보다는 많이 나갑니다.
   <person.3>(은)는 <num.0>kg 만 찌면 <num.1>kg이 되고, <person.2>(은)는 현재 <num.1>kg 입니다.
   5명 중에서 나이가 2번째로 적게 나가는 사람은 누구입니까?
 
