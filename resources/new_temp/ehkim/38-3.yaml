@@ -1,8 +1,6 @@
 problem: >
   둘레가 <num.0><lengthunit.0> 인 직사각형 모양의 카드가 있습니다. 이 카드의 가로가 <num.1><lengthunit.0> 일 때,
-  이 카드의 대각선의 길이는 얼마입니까?
-
-//피타고라스 안쓰면 매우 지저분
+  이 카드의 넓이는 얼마입니까?
 
 variable-sampling:
   num.0:
@@ -10,7 +8,7 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: [4, 8, 2]
+    range: [2, 14]
     under-decimal: 0
     type: int
 
@@ -20,7 +18,6 @@ function-call: null
 
 equations:
   "R0: DIV(<num.0>, 2)
-  R1: MUL(<num.1>, 2)
-  R2: SUB(R0, R1)
-  R3: DIV(R2, 2)
-  R4: //가로 길이 <num.1>과 세로 길이 R3로 피타고라스해서 대각선 길이 구하기
+  R1: SUB(R0, <num.1>)
+  R2: MUL(R1, <num.1>)
+  R3: PRINT(R2)"
