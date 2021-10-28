@@ -1,0 +1,12 @@
+problem: >
+  한 대각선의 길이가 2 이고 넓이가 3 인 마름모가 있습니다. 이 마름모의 다른 대각선의 길이는 계산하시오.
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"

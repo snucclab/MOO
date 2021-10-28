@@ -1,0 +1,12 @@
+problem: >
+  원뿔의 밑면의 둘레가 9이고 높이가 3이다. 이 원뿔의 부피는 얼마입니까?
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"

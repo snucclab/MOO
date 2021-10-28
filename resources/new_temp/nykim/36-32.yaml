@@ -1,0 +1,13 @@
+problem: >
+  밑변이 3 높이가 3인 직각삼각형에서
+  밑변을 기준으로 한 바퀴 돌려 만든 입체도형의 부피는 얼마입니까?
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"

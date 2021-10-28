@@ -1,0 +1,12 @@
+problem: >
+  높이가 5 이고 밑변이 3 인 삼각형의 넓이를 구하시오.
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"
