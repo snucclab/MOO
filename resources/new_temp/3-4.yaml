@@ -1,7 +1,7 @@
 problem: >
-  <propername.0>(와)과 <propername.1>의 용돈을 합하면 <num.0>원 입니다.
+  <propername.0>(와)과 <propername.1>의 용돈을 합하면 <num.0>원이다.
   <propername.1>(이)가 <propername.0>보다 용돈을 <num.1>원 더 받을 경우
-  <propername.1>의 용돈은 얼마입니까? 
+  <propername.1>의 용돈은 얼마인가?
 
 variable-sampling:
   num.0:
