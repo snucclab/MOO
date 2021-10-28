@@ -12,7 +12,7 @@ variable-sampling:
 
 list-sampling: 
   rank.0 : ['등', '번째']
-  
+
 function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:

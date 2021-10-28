@@ -4,7 +4,6 @@ problem: >
   <num.1>배 만큼의 <vehicle.0>(이)가 더 지나갔습니다. 하루 동안 지나간 <vehicle.0>(은)는
   총 몇 대 입니까?
   
-
 variable-sampling:
   num.0:
     range: [ 10, 20 ]

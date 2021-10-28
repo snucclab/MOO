@@ -14,7 +14,7 @@ variable-sampling:
 list-sampling: 
   rank.0 : ['등', '번째']
   teacher.0 : ['담임선생님', '교수', '조교', '선생님', '국어선생님', '수학선생님', '원장선생님']
-  
+
 function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations:

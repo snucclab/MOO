@@ -16,6 +16,6 @@ list-sampling: null
 function-call: null
 
 equations:
-  "R0: MUL(<num.0>, <num.0>)
+  "R0: MUL(<num.0>, <num.1>)
   R1: MUL(R0, <num.0>)
   R2: PRINT(R1)"

@@ -1,4 +1,4 @@
-problem: > 
+\problem: >
   <vocation.0>들이 자신의 <room.0>(을)를 청소합니다.
   그 중 <propername.0>(은)는 <num.0><rank.0>(으)로 청소를 완료했고,
   <propername.1>(은)는 <num_rank.0><rank.0>(으)로 완료했습니다.
