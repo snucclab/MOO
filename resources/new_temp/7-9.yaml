@@ -13,7 +13,7 @@ variable-sampling:
 list-sampling: 
   rank.0 : ['등', '번째']
   test.0 : ['중간고사', '기말고사', '수행평가', '모의고사', '쪽지시험', '단어시험']
-  
+
 function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations: 

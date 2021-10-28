@@ -21,7 +21,7 @@ from solver import python_code_to_executions, execution_to_python_code
 def read_arguments():
     parser = ArgumentParser()
 
-    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./resources/tot_temp",
+    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./resources/ehkim",
                         help='Root directory of template YAML files')
     parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./resources/vocab.yaml",
                         help='Root directory of template YAML files')
