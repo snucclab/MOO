@@ -1,0 +1,12 @@
+problem: >
+  윗변의 길이가 2, 아랫변의 길이가 3 높이가 3인 사다리꼴의 넓이는 얼마입니까?
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"
