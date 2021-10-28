@@ -1,12 +1,28 @@
 problem: >
-  부피가 <num.0><lengthunit.0>인 직육면체가 있습니다.
-  이 직육면체의 밑면의 세로의 길이가 일 때, 밑면의 가로의 길이는 세로의 <num.1>배입니다.
-  높이는 세로의 길이의 <num.2>배라고 할 때, 전체 모서리의 길이의 합을 구하세요.
+  한 직육면체의 밑면의 세로의 길이가 <num.0><lengthunit.0>일 때, 밑면의 가로의 길이는 세로의 <num.1>배입니다.
+  높이는 세로의 길이의 <num.2>배라고 할 때, 직육면체의 부피를 구하시오.
 
-variable-sampling: null
-
+variable-sampling: 
+  num.0:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [2, 7]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [2, 7]
+    under-decimal: 0
+    type: int
+    
 list-sampling: null
 
 function-call: null
 
 equations:
+  "R0: MUL(<num.0>, <num.1>)
+   R1: MUL(R0, <num.0>)
+   R2: MUL(<num.0>, <num.2>)
+   R3: MUL(R2, R1)
+   R4: PRINT(R3)"
