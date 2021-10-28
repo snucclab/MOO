@@ -1,8 +1,8 @@
 problem: >
   <propername.0>의 학교에서 <num.0>개 학년이 <vehicle.0>(을)를 타고 여행을 떠납니다. 
-  각 학년 별로 <num.1>개의 <vehicle.0>(을)를 타고 이동하며, 각 <vehicle.0>(을)를 타고 이동하는
-  학생 수는 동일합니다. <propername.0>(은)는 자신이 탈 <vehicle.0>의 앞에서 <num.2>번째,
-  뒤에서 <num.3>번째로 탑승했습니다. <vehicle.0>(을)를 타고 여행을 떠나는 학생은 모두 몇 명입니까?
+  각 학년 별로 <num.1>개의 <vehicle.0>(을)를 타고 이동하며, 각 <vehicle.0>(을)를 타고 이동하는 학생 수는 동일합니다.
+  <propername.0>(은)는 자신이 탈 <vehicle.0>의 앞에서 <num.2>번째, 뒤에서 <num.3>번째로 탑승했습니다.
+  <vehicle.0>(을)를 타고 여행을 떠나는 학생은 모두 몇 명입니까?
    
 
 variable-sampling:

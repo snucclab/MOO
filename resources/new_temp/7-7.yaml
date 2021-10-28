@@ -1,8 +1,6 @@
 problem: > 
-  <event.0>에서 <person.0>의 순위가 <num.0><rank.0>이고,
-  <person.1>의 순위가 <num_rank.0><rank.0>입니다. 
-  <person.0>(이)가 결승점에 들어오기 전, <person.1>(이)가 결승점에 들어온 후
-  <person.2>(이)가 도착했다면 <person.2>(은)는 몇 <rank.0> 입니까?
+  <event.0>에서 <person.0>의 순위가 <num.0><rank.0>이고, <person.1>의 순위가 <num_rank.0><rank.0>입니다.
+  <person.0>(이)가 결승점에 들어오기 전, <person.1>(이)가 결승점에 들어온 후 <person.2>(이)가 도착했다면 <person.2>(은)는 몇 <rank.0> 입니까?
  
 variable-sampling:
   num.0:

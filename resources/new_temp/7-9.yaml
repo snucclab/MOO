@@ -1,6 +1,5 @@
 problem: > 
-  <test.0>에서 <person.0> 점수는 <num.0><rank.0>(이)고
-  <person.1> 점수는 <num_rank.0><rank.0>입니다.
+  <test.0>에서 <person.0> 점수는 <num.0><rank.0>(이)고 <person.1> 점수는 <num_rank.0><rank.0>입니다.
   <person.2>(은)는 <person.0>보다는 못했지만 <person.1> 보다는 잘했습니다.
   <test.0>에서 <person.2> 점수는 몇 <rank.0>입니까?
  

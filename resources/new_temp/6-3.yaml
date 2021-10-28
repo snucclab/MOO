@@ -1,6 +1,6 @@
 problem: >
-  <propername.0>(은)는 <clothes.0>, <clothes.1>, <clothes.2>, <clothes.3>, <clothes.4>의
-  순서로 옷장에 옷을 넣었습니다. <num.0> 번째로 정리한 옷은 무엇입니까?
+  <propername.0>(은)는 <clothes.0>, <clothes.1>, <clothes.2>, <clothes.3>, <clothes.4>의 순서로 옷장에 옷을 넣었습니다.
+  <num.0> 번째로 정리한 옷은 무엇입니까?
 
 variable-sampling:
   num.0:

@@ -1,0 +1,13 @@
+problem: >
+  진영이는 모든 모서리 길이의 합이 36인 정육면체의 상자를 포장하려고 합니다.
+  포장지가 겹치는 부분이 없도록 상자를 포장한다면 필요한 포장지의 넓이는 얼마입니까?
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"

@@ -1,0 +1,12 @@
+problem: >
+  한 변의 길이가 2인 정육면체의 겉넓이를 구하시오.
+
+variable-sampling: null
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>,<num.1>)
+  R1: PRINT(R0)"
