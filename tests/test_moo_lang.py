@@ -848,3 +848,39 @@ def test_list_sort():
                                         **converter(random.choice(_RESULT_NAME), 'lst'))
         assert result == _exec_template(template,
                                         **converter(random.choice(_RESULT_NAME), lst))
+
+
+def test_cir_area():
+    template = _load_pyt(OPR_CIR_AREA)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_CIR_AREA)][CONVERT]
+
+    for _ in range(500):
+        radius = random.random()
+        result = radius * radius * math.pi
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+        radius = random.randint(1, 10000)
+        result = radius * radius * math.pi
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+
+def test_circum():
+    template = _load_pyt(OPR_CIRCUM)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_CIRCUM)][CONVERT]
+
+    for _ in range(500):
+        radius = random.random()
+        result = 2*math.pi*radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+        radius = random.randint(1, 10000)
+        result = 2*math.pi*radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
