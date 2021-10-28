@@ -1,5 +1,5 @@
 problem: >
-  평행사변형의 둘레가 <num.0><lengthunit.0>(이)고 한 변의 길이가 <num.1><lengthunit.0>입니다. 변의 길이가 다른 한 변의 길이는 얼마입니까?
+  평행사변형의 둘레가 <num.0><lengthunit.0>(이)고 한 변의 길이가 <num.1><lengthunit.0>입니다. 다른 한 변의 길이는 얼마입니까?
 
 variable-sampling: null
 
@@ -16,6 +16,6 @@ list-sampling:
 function-call: null
 
 equations:
-  "R0: DIV(<num.1>, 2)
-  R1: SUB(R0, <num.2>)
+  "R0: DIV(<num.0>, 2)
+  R1: SUB(R0, <num.1>)
   R2: PRINT(R1)"
