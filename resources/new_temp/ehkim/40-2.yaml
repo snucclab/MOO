@@ -1,6 +1,6 @@
 problem: >
-  전체 모서리의 길이가 합이 <num.0><lengthunit.0> 인 직육면체가 있습니다.
-  높이가 <num.1><lengthunit.0> 이고, 밑면이 정사각형일 때, 직육면체의 부피를 구하세요.
+  전체 모서리의 길이의 합이 <num.0><lengthunit.0>인 직육면체가 있습니다.
+  높이가 <num.1><lengthunit.0>이고, 밑면이 정사각형일 때, 직육면체의 부피를 구하세요.
 
 variable-sampling:
   num.0:
