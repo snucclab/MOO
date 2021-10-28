@@ -11,8 +11,7 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling:
-
+list-sampling: null
 
 function-call: null
 
