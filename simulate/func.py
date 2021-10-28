@@ -292,6 +292,7 @@ __all__ = [
     'difference_prog',
     'replace_unknown',
     'rep_prog',
+    'unk_digit_equation_multi',
     'unk_digit_equation',
     'errorpair',
     'make_system',
