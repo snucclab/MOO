@@ -1,27 +1,31 @@
 problem: >
-  어떤 사람의 머리카락 5가닥의 길이를 측정했습니다. 길이는 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>cm로 나타났습니다. 1cm보다 긴 머리카락 가닥 수를 구하시오.
+  어떤 사람의 머리카락 5가닥의 길이를 측정했습니다. 길이는 각각 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>cm로 나타났습니다. <num.5>cm보다 긴 머리카락 가닥 수를 구하시오.
 
 variable-sampling:
   num.0:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.1:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.2:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.3:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.4:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
+  num.5:
+    range: [ 0, 10000 ]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 
@@ -34,6 +38,6 @@ equations:
   R3: APPEND(R2, <num.2>)
   R4: APPEND(R3, <num.3>)
   R5: APPEND(R4, <num.4>)
-  R6: GT(R5, 1)
+  R6: GT(R5, <num.5>)
   R7: SUM(R6)
   R8: PRINT(R7)"

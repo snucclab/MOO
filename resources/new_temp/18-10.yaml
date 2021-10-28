@@ -1,27 +1,31 @@
 problem: >
-  5번의 게임 점수를 기록했더니 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>점으로 나타났습니다. 게임에서 1점 초과의 점수를 받은 횟수는 몇 회입니까?
+  5번의 게임 점수를 기록했더니 <num.0>, <num.1>, <num.2>, <num.3>, <num.4>점으로 나타났습니다. 게임에서 <num.5>점 초과의 점수를 받은 횟수는 몇 회입니까?
 
 variable-sampling:
   num.0:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.1:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.2:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.3:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.4:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
+  num.5:
+    range: [ 0, 10000 ]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 
@@ -34,6 +38,6 @@ equations:
   R3: APPEND(R2, <num.2>)
   R4: APPEND(R3, <num.3>)
   R5: APPEND(R4, <num.4>)
-  R6: GT(R5, 1)
+  R6: GT(R5, <num.5>)
   R7: SUM(R6)
   R8: PRINT(R7)"

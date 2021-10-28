@@ -1,27 +1,31 @@
 problem: >
-  <propername.0>(은)는 다이어트를 시작했다. 첫 한 달 동안 <num.0>kg을 감량했고, 이후 한 달 동안 <num.1>kg을 감량했으며, 이후 각 한 달별로 <num.2>, <num.3>, <num.4>kg을 감량했다고 한다. 한 달 동안 1kg 이상 감량한 달은 총 몇 달인지 구하시오.
+  <propername.0>(은)는 다이어트를 시작했다. 첫 한 달 동안 <num.0>kg을 감량했고, 이후 한 달 동안 <num.1>kg을 감량했으며, 이후 각 한 달별로 <num.2>, <num.3>, <num.4>kg을 감량했다고 한다. 한 달 동안 <num.5>kg 이상 감량한 달은 총 몇 달인지 구하시오.
 
 variable-sampling:
   num.0:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.1:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.2:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.3:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
   num.4:
-    range: [ 0, 2 ]
-    under-decimal: 1
+    range: [ 0, 10000 ]
+    under-decimal: 3
     type: float
+  num.5:
+    range: [ 0, 10000 ]
+    under-decimal: 0
+    type: int
 
 list-sampling:
   propername.0: ['정국', '지민', '석진', '태형', '남준', '윤기', '호석', '민영', '유정', '은지', '유나', '유정', '철수', '영희', '영수', '재명', '희진', '지수', '나연', '은혜', '세준', '윤재', '지원', '정욱', '예은', '도연', '민수', '민지', '성훈', '동현', '민경', '준표', '태우', '태호', '민주', '성호', '성민', '현우']
@@ -35,6 +39,6 @@ equations:
   R3: APPEND(R2, <num.2>)
   R4: APPEND(R3, <num.3>)
   R5: APPEND(R4, <num.4>)
-  R6: GT(R5, 1)
+  R6: GT(R5, <num.5>)
   R7: SUM(R6)
   R8: PRINT(R7)"
