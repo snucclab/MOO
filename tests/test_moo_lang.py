@@ -814,3 +814,37 @@ def test_get_digit():
         assert result == _exec_template(template, _locals=dict(n=number),
                                         **converter(random.choice(_RESULT_NAME), 'n', digit))
 
+
+def test_list_sort():
+    template = _load_pyt(OPR_LIST_SORT)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_SORT)][CONVERT]
+
+    for _ in range(500):
+        lst = [random.randint(0, 1000) for _ in range(200)]
+        result = sorted(lst)
+
+        assert result == _exec_template(template, _locals=dict(lst=lst),
+                                        **converter(random.choice(_RESULT_NAME), 'lst'))
+        assert result == _exec_template(template,
+                                        **converter(random.choice(_RESULT_NAME), lst))
+
+        lst = [random.random() for _ in range(200)]
+        result = sorted(lst)
+
+        assert result == _exec_template(template, _locals=dict(lst=lst),
+                                        **converter(random.choice(_RESULT_NAME), 'lst'))
+        assert result == _exec_template(template,
+                                        **converter(random.choice(_RESULT_NAME), lst))
+
+        lst = []
+        for i in range(200):
+            if i % 2 == 0:
+                lst.append(random.random())
+            else:
+                lst.append(random.randint(0, 1000))
+        result = sorted(lst)
+
+        assert result == _exec_template(template, _locals=dict(lst=lst),
+                                        **converter(random.choice(_RESULT_NAME), 'lst'))
+        assert result == _exec_template(template,
+                                        **converter(random.choice(_RESULT_NAME), lst))
