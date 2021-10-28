@@ -13,4 +13,5 @@ function-call: null
 
 equations:
   "R0: DIV(<num.0>, 2)
-  R1: //이제 반지름으로 원주 구하기
+  R1: ~~ (R0)
+  R2: PRINT(R1)"
