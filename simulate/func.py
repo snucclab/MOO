@@ -234,6 +234,16 @@ def round_up(digit: int, pos: int, flag: str, result: dict):
     if flag=='count':
         result['<%s.%s>' % ("roundDigit", 0)] = str(5)
 
+def make_triangle(result: dict):
+    while True:
+        a = random.randint(1,50)
+        b = random.randint(1,50)
+        c = random.randint(1,50)
+        if (a<b) and (b<c) and (c<a+b):
+            break
+    result['<%s.%s>' % ("triangle", 0)] = str(a)
+    result['<%s.%s>' % ("triangle", 1)] = str(b)
+    result['<%s.%s>' % ("triangle", 2)] = str(c)
 
 
 __all__ = [
@@ -246,5 +256,6 @@ __all__ = [
     'make_system',
     'div_to_int',
     'make_fraction',
-    'round_up'
+    'round_up',
+    'make_triangle'
 ]
