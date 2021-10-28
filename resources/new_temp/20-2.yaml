@@ -1,10 +1,14 @@
 problem: >
-  어떤 수가 있습니다. 이 수를 100으로 나누면, 이 수보다 <num.0>만큼 줄어들게 됩니다. 원래의 수를 구하시오.
+  어떤 수가 있습니다. 이 수를 소수점 <num.0>자리만큼 낮추면, 이 수보다 <num.1>만큼 줄어들게 됩니다. 원래의 수를 구하시오.
 
 variable-sampling:
   num.0:
     range: [ 1, 10 ]
-    under-decimal: 3
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 10000 ]
+    under-decimal: 6
     type: float
 
 list-sampling: null
@@ -12,6 +16,8 @@ list-sampling: null
 function-call: null
 
 equations:
-  "R0: MUL(<num.0>, 100)
-  R1: DIV(R0, 99)
-  R2: PRINT(R1)"
+  "R0: DIV(1, 10)
+  R1: POW(R0, <num.0>)
+  R2: SUB(1, R1)
+  R3: DIV(1, R2)
+  R4: MUL(R3, <num.1>)"

@@ -1,10 +1,14 @@
 problem: >
-  <propername.0>(은)는 나눗셈 공부를 하고 있습니다. 몫을 유지하기 위해, 나누는 수에 100배를 하였으나, 실수로 나누어주는 수는 100배를 하지 않고 몫을 구했더니, 원래 몫보다 <num.0>만큼 더 작은 몫이 계산됐다. 원래의 몫을 구하여라.
+  <propername.0>(은)는 나눗셈 공부를 하고 있습니다. 몫을 유지하기 위해, 나누는 수에 소수점을 <num.0>자리만큼 왼쪽으로 옮겼으나, 실수로 나누어주는 수는 소수점을 옮기지 않고 몫을 구했더니, 원래 몫보다 <num.1>만큼 더 작은 몫이 계산됐다. 원래의 몫을 구하여라.
 
 variable-sampling:
   num.0:
     range: [ 1, 10 ]
-    under-decimal: 3
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 10000 ]
+    under-decimal: 6
     type: float
 
 list-sampling:
@@ -13,6 +17,8 @@ list-sampling:
 function-call: null
 
 equations:
-  "R0: MUL(<num.0>, 100)
-  R1: DIV(R0, 99)
-  R2: PRINT(R1)"
+  "R0: DIV(1, 10)
+  R1: POW(R0, <num.0>)
+  R2: SUB(1, R1)
+  R3: DIV(1, R2)
+  R4: MUL(R3, <num.1>)"
