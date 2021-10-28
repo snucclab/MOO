@@ -199,8 +199,10 @@ OPR_VALUES = [
     # 이하 도형 문제들
     # 43. CIR_AREA 원의 넓이
     {NAME: OPR_CIR_AREA, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
     # 44. CIRCUM 원의 둘레
+    {NAME: OPR_CIRCUM, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None}
     # 45. SPHERE_SURFACE 구의 겉넓이
     # 46. SPHERE_VOLUME 구의 부피
     # 47. TRI_AREA 삼각형의 넓이
