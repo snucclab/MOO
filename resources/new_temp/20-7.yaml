@@ -20,4 +20,5 @@ equations:
   R1: POW(R0, <num.0>)
   R2: SUB(1, R1)
   R3: DIV(1, R2)
-  R4: MUL(R3, <num.1>)"
+  R4: MUL(R3, <num.1>)
+  R5: PRINT(R4)"

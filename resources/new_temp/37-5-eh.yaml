@@ -6,6 +6,10 @@ variable-sampling:
     range: [20, 40, 2]
     under-decimal: 0
     type: int
+  num.1:
+    range: [1,9]
+    under-decimal: 0
+    type: int
 
 list-sampling: null
 

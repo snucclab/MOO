@@ -18,6 +18,6 @@ function-call: null
 
 equations:
   "R0: MUL(<num.0>, 2)
-  R1: MUl(<num.1>, 2)
+  R1: MUL(<num.1>, 2)
   R2: ADD(R0, R1)
   R3: PRINT(R2)"

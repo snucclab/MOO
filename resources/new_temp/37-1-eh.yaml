@@ -7,6 +7,10 @@ variable-sampling:
     range: [10, 50]
     under-decimal: 0
     type: int
+  num.1:
+    range: [200, 400]
+    under-decimal: 0
+    type: float
 
 list-sampling:
   lengthunit.0: ['km', 'm', '미터', '킬로미터']

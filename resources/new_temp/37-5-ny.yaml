@@ -13,7 +13,7 @@ variable-sampling:
   
 list-sampling:
   lengthunit.0: ['cm', '센티미터']
-  squareunit.0: ['㎠', '제곱센티미터']
+  squareunit.0: [ '제곱센티미터']
 
 function-call: null
 

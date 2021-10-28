@@ -18,7 +18,7 @@ function-call: null
 equations:
    "R0: MUL(<num.1>, <num.1>)
    R1: MUL(<num.0>, <num.0>)
-   R2: SUB(R1, R0)
+   R2: SUB(R0, R1)
    R3: POW(R2, 0.5)
    R4: MUL(R3, R1)
    R5: MUL(R4, 3.14)

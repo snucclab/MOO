@@ -1,5 +1,5 @@
 problem: >
-  어떤 사다리꼴의 아랫변의 길이가 <num.0><lengthunit.0>, 높이가 <num.1><lengthunit.0>이고 넓이가 <num.2><squareunit.0>이다.
+  어떤 사다리꼴의 아랫변의 길이가 <num.0><lengthunit.0>, 높이가 <num.1><lengthunit.0>이고 넓이가 <num.2><squareunit.0> 이다.
   이 사다리꼴의 윗변의 길이는 얼마입니까?
 
 variable-sampling:
@@ -18,8 +18,7 @@ variable-sampling:
   
 list-sampling:
   lengthunit.0: [ 'cm', '센티미터' ]
-  squareunit.0: [ '㎠', '제곱센티미터' ]
-
+  squareunit.0: [ '제곱센티미터' ]
 
 function-call: null
 
