@@ -1,5 +1,5 @@
 problem: >
-  반지름의 길이가 <num.0>, 모선이 길이가 <num.1>인 원뿔의 부피는 얼마입니까?
+  반지름의 길이가 <num.0><lengthunit.0>, 모선이 길이가 <num.1><lengthunit.0>인 원뿔의 부피는 얼마입니까?
 
 variable-sampling:
   num.0:

@@ -1,5 +1,5 @@
 problem: >
-  밑변이 <num.0>, 높이가 <num.1>인 직각삼각형에서
+  밑변이 <num.0><lengthunit.0>, 높이가 <num.1><lengthunit.0>인 직각삼각형에서
   밑변을 기준으로 한 바퀴 돌려 만든 입체도형의 부피는 얼마입니까?
 
 variable-sampling: 

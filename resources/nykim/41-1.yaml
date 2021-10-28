@@ -1,5 +1,5 @@
 problem: >
-  반지름의 길이가 <num.0>, 높이가 <num.1>인 원뿔의 부피를 계산하시오.
+  반지름의 길이가 <num.0><lengthunit.0>, 높이가 <num.1><lengthunit.0>인 원뿔의 부피를 계산하시오.
 
 variable-sampling:
   num.0:

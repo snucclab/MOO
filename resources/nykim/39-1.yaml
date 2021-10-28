@@ -1,14 +1,15 @@
 problem: >
-  반지름의 길이가 <num.0>인 <ball.0>의 겉넓이는 얼마인가?
+  반지름의 길이가 <num.0><lengthunit.0>인 <ball.0>의 겉넓이는 얼마인가?
 
 variable-sampling:
   num.0:
-    range: [2, 500]
+    range: [10, 50]
     under-decimal: 0
     type: int
   
-list-sampling: null
-
+list-sampling:
+  lengthunit.0: [ 'cm', '센티미터' ]
+  ball.0: ['배구공', '축구공', '농구공', '테니스공', '야구공', '당구공']
 function-call: null
 
 equations:

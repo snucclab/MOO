@@ -1,24 +1,24 @@
 problem: >
   <propername.0>(은)는 <family.0>(와)과 여행을 가서 특이한 형태의 사진 2장을 보았다.
-  첫번째 사진은 윗변의 길이는 <num.0> 이고 아랫변의 길이는 <num.1> 인 사다리꼴의 형태였다.
-  두번째 사진은 밑변의 길이가 <num.2>, 높이의 길이가 <num.3>인 삼각형 모양이었다.
+  첫번째 사진은 윗변의 길이는 <num.0><lengthunit.0> 이고 아랫변의 길이는 <num.1><lengthunit.0> 인 사다리꼴의 형태였다.
+  두번째 사진은 밑변의 길이가 <num.2><lengthunit.0>, 높이의 길이가 <num.3><lengthunit.0>인 삼각형 모양이었다.
   첫번째 사진의 넓이는 두 번째 사진의 넓이의 <num.4>배일 때, 첫번째 사진의 높이는?
 
 variable-sampling:
   num.0:
-    range: [ 3,10 ]
+    range: [ 30,100 ]
     under-decimal: 0
     type: int
   num.1:
-    range: [ 5, 15 ]
+    range: [ 50, 150 ]
     under-decimal: 0
     type: int
   num.2:
-    range: [ 2, 20 ]
+    range: [ 20, 60 ]
     under-decimal: 0
     type: int
   num.3:
-    range: [ 5, 10 ]
+    range: [ 15, 50 ]
     under-decimal: 0
     type: int
   num.4:
@@ -26,7 +26,8 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: null
+list-sampling:
+  lengthunit.0: [ 'cm', '센티미터' ]
 
 function-call: null
 

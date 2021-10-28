@@ -1,6 +1,6 @@
 problem: >
   <propername.0>(이)가 마당의 바닥에 분필로 사각형을 그렸다.
-  이 사각형은 윗변의 길이가 <num.0>, 아랫변의 길이가 <num.1>, 높이가 <num.2>인 사다리꼴이었다.
+  이 사각형은 윗변의 길이가 <num.0><lengthunit.0>, 아랫변의 길이가 <num.1><lengthunit.0>, 높이가 <num.2><lengthunit.0>인 사다리꼴이었다.
   <propername.0>(이)가 그린 사각형의 넓이는 얼마인가?
 
 variable-sampling:
@@ -17,7 +17,8 @@ variable-sampling:
     under-decimal: 0
     type: int
 
-list-sampling: null
+list-sampling:
+  lengthunit.0: ['m', 'cm','센티미터', '미터']
 
 function-call: null
 

@@ -1,5 +1,5 @@
 problem: >
-  원뿔의 밑면의 둘레가 <num.0>이고 높이가 <num.1>이다. 이 원뿔의 부피는 얼마입니까?
+  원뿔의 밑면의 둘레가 <num.0><lengthunit.0>이고 높이가 <num.1><lengthunit.0>이다. 이 원뿔의 부피는 얼마입니까?
 
 variable-sampling:
   num.0:

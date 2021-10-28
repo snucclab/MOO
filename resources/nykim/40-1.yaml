@@ -1,5 +1,5 @@
 problem: >
-  한 변의 길이가 <num.0> 인 정육면체의 겉넓이를 구하시오.
+  한 변의 길이가 <num.0><lengthunit.0> 인 정육면체의 겉넓이를 구하시오.
 
 variable-sampling:
   num.0:
