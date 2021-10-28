@@ -1,0 +1,1 @@
+{result} = 4/3*math.pi*{radius}*{radius}*{radius}
