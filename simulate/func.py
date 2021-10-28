@@ -287,8 +287,8 @@ def make_triangle(result: dict):
     result['<%s.%s>' % ("triangle", 2)] = str(c)
 
 def wrong_digit_multiply(digit1: int, digit2: int, wrong_digit: int, result: dict): # wrong_digit is 1, 2, 3...
-    a = random.randint(10**(digit1-1), 10**digit1)
-    b = random.randint(10**(digit2-1), 10**digit2)
+    a = random.randint(10**(digit1-1), 10**digit1-1)
+    b = random.randint(10**(digit2-1), 10**digit2-1)
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     if wrong_digit == 1:
         c = str(b)
