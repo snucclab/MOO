@@ -1,12 +1,24 @@
 problem: >
-  어떤 원뿔의 부피는 9이고 높이가 1이다. 이 원뿔의 밑면의 지름의 길이는 얼마입니까?
+  어떤 원뿔의 부피는 <num.0>이고 높이가 <num.1>이다. 이 원뿔의 밑면의 지름의 길이는 얼마입니까?
 
-variable-sampling: null
+variable-sampling:
+  num.0:
+    range: [20, 40]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 5]
+    under-decimal: 0
+    type: int
   
 list-sampling: null
 
 function-call: null
 
 equations:
-  "R0: ADD(<num.0>,<num.1>)
-  R1: PRINT(R0)"
+  "R0: MUL(<num.0>, 3)
+  R1: MUL(3.14, <num.1>)
+  R2: DIV(R0, R1)
+  R3: POW(R2, 0.5)
+  R4: MUL(R3, 2)
+  R5: PRINT(R4)"
