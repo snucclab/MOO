@@ -1,0 +1,22 @@
+problem: >
+  두 마름모가 있는데, 한 마름모의 한 변은 <num.0>cm이고, 다른 마름모의 한 변은 <num.1>cm 입니다. 두 마름모의 둘레의 차는 몇 cm입니까?
+
+variable-sampling:
+  num.0:
+    range: [3, 10]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [11, 20]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 4)
+  R1: MUL(<num.1>, 4)
+  R2: SUB(R1, R0)
+  R3: PRINT(R2)"
