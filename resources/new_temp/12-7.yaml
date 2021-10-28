@@ -1,7 +1,5 @@
 problem: >
-  4개의 숫자 <num.0>, <num.1>, <num.2>, <num.3>만 사용하여 신호를 보내려 합니다.
-  두 개의 두 자리 숫자를 보내고 싶다면, 기밀을 유지하기 위해, 두 수의 차를 구하여 보내게 됩니다.
-  보내야 하는 신호가 가장 큰 수와 가장 작은 수일 때, 보내는 신호값은 무엇인지 구하시오.
+  4개의 숫자 <num.0>, <num.1>, <num.2>, <num.3>만 사용하여 신호를 보내려 합니다. 두 개의 두 자리 숫자를 보내고 싶다면, 기밀을 유지하기 위해, 두 수의 차를 구하여 보내게 됩니다. 보내야 하는 신호가 가장 큰 수와 가장 작은 수일 때, 보내는 신호값은 무엇인지 구하시오.
 
 variable-sampling: null
 
@@ -13,31 +11,16 @@ equations:
   "R0: LIST()
   R1: APPEND(R0, <num.0>)
   R2: APPEND(R1, <num.1>)
-  R3: LIST()
-  R4: APPEND(R3, <num.2>)
-  R5: APPEND(R4, <num.3>)
-  R6: MIN(R2)
-  R7: MIN(R5)
-  R8: MAX(R2)
-  R9: MAX(R5)
-  R10: LIST()
-  R11: APPEND(R10, R6)
-  R12: APPEND(R11, R7)
-  R13: MIN(R12)
-  R14: MAX(R12)
-  R15: LIST()
-  R16: APPEND(R15, R8)
-  R17: APPEND(R16, R9)
-  R18: MIN(R17)
-  R19: MAX(R17)
-  R20: LIST()
-  R21: APPEND(R20, R14)
-  R22: APPEND(R21, R18)
-  R23: MIN(R22)
-  R24: MAX(R22)
-  R25: DIGIT(R19, 2)
-  R26: ADD(R25, R24)
-  R27: DIGIT(R13, 2)
-  R28: ADD(R27, R23)
-  R29: SUB(R26, R28)
-  R30: PRINT(R29)"
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: LIST_SORT(R4)
+  R6: MAX(R5)
+  R7: DIGIT(R6, 2)
+  R8: GET_ITEM(R5, 3)
+  R9: ADD(R7, R8)
+  R10: MIN(R5)
+  R11: DIGIT(R10, 2)
+  R12: GET_ITEM(R5, 2)
+  R13: ADD(R11, R12)
+  R14: SUB(R9, R13)
+  R15: PRINT(R14)"

@@ -1,10 +1,17 @@
 problem: >
-  30페이지의 <book.0>(이)가 있습니다.
-  1페이지부터 차례로 <book.0>(을)를 넘기면서, 페이지 번호를 확인할 때, 숫자 <num.0>(을)를 몇 개 보게 되는지 구하시오.
+  <num.0>부터 <num.1> 페이지의 <book.0>(이)가 있습니다. <num.0> 페이지부터 차례로 <book.0>(을)를 넘기면서, 페이지 번호를 확인할 때, 숫자 <num.2>(을)를 몇 개 보게 되는지 구하시오.
 
 variable-sampling:
   num.0:
-    range: [ 1, 3 ]
+    range: [ 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ <num.0> + 1, 100 ]
+    under-decimal: 0
+    type: int
+  num.2:
+    range: [ 0, 10 ]
     under-decimal: 0
     type: int
 
@@ -14,8 +21,46 @@ list-sampling:
 function-call: null
 
 equations:
-  "R0: ADD(0, 1)
-  R1: MUL(R0, 3)
-  R2: MUL(1, 10)
-  R3: ADD(R1, R2)
-  R4: PRINT(R3)"
+  "R0: MOD(<num.1>, 10)
+  R1: SUB(<num.1>, R0)
+  R2: DIV(R1, 10)
+  R3: MOD(R2, 10)
+  R4: LIST()
+  R5: APPEND(R4, R3)
+  R6: GE(R5, <num.2>)
+  R7: SUM(R6)
+  R8: LE(R5, <num.2>)
+  R9: SUM(R8)
+  R10: MUL(R7, R9)
+  R11: MUL(R6, 10)
+  R12: SUB(10, R0)
+  R13: SUB(R12, 1)
+  R14: MUL(R10, R13)
+  R15: SUB(R13, R14)
+  R16: SUB(R3, 1)
+  R17: GE(R5, R0)
+  R18: SUM(R17)
+  R19: ADD(R16, R18)
+  R20: SUB(<num.0>, 1)
+  R21: MOD(<num.0>, 10)
+  R22: SUB(<num.0>, R21)
+  R23: DIV(R22, 10)
+  R24: MOD(R23, 10)
+  R25: LIST()
+  R26: APPEND(R25, R24)
+  R27: GE(R26, <num.2>)
+  R28: SUM(R27)
+  R29: LE(R26, <num.2>)
+  R30: SUM(R29)
+  R31: MUL(R28, R30)
+  R32: MUL(R27, 10)
+  R33: SUB(10, R27)
+  R34: SUB(R33, 1)
+  R35: MUL(R31, R34)
+  R36: SUB(R34, R35)
+  R37: SUB(R24, 1)
+  R38: GE(R26, R21)
+  R39: SUM(R38)
+  R40: ADD(R37, R39)
+  R41: SUB(R19, R40)
+  R42: PRINT(R41)"

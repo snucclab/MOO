@@ -1,0 +1,21 @@
+problem: >
+  길이가 <num.0><lengthunit.0>인 철사로 원을 만든 원을 외접원으로 가지는 정삼각형의 넓이는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [20, 99]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 10]
+    under-decimal: 0
+    type: int
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.1>, 2)
+  R1: SUB(<num.0>,R0)
+  R2: DIV(R1,2)
+  R3: PRINT(R2)"

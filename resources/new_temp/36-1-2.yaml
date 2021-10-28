@@ -1,0 +1,9 @@
+problem: >
+  삼각형의 꼭짓점의 개수와 사각형의 대각선의 개수의 합을 구하시오.
+
+variable-sampling: null
+list-sampling: null
+function-call: null
+equations:
+  "R0: ADD(3,4)
+  R1: PRINT(R0)"
