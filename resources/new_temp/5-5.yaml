@@ -1,8 +1,8 @@
 problem: >
   <num.0>명의 사람이 동전을 던졌습니다. 이 중 동전의 <position.0>면이 나온 사람은 전체의 
   <fraction.0>입니다. <position.0>이 나온 사람 중에서 <gender.0>자는
-  <position.0>이 나온 사람 중 전체의 <fraction.1>입니다.
-  동전의 <position.0>이 나온 사람 중에서 <gender.1>자는 몇 명입니까?
+  <position.0>(이)가 나온 사람 중 전체의 <fraction.1>입니다.
+  동전의 <position.0>(이)가 나온 사람 중에서 <gender.1>자는 몇 명입니까?
 
 variable-sampling : null
 

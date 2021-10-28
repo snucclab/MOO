@@ -1,6 +1,6 @@
 problem: >
   <propername.0>(은)는 <vehicle.0> 모형을 가지고 있습니다. 그 중 <num.0>개를 버리고
-  <num.1>개는 <propername.1>에게 판매했더니 <num.2>개가 남았습니다. <propername.0>이
+  <num.1>개는 <propername.1>에게 판매했더니 <num.2>개가 남았습니다. <propername.0>(이)가
   맨 처음 가지고 있던 <vehicle.0> 모형의 개수는 모두 몇 개입니까?
 
 variable-sampling:
