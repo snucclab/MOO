@@ -1,0 +1,27 @@
+problem: >
+  두 자리 수와 한 자리 수의 곱셈에서 두 자리 수의 십의 자리 숫자 <num.0>을(를) <num.1>(으)로 잘못 보고 계산한 값이 <num.2>(이)가 되었습니다. 바르게 계산한 값이 <num.3>일 때, 두 자리 수와 한 자리 수의 합을 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: wrong_digit_multiply(1, 2, 2)
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: MAX(R2)
+  R4: MIN(R2)
+  R5: SUB(R3, R4)
+  R6: MUL(R5, 10)
+  R7: LIST()
+  R8: APPEND(R7, <num.2>)
+  R9: APPEND(R8, <num.3>)
+  R10: MAX(R9)
+  R11: MIN(R9)
+  R12: SUB(R10, R11)
+  R13: DIV(R12, R6)
+  R14: DIV(<num.3>, R13)
+  R15: ADD(R13, R14)
+  R16: PRINT(R15)"
