@@ -39,52 +39,52 @@ def rep_prog(size: int, prefix: str, result: dict):
         result['<%s.%s>' % (prefix, i)] = str(Decimal(random.randrange(200)) / 100)
 
 
-def unk_digit_equation_multi(num_unk: int, num_digit: int, operator: str, result: dict):
-    # num_unk는 미지수 개수 num_digit은 몇자리수인지
-    # ex. num_unk=2, num_digit=3 -> 세자리 수 두 개를 더하는데 A34 + 3B5 = 999이다. 뭐랑 뭐를 구하여라.
-    assert operator in '+-'
-    UNK = [chr(ord('A') + i) for i in range(26)]
-    unk_list = []
-    # 이하 포문 미지수 샘플링 역할
-    # UNK가 사용될 num_unk개의 미지수
-    for i in range(num_unk):
-        n = random.randint(0, len(UNK)-1)
-        unk_list.append(UNK[n])
-        UNK.pop(n)
-
-    while True:
-        a = random.randint(10**(num_digit-1), 10**num_digit)
-        b = random.randint(10**(num_digit-1), 10**num_digit)
-        r = a + b
-        if 10**(num_digit-1) <= r < 10**num_digit:
-            break
-    if operator == '-':
-        a, b, r = r, a, b
-    terms = [list(str(a)), list(str(b)), list(str(r))]
-    num_list = []
-    for t in terms:
-        for a in t:
-            num_list.append(a)
-    num_list = list(set(num_list))
-
-    equation = '%s%s%s=%s' % (''.join(terms[0]), operator, ''.join(terms[1]), ''.join(terms[2]))
-    countunk = 0
-    for n in unk_list.copy():
-        sample = random.randint(0, len(num_list)-1)
-        equation = equation.replace(num_list[sample], n)
-        num_list.pop(num_list.index(num_list[sample]))
-        unk_list.pop(unk_list.index(n))
-    for token in equation:
-        if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            result['<%s.%s>' % ('unknown', countunk)] = token
-            countunk+=1
-
-    result['<%s.0>' % 'equation'] = equation
+# def unk_digit_equation_multi(num_unk: int, num_digit: int, operator: str, result: dict):
+#     # num_unk는 미지수 개수 num_digit은 몇자리수인지
+#     # ex. num_unk=2, num_digit=3 -> 세자리 수 두 개를 더하는데 A34 + 3B5 = 999이다. 뭐랑 뭐를 구하여라.
+#     assert operator in '+-'
+#     UNK = [chr(ord('A') + i) for i in range(26)]
+#     unk_list = []
+#     # 이하 포문 미지수 샘플링 역할
+#     # UNK가 사용될 num_unk개의 미지수
+#     for i in range(num_unk):
+#         n = random.randint(0, len(UNK)-1)
+#         unk_list.append(UNK[n])
+#         UNK.pop(n)
+#
+#     while True:
+#         a = random.randint(10**(num_digit-1), 10**num_digit)
+#         b = random.randint(10**(num_digit-1), 10**num_digit)
+#         r = a + b
+#         if 10**(num_digit-1) <= r < 10**num_digit:
+#             break
+#     if operator == '-':
+#         a, b, r = r, a, b
+#     terms = [list(str(a)), list(str(b)), list(str(r))]
+#     num_list = []
+#     for t in terms:
+#         for a in t:
+#             num_list.append(a)
+#     num_list = list(set(num_list))
+#
+#     equation = '%s%s%s=%s' % (''.join(terms[0]), operator, ''.join(terms[1]), ''.join(terms[2]))
+#     countunk = 0
+#     for n in unk_list.copy():
+#         sample = random.randint(0, len(num_list)-1)
+#         equation = equation.replace(num_list[sample], n)
+#         num_list.pop(num_list.index(num_list[sample]))
+#         unk_list.pop(unk_list.index(n))
+#     for token in equation:
+#         if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+#             result['<%s.%s>' % ('unknown', countunk)] = token
+#             countunk+=1
+#
+#     result['<%s.0>' % 'equation'] = equation
 
 
 def unk_digit_equation_multi_bk(digit1: int, digit2: int, numvar: int, operator: str, eq_prefix: str, unk_prefix: str, result: dict):
     assert operator in '+-'
-    assert numvar < min(digit1, digit2)
+    assert numvar <= min(digit1, digit2)
 
     a = random.randint(10 ** (digit1 - 1), 10 ** digit1 - 1)
     b = random.randint(10 ** (digit2 - 1), 10 ** digit2 - 1)
@@ -334,7 +334,7 @@ __all__ = [
     'difference_prog',
     'replace_unknown',
     'rep_prog',
-    'unk_digit_equation_multi',
+    'unk_digit_equation_multi_bk',
     'unk_digit_equation',
     'errorpair',
     'make_system',
