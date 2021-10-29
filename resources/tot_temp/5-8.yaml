@@ -4,6 +4,10 @@ problem: >
   헬스장에서 몸무게가 <num.2>kg 이상이고 키가 <num.1>cm 이상인 회원은 모두 몇 명입니까?
 
 variable-sampling :
+  num.0:
+    range: [ 200, 500 ]
+    under-decimal: 0
+    type: int
   num.1:
     range: [ 160, 180 ]
     under-decimal: 0

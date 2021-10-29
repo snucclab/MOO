@@ -12,5 +12,8 @@ equations:
   R1: APPEND(R0, <equation.0>)
   R2: CALL_SYMPY(R1, <unknown.0>)
   R3: CALL_SYMPY(R1, <unknown.1>)
-  R4: MAX(R2, R3)
-  R5: PRINT(R4)"
+  R4: LIST()
+  R5: APPEND(R4, R2)
+  R6: APPEND(R5, R3)
+  R7: MAX(R6)
+  R8: PRINT(R7)"

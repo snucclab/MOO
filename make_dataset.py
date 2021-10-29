@@ -21,7 +21,7 @@ from solver import python_code_to_executions, execution_to_python_code
 def read_arguments():
     parser = ArgumentParser()
 
-    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./resources/new_temp",
+    parser.add_argument('--template', '-template', '-t', type=str, required=False, default="./resources/tot_temp",
                         help='Root directory of template YAML files')
     parser.add_argument('--vocab', '-vocab', '-v', type=str, required=False, default="./resources/vocab.yaml",
                         help='Root directory of template YAML files')
@@ -29,7 +29,7 @@ def read_arguments():
                         help='Number of items generated for each template file')
     parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./resources/new_dataset",
                         help='Root directory for saving output dataset files')
-    parser.add_argument('--seed', '-seed', '-s', type=int, default=8888,
+    parser.add_argument('--seed', '-seed', '-s', type=int, default=1029,
                         help='Random seed for generating items')
     parser.add_argument('--time-limit', '-limit', '-l', type=float, default=0.5,
                         help='Time limit for evaluating python code')

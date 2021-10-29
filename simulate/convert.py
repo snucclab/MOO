@@ -33,7 +33,18 @@ def tokenize_string(text: str) -> List[str]:
 
     # --- added by bydelta, 10291106
     # Unicode 단위계 강제 변환
-    text = unicodedata.normalize('NFKD', text)
+    offset = 0
+    while True:
+        matched = NON_HANGUL_PATTERN.match(text, offset)
+        if matched is None:
+            break
+
+        begin = matched.start(1)
+        end = matched.end(1)
+        matched_text = matched.group(1)
+        replacement = unicodedata.normalize('NFKD', matched_text)
+        text = text[:begin] + replacement + text[end:]
+        offset = begin + len(replacement)
     # 단위에 숫자가 있을 수 있으므로 이 작업은 반드시 space 작업 이후에 진행해야 함
     # --- end
 

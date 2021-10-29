@@ -12,7 +12,7 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: [15,10000]
+    range: [15,200]
     under-decimal: 0
     type: int
 

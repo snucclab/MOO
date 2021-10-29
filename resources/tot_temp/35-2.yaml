@@ -7,11 +7,11 @@ problem: >
 
 variable-sampling:
   num.0:
-    range: [0,15]
+    range: [0,5]
     under-decimal : 0
     type : int
   num.1:
-    range: [15,10000]
+    range: [5,10]
     under-decimal : 0
     type : int
 
