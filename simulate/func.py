@@ -38,6 +38,7 @@ def rep_prog(size: int, prefix: str, result: dict):
     for i in range(size):
         result['<%s.%s>' % (prefix, i)] = str(Decimal(random.randrange(200)) / 100)
 
+
 def unk_digit_equation_multi(num_unk: int, num_digit: int, operator: str, result: dict):
     # num_unk는 미지수 개수 num_digit은 몇자리수인지
     # ex. num_unk=2, num_digit=3 -> 세자리 수 두 개를 더하는데 A34 + 3B5 = 999이다. 뭐랑 뭐를 구하여라.
@@ -80,9 +81,11 @@ def unk_digit_equation_multi(num_unk: int, num_digit: int, operator: str, result
 
     result['<%s.0>' % 'equation'] = equation
 
-def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, unk_prefix: str, result: dict):
+
+def unk_digit_equation_multi_bk(digit1: int, digit2: int, numvar: int, operator: str, eq_prefix: str, unk_prefix: str, result: dict):
     assert operator in '+-'
-    min_digit = min(digit1, digit2)
+    assert numvar < min(digit1, digit2)
+
     a = random.randint(10 ** (digit1 - 1), 10 ** digit1 - 1)
     b = random.randint(10 ** (digit2 - 1), 10 ** digit2 - 1)
     r = a + b
@@ -92,10 +95,10 @@ def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, 
         a, b, r = r, a, b
 
     terms = [list(str(a)), list(str(b)), list(str(r))]
-    digits = [-d for d in range(1, min_digit + 1)]
-    if min_digit > 2:
+    digits = [-d for d in range(1, numvar + 1)]
+    if numvar > 2:
         random.shuffle(digits)
-        digits = digits[:random.randint(2, min_digit)]
+        digits = digits[:random.randint(2, numvar)]
 
     unknowns = UNK.copy()
     random.shuffle(unknowns)
@@ -107,6 +110,10 @@ def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, 
     equation = '%s%s%s=%s' % (''.join(terms[0]), operator, ''.join(terms[1]), ''.join(terms[2]))
     result['<%s.0>' % eq_prefix] = equation
     result['<%s.0>' % unk_prefix] = random.choice(unknowns)
+
+
+def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, unk_prefix: str, result: dict):
+    unk_digit_equation_multi_bk(digit1, digit2, min(digit1, digit2), operator, eq_prefix, unk_prefix, result)
 
 
 def interchange_pair(digit: int, pos1: int, pos2: int, prefix: str, result: dict):

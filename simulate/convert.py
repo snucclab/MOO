@@ -1,6 +1,7 @@
 from typing import List
 
 import torch
+import unicodedata
 
 from common.sys.pattern import *
 from common.sys.key import *
@@ -29,6 +30,12 @@ def tokenize_string(text: str) -> List[str]:
 
     # Space 여러개인 경우 하나로 통일
     text = re.sub('\\s+', ' ', text.strip())
+
+    # --- added by bydelta, 10291106
+    # Unicode 단위계 강제 변환
+    text = unicodedata.normalize('NFKD', text)
+    # 단위에 숫자가 있을 수 있으므로 이 작업은 반드시 space 작업 이후에 진행해야 함
+    # --- end
 
     return text.split(' ')
 
