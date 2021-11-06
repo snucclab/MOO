@@ -1,5 +1,5 @@
 problem: >
-  어떤 <stationary.0>(이)가 있습니다. <stationary.0>(을)를 필요한 만큼 잘라서 사용하였더니, 자른 부분이 원래 <stationary.0> 면적에서 소수점 <num.0>자리만큼 왼쪽으로 옮긴 수준이라고 합니다. 원래 <stationary.0>의 면적과 자른 <stationary.0>의 면적의 차이가 <num.1>라고 할 때, 원래 <stationary.0>의 면적을 구하시오.
+  어떤 <stationery.0>(이)가 있습니다. <stationery.0>(을)를 필요한 만큼 잘라서 사용하였더니, 자른 부분이 원래 <stationery.0> 면적에서 소수점 <num.0>자리만큼 왼쪽으로 옮긴 수준이라고 합니다. 원래 <stationery.0>의 면적과 자른 <stationery.0>의 면적의 차이가 <num.1>라고 할 때, 원래 <stationery.0>의 면적을 구하시오.
 
 variable-sampling:
   num.0:
@@ -12,7 +12,7 @@ variable-sampling:
     type: float
 
 list-sampling:
-  stationary.0: ['지우개', '도화지', '색종이', '테이프', '나무토막', '카드']
+  stationery.0: ['지우개', '도화지', '색종이', '테이프', '나무토막', '카드']
 
 function-call: null
 

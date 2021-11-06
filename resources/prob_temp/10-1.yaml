@@ -1,9 +1,9 @@
 problem: >
-  <place.0>에 똑같은 <stationary.0>(이)가 <num.0>개 있습니다.
-  각 <stationary.0>(은)는 <num.1>층이고, 각 층마다 꽃혀 있는 책의 수는 같습니다.
-  <course.0>책(은)는 어느 <stationary.0>의 한 층의 왼쪽에서 <num.2>번째,
+  <place.0>에 똑같은 <stationery.0>(이)가 <num.0>개 있습니다.
+  각 <stationery.0>(은)는 <num.1>층이고, 각 층마다 꽃혀 있는 책의 수는 같습니다.
+  <course.0>책(은)는 어느 <stationery.0>의 한 층의 왼쪽에서 <num.2>번째,
   오른쪽에서 <num.3>번째에 꽂혀 있습니다.
-  <place.0>의 <stationary.0>에 꽂혀 있는 책은 모두 몇 권입니까?"
+  <place.0>의 <stationery.0>에 꽂혀 있는 책은 모두 몇 권입니까?"
  
 variable-sampling:
   num.0:
@@ -25,7 +25,7 @@ variable-sampling:
 
 list-sampling:
   place.0: [‘서점’, ‘학교’, ‘도서관’, ‘교실’, ‘연구실’, ‘강의실’]
-  stationary.0: [‘책장’, ‘선반’, ‘책꽂이’]
+  stationery.0: [‘책장’, ‘선반’, ‘책꽂이’]
 
 function-call: null
 

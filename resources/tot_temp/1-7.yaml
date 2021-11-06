@@ -1,7 +1,7 @@
 problem: >
-  <propername.0>의 필통에는 <stationary.0> <num.0>개가 있었습니다.
-  그런데 <propername.1>(이)가 <propername.0>의 필통에서 <stationary.0> <num.1>개를 몰래 가져갔습니다.
-  <propername.0>의 필통에 남아있는 <stationary.1>의 개수는 총 몇 개 입니까?
+  <propername.0>의 필통에는 <stationery.0> <num.0>개가 있었습니다.
+  그런데 <propername.1>(이)가 <propername.0>의 필통에서 <stationery.0> <num.1>개를 몰래 가져갔습니다.
+  <propername.0>의 필통에 남아있는 <stationery.1>의 개수는 총 몇 개 입니까?
 
 variable-sampling:
   num.0:

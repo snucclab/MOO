@@ -1,7 +1,7 @@
 problem: >
-  어떤 <place.0>에서 한 개의 <stationary.0>(을)를 사면 <stationary.1> <num.0>개를 할인가로 구매할 수 있습니다.
-  <person.0>(이)가 <stationary.0>(을)를 <num.1>개 구매하였다면
-  <person.0>(이)가 할인가로 구매할 수 있는 <stationary.1>(은)는 전부 몇 개인지 계산하시오.
+  어떤 <place.0>에서 한 개의 <stationery.0>(을)를 사면 <stationery.1> <num.0>개를 할인가로 구매할 수 있습니다.
+  <person.0>(이)가 <stationery.0>(을)를 <num.1>개 구매하였다면
+  <person.0>(이)가 할인가로 구매할 수 있는 <stationery.1>(은)는 전부 몇 개인지 계산하시오.
 
 variable-sampling:
   num.0:
@@ -14,8 +14,8 @@ variable-sampling:
     type: int
 
 list-sampling:
-  stationary.0: [ '상자', '책장', '책꽂이', '서랍', '컴퓨터']
-  stationary.1: [ '연필', '색연필', '지우개', '공책', '도화지', '색종이', '풀', '테이프', '바둑돌', '구슬', '장난감', '필통', '샤프', '샤프심', '카드' ]
+  stationery.0: [ '상자', '책장', '책꽂이', '서랍', '컴퓨터']
+  stationery.1: [ '연필', '색연필', '지우개', '공책', '도화지', '색종이', '풀', '테이프', '바둑돌', '구슬', '장난감', '필통', '샤프', '샤프심', '카드' ]
 
 
 
