@@ -1,8 +1,8 @@
 problem: >
-  <propername.0>(은)는 본인의 <place.0>에 <stationary.0>(을)를 하나 가지고 있습니다.
+  <propername.0>(은)는 본인의 <place.0>에 <stationery.0>(을)를 하나 가지고 있습니다.
   거기에는 <num.0>벌의 <clothes.0>(이)가 보관되어 있습니다.
-  그런데 <propername.0>(이)가 <place.1>에서 <num.1>벌의 <clothes.0>(을)를 새로 구매해서 <stationary.0> 안에 정리해서 넣었습니다.
-  현재 <stationary.0> 안에 보관되어 있는 <clothes.0>(은)는 총 몇 벌 입니까?
+  그런데 <propername.0>(이)가 <place.1>에서 <num.1>벌의 <clothes.0>(을)를 새로 구매해서 <stationery.0> 안에 정리해서 넣었습니다.
+  현재 <stationery.0> 안에 보관되어 있는 <clothes.0>(은)는 총 몇 벌 입니까?
 
 variable-sampling:
   num.0:
@@ -17,7 +17,7 @@ variable-sampling:
 list-sampling:
   place.0 : ['집', '학교', '교실', '도서관', '아파트', '방', '연구실', '건물']
   place.1: ['서점', '마트', '문구점', '백화점', '옷가게']
-  stationary.0 : ['상자', '책장', '책꽂이', '서랍']
+  stationery.0 : ['상자', '책장', '책꽂이', '서랍']
 
 function-call: null
 

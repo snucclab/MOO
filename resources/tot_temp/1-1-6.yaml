@@ -1,7 +1,7 @@
 problem: >
-  <place.0>에 총 <num.0>개의 <stationary.0>(을)를 가지고 있었습니다.
-  그런데 <num.1>개의 고장난 <stationary.0>(을)를 처분하고 <num.2>개의 새로운 디자인의 <stationary.0>(을)를 새로 주문하였습니다.
-  현재 <place.0>에 있는 <stationary.0>(이)가 있는지 구하시오.
+  <place.0>에 총 <num.0>개의 <stationery.0>(을)를 가지고 있었습니다.
+  그런데 <num.1>개의 고장난 <stationery.0>(을)를 처분하고 <num.2>개의 새로운 디자인의 <stationery.0>(을)를 새로 주문하였습니다.
+  현재 <place.0>에 있는 <stationery.0>(이)가 있는지 구하시오.
 
 variable-sampling:
   num.0:
