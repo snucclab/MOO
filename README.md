@@ -4,6 +4,22 @@
 
 
 
+## 실행 방법
+### 데이터셋 생성
+```bash
+$ python make_dataset.py
+```
+### 모델 학습
+```bash
+$ python train_model.py --name MODEL_NAME -iter 1 -data resources/new_dataset/dataset.json --opt-lr 0.00088 0.00125 0.00176 0.0025 --decoder-layer 2 4 6
+```
+### 모델 추론
+```bash
+$ python main.py
+```
+
+
+
 ## 프로젝트 구조
 
 전체 프로젝트는 팀원의 역할에 따라 4개의 부분으로 구성됩니다.
