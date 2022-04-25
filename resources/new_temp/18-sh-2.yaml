@@ -1,0 +1,38 @@
+problem: >
+  4개의 수 <num.0>, <num.1>, <num.2>, <num.3>(이)가 있습니다. 이 중에서 <num.4>보다 큰 수는 모두 몇 개입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 0, 10000 ]
+    under-decimal: 3
+    type: float
+  num.1:
+    range: [ 0, 10000 ]
+    under-decimal: 3
+    type: float
+  num.2:
+    range: [ 0, 10000 ]
+    under-decimal: 3
+    type: float
+  num.3:
+    range: [ 0, 10000 ]
+    under-decimal: 3
+    type: float
+  num.4:
+    range: [ 0, 10000 ]
+    under-decimal: 3
+    type: float
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>
+  R5: GT(R4, <num.4>)
+  R6: SUM(R5)
+  R7: PRINT(R6)"

@@ -2,7 +2,7 @@ problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
   5명이서 높이 뛰기를 하였습니다.
   <person.0>(이)가 꼴등을 하였습니다.
-  <person.1>(은)는 <person.3> 보다 낮았고 <person.3> 보다 높이 뛰었습니다.
+  <person.1>(은)는 <person.4> 보다 낮았고 <person.3> 보다 높이 뛰었습니다.
   <person.3>(은)는 <num.0>cm만 더 뛰었으면 <num.1>cm를 뛰었고, <person.2>(은)는 <num.1>cm를 뛰었습니다.
   5명 중에서 4등을 한 사람은 누구입니까?
 
@@ -12,7 +12,7 @@ variable-sampling:
     under-decimal: 0
     type: int
   num.1:
-    range: [15,10000]
+    range: [15,200]
     under-decimal: 0
     type: int
 

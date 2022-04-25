@@ -1,5 +1,5 @@
 problem: >
-  99장의 <sort_paper.0>(이)가 쌓여 있습니다. <sort_paper.0> 더미에서 <sort_paper.0>(을)를 임의로 집어 <sort_paper.0> 수를 세었습니다. 4번 반복했을 때, <sort_paper.0> 수는 각각 <num.0>, <num.1>, <num.2>, <num.3>장이었습니다. 가장 많은 <sort_paper.0>(을)를 잡았을 때의 <sort_paper.0> 수와 가장 적은 <sort_paper.0>(을)를 잡았을 때의 <sort_paper.0> 수의 차는 얼마입니까?
+  99장의 <sort_paper.0>(이)가 쌓여 있습니다. <sort_paper.0> 더미에서 <sort_paper.0>(을)를 임의로 집어 <sort_paper.0>의 수를 세었습니다. 4번 반복했을 때, 각 시도에서 잡힌 <sort_paper.0>의 수는 각각 <num.0>, <num.1>, <num.2>, <num.3>장이었습니다. 가장 많은 <sort_paper.0>(을)를 잡았을 때의 <sort_paper.0> 수와 가장 적은 <sort_paper.0>(을)를 잡았을 때의 <sort_paper.0> 수의 차는 얼마입니까?
 
 variable-sampling: null
 

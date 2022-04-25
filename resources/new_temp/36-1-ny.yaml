@@ -1,0 +1,23 @@
+problem: >
+  높이가 <num.0><lengthunit.0> 이고 넓이가 <num.1><squareunit.0>인 삼각형의 밑변의 길이는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [ 5, 10 ]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 10, 20 ]
+    under-decimal: 0
+    type: int
+  
+list-sampling:
+  lengthunit.0: ['cm', '센티미터']
+  squareunit.0: ['제곱센티미터']
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.1>,2)
+  R1: DIV(R0, <num.0>)
+  R2: PRINT(R1)"

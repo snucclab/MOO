@@ -1,0 +1,9 @@
+problem: >
+  삼각형의 각의 개수와 육각형의 변의 개수를 합한 결과는?
+
+variable-sampling: null
+list-sampling: null
+function-call: null
+equations:
+  "R0: ADD(3,1)
+  R1: PRINT(R0)"

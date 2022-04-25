@@ -29,7 +29,7 @@ def read_arguments():
                         help='Number of items generated for each template file')
     parser.add_argument('--output', '-out', '-o', type=str, required=False, default="./resources/new_dataset",
                         help='Root directory for saving output dataset files')
-    parser.add_argument('--seed', '-seed', '-s', type=int, default=8888,
+    parser.add_argument('--seed', '-seed', '-s', type=int, default=1029,
                         help='Random seed for generating items')
     parser.add_argument('--time-limit', '-limit', '-l', type=float, default=0.5,
                         help='Time limit for evaluating python code')

@@ -1,0 +1,22 @@
+problem: >
+  한 각의 크기가 <num.0>도이고, 다른 한 각의 크기가 <num.1>도인 삼각형이 있습니다. 나머지 각의 크기가 몇 도일까요?
+
+variable-sampling:
+  num.0:
+    range: [10, 30]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [30, 60]
+    under-decimal: 0
+    type: int
+
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(<num.0>, <num.1>)
+  R1: SUB(180, R0)
+  R2: PRINT(R1)"

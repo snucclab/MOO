@@ -1,0 +1,25 @@
+problem: >
+  원뿔의 밑면의 둘레가 <num.0><lengthunit.0>이고 높이가 <num.1><lengthunit.0>이다. 이 원뿔의 부피는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [5, 10]
+    under-decimal: 0
+    type: int
+    
+list-sampling: null
+
+function-call: null
+
+equations:
+   "R0: DIV(<num.0>, 2)
+   R1: DIV(R0, 3.14)
+   R2: MUL(R1, R1)
+   R3: MUL(R2, 3.14)
+   R4: MUL(R3, <num.1>)
+   R5: DIV(R4, 3)
+   R6: PRINT(R5)"

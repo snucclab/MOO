@@ -15,9 +15,13 @@ CON_VALUES = [
     '9',
     '10',
     '12',
+    '20',
     '99',
     '100',
-    '1000'
+    '180',
+    '1000',
+    '3.14',
+    '0.5'
 ]
 CON_TOKENS = [str(x) for x in CON_VALUES]
 CON_MAX = len(CON_VALUES)
@@ -64,6 +68,13 @@ OPR_CEIL = 'CEIL'
 OPR_LIST_MUL = 'LIST_MUL'
 OPR_CHANGE_DIGIT = 'CHANGE_DIGIT'
 OPR_GET_DIGIT = 'GET_DIGIT'
+OPR_LIST_SORT = 'LIST_SORT'
+OPR_CIR_AREA = 'CIR_AREA'
+OPR_CIRCUM = 'CIRCUM'
+OPR_SPHERE_SURFACE = 'SPHERE_SURFACE'
+OPR_SPHERE_VOLUME = 'SPHERE_VOLUME'
+OPR_TRI_AREA = 'TRI_AREA'
+OPR_POLY = 'POLY'
 
 OPR_VALUES = [
     # 1. NEW_EQN()
@@ -186,7 +197,29 @@ OPR_VALUES = [
      CONVERT: (lambda res, *x: {'original': x[0], 'place': x[1], 'result': res}), PRECEDENCE: None},
     # 41. GET_ITEM(ls1: List[Any], item: Union[str, int, float]) -> int
     {NAME: OPR_GET_ITEM, ARITY: 2, COMMUTATIVE: False, ISVOID: False,
-     CONVERT: (lambda res, *x: {'ls1': x[0], 'index': x[1], 'result': res}), PRECEDENCE: None}
+     CONVERT: (lambda res, *x: {'ls1': x[0], 'index': x[1], 'result': res}), PRECEDENCE: None},
+    # 42. LIST_SORT(lst: List[Union[int, float]]) -> List[Union[int, float]]
+    {NAME: OPR_LIST_SORT, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'lst': x[0], 'result': res}), PRECEDENCE: None},
+    # 이하 도형 문제들
+    # 43. CIR_AREA 원의 넓이
+    {NAME: OPR_CIR_AREA, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
+    # 44. CIRCUM 원의 둘레
+    {NAME: OPR_CIRCUM, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
+    # 45. SPHERE_SURFACE 구의 겉넓이
+    {NAME: OPR_SPHERE_SURFACE, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
+    # 46. SPHERE_VOLUME 구의 부피
+    {NAME: OPR_SPHERE_VOLUME, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'radius': x[0], 'result': res}), PRECEDENCE: None},
+    # 47. TRI_AREA 삼각형의 넓이
+    {NAME: OPR_TRI_AREA, ARITY: 3, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'a': x[0], 'b': x[1], 'c': x[2], 'result': res}), PRECEDENCE: None},
+    # 48. POLY 다각형 각/변 개수
+    {NAME: OPR_POLY, ARITY: 1, COMMUTATIVE: False, ISVOID: False,
+     CONVERT: (lambda res, *x: {'key': x[0], 'result': res}), PRECEDENCE: None}
 ]
 
 OPR_TOKENS = [x[NAME] for x in OPR_VALUES]

@@ -1,7 +1,7 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
   <person.0>(은)는 가장 가난 합니다.
-  <person.1>(은)는 <person.3>보다는 가난하고 <person.3>보다는 부유합니다.
+  <person.1>(은)는 <person.4>보다는 가난하고 <person.3>보다는 부유합니다.
   <person.3>(은)는 <num.0>만원 만 더 있으면 <num.1>만원을 갖게 되고, <person.2>(은)는 현재 <num.1>만원을 갖고 있습니다.
   5명 중에서 2번째로 돈이 적은 사람은 누구입니까?
 

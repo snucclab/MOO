@@ -1,0 +1,20 @@
+problem: >
+  가로의 길이가 <num.0><lengthunit.0>(이)고 높이가 <num.1><lengthunit.0>인 평행사변형이 있습니다. 평행사변형의 넓이는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [10, 20]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, <num.1>)
+  R1: PRINT(R0)"

@@ -1,0 +1,16 @@
+problem: >
+  마름모의 네 변의 길이의 합이 <num.0>cm일 때, 한 변의 길이는 몇 cm입니까?
+
+variable-sampling:
+  num.0:
+    range: [4, 100]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.0>, 4)
+  R1: PRINT(R0)"

@@ -1,6 +1,6 @@
 problem: >
   0, <num.0>, <num.1>, <num.2>, <num.3> 중 서로 다른 2개의 숫자를 뽑아서 두 자리 수를 만들려고 합니다. 만들 수 있는 두 자리 수는 모두 몇 개입니까?
-#!!!!!!!! 14번 템플릿 !전부! 다시 확인하세요.
+
 variable-sampling: null
 
 list-sampling: null

@@ -1,0 +1,22 @@
+problem: >
+  길이가 <num.0><lengthunit.0>인 철사로 원을 만들었더니 철사가 남지도 모자라지도 않았습니다.
+  원의 지름은 몇 <lengthunit.0> 입니까?
+
+variable-sampling:
+  num.0:
+    range: [20, 99]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 10]
+    under-decimal: 0
+    type: int
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.1>, 2)
+  R1: SUB(<num.0>,R0)
+  R2: DIV(R1,2)
+  R3: PRINT(R2)"

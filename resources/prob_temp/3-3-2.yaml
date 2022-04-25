@@ -1,5 +1,5 @@
 problem: >
-  <num.0>개 <stationary.0>(을)를 고르려고 하는데, 문방구에는 <color.0>, <color.1>, <color.2>, <color.3> <stationary.0>(이)가 있습니다.
+  <num.0>개 <stationery.0>(을)를 고르려고 하는데, 문방구에는 <color.0>, <color.1>, <color.2>, <color.3> <stationery.0>(이)가 있습니다.
   선택할 수 있는 경우의 수는 총 몇 개입니까?
 
 variable-sampling:

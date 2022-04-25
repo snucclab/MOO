@@ -1,7 +1,7 @@
 problem: >
-  <propername.0>의 <place.0>에 있는 <stationary.0> 안에 <num.0>벌의 <clothes.0>(이)가 있습니다.
-  <propername.0>(이)가 <num.1>벌의 <clothes.0>(을)를 선물받아 <stationary.0> 안에 정리하여 넣었습니다.
-  <stationary.0> 안에 총 몇 벌의 <clothes.0>(이)가 있는지 구하시오.
+  <propername.0>의 <place.0>에 있는 <stationery.0> 안에 <num.0>벌의 <clothes.0>(이)가 있습니다.
+  <propername.0>(이)가 <num.1>벌의 <clothes.0>(을)를 선물받아 <stationery.0> 안에 정리하여 넣었습니다.
+  <stationery.0> 안에 총 몇 벌의 <clothes.0>(이)가 있는지 구하시오.
 
 variable-sampling:
   num.0:
@@ -15,7 +15,7 @@ variable-sampling:
 
 list-sampling:
   place.0 : ['집', '학교', '교실', '도서관', '아파트', '방', '연구실', '건물']
-  stationary.0 : ['상자', '책장', '책꽂이', '서랍']
+  stationery.0 : ['상자', '책장', '책꽂이', '서랍']
 
 function-call: null
 

@@ -1,0 +1,9 @@
+problem: >
+  오각형의 각의 개수와 삼각형의 각의 개수의 합을 찾으시오.
+
+variable-sampling: null
+list-sampling: null
+function-call: null
+equations:
+  "R0: ADD(5,3)
+  R1: PRINT(R0)"

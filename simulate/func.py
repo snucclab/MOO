@@ -39,9 +39,53 @@ def rep_prog(size: int, prefix: str, result: dict):
         result['<%s.%s>' % (prefix, i)] = str(Decimal(random.randrange(200)) / 100)
 
 
-def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, unk_prefix: str, result: dict):
+# def unk_digit_equation_multi(num_unk: int, num_digit: int, operator: str, result: dict):
+#     # num_unk는 미지수 개수 num_digit은 몇자리수인지
+#     # ex. num_unk=2, num_digit=3 -> 세자리 수 두 개를 더하는데 A34 + 3B5 = 999이다. 뭐랑 뭐를 구하여라.
+#     assert operator in '+-'
+#     UNK = [chr(ord('A') + i) for i in range(26)]
+#     unk_list = []
+#     # 이하 포문 미지수 샘플링 역할
+#     # UNK가 사용될 num_unk개의 미지수
+#     for i in range(num_unk):
+#         n = random.randint(0, len(UNK)-1)
+#         unk_list.append(UNK[n])
+#         UNK.pop(n)
+#
+#     while True:
+#         a = random.randint(10**(num_digit-1), 10**num_digit)
+#         b = random.randint(10**(num_digit-1), 10**num_digit)
+#         r = a + b
+#         if 10**(num_digit-1) <= r < 10**num_digit:
+#             break
+#     if operator == '-':
+#         a, b, r = r, a, b
+#     terms = [list(str(a)), list(str(b)), list(str(r))]
+#     num_list = []
+#     for t in terms:
+#         for a in t:
+#             num_list.append(a)
+#     num_list = list(set(num_list))
+#
+#     equation = '%s%s%s=%s' % (''.join(terms[0]), operator, ''.join(terms[1]), ''.join(terms[2]))
+#     countunk = 0
+#     for n in unk_list.copy():
+#         sample = random.randint(0, len(num_list)-1)
+#         equation = equation.replace(num_list[sample], n)
+#         num_list.pop(num_list.index(num_list[sample]))
+#         unk_list.pop(unk_list.index(n))
+#     for token in equation:
+#         if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+#             result['<%s.%s>' % ('unknown', countunk)] = token
+#             countunk+=1
+#
+#     result['<%s.0>' % 'equation'] = equation
+
+
+def unk_digit_equation_multi_bk(digit1: int, digit2: int, numvar: int, operator: str, eq_prefix: str, unk_prefix: str, result: dict):
     assert operator in '+-'
-    min_digit = min(digit1, digit2)
+    assert numvar <= min(digit1, digit2)
+
     a = random.randint(10 ** (digit1 - 1), 10 ** digit1 - 1)
     b = random.randint(10 ** (digit2 - 1), 10 ** digit2 - 1)
     r = a + b
@@ -51,10 +95,9 @@ def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, 
         a, b, r = r, a, b
 
     terms = [list(str(a)), list(str(b)), list(str(r))]
-    digits = [-d for d in range(1, min_digit + 1)]
-    if min_digit > 2:
-        random.shuffle(digits)
-        digits = digits[:random.randint(2, min_digit)]
+    digits = [-d for d in range(1, min(digit1, digit2) + 1)]
+    random.shuffle(digits)
+    digits = digits[:numvar]
 
     unknowns = UNK.copy()
     random.shuffle(unknowns)
@@ -65,7 +108,14 @@ def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, 
 
     equation = '%s%s%s=%s' % (''.join(terms[0]), operator, ''.join(terms[1]), ''.join(terms[2]))
     result['<%s.0>' % eq_prefix] = equation
-    result['<%s.0>' % unk_prefix] = random.choice(unknowns)
+    for vid, var in enumerate(unknowns):
+        result['<%s.%s>' % (unk_prefix, vid)] = var
+
+
+def unk_digit_equation(digit1: int, digit2: int, operator: str, eq_prefix: str, unk_prefix: str, result: dict):
+    mindigit = min(digit1, digit2)
+    numvar = random.randint(2, mindigit) if mindigit > 2 else mindigit
+    unk_digit_equation_multi_bk(digit1, digit2, numvar, operator, eq_prefix, unk_prefix, result)
 
 
 def interchange_pair(digit: int, pos1: int, pos2: int, prefix: str, result: dict):
@@ -234,6 +284,51 @@ def round_up(digit: int, pos: int, flag: str, result: dict):
     if flag=='count':
         result['<%s.%s>' % ("roundDigit", 0)] = str(5)
 
+def make_triangle(result: dict):
+    while True:
+        a = random.randint(1,50)
+        b = random.randint(1,50)
+        c = random.randint(1,50)
+        if (a<b) and (b<c) and (c<a+b):
+            break
+    result['<%s.%s>' % ("triangle", 0)] = str(a)
+    result['<%s.%s>' % ("triangle", 1)] = str(b)
+    result['<%s.%s>' % ("triangle", 2)] = str(c)
+
+def wrong_digit_multiply(digit1: int, digit2: int, wrong_digit: int, result: dict): # wrong_digit is 1, 2, 3...
+    a = random.randint(10**(digit1-1), 10**digit1-1)
+    b = random.randint(10**(digit2-1), 10**digit2-1)
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    if wrong_digit == 1:
+        c = str(b)
+        clist = []
+        for item in c:
+            clist.append(item)
+        numbers.pop(numbers.index(c[-1]))
+        ornum = clist[-1]
+        clist[-1] = str(random.choice(numbers))
+        num = clist[-1]
+        c = "".join(clist)
+        c = int(c)
+    else:
+        if digit2 == wrong_digit:
+            numbers.pop(0)
+        c = str(b)
+        clist = []
+        for item in c:
+            clist.append(item)
+        numbers.pop(numbers.index(c[-(wrong_digit)]))
+        ornum = clist[-(wrong_digit)]
+        clist[-(wrong_digit)] = str(random.choice(numbers))
+        num = clist[-(wrong_digit)]
+        c = "".join(clist)
+        c = int(c)
+    orig = a*b
+    wrng = a*c
+    result['<%s.%s>' % ("num", 0)] = str(ornum)
+    result['<%s.%s>' % ("num", 1)] = str(num)
+    result['<%s.%s>' % ("num", 2)] = str(wrng)
+    result['<%s.%s>' % ("num", 3)] = str(orig)
 
 
 __all__ = [
@@ -241,10 +336,13 @@ __all__ = [
     'difference_prog',
     'replace_unknown',
     'rep_prog',
+    'unk_digit_equation_multi_bk',
     'unk_digit_equation',
     'errorpair',
     'make_system',
     'div_to_int',
     'make_fraction',
-    'round_up'
+    'round_up',
+    'make_triangle',
+    'wrong_digit_multiply'
 ]

@@ -31,5 +31,5 @@ equations:
   "R0: MUL(<num.4>, <num.3>)
   R1: ADD(R0, <num.2>)
   R2: DIV(R1, <num.1>)
-  R3: ADD(R2, <num.0>)
+  R3: SUB(R2, <num.0>)
   R4: PRINT(R3)"

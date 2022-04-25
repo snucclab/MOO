@@ -1,6 +1,6 @@
 problem: >
   <propername.0>(은)는 <propername.1>보다 몸무게가 <num.0>kg 더 나갑니다.
-  둘의  몸무게를 합하면 <num.1>kg일 경우 <propername.0>의 몸무게는 몇 kg 입니까?
+  둘의 몸무게를 합하면 <num.1>kg일 경우 <propername.0>의 몸무게를 구하시오.
 
 variable-sampling:
   num.0:

@@ -1,0 +1,3 @@
+{result} = {lst}
+{result}.sort()
+

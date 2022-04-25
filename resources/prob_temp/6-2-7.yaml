@@ -1,6 +1,6 @@
 problem: >
-  수학 수업 시간에 짝궁과 함께 각자 가진 <stationary.0>에 적힌 숫자를 더하는 학습활동을 하려고 합니다.
-  <person.0>의 <stationary.0>에 적힌 숫자는 세자리 수이고, <person.1>의 <stationary.0>에 적힌 숫자는 네 자리 수입니다.
+  수학 수업 시간에 짝궁과 함께 각자 가진 <stationery.0>에 적힌 숫자를 더하는 학습활동을 하려고 합니다.
+  <person.0>의 <stationery.0>에 적힌 숫자는 세자리 수이고, <person.1>의 <stationery.0>에 적힌 숫자는 네 자리 수입니다.
   그런데 숫자가 희미하게 적혀있어 <person.0>(이)가 일의 자리 숫자와 백의 자리 숫자를 바꾸어 <three.1>(이)라고 잘못 보았고,
   <person.1>(은)는 십의 자리 숫자 <digit.0>(을)를 다른 숫자로 잘못 보았습니다.
   그래서 계산 결과 <result.0>(이)라는 잘못된 결과가 나왔습니다.
@@ -9,7 +9,7 @@ problem: >
 variable-sampling: null
 
 list-sampling:
-  stationary.0 : ['공책', '도화지', '색종이', '바둑돌', '구슬', '상자', '나무토막', '장난감', '카드']
+  stationery.0 : ['공책', '도화지', '색종이', '바둑돌', '구슬', '상자', '나무토막', '장난감', '카드']
 
 function-call: interchange_pair(3, 1, 100, 'three'); errorpair(4, 10,'four'); eval_expression('<four.0> % 10','digit'); eval_expression('<three.1> + <four.1>', 'result')
 

@@ -1,5 +1,7 @@
 problem: >
-  <num.0> 에 어떤 수를 더하고, <diviser.0> (을)를 곱해야 하는데 잘못하여 어떤 수에서 <num.0>(을)를 빼고 <diviser.0>(을)를 곱했더니 <divisor.0>(이)가 되었습니다. 바르게 계산한 결과를 구하시오.
+  <num.0> 에 어떤 수를 더하고, <diviser.0> (을)를 곱해야 하는데
+  잘못하여 어떤 수에서 <num.0>(을)를 빼고 <diviser.0>(을)를 곱했더니 <divisor.0>(이)가 되었습니다.
+  바르게 계산한 결과를 구하시오.
 
 variable-sampling:
   num.0:
@@ -10,9 +12,10 @@ variable-sampling:
 list-sampling: null
 
 function-call: div_to_int(50,90)
-#!!
+
 equations:
-  "R0: ADD(<diviser.0>, <num.0>)
+  "R0: DIV(<divisor.0>,<diviser.0>)
   R1: ADD(R0, <num.0>)
-  R2: MUL(R1, <diviser.0>)
-  R3: PRINT(R2)"
+  R2: ADD(R1, <num.0>)
+  R3: MUL(R2, <diviser.0>)
+  R4: PRINT(R3)"

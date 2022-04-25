@@ -1,0 +1,16 @@
+problem: >
+  길이가 <num.0>cm인 실을 사용하여 가장 큰 정사각형 모양을 만들었습니다. 정사각형을 만들고 남은 실의 길이는 몇 cm입니까?
+
+variable-sampling:
+  num.0:
+    range: [4, 99]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MOD(<num.0>, 4)
+  R1: PRINT(R0)"

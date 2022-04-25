@@ -1,7 +1,7 @@
 problem: >
   <container.0> 안에는 <etc.0> <num.0>개가 있었습니다.
   <propername.0>(이)가 <container.0> 속 사탕을 <num.1>개 꺼내 먹었습니다.
-  <container.0>에 남아있는 <etc.0>(은)는 모두 몇 개 입니까?
+  <container.0>에 남아있는 <etc.0>의 개수를 구하시오.
 
 variable-sampling:
   num.0:

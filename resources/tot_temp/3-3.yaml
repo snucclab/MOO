@@ -1,6 +1,6 @@
 problem: >
   냉장고에 <drink.0>(이)가 <drink.1>보다 <num.0>ml 만큼 더 많이 있다.
-  두 음료를 합하면 <num.1>ml일 경우, 냉장고 속에 <drink.1>은 몇 ml 있습니까?
+  두 음료를 합하면 <num.1>ml일 경우, 냉장고 속에 <drink.1>(은)는 몇 ml 있습니까?
 
 variable-sampling:
   num.0:

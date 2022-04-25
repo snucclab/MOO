@@ -1,0 +1,16 @@
+problem: >
+  한 변의 길이가 <num.0><lengthunit.0>인 정사각형과 둘레가 같은 정팔각형이 있습니다.
+  이 정팔각형의 한 변의 길이는 몇 <lengthunit.0> 입니까?
+
+variable-sampling:
+  num.0:
+    range: [4, 10000]
+    under-decimal: 0
+    type: int
+list-sampling: null
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 4)
+  R1: DIV(R0,8)
+  R2: PRINT(R1)"

@@ -1,0 +1,26 @@
+problem: >
+  반지름의 길이가 <num.0><lengthunit.0>, 모선이 길이가 <num.1><lengthunit.0>인 원뿔의 부피는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [1, 5]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [6, 10]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+   "R0: MUL(<num.1>, <num.1>)
+   R1: MUL(<num.0>, <num.0>)
+   R2: SUB(R0, R1)
+   R3: POW(R2, 0.5)
+   R4: MUL(R3, R1)
+   R5: MUL(R4, 3.14)
+   R6: DIV(R5, 3)
+   R7: PRINT(R6)"

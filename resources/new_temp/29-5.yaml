@@ -20,7 +20,8 @@ list-sampling: null
 function-call: div_to_int(100,200)
 
 equations:
-  "R0: MUL(<diviser.0>, <num.1>)
-  R1: SUB(R0, <num.0>)
-  R2: DIV(R1, <num.2>)
-  R3: PRINT(R2)"
+  "R0: DIV(<divisor.0>,<diviser.0>)
+  R1: MUL(R0, <num.1>)
+  R2: SUB(R1, <num.0>)
+  R3: DIV(R2, <num.2>)
+  R4: PRINT(R3)"

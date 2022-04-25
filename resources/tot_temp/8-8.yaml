@@ -1,10 +1,8 @@
 problem: >
   <propername.0>(은)는 하루 동안 몇 대의 <vehicle.0>(이)가 지나가는지 관찰했습니다.
-  관찰 결과 앞에서 <num.0>번째 <vehicle.0>(이)가 지나간 후 지나간 <vehicle.0> 수
-  <num.1>배 만큼의 <vehicle.0>(이)가 더 지나갔습니다. 하루 동안 지나간 <vehicle.0>(은)는
-  총 몇 대 입니까?
+  관찰 결과 앞에서 <num.0>번째 <vehicle.0>(이)가 지나간 후 지나간 <vehicle.0> 수 <num.1>배 만큼의 <vehicle.0>(이)가 더 지나갔습니다.
+  하루 동안 지나간 <vehicle.0>(은)는 총 몇 대 입니까?
   
-
 variable-sampling:
   num.0:
     range: [ 10, 20 ]

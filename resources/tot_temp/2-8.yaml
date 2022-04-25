@@ -1,6 +1,6 @@
 problem: >
-  <propername.0>(은)는 마트에서 <num.0>원 어치 <food.0>(와)과, <num.1>원 어치 <food.1>(을)를
-  구입하고 거스름돈으로 <num.2>원을 받았습니다. <propername.0>(이)가 지불한 비용은 얼마입니까?
+  <propername.0>(은)는 마트에서 <num.0>원 어치 <food.0>(와)과 <num.1>원 어치 <food.1>(을)를 구입하고 거스름돈으로 <num.2>원을 받았습니다.
+  <propername.0>(이)가 얼마의 비용을 지불했는지 계산하시오.
 
 variable-sampling:
   num.0:

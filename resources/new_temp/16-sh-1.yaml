@@ -1,0 +1,19 @@
+problem: >
+  100부터 200까지의 숫자가 적힌 카드가 있습니다. 각 카드에는 <num.0>, <num.1>, <num.2>, <num.3>(이)가 적혀 있습니다. 그 중에서 가장 큰 값에서 가장 작은 값을 뺀 값은 얼마입니까?
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: different_number(100, 201, 4, 'num')
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: APPEND(R2, <num.2>)
+  R4: APPEND(R3, <num.3>)
+  R5: MAX(R4)
+  R6: MIN(R4)
+  R7: SUB(R5, R6)
+  R8: PRINT(R7)"

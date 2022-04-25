@@ -1,0 +1,30 @@
+problem: >
+  세 자리 수끼리의 곱셈에서 곱하는 수의 십의 자리 숫자 <num.0>(을)를 <num.1>(으)로 잘못 보고 계산한 값이 <num.2>(이)가 되었습니다. 바르게 계산한 값이 <num.3>일 때, 2개의 세 자리 수 중 더 작은 수를 구하시오.
+
+variable-sampling: null
+
+list-sampling: null
+
+function-call: wrong_digit_multiply(3, 3, 2)
+
+equations:
+  "R0: LIST()
+  R1: APPEND(R0, <num.0>)
+  R2: APPEND(R1, <num.1>)
+  R3: MAX(R2)
+  R4: MIN(R2)
+  R5: SUB(R3, R4)
+  R6: MUL(R5, 10)
+  R7: LIST()
+  R8: APPEND(R7, <num.2>)
+  R9: APPEND(R8, <num.3>)
+  R10: MAX(R9)
+  R11: MIN(R9)
+  R12: SUB(R10, R11)
+  R13: DIV(R12, R6)
+  R14: DIV(<num.3>, R13)
+  R15: LIST()
+  R16: APPEND(R15, R13)
+  R17: APPEND(R16, R14)
+  R18: MIN(R17)
+  R19: PRINT(R18)"

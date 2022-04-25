@@ -1,11 +1,10 @@
 problem: >
-  어떤 반의 전체 학생 수는 <num.0>명입니다.
-  그 중에서 키가 <num.1>cm 이하인 학생은 전체의 <fraction.0>입니다.
-  키가 <num.1>cm 이하인 학생 중에서 <gender.0>학생은 키가 <num.0>이하인 학생의 <fraction.1>입니다. 
-  이 반에서 키가 <num.1>cm 이하인 <gender.1>학생은 몇 명입니까?
+  어떤 반의 전체 학생 수는 <num.0> 명입니다.
+  그 중에서 키가 <num.1> cm 이하인 학생은 전체의 <fraction.0> 입니다.
+  키가 <num.1> cm 이하인 학생 중에서 <gender.0>학생은 키가 <num.0> 이하인 학생의 <fraction.1> 입니다.
+  이 반에서 키가 <num.1> cm 이하인 <gender.1>학생은 몇 명입니까?
 
 variable-sampling:
-  #!!
   num.0:
     range: [30,50]
     under-decimal: 0

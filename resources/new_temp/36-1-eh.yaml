@@ -1,0 +1,30 @@
+problem: >
+  어떤 원뿔을 앞에서 본 모양은 이등변삼각형입니다.
+  이등변삼각형의 밑변은 <num.0><lengthunit.0>(이)고 나머지 변의 길이는 <num.1><lengthunit.0> 입니다.
+  이 원뿔의 부피를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [2, 5]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [5, 10]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.0>, 2)
+  R1: POW(R0, 2)
+  R2: POW(<num.1>, 2)
+  R3: ADD(R1, R2)
+  R4: POW(R3, 0.5)
+  R5: MUL(R0, R0)
+  R6: MUL(R5, 3.14)
+  R7: MUL(R6, R4)
+  R8: DIV(R7, 3)
+  R9: PRINT(R8)"

@@ -1,0 +1,9 @@
+problem: >
+  사각형의 각의 개수와 오각형의 각의 개수의 합을 구하시오.
+
+variable-sampling: null
+list-sampling: null
+function-call: null
+equations:
+  "R0: ADD(4,5)
+  R1: PRINT(R0)"

@@ -1,10 +1,14 @@
 problem: >
-  한 <vocation.0>(이)가 숫자의 소수점을 왼쪽으로 2자리 잘못 찍었다고 합니다. 잘못 찍은 수와 원래의 수의 차가 <num.0>라고 합니다. 원래의 수를 구하시오.
+  한 <vocation.0>(이)가 숫자의 소수점을 왼쪽으로 <num.0>자리 잘못 찍었다고 합니다. 잘못 찍은 수와 원래의 수의 차가 <num.1>라고 합니다. 원래의 수를 구하시오.
 
 variable-sampling:
   num.0:
     range: [ 1, 10 ]
-    under-decimal: 3
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [ 1, 10000 ]
+    under-decimal: 6
     type: float
 
 list-sampling:
@@ -13,6 +17,9 @@ list-sampling:
 function-call: null
 
 equations:
-  "R0: MUL(<num.0>, 100)
-  R1: DIV(R0, 99)
-  R2: PRINT(R1)"
+  "R0: DIV(1, 10)
+  R1: POW(R0, <num.0>)
+  R2: SUB(1, R1)
+  R3: DIV(1, R2)
+  R4: MUL(R3, <num.1>)
+  R5: PRINT(R4)"

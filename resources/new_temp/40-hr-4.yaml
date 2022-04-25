@@ -1,0 +1,17 @@
+problem: >
+  한 변의 길이가 <num.0>cm인 마름모의 네 변의 길이를 각각 반으로 줄였을 떄, 줄인 마름모의 둘레는 몇 cm인지 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [3, 20]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 4)
+  R1: DIV(R0, 2)
+  R2: PRINT(R1)"

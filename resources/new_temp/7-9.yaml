@@ -1,6 +1,5 @@
 problem: > 
-  <test.0>에서 <person.0> 점수는 <num.0><rank.0>(이)고
-  <person.1> 점수는 <num_rank.0><rank.0>입니다.
+  <test.0>에서 <person.0> 점수는 <num.0><rank.0>(이)고 <person.1> 점수는 <num_rank.0><rank.0>입니다.
   <person.2>(은)는 <person.0>보다는 못했지만 <person.1> 보다는 잘했습니다.
   <test.0>에서 <person.2> 점수는 몇 <rank.0>입니까?
  
@@ -13,7 +12,7 @@ variable-sampling:
 list-sampling: 
   rank.0 : ['등', '번째']
   test.0 : ['중간고사', '기말고사', '수행평가', '모의고사', '쪽지시험', '단어시험']
-  
+
 function-call: eval_expression('<num.0>+2', 'num_rank')
 
 equations: 

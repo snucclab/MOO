@@ -1,0 +1,25 @@
+problem: >
+  한변의 길이가 <num.0><lengthunit.0>정육면체와 겉넓이가 같은 구가 있습니다.
+  이 구의 부피는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [40, 10000]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 10]
+    under-decimal: 0
+    type: int
+
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: ADD(1, <num.1>)
+  R1: MUL(2,R0)
+  R2: DIV(<num.0>, R1)
+  R3: MUL(<num.1>, R2)
+  R4: PRINT(R3)"

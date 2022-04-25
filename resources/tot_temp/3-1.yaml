@@ -1,6 +1,6 @@
 problem: >
-  <fruit.0>과 <fruit.1>이 모두 합해서 <num.0>개 있습니다.
-  <fruit.0>이 <fruit.1>보다 <num.1>개 더 적다면 <fruit.0>은 몇 개 있습니까?
+  <fruit.0>(와)과 <fruit.1>(이)가 모두 합해서 <num.0>개 있습니다.
+  <fruit.0>(이)가 <fruit.1>보다 <num.1>개 더 적다면 <fruit.0>(은)는 몇 개 있습니까?
 
 variable-sampling:
   num.0:

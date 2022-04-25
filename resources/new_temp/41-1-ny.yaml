@@ -1,0 +1,23 @@
+problem: >
+  반지름의 길이가 <num.0><lengthunit.0>, 높이가 <num.1><lengthunit.0>인 원뿔의 부피를 계산하시오.
+
+variable-sampling:
+  num.0:
+    range: [1, 10]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 10]
+    under-decimal: 0
+    type: int
+  
+list-sampling: null
+
+function-call: null
+
+equations:
+   "R0: MUL(<num.0>, <num.0>)
+   R1: MUL(R0, 3.14)
+   R2: MUL(R1, <num.1>)
+   R3: DIV(R2, 3)
+   R4: PRINT(R3)"

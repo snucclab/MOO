@@ -1,0 +1,20 @@
+problem: >
+  어떤 이등변삼각형의 세 변의 길이와 어떤 정삼각현의 세 변의 길이가 같다고 합니다. 이등변삼각형의 세 변의 길이가 <num.0>cm, <num.0>cm, <num.1>cm일 때, 정삼각형의 한 변의 길이는 무엇일까요?
+
+variable-sampling:
+  num.0:
+    range: [21, 40]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 20]
+    under-decimal: 0
+    type: int
+list-sampling: null
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 2)
+  R1: ADD(<num.1>, R0)
+  R2: DIV(R1, 3)
+  R3: PRINT(R2)"

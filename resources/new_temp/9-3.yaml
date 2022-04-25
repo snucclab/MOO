@@ -1,8 +1,6 @@
 problem: > 
-  <propername.0>(은)는 오른쪽에서 <num.0>번째 열, 앞에서 <num.1>번째 줄,
-  왼쪽에서 <num.2>번째 열, 뒤에서 <num.3>번째 줄에 서서 <sports.0>을(를) 하고 있습니다.
-  각 줄마다 서 있는 <vocation.0>의 수가 같다고 할 때,
-  <sports.0>을(를) 하고 있는 <vocation.0>(은)는 모두 몇 명입니까?"
+  <propername.0>(은)는 오른쪽에서 <num.0>번째 열, 앞에서 <num.1>번째 줄, 왼쪽에서 <num.2>번째 열, 뒤에서 <num.3>번째 줄에 서서 <sports.0>(을)를 하고 있습니다.
+  각 줄마다 서 있는 <vocation.0>의 수가 같다고 할 때, <sports.0>(을)를 하고 있는 <vocation.0>(은)는 모두 몇 명입니까?
 
 variable-sampling:
   num.0:

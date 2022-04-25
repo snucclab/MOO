@@ -1,8 +1,8 @@
 problem: >
   하루 동안 건물에서 서로 다른 종류의 대회가 총 <num.0>개 열립니다.
   그 중 <contest.0> 대회에는 <num.1>개의 팀이 참가하고, 각 팀별 인원 수는 동일합니다.
-  <propername.0>의 팀에는 <gender.0>가 <num.2>명, <gender.1>가 <num.3>명 있습니다.
-  각 대회 별로 참가 인원이 동일하다면 하루동안 건물에서 열린 대회에 참가한 인원은 모두 몇 명입니까?"
+  <propername.0>의 팀에는  남자가 <num.2>명, 여자가 <num.3>명 있습니다.
+  각 대회 별로 참가 인원이 동일하다면 하루동안 건물에서 열린 대회에 참가한 인원은 모두 몇 명입니까?
  
 variable-sampling:
   num.0:
@@ -24,8 +24,6 @@ variable-sampling:
 
 list-sampling:
   contest.0 : [ '노래', '수학경시', '춤', '웅변', '피아노', '합창', '발명' ]
-  gender.0 : [ '남자', '여자' ]
-  gender.1 : [ '남자', '여자' ]
 
 function-call: null
 

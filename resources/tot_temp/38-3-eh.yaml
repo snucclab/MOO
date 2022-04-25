@@ -1,0 +1,23 @@
+problem: >
+  둘레가 <num.0><lengthunit.0> 인 직사각형 모양의 카드가 있습니다. 이 카드의 가로가 <num.1><lengthunit.0> 일 때,
+  이 카드의 넓이는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [30, 60, 2]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [2, 14]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.0>, 2)
+  R1: SUB(R0, <num.1>)
+  R2: MUL(R1, <num.1>)
+  R3: PRINT(R2)"

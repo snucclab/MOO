@@ -14,7 +14,6 @@ variable-sampling:
     range: [10,99]
     under-decimal : 0
     type: int
-  #!!!!!!
   num.3:
     range: [ 10,99 ]
     under-decimal: 0

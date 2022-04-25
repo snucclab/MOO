@@ -1,0 +1,22 @@
+problem: >
+  지름의 길이가 <num.0><lengthunit.0> 인 원 모양의 돌림판이 있습니다. 이 돌림판을 <num.1>바퀴 돌렸을 때 움직인 거리는 얼마입니까?
+
+variable-sampling:
+  num.0:
+    range: [20, 40, 2]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1,9]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: DIV(<num.0>, 2)
+  R1: CIRCUM(R0)
+  R2: MUL(R1, <num.1>)
+  R3: PRINT(R2)"

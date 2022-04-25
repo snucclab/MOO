@@ -1,0 +1,17 @@
+problem: >
+  세 개 층에서 멈춘 엘레베이터가 있다.
+  각 층에서 <num.0> 명 씩 내렸다고 하면 엘레베이터에 원래 몇명이 타고 있었는가?
+
+variable-sampling:
+  num.0:
+    range: [1,999]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.0>, 3)
+  R1: PRINT(R0)"

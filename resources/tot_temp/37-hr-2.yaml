@@ -1,0 +1,22 @@
+problem: >
+  길이의 합이 <num.0>cm인 네 개의 변을 가진 직사각형이 있습니다. 이 직사각형의 짧은 변의 길이가 <num.1>cm입니다. 이 떄, 긴 변의 길이를 구하시오.
+
+variable-sampling:
+  num.0:
+    range: [100, 200]
+    under-decimal: 0
+    type: int
+  num.1:
+    range: [1, 24]
+    under-decimal: 0
+    type: int
+
+list-sampling: null
+
+function-call: null
+
+equations:
+  "R0: MUL(<num.1>, 2)
+  R1: SUB(<num.0>, R0)
+  R2: DIV(R1, 2)
+  R3: PRINT(R2)"

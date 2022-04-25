@@ -1,7 +1,7 @@
 problem: >
   <person.0>, <person.1>, <person.2>, <person.3>, <person.4> 5명이 있습니다.
   <person.0>(은)는 키가 가장 작습니다.
-  <person.1>(은)는 <person.3>보다는 작고 <person.3>보다는 큽니다.
+  <person.1>(은)는 <person.4>보다는 작고 <person.3>보다는 큽니다.
   <person.3>(은)는 <num.0>cm만 더 크면 <num.1>cm이 되고, <person.2>(은)는 현재 <num.1>cm입니다.
   5명 중에서 2번째로 작은 사람은 누구입니까?
 

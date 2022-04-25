@@ -664,35 +664,19 @@ def test_list_replace():
 
 
 def test_get_item():
+    # reverse of LIST_INDEX
     template = _load_pyt(OPR_GET_ITEM)
-    converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_INDEX)][CONVERT]
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_GET_ITEM)][CONVERT]
     # items가 리스트, item이 우리가 찾는 인덱스의 아이템
     for _ in range(500):
-        items = [random.random() * 100 for _ in range(random.randint(1, 200))]
+        items = [str(random.random() * 100) for _ in range(random.randint(1, 200))]
         item = random.choice(items)
         index = items.index(item)
 
         assert item == _exec_template(template, _locals=dict(items=items, index=index),
-                                       **converter(random.choice(_RESULT_NAME), 'items', 'index'))
+                                      **converter(random.choice(_RESULT_NAME), 'items', 'index'))
         assert item == _exec_template(template, _locals=dict(items=items),
-                                       **converter(random.choice(_RESULT_NAME), 'items', index))
-
-
-    # for _ in range(500):
-    #     items = [random.random() * 100 for _ in range(random.randint(1, 200))]
-    #     item = random.choice(items)
-    #     index = items.index(item)
-    #
-    #     assert index == _exec_template(template, _locals=dict(items=items, item=item),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', 'item'))
-    #     assert index == _exec_template(template, _locals=dict(items=items),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', item))
-    #
-    #     items = [str(x) for x in items]
-    #     assert index == _exec_template(template, _locals=dict(items=items, item=str(item)),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', 'item'))
-    #     assert index == _exec_template(template, _locals=dict(items=items),
-    #                                    **converter(random.choice(_RESULT_NAME), 'items', '\'%s\'' % item))
+                                      **converter(random.choice(_RESULT_NAME), 'items', index))
 
 
 def test_ceil():
@@ -830,3 +814,135 @@ def test_get_digit():
         assert result == _exec_template(template, _locals=dict(n=number),
                                         **converter(random.choice(_RESULT_NAME), 'n', digit))
 
+
+def test_list_sort():
+    template = _load_pyt(OPR_LIST_SORT)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_LIST_SORT)][CONVERT]
+
+    for _ in range(500):
+        lst = [random.randint(0, 1000) for _ in range(200)]
+        result = sorted(lst)
+
+        assert result == _exec_template(template, _locals=dict(lst=lst),
+                                        **converter(random.choice(_RESULT_NAME), 'lst'))
+        assert result == _exec_template(template,
+                                        **converter(random.choice(_RESULT_NAME), lst))
+
+        lst = [random.random() for _ in range(200)]
+        result = sorted(lst)
+
+        assert result == _exec_template(template, _locals=dict(lst=lst),
+                                        **converter(random.choice(_RESULT_NAME), 'lst'))
+        assert result == _exec_template(template,
+                                        **converter(random.choice(_RESULT_NAME), lst))
+
+        lst = []
+        for i in range(200):
+            if i % 2 == 0:
+                lst.append(random.random())
+            else:
+                lst.append(random.randint(0, 1000))
+        result = sorted(lst)
+
+        assert result == _exec_template(template, _locals=dict(lst=lst),
+                                        **converter(random.choice(_RESULT_NAME), 'lst'))
+        assert result == _exec_template(template,
+                                        **converter(random.choice(_RESULT_NAME), lst))
+
+
+def test_cir_area():
+    template = _load_pyt(OPR_CIR_AREA)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_CIR_AREA)][CONVERT]
+
+    for _ in range(500):
+        radius = random.random()
+        result = radius * radius * math.pi
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+        radius = random.randint(1, 10000)
+        result = radius * radius * math.pi
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+
+def test_circum():
+    template = _load_pyt(OPR_CIRCUM)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_CIRCUM)][CONVERT]
+
+    for _ in range(500):
+        radius = random.random()
+        result = 2 * math.pi * radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+        radius = random.randint(1, 10000)
+        result = 2 * math.pi * radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+
+def test_sphere_surface():
+    template = _load_pyt(OPR_SPHERE_SURFACE)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_SPHERE_SURFACE)][CONVERT]
+
+    for _ in range(500):
+        radius = random.random()
+        result = 4 * math.pi * radius * radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+        radius = random.randint(1, 10000)
+        result = 4 * math.pi * radius * radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+
+def test_sphere_volume():
+    template = _load_pyt(OPR_SPHERE_VOLUME)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_SPHERE_VOLUME)][CONVERT]
+
+    for _ in range(500):
+        radius = random.random()
+        result = 4 / 3 * math.pi * radius * radius * radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+        radius = random.randint(1, 10000)
+        result = 4 / 3 * math.pi * radius * radius * radius
+
+        assert result == _exec_template(template, _locals=dict(radius=radius),
+                                        **converter(random.choice(_RESULT_NAME), 'radius'))
+
+
+def test_poly():
+    template = _load_pyt(OPR_POLY)
+    converter = OPR_VALUES[OPR_TOKENS.index(OPR_POLY)][CONVERT]
+
+    poly = {
+        '삼각형': 3,
+        '사각형': 4,
+        '오각형': 5,
+        '육각형': 6,
+        '칠각형': 7,
+        '팔각형': 8,
+        '구각형': 9,
+        '십각형': 10,
+        '십일각형': 11,
+        '십이각형': 12,
+        '이십각형': 20
+    }
+    for _ in range(500):
+
+        key = random.choice(list(poly.keys()))
+        poly_choice = poly[key]
+
+        assert poly_choice == _exec_template(template, _locals=dict(key=key),
+                                             **converter(random.choice(_RESULT_NAME), 'key'))

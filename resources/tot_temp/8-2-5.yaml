@@ -1,6 +1,6 @@
 problem: >
   상품을 지급하기 위해 물품들을 구입하여 사람들이 직접 상품을 고를 수 있도록,
-  <position.0>(으)로부터 <stationary.0> <num.0>개, <stationary.1> <num.1>개, <stationary.2> <num.2>개가 연속적으로 진열되어 있습니다.
+  <position.0>(으)로부터 <stationery.0> <num.0>개, <stationery.1> <num.1>개, <stationery.2> <num.2>개가 연속적으로 진열되어 있습니다.
   <position.0>(으)로부터 <num.3>번째 학용품의 종류는 무엇입니까?
 
 variable-sampling:
@@ -28,13 +28,13 @@ function-call: null
 
 equations:
   "R0: LIST()
-  R1: APPEND(R0,<stationary.0>)
+  R1: APPEND(R0,<stationery.0>)
   R2: LIST_MUL(R1,<num.0>)
   R3: LIST()
-  R4: APPEND(R3,<stationary.1>)
+  R4: APPEND(R3,<stationery.1>)
   R5: LIST_MUL(R4,<num.1>)
   R6: LIST()
-  R7: APPEND(R6,<stationary.2>)
+  R7: APPEND(R6,<stationery.2>)
   R8: LIST_MUL(R7,<num.2>)
   R9: LIST_CONCAT(R2,R5)
   R10: LIST_CONCAT(R9,R8)
